@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowTry™ Virtual Try-On | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+        }
+
+        .btn-secondary:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Main Layout */
+        .try-on-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            min-height: calc(100vh - 81px);
+        }
+
+        /* Camera Section */
+        .camera-section {
+            background: #1a1a1a;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .camera-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            max-height: 600px;
+        }
+
+        #video-feed {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1);
+            border-radius: 12px;
+        }
+
+        #canvas-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transform: scaleX(-1);
+        }
+
+        .camera-placeholder {
+            text-align: center;
+            color: white;
+            padding: 60px;
+        }
+
+        .camera-placeholder-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            opacity: 0.5;
+        }
+
+        .camera-placeholder h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .camera-placeholder p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+
+        .camera-controls {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 16px;
+        }
+
+        .camera-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .camera-btn.capture {
+            background: white;
+            color: var(--rose);
+        }
+
+        .camera-btn.capture:hover {
+            transform: scale(1.1);
+        }
+
+        .camera-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .camera-btn.secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .glowtry-badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .glowtry-badge::before {
+            content: '✨';
+        }
+
+        /* Product Panel */
+        .product-panel {
+            background: var(--white);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-title {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .panel-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+
+        .category-tab {
+            padding: 16px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .category-tab:hover {
+            color: var(--text-primary);
+        }
+
+        .category-tab.active {
+            color: var(--rose);
+        }
+
+        .category-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rose), var(--gold));
+        }
+
+        /* Product List */
+        .product-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .product-group {
+            margin-bottom: 32px;
+        }
+
+        .product-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shade-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .shade-item {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .shade-item:hover {
+            transform: scale(1.1);
+        }
+
+        .shade-item.active {
+            transform: scale(1.15);
+        }
+
+        .shade-swatch {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .shade-item.active .shade-swatch {
+            border-color: var(--rose);
+        }
+
+        .shade-name {
+            font-size: 9px;
+            text-align: center;
+            margin-top: 6px;
+            color: var(--text-muted);
+        }
+
+        /* Intensity Slider */
+        .intensity-control {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            background: var(--cream);
+        }
+
+        .intensity-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .intensity-label span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .intensity-value {
+            color: var(--rose);
+        }
+
+        .intensity-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, var(--border) 0%, var(--rose) 100%);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .intensity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid var(--rose);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Current Look */
+        .current-look {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            background: var(--cream);
+        }
+
+        .current-look-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .look-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .look-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        .look-item-swatch {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .look-item-remove {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 0;
+            margin-left: 4px;
+        }
+
+        /* Action Buttons */
+        .panel-actions {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .panel-actions .btn {
+            width: 100%;
+        }
+
+        /* Saved Looks */
+        .saved-looks {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .saved-looks-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .saved-looks-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .saved-looks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .saved-look-item {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            background: var(--cream);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .saved-look-item:hover {
+            border-color: var(--rose);
+        }
+
+        .saved-look-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .saved-look-item.add-new {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--text-muted);
+            border: 2px dashed var(--border);
+        }
+
+        /* Tips Overlay */
+        .tips-overlay {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            max-width: 280px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .tips-overlay.show {
+            display: block;
+        }
+
+        .tips-overlay h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: var(--gold-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .try-on-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto;
+            }
+
+            .camera-section {
+                min-height: 50vh;
+            }
+
+            .product-panel {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                max-height: 50vh;
+            }
+
+            .shade-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .shade-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .saved-looks-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <div class="header-actions">
+                <a href="collection.html" class="btn btn-secondary">Shop All</a>
+                <a href="cart.html" class="btn btn-primary">Bag (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="try-on-layout">
+        <!-- Camera Section -->
+        <div class="camera-section">
+            <div class="glowtry-badge">GlowTry™ Virtual Try-On</div>
+
+            <div class="camera-container" id="cameraContainer">
+                <!-- Placeholder when camera is off -->
+                <div class="camera-placeholder" id="cameraPlaceholder">
+                    <div class="camera-placeholder-icon">&#128247;</div>
+                    <h2>Try Before You Buy</h2>
+                    <p>See how our makeup looks on you in real-time with GlowTry™ technology</p>
+                    <button class="btn btn-primary" onclick="startCamera()">
+                        Enable Camera
+                    </button>
+                </div>
+
+                <!-- Video feed (hidden until camera starts) -->
+                <video id="video-feed" autoplay playsinline style="display: none;"></video>
+                <canvas id="canvas-overlay" style="display: none;"></canvas>
+            </div>
+
+            <!-- Camera Controls -->
+            <div class="camera-controls" id="cameraControls" style="display: none;">
+                <button class="camera-btn secondary" onclick="toggleCamera()" title="Switch Camera">
+                    &#128260;
+                </button>
+                <button class="camera-btn capture" onclick="capturePhoto()" title="Take Photo">
+                    &#128248;
+                </button>
+                <button class="camera-btn secondary" onclick="resetLook()" title="Reset Look">
+                    &#128259;
+                </button>
+            </div>
+
+            <!-- Tips Overlay -->
+            <div class="tips-overlay" id="tipsOverlay">
+                <h4>&#128161; Pro Tip</h4>
+                <p>For best results, face the camera directly and ensure good lighting on your face.</p>
+            </div>
+        </div>
+
+        <!-- Product Panel -->
+        <div class="product-panel">
+            <div class="panel-header">
+                <h1 class="panel-title">Choose Your Look</h1>
+                <p class="panel-subtitle">Select products to try on virtually</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="lips">Lips</button>
+                <button class="category-tab" data-category="eyes">Eyes</button>
+                <button class="category-tab" data-category="cheeks">Cheeks</button>
+            </div>
+
+            <!-- Product List -->
+            <div class="product-list">
+                <!-- Lips Category -->
+                <div class="product-category" id="lips-category">
+                    <div class="product-group">
+                        <h3 class="product-group-title">&#128139; Velvet Matte Lipsticks</h3>
+                        <div class="shade-grid">
+                            <div class="shade-item" data-color="#8B2942" data-name="Berry Crush" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #8B2942;"></div>
+                                <div class="shade-name">Berry Crush</div>
+                            </div>
+                            <div class="shade-item" data-color="#C41E3A" data-name="Classic Red" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #C41E3A;"></div>
+                                <div class="shade-name">Classic Red</div>
+                            </div>
+                            <div class="shade-item active" data-color="#B5485D" data-name="Rose Petal" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #B5485D;"></div>
+                                <div class="shade-name">Rose Petal</div>
+                            </div>
+                            <div class="shade-item" data-color="#D4A5A5" data-name="Nude Blush" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #D4A5A5;"></div>
+                                <div class="shade-name">Nude Blush</div>
+                            </div>
+                            <div class="shade-item" data-color="#722F37" data-name="Wine" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #722F37;"></div>
+                                <div class="shade-name">Wine</div>
+                            </div>
+                            <div class="shade-item" data-color="#E8B4B8" data-name="Soft Pink" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #E8B4B8;"></div>
+                                <div class="shade-name">Soft Pink</div>
+                            </div>
+                            <div class="shade-item" data-color="#A52A2A" data-name="Brick" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #A52A2A;"></div>
+                                <div class="shade-name">Brick</div>
+                            </div>
+                            <div class="shade-item" data-color="#CD5C5C" data-name="Coral" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #CD5C5C;"></div>
+                                <div class="shade-name">Coral</div>
+                            </div>
+                            <div class="shade-item" data-color="#8B4513" data-name="Brown Sugar" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #8B4513;"></div>
+                                <div class="shade-name">Brown Sugar</div>
+                            </div>
+                            <div class="shade-item" data-color="#FF69B4" data-name="Hot Pink" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: #FF69B4;"></div>
+                                <div class="shade-name">Hot Pink</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-group">
+                        <h3 class="product-group-title">&#10024; Glossy Lip Oils</h3>
+                        <div class="shade-grid">
+                            <div class="shade-item" data-color="rgba(255,182,193,0.6)" data-name="Cherry Glaze" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);"></div>
+                                <div class="shade-name">Cherry Glaze</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,218,185,0.6)" data-name="Peach Nectar" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFDAB9 0%, #FFB347 100%);"></div>
+                                <div class="shade-name">Peach Nectar</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,192,203,0.6)" data-name="Rose Honey" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFC0CB 0%, #DB7093 100%);"></div>
+                                <div class="shade-name">Rose Honey</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(250,128,114,0.6)" data-name="Coral Sunset" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FA8072 0%, #E9967A 100%);"></div>
+                                <div class="shade-name">Coral Sunset</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,240,245,0.6)" data-name="Crystal Clear" onclick="selectShade(this, 'lips')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 100%);"></div>
+                                <div class="shade-name">Crystal Clear</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eyes Category -->
+                <div class="product-category" id="eyes-category" style="display: none;">
+                    <div class="product-group">
+                        <h3 class="product-group-title">&#128065;&#65039; Eyeshadow Singles</h3>
+                        <div class="shade-grid">
+                            <div class="shade-item" data-color="#D4A574" data-name="Golden Hour" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #D4A574 0%, #B8860B 100%);"></div>
+                                <div class="shade-name">Golden Hour</div>
+                            </div>
+                            <div class="shade-item" data-color="#8B4513" data-name="Bronze" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #8B4513;"></div>
+                                <div class="shade-name">Bronze</div>
+                            </div>
+                            <div class="shade-item" data-color="#DEB887" data-name="Champagne" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #DEB887 0%, #F5DEB3 100%);"></div>
+                                <div class="shade-name">Champagne</div>
+                            </div>
+                            <div class="shade-item" data-color="#8B5A5A" data-name="Mauve" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #8B5A5A;"></div>
+                                <div class="shade-name">Mauve</div>
+                            </div>
+                            <div class="shade-item" data-color="#2F4F4F" data-name="Forest" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #2F4F4F;"></div>
+                                <div class="shade-name">Forest</div>
+                            </div>
+                            <div class="shade-item" data-color="#483D8B" data-name="Midnight" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #483D8B;"></div>
+                                <div class="shade-name">Midnight</div>
+                            </div>
+                            <div class="shade-item" data-color="#FFD700" data-name="24K Gold" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);"></div>
+                                <div class="shade-name">24K Gold</div>
+                            </div>
+                            <div class="shade-item" data-color="#C0C0C0" data-name="Silver Moon" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #C0C0C0 0%, #A9A9A9 100%);"></div>
+                                <div class="shade-name">Silver Moon</div>
+                            </div>
+                            <div class="shade-item" data-color="#800020" data-name="Burgundy" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #800020;"></div>
+                                <div class="shade-name">Burgundy</div>
+                            </div>
+                            <div class="shade-item" data-color="#000000" data-name="Onyx" onclick="selectShade(this, 'eyes')">
+                                <div class="shade-swatch" style="background: #000000;"></div>
+                                <div class="shade-name">Onyx</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cheeks Category -->
+                <div class="product-category" id="cheeks-category" style="display: none;">
+                    <div class="product-group">
+                        <h3 class="product-group-title">&#129505; Powder Blush</h3>
+                        <div class="shade-grid">
+                            <div class="shade-item" data-color="rgba(255,182,193,0.5)" data-name="Baby Pink" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #FFB6C1;"></div>
+                                <div class="shade-name">Baby Pink</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(219,112,147,0.5)" data-name="Rose" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #DB7093;"></div>
+                                <div class="shade-name">Rose</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,160,122,0.5)" data-name="Peach" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #FFA07A;"></div>
+                                <div class="shade-name">Peach</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(205,92,92,0.5)" data-name="Coral Pop" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #CD5C5C;"></div>
+                                <div class="shade-name">Coral Pop</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(188,143,143,0.5)" data-name="Dusty Rose" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #BC8F8F;"></div>
+                                <div class="shade-name">Dusty Rose</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(178,34,34,0.4)" data-name="Berry" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #B22222;"></div>
+                                <div class="shade-name">Berry</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(210,105,30,0.4)" data-name="Bronzed" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #D2691E;"></div>
+                                <div class="shade-name">Bronzed</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,218,185,0.5)" data-name="Nude Glow" onclick="selectShade(this, 'cheeks')">
+                                <div class="shade-swatch" style="background: #FFDAB9;"></div>
+                                <div class="shade-name">Nude Glow</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-group">
+                        <h3 class="product-group-title">&#10024; Highlighters</h3>
+                        <div class="shade-grid">
+                            <div class="shade-item" data-color="rgba(255,215,0,0.4)" data-name="Gold Drip" onclick="selectShade(this, 'highlight')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);"></div>
+                                <div class="shade-name">Gold Drip</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(255,192,203,0.4)" data-name="Pink Diamond" onclick="selectShade(this, 'highlight')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #FFC0CB 0%, #FFB6C1 100%);"></div>
+                                <div class="shade-name">Pink Diamond</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(245,245,220,0.4)" data-name="Pearl" onclick="selectShade(this, 'highlight')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #F5F5DC 0%, #FFFAF0 100%);"></div>
+                                <div class="shade-name">Pearl</div>
+                            </div>
+                            <div class="shade-item" data-color="rgba(205,133,63,0.4)" data-name="Bronze Glow" onclick="selectShade(this, 'highlight')">
+                                <div class="shade-swatch" style="background: linear-gradient(135deg, #CD853F 0%, #DEB887 100%);"></div>
+                                <div class="shade-name">Bronze Glow</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intensity Control -->
+            <div class="intensity-control">
+                <div class="intensity-label">
+                    <span>Intensity</span>
+                    <span class="intensity-value" id="intensityValue">75%</span>
+                </div>
+                <input type="range" class="intensity-slider" id="intensitySlider" min="0" max="100" value="75" oninput="updateIntensity(this.value)">
+            </div>
+
+            <!-- Current Look -->
+            <div class="current-look" id="currentLook">
+                <div class="current-look-title">Current Look</div>
+                <div class="look-items" id="lookItems">
+                    <div class="look-item">
+                        <div class="look-item-swatch" style="background: #B5485D;"></div>
+                        <span>Rose Petal</span>
+                        <button class="look-item-remove" onclick="removeLookItem('lips')">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="panel-actions">
+                <button class="btn btn-primary" onclick="addToCart()">
+                    Add Look to Bag
+                </button>
+                <button class="btn btn-secondary" onclick="shareLook()">
+                    Share This Look
+                </button>
+            </div>
+
+            <!-- Saved Looks -->
+            <div class="saved-looks">
+                <div class="saved-looks-header">
+                    <span class="saved-looks-title">Saved Looks</span>
+                </div>
+                <div class="saved-looks-grid">
+                    <div class="saved-look-item">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100&h=100&fit=crop" alt="Look 1">
+                    </div>
+                    <div class="saved-look-item">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=100&h=100&fit=crop" alt="Look 2">
+                    </div>
+                    <div class="saved-look-item">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=100&h=100&fit=crop" alt="Look 3">
+                    </div>
+                    <div class="saved-look-item add-new" onclick="saveLook()">+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let currentLook = {
+            lips: { color: '#B5485D', name: 'Rose Petal' },
+            eyes: null,
+            cheeks: null,
+            highlight: null
+        };
+        let intensity = 75;
+        let cameraActive = false;
+        let stream = null;
+
+        // Category Tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Update active tab
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show/hide categories
+                const category = this.dataset.category;
+                document.querySelectorAll('.product-category').forEach(cat => {
+                    cat.style.display = 'none';
+                });
+                document.getElementById(category + '-category').style.display = 'block';
+            });
+        });
+
+        // Select Shade
+        function selectShade(element, type) {
+            const color = element.dataset.color;
+            const name = element.dataset.name;
+
+            // Update active state
+            element.closest('.shade-grid').querySelectorAll('.shade-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            // Update current look
+            currentLook[type] = { color, name };
+            updateLookDisplay();
+            applyMakeup();
+        }
+
+        // Update Look Display
+        function updateLookDisplay() {
+            const lookItems = document.getElementById('lookItems');
+            lookItems.innerHTML = '';
+
+            for (const [type, data] of Object.entries(currentLook)) {
+                if (data) {
+                    const item = document.createElement('div');
+                    item.className = 'look-item';
+                    item.innerHTML = `
+                        <div class="look-item-swatch" style="background: ${data.color};"></div>
+                        <span>${data.name}</span>
+                        <button class="look-item-remove" onclick="removeLookItem('${type}')">×</button>
+                    `;
+                    lookItems.appendChild(item);
+                }
+            }
+
+            if (lookItems.children.length === 0) {
+                lookItems.innerHTML = '<span style="color: var(--text-muted); font-size: 12px;">No products selected</span>';
+            }
+        }
+
+        // Remove Look Item
+        function removeLookItem(type) {
+            currentLook[type] = null;
+
+            // Deselect in grid
+            document.querySelectorAll(`.shade-item`).forEach(item => {
+                if (item.closest(`#${type}-category`) ||
+                    (type === 'highlight' && item.closest('#cheeks-category'))) {
+                    item.classList.remove('active');
+                }
+            });
+
+            updateLookDisplay();
+            applyMakeup();
+        }
+
+        // Update Intensity
+        function updateIntensity(value) {
+            intensity = value;
+            document.getElementById('intensityValue').textContent = value + '%';
+            applyMakeup();
+        }
+
+        // Camera Functions
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user', width: 1280, height: 720 }
+                });
+
+                const video = document.getElementById('video-feed');
+                video.srcObject = stream;
+                video.style.display = 'block';
+
+                document.getElementById('cameraPlaceholder').style.display = 'none';
+                document.getElementById('cameraControls').style.display = 'flex';
+                document.getElementById('canvas-overlay').style.display = 'block';
+
+                cameraActive = true;
+
+                // Show tips
+                const tips = document.getElementById('tipsOverlay');
+                tips.classList.add('show');
+                setTimeout(() => tips.classList.remove('show'), 5000);
+
+                // Start rendering loop
+                requestAnimationFrame(renderLoop);
+            } catch (err) {
+                alert('Camera access denied. Please allow camera access to use GlowTry™.');
+                console.error('Camera error:', err);
+            }
+        }
+
+        function toggleCamera() {
+            // Toggle between front and back camera
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            // Re-init with different facing mode would go here
+            alert('Camera switched! (Demo mode)');
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('video-feed');
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0);
+
+            // Apply makeup overlay
+            const overlay = document.getElementById('canvas-overlay');
+            ctx.drawImage(overlay, 0, 0);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = 'glowhaus-look.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            alert('Photo saved! Share your GlowTry™ look!');
+        }
+
+        function resetLook() {
+            currentLook = {
+                lips: null,
+                eyes: null,
+                cheeks: null,
+                highlight: null
+            };
+
+            document.querySelectorAll('.shade-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            updateLookDisplay();
+            applyMakeup();
+        }
+
+        // Apply Makeup (simulated - in production would use face-api.js)
+        function applyMakeup() {
+            if (!cameraActive) return;
+
+            const canvas = document.getElementById('canvas-overlay');
+            const ctx = canvas.getContext('2d');
+            const video = document.getElementById('video-feed');
+
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 480;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // In production, this would detect face landmarks and apply colors
+            // For demo, we'll show a simple overlay indication
+
+            if (currentLook.lips) {
+                // Demo: Draw lips area indicator
+                ctx.fillStyle = currentLook.lips.color;
+                ctx.globalAlpha = intensity / 200;
+                // Would use face landmarks for actual positioning
+            }
+        }
+
+        function renderLoop() {
+            if (cameraActive) {
+                applyMakeup();
+                requestAnimationFrame(renderLoop);
+            }
+        }
+
+        // Add to Cart
+        function addToCart() {
+            const items = [];
+            for (const [type, data] of Object.entries(currentLook)) {
+                if (data) {
+                    items.push(`${data.name} (${type})`);
+                }
+            }
+
+            if (items.length === 0) {
+                alert('Select at least one product to add to your bag!');
+                return;
+            }
+
+            alert(`Added to bag:\n${items.join('\n')}\n\n🛒 View your bag to checkout!`);
+        }
+
+        // Share Look
+        function shareLook() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My GlowTry™ Look',
+                    text: 'Check out this makeup look I created with GLOWHAUS GlowTry™!',
+                    url: window.location.href
+                });
+            } else {
+                alert('Link copied to clipboard! Share your GlowTry™ look with friends.');
+            }
+        }
+
+        // Save Look
+        function saveLook() {
+            alert('Look saved to your profile! You can access it anytime from your account.');
+        }
+
+        // Initialize
+        updateLookDisplay();
+    </script>
+</body>
+</html>

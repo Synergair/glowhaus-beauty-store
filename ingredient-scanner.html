@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCheck™ Ingredient Scanner | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+            --safe: #22c55e;
+            --caution: #f59e0b;
+            --avoid: #ef4444;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+        }
+
+        .btn-secondary:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Main Section */
+        .main-section {
+            padding: 60px 0;
+        }
+
+        /* Input Section */
+        .input-section {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .input-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .input-tab {
+            flex: 1;
+            padding: 16px 24px;
+            background: var(--cream);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .input-tab:hover {
+            border-color: var(--rose-light);
+        }
+
+        .input-tab.active {
+            background: white;
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        .input-tab-icon {
+            font-size: 20px;
+        }
+
+        /* Paste Input */
+        .paste-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .paste-input:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        .paste-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .input-helper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Upload Input */
+        .upload-input {
+            display: none;
+            border: 3px dashed var(--border);
+            border-radius: 16px;
+            padding: 60px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-input.show {
+            display: block;
+        }
+
+        .upload-input:hover {
+            border-color: var(--rose);
+            background: var(--cream);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .upload-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .upload-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        #photoInput {
+            display: none;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        /* Safety Score */
+        .safety-score-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .score-ring {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+
+        .score-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .score-ring circle {
+            fill: none;
+            stroke-width: 12;
+        }
+
+        .score-ring .bg {
+            stroke: var(--border);
+        }
+
+        .score-ring .progress {
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease, stroke 0.5s;
+        }
+
+        .score-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .score-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .safety-verdict {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .safety-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Ingredient Breakdown */
+        .breakdown-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .breakdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .breakdown-title {
+            font-size: 24px;
+        }
+
+        .breakdown-stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .stat-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-chip.safe {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--safe);
+        }
+
+        .stat-chip.caution {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--caution);
+        }
+
+        .stat-chip.avoid {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--avoid);
+        }
+
+        .stat-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .stat-chip.safe .stat-dot { background: var(--safe); }
+        .stat-chip.caution .stat-dot { background: var(--caution); }
+        .stat-chip.avoid .stat-dot { background: var(--avoid); }
+
+        /* Ingredient List */
+        .ingredient-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--cream);
+            transition: all 0.3s;
+        }
+
+        .ingredient-item:hover {
+            background: var(--cream-dark);
+        }
+
+        .ingredient-item.safe {
+            border-left: 4px solid var(--safe);
+        }
+
+        .ingredient-item.caution {
+            border-left: 4px solid var(--caution);
+        }
+
+        .ingredient-item.avoid {
+            border-left: 4px solid var(--avoid);
+        }
+
+        .ingredient-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .ingredient-item.safe .ingredient-icon {
+            background: rgba(34, 197, 94, 0.15);
+        }
+
+        .ingredient-item.caution .ingredient-icon {
+            background: rgba(245, 158, 11, 0.15);
+        }
+
+        .ingredient-item.avoid .ingredient-icon {
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .ingredient-info {
+            flex: 1;
+        }
+
+        .ingredient-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .ingredient-purpose {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .ingredient-note {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .ingredient-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ingredient-item.safe .ingredient-badge {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--safe);
+        }
+
+        .ingredient-item.caution .ingredient-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--caution);
+        }
+
+        .ingredient-item.avoid .ingredient-badge {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--avoid);
+        }
+
+        /* Cleaner Alternatives */
+        .alternatives-section {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        .alternatives-title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .alternatives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .alternative-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .alternative-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-4px);
+        }
+
+        .alternative-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin: 0 auto 16px;
+        }
+
+        .alternative-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .alternative-score {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .alternative-price {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Legend */
+        .legend-section {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .legend-title {
+            font-size: 20px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 12px;
+        }
+
+        .legend-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .legend-item.safe .legend-icon { background: rgba(34, 197, 94, 0.15); }
+        .legend-item.caution .legend-icon { background: rgba(245, 158, 11, 0.15); }
+        .legend-item.avoid .legend-icon { background: rgba(239, 68, 68, 0.15); }
+
+        .legend-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .legend-content p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Barcode Scanner */
+        .barcode-section {
+            padding-top: 20px;
+        }
+
+        .barcode-scanner-container {
+            background: var(--cream-dark);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .scanner-preview {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 4/3;
+        }
+
+        .scanner-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scanner-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .scanner-frame {
+            width: 70%;
+            height: 40%;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+        }
+
+        .scanner-corner {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-color: var(--gold);
+            border-style: solid;
+            border-width: 0;
+        }
+
+        .scanner-corner.tl {
+            top: -2px;
+            left: -2px;
+            border-top-width: 4px;
+            border-left-width: 4px;
+            border-radius: 8px 0 0 0;
+        }
+
+        .scanner-corner.tr {
+            top: -2px;
+            right: -2px;
+            border-top-width: 4px;
+            border-right-width: 4px;
+            border-radius: 0 8px 0 0;
+        }
+
+        .scanner-corner.bl {
+            bottom: -2px;
+            left: -2px;
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+            border-radius: 0 0 0 8px;
+        }
+
+        .scanner-corner.br {
+            bottom: -2px;
+            right: -2px;
+            border-bottom-width: 4px;
+            border-right-width: 4px;
+            border-radius: 0 0 8px 0;
+        }
+
+        .scanner-line {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: scanLine 2s ease-in-out infinite;
+        }
+
+        @keyframes scanLine {
+            0%, 100% { top: 10%; }
+            50% { top: 90%; }
+        }
+
+        .scanner-instructions {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .scanner-instructions p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .scanner-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .manual-barcode {
+            margin-top: 24px;
+        }
+
+        .divider-text {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .barcode-input-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .barcode-input-row input {
+            flex: 1;
+        }
+
+        .recent-scans {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .recent-scans h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .recent-scans-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .recent-scan-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--cream);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .recent-scan-item:hover {
+            background: var(--cream-dark);
+        }
+
+        .recent-scan-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .recent-scan-info {
+            flex: 1;
+        }
+
+        .recent-scan-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .recent-scan-brand {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .recent-scan-score {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .recent-scan-score.high {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--safe);
+        }
+
+        .recent-scan-score.medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--caution);
+        }
+
+        .recent-scan-score.low {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--avoid);
+        }
+
+        .recent-scan-arrow {
+            color: var(--text-muted);
+            font-size: 20px;
+        }
+
+        /* Product Found Card */
+        .product-found-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .product-found-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .product-found-info {
+            flex: 1;
+        }
+
+        .product-found-brand {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .product-found-name {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-found-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .input-tabs {
+                flex-direction: column;
+            }
+
+            .alternatives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .breakdown-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <div class="header-actions">
+                <a href="collection.html" class="btn btn-secondary">Shop Clean Beauty</a>
+                <a href="cart.html" class="btn btn-primary">Bag (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">&#128269; CleanCheck™ Technology</div>
+            <h1 class="hero-title">Ingredient Scanner</h1>
+            <p class="hero-subtitle">Paste any ingredient list or upload a photo. CleanCheck™ will analyze each ingredient and rate its safety profile.</p>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-tabs">
+                    <button class="input-tab active" data-method="paste">
+                        <span class="input-tab-icon">&#128203;</span>
+                        Paste Ingredients
+                    </button>
+                    <button class="input-tab" data-method="photo">
+                        <span class="input-tab-icon">&#128247;</span>
+                        Scan Photo
+                    </button>
+                    <button class="input-tab" data-method="barcode">
+                        <span class="input-tab-icon">&#128722;</span>
+                        Barcode Scanner
+                    </button>
+                </div>
+
+                <!-- Paste Input -->
+                <div id="pasteSection">
+                    <textarea
+                        class="paste-input"
+                        id="ingredientInput"
+                        placeholder="Paste your ingredient list here...
+
+Example:
+Water, Glycerin, Niacinamide, Hyaluronic Acid, Phenoxyethanol, Fragrance, Sodium Lauryl Sulfate, Retinol, Vitamin E, Parabens..."
+                    ></textarea>
+                    <div class="input-helper">
+                        <span class="helper-text">Tip: Copy the ingredient list from any product page or packaging</span>
+                        <button class="btn btn-primary" onclick="analyzeIngredients()">
+                            Analyze Ingredients
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Upload Input -->
+                <div class="upload-input" id="uploadSection" onclick="document.getElementById('photoInput').click()">
+                    <div class="upload-icon">&#128247;</div>
+                    <h3 class="upload-title">Upload Ingredient Photo</h3>
+                    <p class="upload-text">Take a photo of the ingredient list on your product packaging</p>
+                </div>
+                <input type="file" id="photoInput" accept="image/*" onchange="handlePhotoUpload(event)">
+
+                <!-- Barcode Scanner -->
+                <div class="barcode-section" id="barcodeSection" style="display: none;">
+                    <div class="barcode-scanner-container">
+                        <div class="scanner-preview" id="scannerPreview">
+                            <video id="barcodeVideo" autoplay playsinline></video>
+                            <div class="scanner-overlay">
+                                <div class="scanner-frame">
+                                    <div class="scanner-corner tl"></div>
+                                    <div class="scanner-corner tr"></div>
+                                    <div class="scanner-corner bl"></div>
+                                    <div class="scanner-corner br"></div>
+                                    <div class="scanner-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scanner-instructions">
+                            <p>Position the barcode within the frame</p>
+                        </div>
+                        <div class="scanner-controls">
+                            <button class="btn btn-secondary" onclick="stopBarcodeScanner()">Cancel</button>
+                            <button class="btn btn-primary" onclick="simulateBarcodeScan()">
+                                &#128248; Capture
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Manual Barcode Entry -->
+                    <div class="manual-barcode">
+                        <p class="divider-text">— OR ENTER MANUALLY —</p>
+                        <div class="barcode-input-row">
+                            <input type="text" id="barcodeInput" class="paste-input" style="min-height: auto; padding: 16px;" placeholder="Enter UPC/EAN barcode number (e.g., 012345678901)">
+                            <button class="btn btn-primary" onclick="lookupBarcode()">
+                                Look Up
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recently Scanned -->
+                    <div class="recent-scans" id="recentScans">
+                        <h4>Recently Scanned</h4>
+                        <div class="recent-scans-list" id="recentScansList">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <!-- Safety Score -->
+                <div class="safety-score-card">
+                    <div class="score-ring">
+                        <svg width="180" height="180" viewBox="0 0 180 180">
+                            <circle class="bg" cx="90" cy="90" r="78"/>
+                            <circle class="progress" id="scoreProgress" cx="90" cy="90" r="78"
+                                stroke-dasharray="490" stroke-dashoffset="490"/>
+                        </svg>
+                        <div class="score-value">
+                            <div class="score-number" id="scoreNumber">0</div>
+                            <div class="score-label">out of 100</div>
+                        </div>
+                    </div>
+                    <h2 class="safety-verdict" id="safetyVerdict">Analyzing...</h2>
+                    <p class="safety-description" id="safetyDescription">
+                        CleanCheck™ is evaluating each ingredient for safety and potential concerns.
+                    </p>
+                </div>
+
+                <!-- Ingredient Breakdown -->
+                <div class="breakdown-card">
+                    <div class="breakdown-header">
+                        <h2 class="breakdown-title">Ingredient Breakdown</h2>
+                        <div class="breakdown-stats">
+                            <div class="stat-chip safe">
+                                <span class="stat-dot"></span>
+                                <span id="safeCount">0</span> Safe
+                            </div>
+                            <div class="stat-chip caution">
+                                <span class="stat-dot"></span>
+                                <span id="cautionCount">0</span> Caution
+                            </div>
+                            <div class="stat-chip avoid">
+                                <span class="stat-dot"></span>
+                                <span id="avoidCount">0</span> Avoid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ingredient-list" id="ingredientList">
+                        <!-- Ingredients will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Cleaner Alternatives -->
+                <div class="alternatives-section" id="alternativesSection" style="display: none;">
+                    <h2 class="alternatives-title">Cleaner Alternatives from GLOWHAUS</h2>
+                    <div class="alternatives-grid">
+                        <div class="alternative-card" onclick="window.location.href='product.html'">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop" alt="Clean Serum" class="alternative-image">
+                            <h3 class="alternative-name">Pure Glow Serum</h3>
+                            <div class="alternative-score">
+                                &#10003; Score: 95/100
+                            </div>
+                            <p class="alternative-price">$38.00</p>
+                        </div>
+                        <div class="alternative-card" onclick="window.location.href='product.html'">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&h=200&fit=crop" alt="Clean Moisturizer" class="alternative-image">
+                            <h3 class="alternative-name">Barrier Repair Cream</h3>
+                            <div class="alternative-score">
+                                &#10003; Score: 92/100
+                            </div>
+                            <p class="alternative-price">$44.00</p>
+                        </div>
+                        <div class="alternative-card" onclick="window.location.href='product.html'">
+                            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&h=200&fit=crop" alt="Clean Treatment" class="alternative-image">
+                            <h3 class="alternative-name">PDRN Renewal Serum</h3>
+                            <div class="alternative-score">
+                                &#10003; Score: 97/100
+                            </div>
+                            <p class="alternative-price">$54.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="legend-section">
+                    <h3 class="legend-title">Understanding CleanCheck™ Ratings</h3>
+                    <div class="legend-grid">
+                        <div class="legend-item safe">
+                            <div class="legend-icon">&#10003;</div>
+                            <div class="legend-content">
+                                <h4>Safe</h4>
+                                <p>Generally recognized as safe. No significant concerns for most skin types.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item caution">
+                            <div class="legend-icon">&#9888;</div>
+                            <div class="legend-content">
+                                <h4>Caution</h4>
+                                <p>May cause sensitivity in some individuals. Patch test recommended.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item avoid">
+                            <div class="legend-icon">&#10060;</div>
+                            <div class="legend-content">
+                                <h4>Avoid</h4>
+                                <p>Potentially harmful or irritating. Consider cleaner alternatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Ingredient database
+        const ingredientDatabase = {
+            // Safe ingredients
+            'water': { status: 'safe', purpose: 'Solvent', note: 'The most common and safe ingredient in skincare.' },
+            'glycerin': { status: 'safe', purpose: 'Humectant', note: 'Excellent moisturizer that attracts water to the skin.' },
+            'niacinamide': { status: 'safe', purpose: 'Active', note: 'Vitamin B3 - brightens skin and minimizes pores.' },
+            'hyaluronic acid': { status: 'safe', purpose: 'Humectant', note: 'Holds 1000x its weight in water. Excellent hydrator.' },
+            'vitamin e': { status: 'safe', purpose: 'Antioxidant', note: 'Protects skin from free radical damage.' },
+            'retinol': { status: 'safe', purpose: 'Active', note: 'Gold standard anti-aging ingredient. Start slowly.' },
+            'squalane': { status: 'safe', purpose: 'Emollient', note: 'Lightweight oil that mimics natural skin lipids.' },
+            'ceramides': { status: 'safe', purpose: 'Barrier Support', note: 'Essential for maintaining skin barrier health.' },
+            'peptides': { status: 'safe', purpose: 'Active', note: 'Supports collagen production for firmer skin.' },
+            'aloe vera': { status: 'safe', purpose: 'Soothing', note: 'Natural soothing and hydrating ingredient.' },
+            'green tea': { status: 'safe', purpose: 'Antioxidant', note: 'Powerful antioxidant with anti-inflammatory benefits.' },
+            'centella asiatica': { status: 'safe', purpose: 'Soothing', note: 'Also known as Cica - excellent for healing skin.' },
+
+            // Caution ingredients
+            'phenoxyethanol': { status: 'caution', purpose: 'Preservative', note: 'Generally safe but may cause irritation in sensitive skin at high concentrations.' },
+            'alcohol denat': { status: 'caution', purpose: 'Solvent', note: 'Can be drying. Look for it lower in the ingredient list.' },
+            'salicylic acid': { status: 'caution', purpose: 'Exfoliant', note: 'Effective for acne but can cause dryness. Use as directed.' },
+            'benzoyl peroxide': { status: 'caution', purpose: 'Acne Treatment', note: 'Powerful acne fighter but can be irritating and drying.' },
+            'essential oils': { status: 'caution', purpose: 'Fragrance', note: 'Natural but can cause sensitization in some individuals.' },
+            'citric acid': { status: 'caution', purpose: 'pH Adjuster', note: 'Generally safe but can be sensitizing at high concentrations.' },
+            'lactic acid': { status: 'caution', purpose: 'Exfoliant', note: 'AHA that can cause sun sensitivity. Use SPF.' },
+            'glycolic acid': { status: 'caution', purpose: 'Exfoliant', note: 'Effective but can cause irritation. Start slowly.' },
+
+            // Avoid ingredients
+            'fragrance': { status: 'avoid', purpose: 'Scent', note: 'Catch-all term that can hide irritating or allergenic compounds.' },
+            'parfum': { status: 'avoid', purpose: 'Scent', note: 'Same as fragrance - undisclosed mix of chemicals.' },
+            'sodium lauryl sulfate': { status: 'avoid', purpose: 'Surfactant', note: 'Harsh cleanser that strips natural oils and irritates skin.' },
+            'sls': { status: 'avoid', purpose: 'Surfactant', note: 'Abbreviation for Sodium Lauryl Sulfate.' },
+            'parabens': { status: 'avoid', purpose: 'Preservative', note: 'Potential hormone disruptors. Opt for paraben-free products.' },
+            'methylparaben': { status: 'avoid', purpose: 'Preservative', note: 'Type of paraben - potential endocrine disruptor.' },
+            'propylparaben': { status: 'avoid', purpose: 'Preservative', note: 'Type of paraben - potential endocrine disruptor.' },
+            'formaldehyde': { status: 'avoid', purpose: 'Preservative', note: 'Known carcinogen. Should be avoided.' },
+            'phthalates': { status: 'avoid', purpose: 'Plasticizer', note: 'Potential hormone disruptors often hidden in "fragrance".' },
+            'triclosan': { status: 'avoid', purpose: 'Antibacterial', note: 'Banned in many products. Potential hormone disruptor.' },
+            'oxybenzone': { status: 'avoid', purpose: 'UV Filter', note: 'Potential hormone disruptor and coral reef damage.' },
+            'hydroquinone': { status: 'avoid', purpose: 'Skin Lightener', note: 'Can cause permanent skin damage with prolonged use.' }
+        };
+
+        // Sample product database for barcode lookups
+        const productDatabase = {
+            '012345678901': {
+                name: 'Radiant Glow Serum',
+                brand: 'Estée Beauty',
+                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop',
+                ingredients: 'Water, Glycerin, Niacinamide, Hyaluronic Acid, Phenoxyethanol, Fragrance, Vitamin E, Retinol'
+            },
+            '098765432101': {
+                name: 'Hydra Boost Moisturizer',
+                brand: 'SkinLux',
+                image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&h=200&fit=crop',
+                ingredients: 'Water, Glycerin, Squalane, Ceramides, Sodium Lauryl Sulfate, Parabens, Aloe Vera'
+            },
+            '567890123456': {
+                name: 'Clear Skin Cleanser',
+                brand: 'DermaClean',
+                image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
+                ingredients: 'Water, Glycerin, Salicylic Acid, Green Tea, Phenoxyethanol, Citric Acid'
+            },
+            '111222333444': {
+                name: 'Youth Renewal Cream',
+                brand: 'AgeLess Pro',
+                image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&h=200&fit=crop',
+                ingredients: 'Water, Peptides, Retinol, Vitamin E, Hyaluronic Acid, Centella Asiatica, Squalane'
+            }
+        };
+
+        // Recent scans storage
+        let recentScans = JSON.parse(localStorage.getItem('recentScans') || '[]');
+        let barcodeStream = null;
+
+        // Tab switching
+        document.querySelectorAll('.input-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.input-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const method = this.dataset.method;
+                document.getElementById('pasteSection').style.display = 'none';
+                document.getElementById('uploadSection').classList.remove('show');
+                document.getElementById('barcodeSection').style.display = 'none';
+
+                if (method === 'paste') {
+                    document.getElementById('pasteSection').style.display = 'block';
+                    stopBarcodeScanner();
+                } else if (method === 'photo') {
+                    document.getElementById('uploadSection').classList.add('show');
+                    stopBarcodeScanner();
+                } else if (method === 'barcode') {
+                    document.getElementById('barcodeSection').style.display = 'block';
+                    startBarcodeScanner();
+                    renderRecentScans();
+                }
+            });
+        });
+
+        // Analyze ingredients
+        function analyzeIngredients() {
+            const input = document.getElementById('ingredientInput').value.trim();
+            if (!input) {
+                alert('Please paste an ingredient list first!');
+                return;
+            }
+
+            // Parse ingredients
+            const ingredients = input
+                .split(/[,\n]/)
+                .map(i => i.trim().toLowerCase())
+                .filter(i => i.length > 0);
+
+            // Analyze each ingredient
+            const results = [];
+            let safeCount = 0;
+            let cautionCount = 0;
+            let avoidCount = 0;
+
+            ingredients.forEach(ingredient => {
+                // Check for matches in database
+                let matched = null;
+                for (const [key, data] of Object.entries(ingredientDatabase)) {
+                    if (ingredient.includes(key) || key.includes(ingredient)) {
+                        matched = { name: ingredient, ...data };
+                        break;
+                    }
+                }
+
+                if (!matched) {
+                    // Unknown ingredient - mark as safe by default
+                    matched = {
+                        name: ingredient,
+                        status: 'safe',
+                        purpose: 'Various',
+                        note: 'No specific concerns found in our database.'
+                    };
+                }
+
+                results.push(matched);
+
+                if (matched.status === 'safe') safeCount++;
+                else if (matched.status === 'caution') cautionCount++;
+                else avoidCount++;
+            });
+
+            // Calculate score (higher is better)
+            const totalIngredients = results.length;
+            const score = Math.round(
+                ((safeCount * 100) + (cautionCount * 50) + (avoidCount * 0)) / totalIngredients
+            );
+
+            // Show results
+            displayResults(results, score, safeCount, cautionCount, avoidCount);
+        }
+
+        // Display results
+        function displayResults(results, score, safeCount, cautionCount, avoidCount) {
+            document.getElementById('resultsSection').classList.add('show');
+
+            // Animate score
+            const scoreProgress = document.getElementById('scoreProgress');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const circumference = 490;
+            const offset = circumference - (score / 100) * circumference;
+
+            // Set color based on score
+            let color;
+            if (score >= 80) color = '#22c55e';
+            else if (score >= 60) color = '#f59e0b';
+            else color = '#ef4444';
+
+            scoreProgress.style.stroke = color;
+            scoreProgress.style.strokeDashoffset = offset;
+
+            // Animate number
+            let currentScore = 0;
+            const interval = setInterval(() => {
+                currentScore++;
+                scoreNumber.textContent = currentScore;
+                scoreNumber.style.color = color;
+                if (currentScore >= score) clearInterval(interval);
+            }, 20);
+
+            // Set verdict
+            const verdict = document.getElementById('safetyVerdict');
+            const description = document.getElementById('safetyDescription');
+
+            if (score >= 80) {
+                verdict.textContent = '&#10024; Excellent - Clean Formula';
+                description.textContent = 'This product has a clean ingredient profile with no major concerns. Great choice for your skin!';
+            } else if (score >= 60) {
+                verdict.textContent = '&#9888;&#65039; Good - Some Caution Needed';
+                description.textContent = 'This product is generally safe but contains some ingredients that may cause sensitivity. Patch test recommended.';
+            } else {
+                verdict.textContent = '&#10060; Concerning - Consider Alternatives';
+                description.textContent = 'This product contains several ingredients that may be harmful or irritating. We recommend choosing a cleaner alternative.';
+            }
+
+            // Update counts
+            document.getElementById('safeCount').textContent = safeCount;
+            document.getElementById('cautionCount').textContent = cautionCount;
+            document.getElementById('avoidCount').textContent = avoidCount;
+
+            // Build ingredient list
+            const ingredientList = document.getElementById('ingredientList');
+            ingredientList.innerHTML = '';
+
+            // Sort: avoid first, then caution, then safe
+            results.sort((a, b) => {
+                const order = { avoid: 0, caution: 1, safe: 2 };
+                return order[a.status] - order[b.status];
+            });
+
+            results.forEach(ingredient => {
+                const icon = ingredient.status === 'safe' ? '&#10003;' :
+                            ingredient.status === 'caution' ? '&#9888;' : '&#10060;';
+                const badge = ingredient.status === 'safe' ? 'Safe' :
+                             ingredient.status === 'caution' ? 'Caution' : 'Avoid';
+
+                const item = document.createElement('div');
+                item.className = `ingredient-item ${ingredient.status}`;
+                item.innerHTML = `
+                    <div class="ingredient-icon">${icon}</div>
+                    <div class="ingredient-info">
+                        <div class="ingredient-name">${ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1)}</div>
+                        <div class="ingredient-purpose">${ingredient.purpose}</div>
+                        <div class="ingredient-note">${ingredient.note}</div>
+                    </div>
+                    <span class="ingredient-badge">${badge}</span>
+                `;
+                ingredientList.appendChild(item);
+            });
+
+            // Show alternatives if score is low
+            if (score < 80) {
+                document.getElementById('alternativesSection').style.display = 'block';
+            }
+
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle photo upload
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // In production, this would use OCR to extract text from image
+                alert('Photo uploaded! CleanCheck™ is extracting ingredients...\n\n(In production, this would use OCR technology to read the ingredient list from your photo)');
+
+                // Simulate with example ingredients
+                document.getElementById('ingredientInput').value = 'Water, Glycerin, Niacinamide, Hyaluronic Acid, Phenoxyethanol, Fragrance, Retinol, Vitamin E';
+                document.querySelector('[data-method="paste"]').click();
+
+                setTimeout(() => {
+                    analyzeIngredients();
+                }, 500);
+            }
+        }
+
+        // Barcode Scanner Functions
+        async function startBarcodeScanner() {
+            const video = document.getElementById('barcodeVideo');
+
+            try {
+                barcodeStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment' }
+                });
+                video.srcObject = barcodeStream;
+            } catch (err) {
+                console.log('Camera access denied or not available');
+                // Show manual entry option
+            }
+        }
+
+        function stopBarcodeScanner() {
+            if (barcodeStream) {
+                barcodeStream.getTracks().forEach(track => track.stop());
+                barcodeStream = null;
+            }
+        }
+
+        function simulateBarcodeScan() {
+            // In production, this would use a barcode scanning library
+            // For demo, we'll simulate finding a random product
+            const barcodes = Object.keys(productDatabase);
+            const randomBarcode = barcodes[Math.floor(Math.random() * barcodes.length)];
+
+            document.getElementById('barcodeInput').value = randomBarcode;
+            lookupBarcode();
+        }
+
+        function lookupBarcode() {
+            const barcode = document.getElementById('barcodeInput').value.trim();
+
+            if (!barcode) {
+                alert('Please enter or scan a barcode');
+                return;
+            }
+
+            const product = productDatabase[barcode];
+
+            if (product) {
+                // Add to recent scans
+                addToRecentScans(barcode, product);
+
+                // Show product found message
+                showProductFound(product);
+
+                // Analyze the ingredients
+                document.getElementById('ingredientInput').value = product.ingredients;
+                document.querySelector('[data-method="paste"]').click();
+
+                setTimeout(() => {
+                    analyzeIngredients();
+                }, 500);
+            } else {
+                // Product not found
+                alert('Product not found in our database.\n\nTry scanning the ingredient list directly using the "Scan Photo" option, or paste the ingredients manually.');
+            }
+        }
+
+        function showProductFound(product) {
+            // Create or update product found card
+            let card = document.querySelector('.product-found-card');
+
+            if (!card) {
+                card = document.createElement('div');
+                card.className = 'product-found-card';
+                const resultsSection = document.getElementById('resultsSection');
+                resultsSection.insertBefore(card, resultsSection.firstChild);
+            }
+
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="product-found-image">
+                <div class="product-found-info">
+                    <div class="product-found-brand">${product.brand}</div>
+                    <h3 class="product-found-name">${product.name}</h3>
+                    <p class="product-found-meta">Scanned via CleanCheck™ Barcode Scanner</p>
+                </div>
+            `;
+        }
+
+        function addToRecentScans(barcode, product) {
+            // Remove if already exists
+            recentScans = recentScans.filter(s => s.barcode !== barcode);
+
+            // Add to beginning
+            recentScans.unshift({
+                barcode,
+                ...product,
+                scannedAt: new Date().toISOString()
+            });
+
+            // Keep only last 5
+            recentScans = recentScans.slice(0, 5);
+
+            // Save to localStorage
+            localStorage.setItem('recentScans', JSON.stringify(recentScans));
+
+            renderRecentScans();
+        }
+
+        function renderRecentScans() {
+            const container = document.getElementById('recentScansList');
+            const section = document.getElementById('recentScans');
+
+            if (recentScans.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            container.innerHTML = recentScans.map(scan => `
+                <div class="recent-scan-item" onclick="rescanProduct('${scan.barcode}')">
+                    <img src="${scan.image}" alt="${scan.name}" class="recent-scan-image">
+                    <div class="recent-scan-info">
+                        <div class="recent-scan-name">${scan.name}</div>
+                        <div class="recent-scan-brand">${scan.brand}</div>
+                        <span class="recent-scan-score high">Previously scanned</span>
+                    </div>
+                    <span class="recent-scan-arrow">→</span>
+                </div>
+            `).join('');
+        }
+
+        function rescanProduct(barcode) {
+            document.getElementById('barcodeInput').value = barcode;
+            lookupBarcode();
+        }
+
+        // Initialize recent scans on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render recent scans if on barcode tab
+            if (document.querySelector('[data-method="barcode"]').classList.contains('active')) {
+                renderRecentScans();
+            }
+        });
+    </script>
+</body>
+</html>
