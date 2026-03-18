@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowRewards™ - GLOWHAUS Loyalty Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --gold: #d4a574;
+            --cream: #faf7f5;
+            --charcoal: #2c2c2c;
+            --rose-light: #a87676;
+            --gold-light: #e5c4a8;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .header-actions a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--rose);
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 50%, var(--gold) 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .hero-trademark {
+            font-size: 24px;
+            vertical-align: super;
+        }
+
+        .hero-tagline {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Points Balance Section */
+        .points-balance {
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .balance-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr 2px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .balance-divider {
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--gold-light), transparent);
+        }
+
+        .balance-item {
+            text-align: center;
+        }
+
+        .balance-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 10px;
+        }
+
+        .balance-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1;
+        }
+
+        .balance-value small {
+            font-size: 24px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .tier-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Tier Progress */
+        .tier-progress {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 40px;
+        }
+
+        .tier-progress-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .tier-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .tier-progress-title {
+            font-size: 28px;
+            color: var(--charcoal);
+        }
+
+        .tier-progress-info {
+            text-align: right;
+        }
+
+        .tier-progress-info span {
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .progress-track {
+            position: relative;
+            height: 12px;
+            background: #f0ebe8;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 10px;
+            width: 65%;
+            transition: width 0.5s ease;
+        }
+
+        .tier-markers {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .tier-marker {
+            text-align: center;
+            flex: 1;
+        }
+
+        .tier-marker-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #f0ebe8;
+            margin: 0 auto 10px;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .tier-marker-dot.active {
+            background: var(--gold);
+        }
+
+        .tier-marker-dot.current {
+            background: var(--rose);
+            transform: scale(1.2);
+        }
+
+        .tier-marker-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 3px;
+        }
+
+        .tier-marker-points {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Ways to Earn */
+        .earn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .earn-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .earn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .earn-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5ede8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .earn-title {
+            font-size: 22px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .earn-points {
+            font-size: 14px;
+            color: var(--rose);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .earn-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Rewards Catalog */
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .reward-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reward-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5ede8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .reward-content {
+            padding: 25px;
+        }
+
+        .reward-category {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .reward-title {
+            font-size: 20px;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .reward-points-cost {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .reward-cost {
+            font-size: 14px;
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .redeem-btn {
+            background: var(--rose);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .redeem-btn:hover {
+            background: var(--rose-light);
+        }
+
+        .redeem-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Recent Activity */
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0ebe8;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 3px;
+        }
+
+        .activity-date {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .activity-points {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .activity-points.earned {
+            color: #4a9c6d;
+        }
+
+        .activity-points.redeemed {
+            color: var(--rose);
+        }
+
+        /* Referral Section */
+        .referral-section {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #3d3d3d 100%);
+            border-radius: 20px;
+            padding: 60px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .referral-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .referral-content p {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .referral-rewards {
+            display: flex;
+            gap: 30px;
+        }
+
+        .referral-reward {
+            text-align: center;
+        }
+
+        .referral-reward-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .referral-reward-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .referral-share {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .referral-share h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .share-link-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .share-link-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--gold-light);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .share-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: transparent;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .share-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Tier Benefits Table */
+        .benefits-table-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .benefits-table th {
+            padding: 25px 20px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            border-bottom: 2px solid #f0ebe8;
+        }
+
+        .benefits-table th:first-child {
+            text-align: left;
+            width: 250px;
+        }
+
+        .tier-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tier-header .tier-name {
+            color: var(--charcoal);
+        }
+
+        .tier-header .tier-points {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tier-header.bronze { color: #cd7f32; }
+        .tier-header.silver { color: #a8a8a8; }
+        .tier-header.gold { color: var(--gold); }
+        .tier-header.platinum { color: var(--rose); }
+
+        .benefits-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #f0ebe8;
+            font-size: 14px;
+        }
+
+        .benefits-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .benefits-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #4a9c6d;
+            font-size: 18px;
+        }
+
+        .x-icon {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Join CTA */
+        .join-cta {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 20px;
+            padding: 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .join-cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .join-cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .join-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .join-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .join-btn {
+            background: var(--charcoal);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .join-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .join-terms {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 40px 40px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--rose);
+            border-color: var(--rose);
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .earn-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rewards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .referral-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .balance-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .balance-divider {
+                display: none;
+            }
+
+            .earn-grid,
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .benefits-table-container {
+                padding: 20px;
+            }
+
+            .join-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            FREE SHIPPING ON ORDERS OVER $50 | JOIN GLOWREWARDS FOR EXCLUSIVE PERKS
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav class="nav">
+                <a href="#">Skincare</a>
+                <a href="#">Makeup</a>
+                <a href="#">Haircare</a>
+                <a href="#">Fragrance</a>
+                <a href="#">Gifts</a>
+                <a href="rewards.html">GlowRewards</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#">Search</a>
+                <a href="#">Account</a>
+                <a href="#" class="cart-icon">
+                    Cart
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Loyalty Program</span>
+            <h1>GlowRewards<span class="hero-trademark">TM</span></h1>
+            <p class="hero-tagline">Earn points. Unlock rewards. Glow beautifully.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">10x</div>
+                    <div class="hero-stat-label">Points per dollar</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">4</div>
+                    <div class="hero-stat-label">Exclusive tiers</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">500K+</div>
+                    <div class="hero-stat-label">Happy members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Points Balance -->
+    <section class="points-balance">
+        <div class="balance-card">
+            <div class="balance-item">
+                <div class="balance-label">Your Points Balance</div>
+                <div class="balance-value">2,450 <small>pts</small></div>
+            </div>
+            <div class="balance-divider"></div>
+            <div class="balance-item">
+                <div class="balance-label">Current Tier</div>
+                <div class="tier-badge">
+                    <svg class="tier-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    Gold Member
+                </div>
+            </div>
+            <div class="balance-divider"></div>
+            <div class="balance-item">
+                <div class="balance-label">Points to Platinum</div>
+                <div class="balance-value">550 <small>pts</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Progress -->
+    <section class="tier-progress">
+        <div class="tier-progress-card">
+            <div class="tier-progress-header">
+                <h2 class="tier-progress-title">Your Tier Progress</h2>
+                <div class="tier-progress-info">
+                    <span>550 points</span> until Platinum status
+                </div>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="tier-markers">
+                <div class="tier-marker">
+                    <div class="tier-marker-dot active"></div>
+                    <div class="tier-marker-name">Bronze</div>
+                    <div class="tier-marker-points">0 pts</div>
+                </div>
+                <div class="tier-marker">
+                    <div class="tier-marker-dot active"></div>
+                    <div class="tier-marker-name">Silver</div>
+                    <div class="tier-marker-points">500 pts</div>
+                </div>
+                <div class="tier-marker">
+                    <div class="tier-marker-dot current"></div>
+                    <div class="tier-marker-name">Gold</div>
+                    <div class="tier-marker-points">1,500 pts</div>
+                </div>
+                <div class="tier-marker">
+                    <div class="tier-marker-dot"></div>
+                    <div class="tier-marker-name">Platinum</div>
+                    <div class="tier-marker-points">3,000 pts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ways to Earn -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-subtitle">Earn Points</div>
+            <h2 class="section-title">Ways to Earn</h2>
+            <p class="section-desc">Multiple ways to accumulate points and unlock exclusive rewards.</p>
+        </div>
+        <div class="earn-grid">
+            <div class="earn-card">
+                <div class="earn-icon">&#128176;</div>
+                <h3 class="earn-title">Make a Purchase</h3>
+                <div class="earn-points">10 points per $1 spent</div>
+                <p class="earn-desc">Earn points on every purchase. Gold and Platinum members earn bonus points!</p>
+            </div>
+            <div class="earn-card">
+                <div class="earn-icon">&#128101;</div>
+                <h3 class="earn-title">Refer a Friend</h3>
+                <div class="earn-points">500 points per referral</div>
+                <p class="earn-desc">Share your unique link. When friends make their first purchase, you both earn!</p>
+            </div>
+            <div class="earn-card">
+                <div class="earn-icon">&#127874;</div>
+                <h3 class="earn-title">Birthday Bonus</h3>
+                <div class="earn-points">200 bonus points</div>
+                <p class="earn-desc">Celebrate your special day with bonus points and an exclusive birthday gift.</p>
+            </div>
+            <div class="earn-card">
+                <div class="earn-icon">&#11088;</div>
+                <h3 class="earn-title">Leave a Review</h3>
+                <div class="earn-points">50 points per review</div>
+                <p class="earn-desc">Share your thoughts on products you've purchased. Photo reviews earn extra!</p>
+            </div>
+            <div class="earn-card">
+                <div class="earn-icon">&#128241;</div>
+                <h3 class="earn-title">Social Shares</h3>
+                <div class="earn-points">25 points per share</div>
+                <p class="earn-desc">Follow us and share your favorite products on social media.</p>
+            </div>
+            <div class="earn-card">
+                <div class="earn-icon">&#128231;</div>
+                <h3 class="earn-title">Newsletter Signup</h3>
+                <div class="earn-points">100 welcome points</div>
+                <p class="earn-desc">Subscribe to our newsletter for beauty tips, trends, and exclusive offers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Catalog -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-subtitle">Rewards Catalog</div>
+            <h2 class="section-title">Redeem Your Points</h2>
+            <p class="section-desc">Turn your points into beautiful rewards.</p>
+        </div>
+        <div class="rewards-grid">
+            <div class="reward-card">
+                <div class="reward-image">&#127873;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Discount</div>
+                    <h3 class="reward-title">$5 Off</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">500 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#127873;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Discount</div>
+                    <h3 class="reward-title">$10 Off</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">900 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#127873;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Discount</div>
+                    <h3 class="reward-title">$25 Off</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">2,000 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#128132;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Free Product</div>
+                    <h3 class="reward-title">Mini Lipstick</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">750 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#129524;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Exclusive Samples</div>
+                    <h3 class="reward-title">Deluxe Sample Set</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">1,200 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#128092;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Free Product</div>
+                    <h3 class="reward-title">Full-Size Serum</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">3,500 points</span>
+                        <button class="redeem-btn" disabled>Not Enough</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#128378;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Early Access</div>
+                    <h3 class="reward-title">New Launch Preview</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">1,500 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-image">&#127775;</div>
+                <div class="reward-content">
+                    <div class="reward-category">Experience</div>
+                    <h3 class="reward-title">Virtual Masterclass</h3>
+                    <div class="reward-points-cost">
+                        <span class="reward-cost">2,500 points</span>
+                        <button class="redeem-btn">Redeem</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-subtitle">Your Activity</div>
+            <h2 class="section-title">Points History</h2>
+        </div>
+        <div class="activity-card">
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-icon">&#128176;</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Purchase - Order #GH-28457</div>
+                        <div class="activity-date">March 15, 2026</div>
+                    </div>
+                    <div class="activity-points earned">+480 pts</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">&#127873;</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Redeemed - $5 Off Coupon</div>
+                        <div class="activity-date">March 12, 2026</div>
+                    </div>
+                    <div class="activity-points redeemed">-500 pts</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">&#11088;</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Product Review - Glow Serum</div>
+                        <div class="activity-date">March 10, 2026</div>
+                    </div>
+                    <div class="activity-points earned">+50 pts</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">&#128101;</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Referral - Emma joined GLOWHAUS</div>
+                        <div class="activity-date">March 5, 2026</div>
+                    </div>
+                    <div class="activity-points earned">+500 pts</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">&#128176;</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Purchase - Order #GH-28102</div>
+                        <div class="activity-date">February 28, 2026</div>
+                    </div>
+                    <div class="activity-points earned">+920 pts</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="section">
+        <div class="referral-section">
+            <div class="referral-content">
+                <h2>Give $10, Get 500 Points</h2>
+                <p>Share the glow with friends and family. When they make their first purchase using your unique link, they get $10 off and you earn 500 bonus points!</p>
+                <div class="referral-rewards">
+                    <div class="referral-reward">
+                        <div class="referral-reward-value">$10</div>
+                        <div class="referral-reward-label">They Get Off</div>
+                    </div>
+                    <div class="referral-reward">
+                        <div class="referral-reward-value">500</div>
+                        <div class="referral-reward-label">Points You Earn</div>
+                    </div>
+                </div>
+            </div>
+            <div class="referral-share">
+                <h3>Your Referral Link</h3>
+                <div class="share-link-container">
+                    <input type="text" class="share-link-input" value="glowhaus.com/ref/SARAH2450" readonly>
+                    <button class="copy-btn" onclick="copyLink()">Copy</button>
+                </div>
+                <div class="share-buttons">
+                    <button class="share-btn">
+                        <span>Email</span>
+                    </button>
+                    <button class="share-btn">
+                        <span>Facebook</span>
+                    </button>
+                    <button class="share-btn">
+                        <span>Twitter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Benefits Comparison -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-subtitle">Member Tiers</div>
+            <h2 class="section-title">Benefits by Tier</h2>
+            <p class="section-desc">The more you shop, the more you unlock.</p>
+        </div>
+        <div class="benefits-table-container">
+            <table class="benefits-table">
+                <thead>
+                    <tr>
+                        <th>Benefits</th>
+                        <th>
+                            <div class="tier-header bronze">
+                                <span class="tier-name">Bronze</span>
+                                <span class="tier-points">0 - 499 pts</span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="tier-header silver">
+                                <span class="tier-name">Silver</span>
+                                <span class="tier-points">500 - 1,499 pts</span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="tier-header gold">
+                                <span class="tier-name">Gold</span>
+                                <span class="tier-points">1,500 - 2,999 pts</span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="tier-header platinum">
+                                <span class="tier-name">Platinum</span>
+                                <span class="tier-points">3,000+ pts</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Points per $1 Spent</td>
+                        <td>10 pts</td>
+                        <td>12 pts</td>
+                        <td>15 pts</td>
+                        <td>20 pts</td>
+                    </tr>
+                    <tr>
+                        <td>Birthday Bonus Points</td>
+                        <td>100 pts</td>
+                        <td>150 pts</td>
+                        <td>200 pts</td>
+                        <td>500 pts</td>
+                    </tr>
+                    <tr>
+                        <td>Free Shipping Threshold</td>
+                        <td>$50+</td>
+                        <td>$35+</td>
+                        <td>$25+</td>
+                        <td>Always Free</td>
+                    </tr>
+                    <tr>
+                        <td>Free Birthday Gift</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Early Access to Sales</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Exclusive Product Previews</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Free Samples with Order</td>
+                        <td>1 sample</td>
+                        <td>2 samples</td>
+                        <td>3 samples</td>
+                        <td>5 samples</td>
+                    </tr>
+                    <tr>
+                        <td>Priority Customer Service</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Annual Bonus Points</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td>250 pts</td>
+                        <td>1,000 pts</td>
+                    </tr>
+                    <tr>
+                        <td>Exclusive Events Access</td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="x-icon">&#10005;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="section">
+        <div class="join-cta">
+            <h2>Start Earning Today</h2>
+            <p>Join GlowRewards for free and start earning points on every purchase. It's easy, rewarding, and absolutely free!</p>
+            <form class="join-form">
+                <input type="email" class="join-input" placeholder="Enter your email address">
+                <button type="submit" class="join-btn">JOIN NOW</button>
+            </form>
+            <p class="join-terms">By joining, you agree to our Terms of Service and Privacy Policy</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">GLOWHAUS</div>
+                <p class="footer-desc">Curating the finest beauty products from around the world. Discover your glow with GLOWHAUS.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">tw</a>
+                    <a href="#" class="social-link">yt</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Makeup</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Rewards</h4>
+                <ul>
+                    <li><a href="#">GlowRewards</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Refer a Friend</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Student Discount</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GLOWHAUS. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyLink() {
+            const input = document.querySelector('.share-link-input');
+            input.select();
+            document.execCommand('copy');
+
+            const btn = document.querySelector('.copy-btn');
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

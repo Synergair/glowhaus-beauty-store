@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist | GLOWHAUS Beauty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67171;
+            --rose-dark: #6d4747;
+            --gold: #d4a574;
+            --gold-light: #e2bb91;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4a4a4a;
+            --white: #ffffff;
+            --success: #5a8b6a;
+            --warning: #c4956a;
+            --danger: #b55a5a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--rose);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .header-icon {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .header-icon:hover {
+            color: var(--rose);
+        }
+
+        .icon-badge {
+            background-color: var(--rose);
+            color: var(--white);
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            min-height: calc(100vh - 400px);
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .item-count {
+            font-size: 14px;
+            color: var(--charcoal-light);
+            letter-spacing: 1px;
+        }
+
+        /* Wishlist Controls */
+        .wishlist-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--rose);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--rose-dark);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--charcoal);
+            border: 1px solid var(--charcoal);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* Sort/Filter */
+        .sort-filter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sort-label {
+            font-size: 13px;
+            color: var(--charcoal-light);
+        }
+
+        .sort-select {
+            padding: 10px 35px 10px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            border: 1px solid var(--cream-dark);
+            background-color: var(--white);
+            color: var(--charcoal);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232c2c2c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        /* Wishlist Grid */
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .wishlist-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-image-container {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .wishlist-item:hover .item-image {
+            transform: scale(1.05);
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background-color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--charcoal-light);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .remove-btn:hover {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        /* Badges */
+        .item-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+
+        .badge-price-drop {
+            background-color: var(--success);
+            color: var(--white);
+        }
+
+        .badge-low-stock {
+            background-color: var(--warning);
+            color: var(--white);
+        }
+
+        .badge-out-of-stock {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        /* Item Details */
+        .item-details {
+            padding: 25px;
+        }
+
+        .item-brand {
+            font-size: 11px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .item-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .item-name a:hover {
+            color: var(--rose);
+        }
+
+        .item-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .original-price {
+            font-size: 14px;
+            color: var(--charcoal-light);
+            text-decoration: line-through;
+        }
+
+        .price-drop-amount {
+            font-size: 12px;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .date-added {
+            font-size: 11px;
+            color: var(--charcoal-light);
+            margin-bottom: 15px;
+        }
+
+        .stock-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stock-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .stock-dot.in-stock {
+            background-color: var(--success);
+        }
+
+        .stock-dot.low-stock {
+            background-color: var(--warning);
+        }
+
+        .stock-dot.out-of-stock {
+            background-color: var(--danger);
+        }
+
+        .stock-text.in-stock {
+            color: var(--success);
+        }
+
+        .stock-text.low-stock {
+            color: var(--warning);
+        }
+
+        .stock-text.out-of-stock {
+            color: var(--danger);
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--rose);
+            color: var(--white);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover:not(:disabled) {
+            background-color: var(--rose-dark);
+        }
+
+        .add-to-cart-btn:disabled {
+            background-color: var(--cream-dark);
+            color: var(--charcoal-light);
+            cursor: not-allowed;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            display: none;
+        }
+
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-icon {
+            font-size: 80px;
+            color: var(--cream-dark);
+            margin-bottom: 30px;
+        }
+
+        .empty-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        .empty-text {
+            font-size: 14px;
+            color: var(--charcoal-light);
+            margin-bottom: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Share Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+
+        .modal-text {
+            font-size: 14px;
+            color: var(--charcoal-light);
+            margin-bottom: 25px;
+        }
+
+        .share-link-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .share-link-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--cream-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            color: var(--charcoal);
+        }
+
+        .share-link-input:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        .copy-btn {
+            padding: 12px 20px;
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--gold-light);
+        }
+
+        .share-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .share-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--white);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .share-option:hover {
+            transform: scale(1.1);
+        }
+
+        .share-email {
+            background-color: var(--charcoal);
+        }
+
+        .share-facebook {
+            background-color: #3b5998;
+        }
+
+        .share-pinterest {
+            background-color: #bd081c;
+        }
+
+        .share-twitter {
+            background-color: #1da1f2;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--charcoal-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: var(--charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--charcoal);
+            color: var(--cream);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .footer-description {
+            font-size: 13px;
+            line-height: 1.8;
+            color: rgba(250, 247, 245, 0.7);
+        }
+
+        .footer-column h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--cream);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: rgba(250, 247, 245, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(250, 247, 245, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: rgba(250, 247, 245, 0.5);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: rgba(250, 247, 245, 0.5);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 13px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 3000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .toast.show {
+            display: flex;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast-icon {
+            color: var(--success);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .wishlist-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .control-buttons {
+                flex-wrap: wrap;
+            }
+
+            .wishlist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 24px;
+            }
+
+            .wishlist-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            Free Shipping on Orders Over $75 | Use Code GLOW20 for 20% Off
+        </div>
+        <div class="header-main">
+            <a href="/" class="logo">GLOWHAUS</a>
+            <nav class="nav">
+                <a href="#">Skincare</a>
+                <a href="#">Makeup</a>
+                <a href="#">Haircare</a>
+                <a href="#">Fragrance</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Sale</a>
+            </nav>
+            <div class="header-icons">
+                <a href="#" class="header-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </a>
+                <a href="#" class="header-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <a href="#" class="header-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="icon-badge">6</span>
+                </a>
+                <a href="#" class="header-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="icon-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">My Wishlist</h1>
+            <p class="item-count"><span id="itemCount">6</span> items saved</p>
+        </div>
+
+        <!-- Wishlist Controls -->
+        <div class="wishlist-controls">
+            <div class="control-buttons">
+                <button class="btn btn-primary" onclick="moveAllToCart()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    Move All to Cart
+                </button>
+                <button class="btn btn-secondary" onclick="openShareModal()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    Share Wishlist
+                </button>
+            </div>
+            <div class="sort-filter">
+                <span class="sort-label">Sort by:</span>
+                <select class="sort-select" id="sortSelect" onchange="sortWishlist()">
+                    <option value="date-newest">Date Added (Newest)</option>
+                    <option value="date-oldest">Date Added (Oldest)</option>
+                    <option value="price-low">Price (Low to High)</option>
+                    <option value="price-high">Price (High to Low)</option>
+                    <option value="name-az">Name (A-Z)</option>
+                    <option value="name-za">Name (Z-A)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Wishlist Grid -->
+        <div class="wishlist-grid" id="wishlistGrid">
+            <!-- Item 1 - Price Drop -->
+            <div class="wishlist-item" data-price="68" data-date="2024-03-15" data-name="Midnight Rose Facial Serum">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop" alt="Midnight Rose Facial Serum" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                    <div class="item-badges">
+                        <span class="badge badge-price-drop">Price Drop</span>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">La Beaute</p>
+                    <h3 class="item-name"><a href="#">Midnight Rose Facial Serum</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$68.00</span>
+                        <span class="original-price">$85.00</span>
+                    </div>
+                    <p class="price-drop-amount">You save $17.00 (20% off)</p>
+                    <p class="date-added">Added Mar 15, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot in-stock"></span>
+                        <span class="stock-text in-stock">In Stock</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 2 - In Stock -->
+            <div class="wishlist-item" data-price="125" data-date="2024-03-10" data-name="Golden Hour Illuminating Palette">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop" alt="Golden Hour Illuminating Palette" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">GLOWHAUS</p>
+                    <h3 class="item-name"><a href="#">Golden Hour Illuminating Palette</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$125.00</span>
+                    </div>
+                    <p class="date-added">Added Mar 10, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot in-stock"></span>
+                        <span class="stock-text in-stock">In Stock</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 3 - Low Stock -->
+            <div class="wishlist-item" data-price="42" data-date="2024-03-08" data-name="Velvet Matte Lipstick - Rouge Noir">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop" alt="Velvet Matte Lipstick" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                    <div class="item-badges">
+                        <span class="badge badge-low-stock">Only 3 Left</span>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">Rouge Luxe</p>
+                    <h3 class="item-name"><a href="#">Velvet Matte Lipstick - Rouge Noir</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$42.00</span>
+                    </div>
+                    <p class="date-added">Added Mar 8, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot low-stock"></span>
+                        <span class="stock-text low-stock">Only 3 Left</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 4 - Price Drop -->
+            <div class="wishlist-item" data-price="89" data-date="2024-03-05" data-name="Hydra-Glow Moisturizing Cream">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop" alt="Hydra-Glow Moisturizing Cream" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                    <div class="item-badges">
+                        <span class="badge badge-price-drop">Price Drop</span>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">Derma Elite</p>
+                    <h3 class="item-name"><a href="#">Hydra-Glow Moisturizing Cream</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$89.00</span>
+                        <span class="original-price">$110.00</span>
+                    </div>
+                    <p class="price-drop-amount">You save $21.00 (19% off)</p>
+                    <p class="date-added">Added Mar 5, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot in-stock"></span>
+                        <span class="stock-text in-stock">In Stock</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 5 - Out of Stock -->
+            <div class="wishlist-item" data-price="165" data-date="2024-02-28" data-name="Luxury Oud Eau de Parfum">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop" alt="Luxury Oud Eau de Parfum" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                    <div class="item-badges">
+                        <span class="badge badge-out-of-stock">Out of Stock</span>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">Maison Noir</p>
+                    <h3 class="item-name"><a href="#">Luxury Oud Eau de Parfum</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$165.00</span>
+                    </div>
+                    <p class="date-added">Added Feb 28, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot out-of-stock"></span>
+                        <span class="stock-text out-of-stock">Out of Stock</span>
+                    </div>
+                    <button class="add-to-cart-btn" disabled>Out of Stock</button>
+                </div>
+            </div>
+
+            <!-- Item 6 - In Stock -->
+            <div class="wishlist-item" data-price="56" data-date="2024-02-20" data-name="Silk Repair Hair Mask">
+                <div class="item-image-container">
+                    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop" alt="Silk Repair Hair Mask" class="item-image">
+                    <button class="remove-btn" onclick="removeItem(this)" title="Remove from wishlist">
+                        &times;
+                    </button>
+                </div>
+                <div class="item-details">
+                    <p class="item-brand">Tress Luxe</p>
+                    <h3 class="item-name"><a href="#">Silk Repair Hair Mask</a></h3>
+                    <div class="item-price">
+                        <span class="current-price">$56.00</span>
+                    </div>
+                    <p class="date-added">Added Feb 20, 2024</p>
+                    <div class="stock-status">
+                        <span class="stock-dot in-stock"></span>
+                        <span class="stock-text in-stock">In Stock</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </div>
+            <h2 class="empty-title">Your Wishlist is Empty</h2>
+            <p class="empty-text">Start adding your favorite products to keep track of them and get notified about price drops and restocks.</p>
+            <a href="#" class="btn btn-primary">Browse Products</a>
+        </div>
+    </main>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="shareModal">
+        <div class="modal" style="position: relative;">
+            <button class="modal-close" onclick="closeShareModal()">&times;</button>
+            <h2 class="modal-title">Share Your Wishlist</h2>
+            <p class="modal-text">Share your curated collection with friends and family</p>
+            <div class="share-link-container">
+                <input type="text" class="share-link-input" id="shareLink" value="https://glowhaus.com/wishlist/share/abc123xyz" readonly>
+                <button class="copy-btn" onclick="copyLink()">Copy</button>
+            </div>
+            <div class="share-options">
+                <a href="#" class="share-option share-email" title="Share via Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="share-option share-facebook" title="Share on Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="share-option share-pinterest" title="Share on Pinterest">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                    </svg>
+                </a>
+                <a href="#" class="share-option share-twitter" title="Share on Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </span>
+        <span id="toastMessage">Item added to cart</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">GLOWHAUS</div>
+                <p class="footer-description">Discover luxury beauty essentials curated for the modern woman. Premium skincare, makeup, and fragrances delivered to your door.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Makeup</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2024 GLOWHAUS. All rights reserved.</p>
+            <div class="payment-methods">
+                <span>Visa</span>
+                <span>Mastercard</span>
+                <span>Amex</span>
+                <span>PayPal</span>
+                <span>Apple Pay</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update item count
+        function updateItemCount() {
+            const items = document.querySelectorAll('.wishlist-item');
+            const count = items.length;
+            document.getElementById('itemCount').textContent = count;
+
+            // Show/hide empty state
+            const grid = document.getElementById('wishlistGrid');
+            const emptyState = document.getElementById('emptyState');
+            const controls = document.querySelector('.wishlist-controls');
+
+            if (count === 0) {
+                grid.style.display = 'none';
+                emptyState.classList.add('show');
+                controls.style.display = 'none';
+            } else {
+                grid.style.display = 'grid';
+                emptyState.classList.remove('show');
+                controls.style.display = 'flex';
+            }
+        }
+
+        // Remove item from wishlist
+        function removeItem(button) {
+            const item = button.closest('.wishlist-item');
+            item.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => {
+                item.remove();
+                updateItemCount();
+                showToast('Item removed from wishlist');
+            }, 300);
+        }
+
+        // Add item to cart
+        function addToCart(button) {
+            const itemName = button.closest('.wishlist-item').querySelector('.item-name').textContent;
+            showToast(`${itemName} added to cart`);
+
+            // Update cart badge
+            const cartBadge = document.querySelectorAll('.icon-badge')[1];
+            cartBadge.textContent = parseInt(cartBadge.textContent) + 1;
+        }
+
+        // Move all items to cart
+        function moveAllToCart() {
+            const items = document.querySelectorAll('.wishlist-item');
+            let addedCount = 0;
+
+            items.forEach(item => {
+                const addBtn = item.querySelector('.add-to-cart-btn');
+                if (!addBtn.disabled) {
+                    addedCount++;
+                }
+            });
+
+            if (addedCount > 0) {
+                showToast(`${addedCount} items added to cart`);
+
+                // Update cart badge
+                const cartBadge = document.querySelectorAll('.icon-badge')[1];
+                cartBadge.textContent = parseInt(cartBadge.textContent) + addedCount;
+            } else {
+                showToast('No items available to add');
+            }
+        }
+
+        // Sort wishlist
+        function sortWishlist() {
+            const sortValue = document.getElementById('sortSelect').value;
+            const grid = document.getElementById('wishlistGrid');
+            const items = Array.from(grid.querySelectorAll('.wishlist-item'));
+
+            items.sort((a, b) => {
+                switch (sortValue) {
+                    case 'date-newest':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'date-oldest':
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    case 'price-low':
+                        return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                    case 'price-high':
+                        return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                    case 'name-az':
+                        return a.dataset.name.localeCompare(b.dataset.name);
+                    case 'name-za':
+                        return b.dataset.name.localeCompare(a.dataset.name);
+                    default:
+                        return 0;
+                }
+            });
+
+            items.forEach(item => grid.appendChild(item));
+        }
+
+        // Share modal
+        function openShareModal() {
+            document.getElementById('shareModal').classList.add('show');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.remove('show');
+        }
+
+        // Copy link
+        function copyLink() {
+            const linkInput = document.getElementById('shareLink');
+            linkInput.select();
+            document.execCommand('copy');
+            showToast('Link copied to clipboard');
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Close modal on overlay click
+        document.getElementById('shareModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeShareModal();
+            }
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: scale(1); }
+                to { opacity: 0; transform: scale(0.9); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        updateItemCount();
+    </script>
+</body>
+</html>
