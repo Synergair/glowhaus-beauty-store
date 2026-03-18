@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowRoutine™ Builder | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #c9a86c;
+            --accent-hover: #b8954f;
+            --rose: #e8b4b8;
+            --rose-dark: #d4949a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf9f7;
+            --bg-rose: #fdf5f5;
+            --bg-dark: #1a1a1a;
+            --border: #e8e8e8;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 50%, white 100%);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .routine-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .routine-tab {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: white;
+            border: 2px solid var(--border);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .routine-tab:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .routine-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .routine-tab svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Builder */
+        .builder-section {
+            padding: 60px 0;
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+        }
+
+        /* Products Panel */
+        .products-panel {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 32px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .panel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: none;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover {
+            background: var(--border);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .product-card {
+            background: var(--bg-secondary);
+            padding: 16px;
+            cursor: grab;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .product-card.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .product-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .product-card .category {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .product-card .price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .drag-hint {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Routine Panel */
+        .routine-panel {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .routine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .routine-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .routine-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .routine-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--rose) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .clear-btn:hover {
+            color: var(--rose-dark);
+        }
+
+        /* Drop Zone */
+        .drop-zone {
+            min-height: 400px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        .drop-zone.drag-over {
+            border-color: var(--accent);
+            background: rgba(201, 168, 108, 0.05);
+        }
+
+        .drop-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .drop-placeholder svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .drop-placeholder p {
+            font-size: 14px;
+        }
+
+        /* Routine Items */
+        .routine-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .routine-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            cursor: grab;
+            transition: all 0.2s;
+        }
+
+        .routine-item:hover {
+            border-color: var(--accent);
+        }
+
+        .routine-item.dragging {
+            opacity: 0.5;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .routine-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .routine-item-info {
+            flex: 1;
+        }
+
+        .routine-item-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .routine-item-info p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .remove-item {
+            width: 28px;
+            height: 28px;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .remove-item:hover {
+            background: var(--rose-dark);
+            border-color: var(--rose-dark);
+            color: white;
+        }
+
+        /* Order Suggestion */
+        .order-suggestion {
+            margin-top: 20px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(201, 168, 108, 0.1) 0%, rgba(232, 180, 184, 0.1) 100%);
+            border: 1px solid rgba(201, 168, 108, 0.3);
+        }
+
+        .suggestion-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .suggestion-header svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .order-suggestion p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .apply-suggestion {
+            margin-top: 12px;
+            padding: 10px 16px;
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .apply-suggestion:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Summary */
+        .routine-summary {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .summary-row.total {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            margin-top: 12px;
+        }
+
+        .routine-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .routine-actions .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Saved Routines */
+        .saved-routines {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .saved-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .saved-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .saved-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .saved-card {
+            background: var(--bg-secondary);
+            padding: 24px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .saved-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .saved-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .saved-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .saved-card-badge {
+            padding: 4px 10px;
+            background: var(--primary);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .saved-card-products {
+            display: flex;
+            gap: -8px;
+            margin-bottom: 16px;
+        }
+
+        .saved-card-products img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border: 2px solid white;
+            margin-left: -8px;
+        }
+
+        .saved-card-products img:first-child {
+            margin-left: 0;
+        }
+
+        .saved-card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .builder-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .routine-panel {
+                position: static;
+            }
+
+            .saved-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .routine-tabs {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .saved-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="skin-analysis.html" class="nav-link">SkinGenius™</a></li>
+                    <li><a href="routine-builder.html" class="nav-link active">Routines</a></li>
+                    <li><a href="search.html" class="nav-link">Search</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" class="btn btn-primary">Cart (0)</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                </svg>
+                GlowRoutine™ Technology
+            </div>
+            <h1>Build Your Perfect Routine</h1>
+            <p>Drag and drop products to create your personalized skincare routine. Our GlowRoutine™ system suggests the optimal order for maximum results.</p>
+            <div class="routine-tabs">
+                <button class="routine-tab active" data-routine="morning">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    Morning Routine
+                </button>
+                <button class="routine-tab" data-routine="evening">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    Evening Routine
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Builder Section -->
+    <section class="builder-section">
+        <div class="container">
+            <div class="builder-grid">
+                <!-- Products Panel -->
+                <div class="products-panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Your Products</h3>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">All</button>
+                            <button class="filter-tab" data-filter="cleansers">Cleansers</button>
+                            <button class="filter-tab" data-filter="serums">Serums</button>
+                            <button class="filter-tab" data-filter="moisturizers">Moisturizers</button>
+                        </div>
+                    </div>
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Routine Panel -->
+                <div class="routine-panel">
+                    <div class="routine-header">
+                        <div class="routine-title">
+                            <div class="routine-icon" id="routineIcon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                </svg>
+                            </div>
+                            <h2 id="routineTitle">Morning Routine</h2>
+                        </div>
+                        <button class="clear-btn" id="clearRoutine">Clear all</button>
+                    </div>
+
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-placeholder" id="dropPlaceholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <p>Drag products here to build your routine</p>
+                        </div>
+                        <div class="routine-items" id="routineItems">
+                            <!-- Routine items will be added here -->
+                        </div>
+                    </div>
+
+                    <div class="order-suggestion" id="orderSuggestion" style="display: none;">
+                        <div class="suggestion-header">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                            </svg>
+                            GlowRoutine™ Suggestion
+                        </div>
+                        <p id="suggestionText">For best results, apply products from thinnest to thickest consistency.</p>
+                        <button class="apply-suggestion" id="applySuggestion">Apply Optimal Order</button>
+                    </div>
+
+                    <div class="routine-summary" id="routineSummary" style="display: none;">
+                        <div class="summary-row">
+                            <span>Products</span>
+                            <span id="productCount">0 items</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Time</span>
+                            <span id="routineTime">0 min</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total Value</span>
+                            <span id="routineTotal">$0.00</span>
+                        </div>
+                        <div class="routine-actions">
+                            <button class="btn btn-accent" id="addAllToCart">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"/>
+                                    <circle cx="20" cy="21" r="1"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                                Add All to Cart
+                            </button>
+                            <button class="btn btn-outline" id="saveRoutine">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                    <polyline points="17 21 17 13 7 13 7 21"/>
+                                    <polyline points="7 3 7 8 15 8"/>
+                                </svg>
+                                Save Routine
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saved Routines -->
+    <section class="saved-routines">
+        <div class="container">
+            <div class="saved-header">
+                <h2>Your Saved Routines</h2>
+            </div>
+            <div class="saved-grid" id="savedGrid">
+                <!-- Saved routines loaded via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="skin-analysis.html">SkinGenius™</a></li>
+                        <li><a href="routine-builder.html">GlowRoutine™</a></li>
+                        <li><a href="search.html">SmartMatch™</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Glowhaus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // GLOWROUTINE™ BUILDER ENGINE
+        // Proprietary routine optimization system
+
+        // Product Database
+        const products = [
+            {
+                id: 1,
+                name: "Gentle Foaming Cleanser",
+                category: "cleansers",
+                price: 28.00,
+                image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=200&h=200&fit=crop",
+                order: 1,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 2,
+                name: "Oil Cleanser",
+                category: "cleansers",
+                price: 32.00,
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=200&h=200&fit=crop",
+                order: 0,
+                time: 2,
+                routines: ["evening"]
+            },
+            {
+                id: 3,
+                name: "Hydrating Toner",
+                category: "serums",
+                price: 26.00,
+                image: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=200&h=200&fit=crop",
+                order: 2,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 4,
+                name: "Vitamin C Serum",
+                category: "serums",
+                price: 42.00,
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop",
+                order: 3,
+                time: 1,
+                routines: ["morning"]
+            },
+            {
+                id: 5,
+                name: "Hyaluronic Acid Serum",
+                category: "serums",
+                price: 36.00,
+                image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=200&h=200&fit=crop",
+                order: 4,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 6,
+                name: "Niacinamide Serum",
+                category: "serums",
+                price: 38.00,
+                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=200&h=200&fit=crop",
+                order: 5,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 7,
+                name: "Retinol Night Cream",
+                category: "moisturizers",
+                price: 58.00,
+                image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=200&h=200&fit=crop",
+                order: 7,
+                time: 1,
+                routines: ["evening"]
+            },
+            {
+                id: 8,
+                name: "Daily Moisturizer",
+                category: "moisturizers",
+                price: 44.00,
+                image: "https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=200&h=200&fit=crop",
+                order: 6,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 9,
+                name: "Eye Cream",
+                category: "serums",
+                price: 52.00,
+                image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=200&h=200&fit=crop",
+                order: 5.5,
+                time: 1,
+                routines: ["morning", "evening"]
+            },
+            {
+                id: 10,
+                name: "SPF 50 Sunscreen",
+                category: "moisturizers",
+                price: 34.00,
+                image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=200&h=200&fit=crop",
+                order: 8,
+                time: 1,
+                routines: ["morning"]
+            },
+            {
+                id: 11,
+                name: "Exfoliating Toner",
+                category: "serums",
+                price: 32.00,
+                image: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=200&h=200&fit=crop",
+                order: 2,
+                time: 1,
+                routines: ["evening"]
+            },
+            {
+                id: 12,
+                name: "Sleeping Mask",
+                category: "moisturizers",
+                price: 48.00,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=200&h=200&fit=crop",
+                order: 9,
+                time: 1,
+                routines: ["evening"]
+            }
+        ];
+
+        // Layering rules for GlowRoutine™ optimization
+        const layeringOrder = {
+            "oil cleanser": 0,
+            "cleanser": 1,
+            "toner": 2,
+            "essence": 3,
+            "serum": 4,
+            "eye cream": 5,
+            "moisturizer": 6,
+            "oil": 7,
+            "sunscreen": 8,
+            "sleeping mask": 9
+        };
+
+        // State
+        let currentRoutine = "morning";
+        let routineItems = [];
+        let activeFilter = "all";
+        let savedRoutines = JSON.parse(localStorage.getItem('glowhaus_routines') || '[]');
+
+        // DOM Elements
+        const productsGrid = document.getElementById('productsGrid');
+        const routineItemsEl = document.getElementById('routineItems');
+        const dropZone = document.getElementById('dropZone');
+        const dropPlaceholder = document.getElementById('dropPlaceholder');
+        const orderSuggestion = document.getElementById('orderSuggestion');
+        const routineSummary = document.getElementById('routineSummary');
+        const savedGrid = document.getElementById('savedGrid');
+
+        // Initialize
+        function init() {
+            renderProducts();
+            renderSavedRoutines();
+            setupEventListeners();
+        }
+
+        // Render Products
+        function renderProducts() {
+            const filtered = activeFilter === 'all'
+                ? products.filter(p => p.routines.includes(currentRoutine))
+                : products.filter(p => p.category === activeFilter && p.routines.includes(currentRoutine));
+
+            productsGrid.innerHTML = filtered.map(product => `
+                <div class="product-card" draggable="true" data-id="${product.id}">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p class="category">${product.category}</p>
+                    <p class="price">$${product.price.toFixed(2)}</p>
+                    <p class="drag-hint">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 9 2 12 5 15"/>
+                            <polyline points="9 5 12 2 15 5"/>
+                            <polyline points="15 19 12 22 9 19"/>
+                            <polyline points="19 9 22 12 19 15"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <line x1="12" y1="2" x2="12" y2="22"/>
+                        </svg>
+                        Drag to routine
+                    </p>
+                </div>
+            `).join('');
+
+            // Setup drag events
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('dragstart', handleDragStart);
+                card.addEventListener('dragend', handleDragEnd);
+            });
+        }
+
+        // Render Routine Items
+        function renderRoutineItems() {
+            if (routineItems.length === 0) {
+                dropPlaceholder.style.display = 'flex';
+                routineItemsEl.innerHTML = '';
+                orderSuggestion.style.display = 'none';
+                routineSummary.style.display = 'none';
+                return;
+            }
+
+            dropPlaceholder.style.display = 'none';
+            routineSummary.style.display = 'block';
+
+            routineItemsEl.innerHTML = routineItems.map((item, index) => `
+                <div class="routine-item" draggable="true" data-index="${index}">
+                    <span class="step-number">${index + 1}</span>
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="routine-item-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.category} • $${item.price.toFixed(2)}</p>
+                    </div>
+                    <button class="remove-item" onclick="removeItem(${index})">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+
+            // Setup routine item drag events
+            document.querySelectorAll('.routine-item').forEach(item => {
+                item.addEventListener('dragstart', handleRoutineItemDragStart);
+                item.addEventListener('dragend', handleDragEnd);
+                item.addEventListener('dragover', handleRoutineItemDragOver);
+            });
+
+            // Update summary
+            updateSummary();
+
+            // Check if order is optimal
+            checkOrder();
+        }
+
+        // Update Summary
+        function updateSummary() {
+            const count = routineItems.length;
+            const total = routineItems.reduce((sum, item) => sum + item.price, 0);
+            const time = routineItems.reduce((sum, item) => sum + item.time, 0);
+
+            document.getElementById('productCount').textContent = `${count} item${count !== 1 ? 's' : ''}`;
+            document.getElementById('routineTime').textContent = `${time} min`;
+            document.getElementById('routineTotal').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Check Order and Show Suggestion
+        function checkOrder() {
+            if (routineItems.length < 2) {
+                orderSuggestion.style.display = 'none';
+                return;
+            }
+
+            const isOptimal = routineItems.every((item, index) => {
+                if (index === 0) return true;
+                return item.order >= routineItems[index - 1].order;
+            });
+
+            if (!isOptimal) {
+                orderSuggestion.style.display = 'block';
+                document.getElementById('suggestionText').textContent =
+                    'GlowRoutine™ detected that your products aren\'t in the optimal order. Apply from thinnest to thickest consistency for best absorption.';
+            } else {
+                orderSuggestion.style.display = 'none';
+            }
+        }
+
+        // Apply Optimal Order
+        function applyOptimalOrder() {
+            routineItems.sort((a, b) => a.order - b.order);
+            renderRoutineItems();
+        }
+
+        // Drag and Drop Handlers
+        let draggedItem = null;
+        let draggedIndex = null;
+
+        function handleDragStart(e) {
+            draggedItem = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', this.dataset.id);
+        }
+
+        function handleRoutineItemDragStart(e) {
+            draggedItem = this;
+            draggedIndex = parseInt(this.dataset.index);
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleDragEnd() {
+            this.classList.remove('dragging');
+            draggedItem = null;
+            draggedIndex = null;
+            dropZone.classList.remove('drag-over');
+        }
+
+        function handleRoutineItemDragOver(e) {
+            e.preventDefault();
+            if (draggedIndex === null) return;
+
+            const targetIndex = parseInt(this.dataset.index);
+            if (targetIndex === draggedIndex) return;
+
+            // Reorder items
+            const item = routineItems[draggedIndex];
+            routineItems.splice(draggedIndex, 1);
+            routineItems.splice(targetIndex, 0, item);
+            draggedIndex = targetIndex;
+
+            renderRoutineItems();
+        }
+
+        // Remove Item
+        function removeItem(index) {
+            routineItems.splice(index, 1);
+            renderRoutineItems();
+        }
+
+        // Render Saved Routines
+        function renderSavedRoutines() {
+            if (savedRoutines.length === 0) {
+                savedGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted);">
+                        <p>No saved routines yet. Build your first routine above!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            savedGrid.innerHTML = savedRoutines.map((routine, index) => `
+                <div class="saved-card" onclick="loadRoutine(${index})">
+                    <div class="saved-card-header">
+                        <h3>${routine.name}</h3>
+                        <span class="saved-card-badge">${routine.type}</span>
+                    </div>
+                    <div class="saved-card-products">
+                        ${routine.items.slice(0, 5).map(item => `
+                            <img src="${item.image}" alt="${item.name}">
+                        `).join('')}
+                    </div>
+                    <div class="saved-card-meta">
+                        <span>${routine.items.length} products</span>
+                        <span>$${routine.items.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load Saved Routine
+        function loadRoutine(index) {
+            const routine = savedRoutines[index];
+            currentRoutine = routine.type;
+            routineItems = [...routine.items];
+
+            // Update tabs
+            document.querySelectorAll('.routine-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.routine === currentRoutine);
+            });
+
+            // Update title
+            document.getElementById('routineTitle').textContent =
+                currentRoutine === 'morning' ? 'Morning Routine' : 'Evening Routine';
+
+            renderProducts();
+            renderRoutineItems();
+        }
+
+        // Save Routine
+        function saveRoutine() {
+            if (routineItems.length === 0) {
+                alert('Add some products to your routine first!');
+                return;
+            }
+
+            const name = prompt('Name your routine:', `My ${currentRoutine === 'morning' ? 'Morning' : 'Evening'} Glow`);
+            if (!name) return;
+
+            savedRoutines.push({
+                name: name,
+                type: currentRoutine,
+                items: [...routineItems],
+                createdAt: new Date().toISOString()
+            });
+
+            localStorage.setItem('glowhaus_routines', JSON.stringify(savedRoutines));
+            renderSavedRoutines();
+            alert('Routine saved!');
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Drop zone
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drag-over');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('drag-over');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('drag-over');
+
+                const productId = e.dataTransfer.getData('text/plain');
+                if (productId) {
+                    const product = products.find(p => p.id === parseInt(productId));
+                    if (product && !routineItems.find(item => item.id === product.id)) {
+                        routineItems.push({...product});
+                        renderRoutineItems();
+                    }
+                }
+            });
+
+            // Routine tabs
+            document.querySelectorAll('.routine-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.routine-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentRoutine = tab.dataset.routine;
+
+                    document.getElementById('routineTitle').textContent =
+                        currentRoutine === 'morning' ? 'Morning Routine' : 'Evening Routine';
+
+                    routineItems = [];
+                    renderProducts();
+                    renderRoutineItems();
+                });
+            });
+
+            // Filter tabs
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    activeFilter = tab.dataset.filter;
+                    renderProducts();
+                });
+            });
+
+            // Clear routine
+            document.getElementById('clearRoutine').addEventListener('click', () => {
+                routineItems = [];
+                renderRoutineItems();
+            });
+
+            // Apply suggestion
+            document.getElementById('applySuggestion').addEventListener('click', applyOptimalOrder);
+
+            // Save routine
+            document.getElementById('saveRoutine').addEventListener('click', saveRoutine);
+
+            // Add all to cart
+            document.getElementById('addAllToCart').addEventListener('click', () => {
+                alert(`Added ${routineItems.length} products to cart!`);
+            });
+        }
+
+        // Initialize
+        init();
+    </script>
+</body>
+</html>
