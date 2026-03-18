@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendRadar™ | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+            --tiktok: #ff0050;
+            --instagram: #e1306c;
+            --youtube: #ff0000;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--tiktok) 0%, var(--instagram) 100%);
+            color: white;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--rose);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 32px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: white;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--rose);
+            color: white;
+            border-color: var(--rose);
+        }
+
+        /* Viral Now Section */
+        .viral-section {
+            margin-bottom: 60px;
+        }
+
+        .viral-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .viral-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .viral-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .viral-card.featured {
+            grid-row: span 2;
+        }
+
+        .viral-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viral-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .viral-card.featured .viral-image {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .viral-card:hover .viral-image {
+            transform: scale(1.05);
+        }
+
+        .viral-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .viral-badge.tiktok {
+            background: var(--tiktok);
+            color: white;
+        }
+
+        .viral-badge.instagram {
+            background: var(--instagram);
+            color: white;
+        }
+
+        .viral-badge.youtube {
+            background: var(--youtube);
+            color: white;
+        }
+
+        .viral-views {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .viral-content {
+            padding: 20px;
+        }
+
+        .viral-card.featured .viral-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+            padding: 40px 24px 24px;
+        }
+
+        .viral-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--cream);
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--rose);
+            margin-bottom: 8px;
+        }
+
+        .viral-card.featured .viral-tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .viral-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .viral-card.featured .viral-title {
+            font-size: 24px;
+            color: white;
+        }
+
+        .viral-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .viral-card.featured .viral-meta {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Trending Products */
+        .trending-section {
+            margin-bottom: 60px;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image-container {
+            position: relative;
+            padding-top: 100%;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .trending-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--tiktok) 0%, var(--instagram) 100%);
+            color: white;
+        }
+
+        .viral-this-week {
+            padding: 4px 8px;
+            background: var(--gold);
+            border-radius: 8px;
+            font-size: 9px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--rose);
+            margin-bottom: 12px;
+        }
+
+        .product-trend-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .trend-growth {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .trend-source {
+            display: flex;
+            gap: 6px;
+        }
+
+        .source-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .source-icon.tiktok { background: var(--tiktok); }
+        .source-icon.instagram { background: var(--instagram); }
+
+        /* Creator Picks */
+        .creator-section {
+            margin-bottom: 60px;
+        }
+
+        .creator-scroll {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .creator-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .creator-scroll::-webkit-scrollbar-thumb {
+            background: var(--rose);
+            border-radius: 2px;
+        }
+
+        .creator-card {
+            min-width: 280px;
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .creator-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 3px solid var(--gold);
+        }
+
+        .creator-name {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .creator-handle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .creator-followers {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--cream);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .creator-picks {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .creator-pick {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Trend Categories */
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
+        }
+
+        .category-name {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .category-count {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Live Pulse */
+        .pulse-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+        }
+
+        .pulse-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .pulse-title {
+            font-size: 28px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pulse-live {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255,0,80,0.2);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--tiktok);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .pulse-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pulse-hashtag {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pulse-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .pulse-growth {
+            color: #22c55e;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .viral-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .viral-card.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .trending-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pulse-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                gap: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .viral-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .viral-card.featured {
+                grid-column: span 1;
+            }
+
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pulse-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">GLOWHAUS</a>
+                <div style="display: flex; gap: 12px;">
+                    <a href="collection.html" class="btn" style="background: transparent; color: var(--rose); border: 2px solid var(--rose);">Shop All</a>
+                    <a href="cart.html" class="btn btn-primary">Bag (0)</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">📡 TrendRadar™ Technology</div>
+                <h1 class="hero-title">What's Trending Now</h1>
+                <p class="hero-subtitle">TrendRadar™ scans social media to surface the hottest beauty trends, viral products, and must-try looks—updated in real time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">2.4M</div>
+                    <div class="stat-label">Trends Tracked</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">847</div>
+                    <div class="stat-label">Viral Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">156K</div>
+                    <div class="stat-label">Creator Posts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Real-time</div>
+                    <div class="stat-label">Updates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Viral Now -->
+            <section class="viral-section">
+                <div class="section-header">
+                    <h2 class="section-title">🔥 Viral Right Now</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">All</button>
+                        <button class="filter-tab">TikTok</button>
+                        <button class="filter-tab">Instagram</button>
+                        <button class="filter-tab">YouTube</button>
+                    </div>
+                </div>
+                <div class="viral-grid">
+                    <div class="viral-card featured">
+                        <div class="viral-image-container">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop" alt="Glass Skin" class="viral-image">
+                            <div class="viral-badge tiktok">♪ TikTok</div>
+                            <div class="viral-views">24.5M views</div>
+                            <div class="viral-content">
+                                <span class="viral-tag">#GlassSkin</span>
+                                <h3 class="viral-title">"Dolphin Skin" is the New Glass Skin</h3>
+                                <p class="viral-meta">The wet, glossy look is taking over—here's how to get it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viral-card">
+                        <div class="viral-image-container">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop" alt="Latte Makeup" class="viral-image">
+                            <div class="viral-badge instagram">📷 Instagram</div>
+                            <div class="viral-views">8.2M views</div>
+                        </div>
+                        <div class="viral-content">
+                            <span class="viral-tag">#LatteMakeup</span>
+                            <h3 class="viral-title">Latte Makeup: Warm Brown Everything</h3>
+                            <p class="viral-meta">The cozy, warm-toned trend for spring</p>
+                        </div>
+                    </div>
+                    <div class="viral-card">
+                        <div class="viral-image-container">
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=300&fit=crop" alt="Skinimalism" class="viral-image">
+                            <div class="viral-badge tiktok">♪ TikTok</div>
+                            <div class="viral-views">12.8M views</div>
+                        </div>
+                        <div class="viral-content">
+                            <span class="viral-tag">#Skinimalism</span>
+                            <h3 class="viral-title">The 3-Product Routine Going Viral</h3>
+                            <p class="viral-meta">Less is more with this minimalist approach</p>
+                        </div>
+                    </div>
+                    <div class="viral-card">
+                        <div class="viral-image-container">
+                            <img src="https://images.unsplash.com/photo-1583241800698-e8ab01828b6b?w=400&h=300&fit=crop" alt="Cold Girl Blush" class="viral-image">
+                            <div class="viral-badge tiktok">♪ TikTok</div>
+                            <div class="viral-views">6.1M views</div>
+                        </div>
+                        <div class="viral-content">
+                            <span class="viral-tag">#ColdGirlBlush</span>
+                            <h3 class="viral-title">The "Just Came Inside" Blush Technique</h3>
+                            <p class="viral-meta">Flushed cheeks and nose for that fresh look</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trending Products -->
+            <section class="trending-section">
+                <div class="section-header">
+                    <h2 class="section-title">📈 Trending Products</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">This Week</button>
+                        <button class="filter-tab">This Month</button>
+                        <button class="filter-tab">Rising</button>
+                    </div>
+                </div>
+                <div class="trending-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop" alt="Peptide Serum" class="product-image">
+                            <div class="product-badges">
+                                <span class="trending-badge">🔥 #1 Trending</span>
+                                <span class="viral-this-week">Viral This Week</span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-brand">GLOWHAUS</div>
+                            <h3 class="product-name">Glass Skin Serum</h3>
+                            <div class="product-price">$38</div>
+                            <div class="product-trend-info">
+                                <span class="trend-growth">↑ 847%</span>
+                                <div class="trend-source">
+                                    <span class="source-icon tiktok">♪</span>
+                                    <span class="source-icon instagram">📷</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop" alt="Lip Gloss" class="product-image">
+                            <div class="product-badges">
+                                <span class="trending-badge">✨ #2 Trending</span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-brand">GLOWHAUS</div>
+                            <h3 class="product-name">Glazed Donut Gloss</h3>
+                            <div class="product-price">$24</div>
+                            <div class="product-trend-info">
+                                <span class="trend-growth">↑ 632%</span>
+                                <div class="trend-source">
+                                    <span class="source-icon tiktok">♪</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop" alt="Blush" class="product-image">
+                            <div class="product-badges">
+                                <span class="trending-badge">💖 #3 Trending</span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-brand">GLOWHAUS</div>
+                            <h3 class="product-name">Cloud Blush Stick</h3>
+                            <div class="product-price">$28</div>
+                            <div class="product-trend-info">
+                                <span class="trend-growth">↑ 425%</span>
+                                <div class="trend-source">
+                                    <span class="source-icon instagram">📷</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop" alt="Moisturizer" class="product-image">
+                            <div class="product-badges">
+                                <span class="trending-badge">🌊 #4 Trending</span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-brand">GLOWHAUS</div>
+                            <h3 class="product-name">Water Cream Gel</h3>
+                            <div class="product-price">$42</div>
+                            <div class="product-trend-info">
+                                <span class="trend-growth">↑ 318%</span>
+                                <div class="trend-source">
+                                    <span class="source-icon tiktok">♪</span>
+                                    <span class="source-icon instagram">📷</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Creator Picks -->
+            <section class="creator-section">
+                <div class="section-header">
+                    <h2 class="section-title">👑 Creator Favorites</h2>
+                </div>
+                <div class="creator-scroll">
+                    <div class="creator-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" alt="Creator" class="creator-avatar">
+                        <h3 class="creator-name">Emma Glow</h3>
+                        <p class="creator-handle">@emmaglow</p>
+                        <div class="creator-followers">👥 2.4M followers</div>
+                        <div class="creator-picks">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100&h=100&fit=crop" alt="Pick 1" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=100&h=100&fit=crop" alt="Pick 2" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=100&h=100&fit=crop" alt="Pick 3" class="creator-pick">
+                        </div>
+                    </div>
+                    <div class="creator-card">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=200&fit=crop&crop=face" alt="Creator" class="creator-avatar">
+                        <h3 class="creator-name">Skin by Mia</h3>
+                        <p class="creator-handle">@skinbymia</p>
+                        <div class="creator-followers">👥 1.8M followers</div>
+                        <div class="creator-picks">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=100&h=100&fit=crop" alt="Pick 1" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=100&h=100&fit=crop" alt="Pick 2" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=100&h=100&fit=crop" alt="Pick 3" class="creator-pick">
+                        </div>
+                    </div>
+                    <div class="creator-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" alt="Creator" class="creator-avatar">
+                        <h3 class="creator-name">Beauty Bae</h3>
+                        <p class="creator-handle">@beautybae</p>
+                        <div class="creator-followers">👥 3.1M followers</div>
+                        <div class="creator-picks">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100&h=100&fit=crop" alt="Pick 1" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=100&h=100&fit=crop" alt="Pick 2" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=100&h=100&fit=crop" alt="Pick 3" class="creator-pick">
+                        </div>
+                    </div>
+                    <div class="creator-card">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&crop=face" alt="Creator" class="creator-avatar">
+                        <h3 class="creator-name">Glow Queen</h3>
+                        <p class="creator-handle">@glowqueen</p>
+                        <div class="creator-followers">👥 956K followers</div>
+                        <div class="creator-picks">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=100&h=100&fit=crop" alt="Pick 1" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=100&h=100&fit=crop" alt="Pick 2" class="creator-pick">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100&h=100&fit=crop" alt="Pick 3" class="creator-pick">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trend Categories -->
+            <section class="category-section">
+                <div class="section-header">
+                    <h2 class="section-title">🎯 Explore by Trend</h2>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-icon">✨</div>
+                        <h3 class="category-name">Glass Skin</h3>
+                        <p class="category-count">234 trending products</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">☁️</div>
+                        <h3 class="category-name">Cloud Makeup</h3>
+                        <p class="category-count">156 trending products</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">🧬</div>
+                        <h3 class="category-name">Skincare Tech</h3>
+                        <p class="category-count">98 trending products</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Pulse -->
+            <section class="pulse-section">
+                <div class="pulse-header">
+                    <h2 class="pulse-title">📡 Live TrendRadar™ Pulse</h2>
+                    <div class="pulse-live">
+                        <span class="pulse-dot"></span>
+                        Live Updates
+                    </div>
+                </div>
+                <div class="pulse-grid">
+                    <div class="pulse-item">
+                        <div class="pulse-hashtag">#DolphinSkin</div>
+                        <div class="pulse-stats">
+                            <span>2.4M posts</span>
+                            <span class="pulse-growth">↑ 156%</span>
+                        </div>
+                    </div>
+                    <div class="pulse-item">
+                        <div class="pulse-hashtag">#LatteMakeup</div>
+                        <div class="pulse-stats">
+                            <span>1.8M posts</span>
+                            <span class="pulse-growth">↑ 89%</span>
+                        </div>
+                    </div>
+                    <div class="pulse-item">
+                        <div class="pulse-hashtag">#CleanBeauty</div>
+                        <div class="pulse-stats">
+                            <span>5.6M posts</span>
+                            <span class="pulse-growth">↑ 45%</span>
+                        </div>
+                    </div>
+                    <div class="pulse-item">
+                        <div class="pulse-hashtag">#GlassSkin</div>
+                        <div class="pulse-stats">
+                            <span>8.9M posts</span>
+                            <span class="pulse-growth">↑ 32%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Filter tab interactions
+        document.querySelectorAll('.filter-tabs').forEach(container => {
+            container.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    container.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Simulate live pulse updates
+        function updatePulse() {
+            document.querySelectorAll('.pulse-growth').forEach(el => {
+                const current = parseInt(el.textContent.replace(/[^0-9]/g, ''));
+                const change = Math.floor(Math.random() * 10) - 3;
+                const newValue = Math.max(1, current + change);
+                el.textContent = `↑ ${newValue}%`;
+            });
+        }
+
+        setInterval(updatePulse, 5000);
+    </script>
+</body>
+</html>

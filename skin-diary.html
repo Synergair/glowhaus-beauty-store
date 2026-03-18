@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowDiary™ Skin Journal | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+            --safe: #22c55e;
+            --caution: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+        }
+
+        .btn-secondary:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 32px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr 280px;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        /* Calendar */
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .calendar-nav button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .calendar-nav button:hover {
+            background: var(--rose);
+            color: white;
+            border-color: var(--rose);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 8px 0;
+            text-transform: uppercase;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .calendar-day:hover {
+            background: var(--cream);
+        }
+
+        .calendar-day.today {
+            background: var(--rose);
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-day.has-entry::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .calendar-day.today.has-entry::after {
+            background: white;
+        }
+
+        /* Skin Score */
+        .skin-score-ring {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .skin-score-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .skin-score-ring circle {
+            fill: none;
+            stroke-width: 10;
+        }
+
+        .skin-score-ring .bg {
+            stroke: var(--border);
+        }
+
+        .skin-score-ring .progress {
+            stroke: url(#scoreGradient);
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .skin-score-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .skin-score-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--rose);
+            line-height: 1;
+        }
+
+        .skin-score-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skin-score-trend {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--safe);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+        }
+
+        .timeline-filters {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: white;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-chip:hover,
+        .filter-chip.active {
+            background: var(--rose);
+            color: white;
+            border-color: var(--rose);
+        }
+
+        /* Entry Card */
+        .entry-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .entry-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .entry-date {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .entry-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .entry-score.good {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--safe);
+        }
+
+        .entry-score.fair {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--caution);
+        }
+
+        .entry-score.poor {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .entry-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .entry-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .entry-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .entry-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .entry-concerns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .concern-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .concern-tag.acne { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .concern-tag.dryness { background: rgba(245, 158, 11, 0.1); color: var(--caution); }
+        .concern-tag.oiliness { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .concern-tag.redness { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
+        .concern-tag.texture { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .concern-tag.glow { background: rgba(34, 197, 94, 0.1); color: var(--safe); }
+
+        .entry-notes {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .entry-products {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: var(--cream);
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .product-pill img {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        /* Insights Panel */
+        .insights-card {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .insights-title {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .insight-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .insight-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .insight-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .insight-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .insight-content p {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* Progress Chart */
+        .progress-chart {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            padding-top: 20px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--border);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            min-height: 20px;
+        }
+
+        .chart-bar-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--cream);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: left;
+        }
+
+        .action-btn:hover {
+            background: var(--cream-dark);
+        }
+
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .action-icon.photo { background: rgba(139, 90, 90, 0.1); }
+        .action-icon.note { background: rgba(212, 165, 116, 0.1); }
+        .action-icon.products { background: rgba(34, 197, 94, 0.1); }
+
+        .action-text {
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Add Entry Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 24px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 24px;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--cream);
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .photo-upload {
+            border: 3px dashed var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .photo-upload:hover {
+            border-color: var(--rose);
+            background: var(--cream);
+        }
+
+        .photo-upload-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .photo-upload-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .photo-preview {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: none;
+        }
+
+        .photo-preview.show {
+            display: block;
+        }
+
+        .concern-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .concern-option {
+            padding: 10px 16px;
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .concern-option:hover {
+            border-color: var(--rose-light);
+        }
+
+        .concern-option.selected {
+            border-color: var(--rose);
+            background: rgba(139, 90, 90, 0.1);
+            color: var(--rose);
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slider {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border);
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .slider-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--rose);
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        .modal-footer {
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-footer .btn {
+            flex: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: 1;
+            }
+
+            .timeline-section {
+                order: 2;
+            }
+
+            .entry-content {
+                grid-template-columns: 1fr;
+            }
+
+            .entry-photo {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">GLOWHAUS</a>
+                <div style="display: flex; gap: 12px;">
+                    <a href="skin-analysis.html" class="btn btn-secondary">Skin Analysis</a>
+                    <button class="btn btn-primary" onclick="openAddModal()">+ New Entry</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">📔 GlowDiary™ Technology</div>
+            <h1 class="hero-title">Your Skin Journal</h1>
+            <p class="hero-subtitle">Track your skin's journey with daily photos and notes. GlowDiary™ spots trends, correlates with your products, and reveals what's working.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Left Sidebar -->
+                <div class="sidebar">
+                    <!-- Calendar -->
+                    <div class="card">
+                        <div class="calendar-header">
+                            <h3 class="card-title" style="margin-bottom: 0;">March 2026</h3>
+                            <div class="calendar-nav">
+                                <button>←</button>
+                                <button>→</button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Skin Score -->
+                    <div class="card">
+                        <h3 class="card-title" style="text-align: center;">Current Glow Score</h3>
+                        <div class="skin-score-ring">
+                            <svg width="140" height="140" viewBox="0 0 140 140">
+                                <defs>
+                                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#8b5a5a"/>
+                                        <stop offset="100%" style="stop-color:#d4a574"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle class="bg" cx="70" cy="70" r="60"/>
+                                <circle class="progress" cx="70" cy="70" r="60"
+                                    stroke-dasharray="377" stroke-dashoffset="75"/>
+                            </svg>
+                            <div class="skin-score-value">
+                                <div class="skin-score-number">82</div>
+                                <div class="skin-score-label">out of 100</div>
+                            </div>
+                        </div>
+                        <div class="skin-score-trend">
+                            ↑ +8% from last week
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card">
+                        <h3 class="card-title">Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="openAddModal()">
+                                <div class="action-icon photo">📸</div>
+                                <span class="action-text">Take Today's Photo</span>
+                            </button>
+                            <button class="action-btn" onclick="openAddModal()">
+                                <div class="action-icon note">📝</div>
+                                <span class="action-text">Add Quick Note</span>
+                            </button>
+                            <button class="action-btn">
+                                <div class="action-icon products">🧴</div>
+                                <span class="action-text">Log Products Used</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Progress Chart -->
+                    <div class="card">
+                        <h3 class="card-title">7-Day Progress</h3>
+                        <div class="progress-chart" id="progressChart">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-section">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Your Skin Journey</h2>
+                        <div class="timeline-filters">
+                            <button class="filter-chip active">All</button>
+                            <button class="filter-chip">Photos</button>
+                            <button class="filter-chip">Notes</button>
+                            <button class="filter-chip">Concerns</button>
+                        </div>
+                    </div>
+
+                    <!-- Entry Cards -->
+                    <div class="entries-list" id="entriesList">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="sidebar">
+                    <!-- AI Insights -->
+                    <div class="insights-card">
+                        <h3 class="insights-title">✨ GlowDiary™ Insights</h3>
+                        <div class="insight-item">
+                            <div class="insight-icon">📈</div>
+                            <div class="insight-content">
+                                <h4>Texture Improving</h4>
+                                <p>Your skin texture has improved 23% since starting the niacinamide serum 2 weeks ago.</p>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">💡</div>
+                            <div class="insight-content">
+                                <h4>Pattern Detected</h4>
+                                <p>Breakouts appear more often on Mondays. Consider your weekend routine.</p>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">🌟</div>
+                            <div class="insight-content">
+                                <h4>Best Week Ever</h4>
+                                <p>This was your highest Glow Score week since starting your journal!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Correlation -->
+                    <div class="card">
+                        <h3 class="card-title">Product Impact</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--cream); border-radius: 10px;">
+                                <span style="font-size: 13px; font-weight: 500;">Niacinamide Serum</span>
+                                <span style="font-size: 12px; color: var(--safe); font-weight: 600;">+15%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--cream); border-radius: 10px;">
+                                <span style="font-size: 13px; font-weight: 500;">Vitamin C Cream</span>
+                                <span style="font-size: 12px; color: var(--safe); font-weight: 600;">+12%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--cream); border-radius: 10px;">
+                                <span style="font-size: 13px; font-weight: 500;">Retinol Treatment</span>
+                                <span style="font-size: 12px; color: var(--caution); font-weight: 600;">+5%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Streaks -->
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 8px;">🔥</div>
+                        <div style="font-size: 32px; font-weight: 700; font-family: 'Cormorant Garamond', serif; color: var(--rose);">14 Days</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Journaling Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Entry Modal -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">New Diary Entry</h2>
+                <button class="modal-close" onclick="closeAddModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">📸 Today's Photo</label>
+                    <div class="photo-upload" id="photoUpload" onclick="document.getElementById('photoInput').click()">
+                        <div class="photo-upload-icon">📷</div>
+                        <p class="photo-upload-text">Click to take or upload a photo</p>
+                    </div>
+                    <img class="photo-preview" id="photoPreview" alt="Preview">
+                    <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="previewPhoto(event)">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">✨ Overall Skin Score</label>
+                    <div class="slider-group">
+                        <input type="range" class="slider" id="scoreSlider" min="1" max="10" value="7" oninput="updateSliderValue()">
+                        <div class="slider-value" id="sliderValue">7</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">🔍 Current Concerns (Select all that apply)</label>
+                    <div class="concern-selector">
+                        <div class="concern-option" onclick="toggleConcern(this)">Acne</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Dryness</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Oiliness</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Redness</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Texture</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Dark Spots</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Fine Lines</div>
+                        <div class="concern-option" onclick="toggleConcern(this)">Sensitivity</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">📝 Notes</label>
+                    <textarea class="form-textarea" placeholder="How is your skin feeling today? Any changes you noticed?"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveEntry()">Save Entry</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample diary entries
+        const diaryEntries = [
+            {
+                id: 1,
+                date: 'Today, March 17',
+                score: 85,
+                scoreClass: 'good',
+                photo: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face',
+                concerns: ['glow', 'texture'],
+                notes: 'Skin is looking amazing today! The new vitamin C serum is really making a difference. Pores look smaller and overall brightness has improved.',
+                products: [
+                    { name: 'Vitamin C Serum', image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=50&h=50&fit=crop' },
+                    { name: 'Hyaluronic Acid', image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=50&h=50&fit=crop' }
+                ]
+            },
+            {
+                id: 2,
+                date: 'Yesterday, March 16',
+                score: 78,
+                scoreClass: 'good',
+                photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
+                concerns: ['dryness'],
+                notes: 'A bit dry today, probably because I skipped my evening routine last night. Need to be more consistent!',
+                products: [
+                    { name: 'Moisturizer', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=50&h=50&fit=crop' }
+                ]
+            },
+            {
+                id: 3,
+                date: 'March 15, 2026',
+                score: 72,
+                scoreClass: 'fair',
+                photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
+                concerns: ['redness', 'acne'],
+                notes: 'Woke up with a small breakout on my chin. Might be stress-related. Applied spot treatment.',
+                products: [
+                    { name: 'Spot Treatment', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=50&h=50&fit=crop' },
+                    { name: 'Calming Serum', image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=50&h=50&fit=crop' }
+                ]
+            }
+        ];
+
+        // Weekly progress data
+        const weeklyProgress = [
+            { day: 'Mon', score: 72 },
+            { day: 'Tue', score: 75 },
+            { day: 'Wed', score: 78 },
+            { day: 'Thu', score: 76 },
+            { day: 'Fri', score: 80 },
+            { day: 'Sat', score: 78 },
+            { day: 'Sun', score: 85 }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+            renderEntries();
+            renderProgressChart();
+        });
+
+        // Render calendar
+        function renderCalendar() {
+            const container = document.getElementById('calendarGrid');
+            const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+            const today = new Date().getDate();
+            const entriesWithPhotos = [1, 2, 3, 5, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17]; // Days with entries
+
+            let html = days.map(d => `<div class="calendar-day-header">${d}</div>`).join('');
+
+            // March 2026 starts on Sunday (day 0)
+            for (let i = 0; i < 31; i++) {
+                const dayNum = i + 1;
+                const isToday = dayNum === today;
+                const hasEntry = entriesWithPhotos.includes(dayNum) && dayNum <= today;
+                html += `<div class="calendar-day ${isToday ? 'today' : ''} ${hasEntry ? 'has-entry' : ''}">${dayNum}</div>`;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Render entries
+        function renderEntries() {
+            const container = document.getElementById('entriesList');
+            container.innerHTML = diaryEntries.map(entry => `
+                <div class="entry-card">
+                    <div class="entry-header">
+                        <span class="entry-date">${entry.date}</span>
+                        <span class="entry-score ${entry.scoreClass}">
+                            ${entry.scoreClass === 'good' ? '✨' : entry.scoreClass === 'fair' ? '⚡' : '⚠️'}
+                            Glow Score: ${entry.score}
+                        </span>
+                    </div>
+                    <div class="entry-content">
+                        <img src="${entry.photo}" alt="Skin photo" class="entry-photo">
+                        <div class="entry-details">
+                            <div class="entry-concerns">
+                                ${entry.concerns.map(c => `<span class="concern-tag ${c}">${c.charAt(0).toUpperCase() + c.slice(1)}</span>`).join('')}
+                            </div>
+                            <p class="entry-notes">${entry.notes}</p>
+                            <div class="entry-products">
+                                ${entry.products.map(p => `
+                                    <div class="product-pill">
+                                        <img src="${p.image}" alt="${p.name}">
+                                        <span>${p.name}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render progress chart
+        function renderProgressChart() {
+            const container = document.getElementById('progressChart');
+            const maxScore = 100;
+
+            container.innerHTML = weeklyProgress.map(d => `
+                <div class="chart-bar" style="height: 100%;">
+                    <div class="chart-bar-fill" style="height: ${d.score}%;"></div>
+                    <span class="chart-label">${d.day}</span>
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openAddModal() {
+            document.getElementById('addModal').classList.add('active');
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').classList.remove('active');
+        }
+
+        // Photo preview
+        function previewPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('photoPreview');
+                    preview.src = e.target.result;
+                    preview.classList.add('show');
+                    document.getElementById('photoUpload').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Slider value
+        function updateSliderValue() {
+            const slider = document.getElementById('scoreSlider');
+            document.getElementById('sliderValue').textContent = slider.value;
+        }
+
+        // Toggle concern
+        function toggleConcern(element) {
+            element.classList.toggle('selected');
+        }
+
+        // Save entry
+        function saveEntry() {
+            alert('GlowDiary™ entry saved! Your skin journey is being tracked.');
+            closeAddModal();
+        }
+
+        // Close modal on overlay click
+        document.getElementById('addModal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                closeAddModal();
+            }
+        });
+
+        // Filter chips
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

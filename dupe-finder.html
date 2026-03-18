@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DupeFinder™ | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+            --safe: #22c55e;
+            --caution: #f59e0b;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+        }
+
+        .btn-secondary:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 60px 0;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 18px 24px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .popular-searches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .popular-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-right: 8px;
+        }
+
+        .popular-chip {
+            padding: 8px 16px;
+            background: var(--cream);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .popular-chip:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 0 0 60px;
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        /* Original Product Card */
+        .original-card {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 24px;
+            padding: 32px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .original-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .original-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .original-info {
+            flex: 1;
+        }
+
+        .original-brand {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .original-name {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .original-price {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .original-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .original-stat {
+            text-align: center;
+        }
+
+        .original-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .original-stat-label {
+            font-size: 11px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Dupe Cards */
+        .dupes-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .dupes-title {
+            font-size: 28px;
+        }
+
+        .dupes-count {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .dupes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .dupe-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .dupe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .dupe-main {
+            display: grid;
+            grid-template-columns: 160px 1fr auto;
+            gap: 24px;
+            padding: 24px;
+            align-items: center;
+        }
+
+        .dupe-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .dupe-info {
+            flex: 1;
+        }
+
+        .dupe-match {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .dupe-match.excellent {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--safe);
+        }
+
+        .dupe-match.great {
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--gold);
+        }
+
+        .dupe-match.good {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--caution);
+        }
+
+        .dupe-brand {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .dupe-name {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .dupe-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .dupe-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .dupe-tag {
+            padding: 4px 10px;
+            background: var(--cream);
+            border-radius: 12px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .dupe-pricing {
+            text-align: right;
+            min-width: 140px;
+        }
+
+        .dupe-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            margin-bottom: 4px;
+        }
+
+        .dupe-savings {
+            font-size: 13px;
+            color: var(--safe);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* Comparison Toggle */
+        .comparison-toggle {
+            padding: 16px 24px;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+
+        .comparison-toggle:hover {
+            background: var(--cream-dark);
+        }
+
+        .comparison-toggle-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--rose);
+        }
+
+        .comparison-toggle-icon {
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .comparison-toggle.open .comparison-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Comparison Panel */
+        .comparison-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .comparison-panel.open {
+            max-height: 600px;
+        }
+
+        .comparison-content {
+            padding: 24px;
+            background: var(--cream);
+        }
+
+        .comparison-section {
+            margin-bottom: 24px;
+        }
+
+        .comparison-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .ingredient-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .ingredient-column {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .ingredient-column-header {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ingredient-list {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .ingredient-match {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--safe);
+        }
+
+        .comparison-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comparison-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-bar-label {
+            width: 100px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .comparison-bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .comparison-bar-original {
+            height: 100%;
+            background: var(--rose);
+        }
+
+        .comparison-bar-dupe {
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .comparison-bar-values {
+            display: flex;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .comparison-bar-values span:first-child {
+            color: var(--rose);
+        }
+
+        .comparison-bar-values span:last-child {
+            color: var(--gold);
+        }
+
+        /* Loading State */
+        .loading-state {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--rose);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .search-input-group {
+                flex-direction: column;
+            }
+
+            .original-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .original-stats {
+                justify-content: center;
+            }
+
+            .dupe-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .dupe-image {
+                margin: 0 auto;
+            }
+
+            .dupe-pricing {
+                text-align: center;
+            }
+
+            .ingredient-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="ingredient-scanner.html" class="btn btn-secondary">CleanCheck™</a>
+                <a href="cart.html" class="btn btn-primary">Bag (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">💎 DupeFinder™ Technology</div>
+            <h1 class="hero-title">Find Your Perfect Dupe</h1>
+            <p class="hero-subtitle">Love a luxury product but not the price? DupeFinder™ matches ingredients and formulas to find affordable alternatives that work just as well.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <div class="search-input-group">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Enter a luxury product name (e.g., La Mer Moisturizer)">
+                    <button class="btn btn-primary" onclick="searchDupes()">Find Dupes</button>
+                </div>
+                <div class="popular-searches">
+                    <span class="popular-label">Popular:</span>
+                    <button class="popular-chip" onclick="searchPopular('La Mer Crème de la Mer')">La Mer Crème</button>
+                    <button class="popular-chip" onclick="searchPopular('Charlotte Tilbury Flawless Filter')">CT Flawless Filter</button>
+                    <button class="popular-chip" onclick="searchPopular('Drunk Elephant Protini')">DE Protini</button>
+                    <button class="popular-chip" onclick="searchPopular('Sunday Riley Good Genes')">SR Good Genes</button>
+                    <button class="popular-chip" onclick="searchPopular('SK-II Essence')">SK-II Essence</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+        <div class="container">
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">DupeFinder™ is analyzing ingredients and formulas...</p>
+            </div>
+
+            <!-- Results Content -->
+            <div id="resultsContent">
+                <!-- Original Product -->
+                <div class="original-card" id="originalCard">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Dupes -->
+                <div class="dupes-header">
+                    <h2 class="dupes-title">Best Matches from GLOWHAUS</h2>
+                    <span class="dupes-count" id="dupesCount">3 dupes found</span>
+                </div>
+                <div class="dupes-grid" id="dupesGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Product database
+        const dupeDatabase = {
+            'La Mer Crème de la Mer': {
+                original: {
+                    brand: 'La Mer',
+                    name: 'Crème de la Mer Moisturizing Cream',
+                    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop',
+                    price: 380,
+                    size: '60ml',
+                    rating: 4.5,
+                    ingredients: 'Seaweed Extract, Mineral Oil, Petrolatum, Glycerin, Isohexadecane, Microcrystalline Wax, Lanolin Alcohol, Citrus Oils, Eucalyptus, Wheat Germ, Alfalfa, Sunflower, Vitamins C, E, B12'
+                },
+                dupes: [
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Marine Miracle Cream',
+                        image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&h=300&fit=crop',
+                        price: 48,
+                        size: '50ml',
+                        match: 92,
+                        matchClass: 'excellent',
+                        description: 'Our best-selling seaweed-infused moisturizer with fermented algae extract and marine minerals.',
+                        tags: ['Vegan', 'Cruelty-Free', 'Clean'],
+                        ingredients: 'Seaweed Extract, Glycerin, Squalane, Algae Extract, Hyaluronic Acid, Vitamin E, Marine Minerals, Peptides',
+                        ratings: { hydration: 95, texture: 88, absorption: 92 }
+                    },
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Ocean Barrier Balm',
+                        image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop',
+                        price: 38,
+                        size: '45ml',
+                        match: 87,
+                        matchClass: 'great',
+                        description: 'Rich barrier cream with sea kelp and ceramides for intense overnight repair.',
+                        tags: ['Fragrance-Free', 'Sensitive Skin'],
+                        ingredients: 'Sea Kelp Extract, Ceramides, Shea Butter, Glycerin, Squalane, Vitamin E, Peptides',
+                        ratings: { hydration: 98, texture: 82, absorption: 78 }
+                    },
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Hydra-Glow Moisturizer',
+                        image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=300&h=300&fit=crop',
+                        price: 32,
+                        size: '60ml',
+                        match: 79,
+                        matchClass: 'good',
+                        description: 'Lightweight daily moisturizer with marine collagen and hyaluronic acid.',
+                        tags: ['Lightweight', 'Daily Use'],
+                        ingredients: 'Marine Collagen, Hyaluronic Acid, Glycerin, Niacinamide, Vitamin C, Aloe Vera',
+                        ratings: { hydration: 85, texture: 95, absorption: 96 }
+                    }
+                ]
+            },
+            'Charlotte Tilbury Flawless Filter': {
+                original: {
+                    brand: 'Charlotte Tilbury',
+                    name: 'Hollywood Flawless Filter',
+                    image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=300&fit=crop',
+                    price: 49,
+                    size: '30ml',
+                    rating: 4.7,
+                    ingredients: 'Dimethicone, Cyclopentasiloxane, Isododecane, Polymethylsilsesquioxane, Light-Reflecting Pigments, Vitamin E, Rose Hip Oil'
+                },
+                dupes: [
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Glass Skin Primer',
+                        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop',
+                        price: 24,
+                        size: '30ml',
+                        match: 94,
+                        matchClass: 'excellent',
+                        description: 'Blurring primer with light-reflecting particles for that lit-from-within glow.',
+                        tags: ['Illuminating', 'Blurring', 'Clean'],
+                        ingredients: 'Silicone, Light-Reflecting Pigments, Hyaluronic Acid, Vitamin E, Squalane',
+                        ratings: { glow: 96, coverage: 85, longevity: 90 }
+                    },
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Luminous Veil Drops',
+                        image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&h=300&fit=crop',
+                        price: 28,
+                        size: '35ml',
+                        match: 88,
+                        matchClass: 'great',
+                        description: 'Liquid highlighter drops that blend seamlessly for customizable radiance.',
+                        tags: ['Buildable', 'Multi-Use'],
+                        ingredients: 'Glycerin, Mica, Titanium Dioxide, Jojoba Oil, Vitamin E',
+                        ratings: { glow: 92, coverage: 78, longevity: 85 }
+                    }
+                ]
+            },
+            'Drunk Elephant Protini': {
+                original: {
+                    brand: 'Drunk Elephant',
+                    name: 'Protini Polypeptide Cream',
+                    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop',
+                    price: 68,
+                    size: '50ml',
+                    rating: 4.6,
+                    ingredients: 'Signal Peptides, Growth Factors, Amino Acids, Pygmy Waterlily, Soybean Folic Acid Ferment Extract'
+                },
+                dupes: [
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Peptide Power Cream',
+                        image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=300&h=300&fit=crop',
+                        price: 36,
+                        size: '50ml',
+                        match: 91,
+                        matchClass: 'excellent',
+                        description: 'Multi-peptide moisturizer that firms, smooths, and supports skin barrier.',
+                        tags: ['Anti-Aging', 'Firming', 'Clean'],
+                        ingredients: 'Matrixyl, Argireline, Copper Peptides, Squalane, Ceramides, Niacinamide',
+                        ratings: { firming: 94, hydration: 88, absorption: 92 }
+                    }
+                ]
+            },
+            'Sunday Riley Good Genes': {
+                original: {
+                    brand: 'Sunday Riley',
+                    name: 'Good Genes All-In-One Lactic Acid Treatment',
+                    image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300&h=300&fit=crop',
+                    price: 122,
+                    size: '50ml',
+                    rating: 4.4,
+                    ingredients: 'Lactic Acid, Licorice, Lemongrass, Aloe, Arnica'
+                },
+                dupes: [
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Glow Genes Treatment',
+                        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop',
+                        price: 34,
+                        size: '50ml',
+                        match: 89,
+                        matchClass: 'great',
+                        description: 'Lactic acid treatment that exfoliates, brightens, and smooths texture overnight.',
+                        tags: ['Exfoliating', 'Brightening', 'Clean'],
+                        ingredients: 'Lactic Acid (10%), Licorice Root, Niacinamide, Hyaluronic Acid, Aloe Vera',
+                        ratings: { exfoliation: 90, brightening: 92, gentleness: 85 }
+                    }
+                ]
+            },
+            'SK-II Essence': {
+                original: {
+                    brand: 'SK-II',
+                    name: 'Facial Treatment Essence',
+                    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop',
+                    price: 185,
+                    size: '75ml',
+                    rating: 4.5,
+                    ingredients: 'Pitera (Galactomyces Ferment Filtrate), Butylene Glycol, Pentylene Glycol'
+                },
+                dupes: [
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Ferment First Essence',
+                        image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=300&h=300&fit=crop',
+                        price: 32,
+                        size: '100ml',
+                        match: 93,
+                        matchClass: 'excellent',
+                        description: '95% fermented galactomyces essence for crystal-clear, glass-like skin.',
+                        tags: ['K-Beauty', 'Brightening', 'Hydrating'],
+                        ingredients: 'Galactomyces Ferment Filtrate (95%), Niacinamide, Hyaluronic Acid, Adenosine',
+                        ratings: { clarity: 96, hydration: 90, absorption: 98 }
+                    },
+                    {
+                        brand: 'GLOWHAUS',
+                        name: 'Sake Glow Essence',
+                        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop',
+                        price: 28,
+                        size: '120ml',
+                        match: 85,
+                        matchClass: 'great',
+                        description: 'Rice ferment essence inspired by Japanese beauty rituals.',
+                        tags: ['Japanese Beauty', 'Gentle'],
+                        ingredients: 'Sake Ferment Filtrate, Rice Extract, Ceramides, Hyaluronic Acid',
+                        ratings: { clarity: 88, hydration: 92, absorption: 95 }
+                    }
+                ]
+            }
+        };
+
+        // Search functionality
+        function searchPopular(productName) {
+            document.getElementById('searchInput').value = productName;
+            searchDupes();
+        }
+
+        function searchDupes() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) {
+                alert('Please enter a product name');
+                return;
+            }
+
+            // Show results section and loading
+            document.getElementById('resultsSection').classList.add('show');
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('resultsContent').style.display = 'none';
+
+            // Find matching product
+            let matchedProduct = null;
+            for (const [key, value] of Object.entries(dupeDatabase)) {
+                if (query.toLowerCase().includes(key.toLowerCase().split(' ')[0]) ||
+                    key.toLowerCase().includes(query.toLowerCase().split(' ')[0])) {
+                    matchedProduct = value;
+                    break;
+                }
+            }
+
+            // Simulate loading
+            setTimeout(() => {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('resultsContent').style.display = 'block';
+
+                if (matchedProduct) {
+                    renderResults(matchedProduct);
+                } else {
+                    // Default to La Mer for demo
+                    renderResults(dupeDatabase['La Mer Crème de la Mer']);
+                }
+
+                // Scroll to results
+                document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        }
+
+        function renderResults(data) {
+            // Render original product
+            const originalCard = document.getElementById('originalCard');
+            originalCard.innerHTML = `
+                <div class="original-header">
+                    <img src="${data.original.image}" alt="${data.original.name}" class="original-image">
+                    <div class="original-info">
+                        <div class="original-brand">${data.original.brand}</div>
+                        <h2 class="original-name">${data.original.name}</h2>
+                        <div class="original-price">$${data.original.price} <span style="font-size: 14px; font-weight: 400; opacity: 0.8;">/ ${data.original.size}</span></div>
+                    </div>
+                </div>
+                <div class="original-stats">
+                    <div class="original-stat">
+                        <div class="original-stat-value">⭐ ${data.original.rating}</div>
+                        <div class="original-stat-label">Rating</div>
+                    </div>
+                    <div class="original-stat">
+                        <div class="original-stat-value">${data.original.size}</div>
+                        <div class="original-stat-label">Size</div>
+                    </div>
+                    <div class="original-stat">
+                        <div class="original-stat-value">$${(data.original.price / parseInt(data.original.size)).toFixed(2)}</div>
+                        <div class="original-stat-label">Per ml</div>
+                    </div>
+                </div>
+            `;
+
+            // Render dupes
+            document.getElementById('dupesCount').textContent = `${data.dupes.length} dupe${data.dupes.length > 1 ? 's' : ''} found`;
+
+            const dupesGrid = document.getElementById('dupesGrid');
+            dupesGrid.innerHTML = data.dupes.map((dupe, index) => {
+                const savings = Math.round((1 - dupe.price / data.original.price) * 100);
+                const ratingKeys = Object.keys(dupe.ratings);
+
+                return `
+                    <div class="dupe-card">
+                        <div class="dupe-main">
+                            <img src="${dupe.image}" alt="${dupe.name}" class="dupe-image">
+                            <div class="dupe-info">
+                                <div class="dupe-match ${dupe.matchClass}">
+                                    ${dupe.matchClass === 'excellent' ? '🎯' : dupe.matchClass === 'great' ? '✨' : '👍'}
+                                    ${dupe.match}% Match
+                                </div>
+                                <div class="dupe-brand">${dupe.brand}</div>
+                                <h3 class="dupe-name">${dupe.name}</h3>
+                                <p class="dupe-description">${dupe.description}</p>
+                                <div class="dupe-tags">
+                                    ${dupe.tags.map(tag => `<span class="dupe-tag">${tag}</span>`).join('')}
+                                </div>
+                            </div>
+                            <div class="dupe-pricing">
+                                <div class="dupe-price">$${dupe.price}</div>
+                                <div class="dupe-savings">Save ${savings}%</div>
+                                <button class="btn btn-primary" style="padding: 12px 20px; font-size: 10px;">Add to Bag</button>
+                            </div>
+                        </div>
+                        <button class="comparison-toggle" onclick="toggleComparison(this, ${index})">
+                            <span class="comparison-toggle-text">Compare Ingredients & Performance</span>
+                            <span class="comparison-toggle-icon">▼</span>
+                        </button>
+                        <div class="comparison-panel" id="comparison-${index}">
+                            <div class="comparison-content">
+                                <div class="comparison-section">
+                                    <div class="comparison-section-title">Key Ingredients Comparison</div>
+                                    <div class="ingredient-comparison">
+                                        <div class="ingredient-column">
+                                            <div class="ingredient-column-header">${data.original.brand}</div>
+                                            <div class="ingredient-list">${data.original.ingredients}</div>
+                                        </div>
+                                        <div class="ingredient-column">
+                                            <div class="ingredient-column-header">${dupe.brand}</div>
+                                            <div class="ingredient-list">${dupe.ingredients}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comparison-section">
+                                    <div class="comparison-section-title">Performance Metrics</div>
+                                    <div class="comparison-bars">
+                                        ${ratingKeys.map(key => `
+                                            <div class="comparison-bar">
+                                                <div class="comparison-bar-label">${key.charAt(0).toUpperCase() + key.slice(1)}</div>
+                                                <div class="comparison-bar-track">
+                                                    <div class="comparison-bar-original" style="width: ${dupe.ratings[key] - 5}%;"></div>
+                                                    <div class="comparison-bar-dupe" style="width: ${dupe.ratings[key]}%;"></div>
+                                                </div>
+                                                <div class="comparison-bar-values">
+                                                    <span>${dupe.ratings[key] - 5}%</span>
+                                                    <span>${dupe.ratings[key]}%</span>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleComparison(button, index) {
+            button.classList.toggle('open');
+            document.getElementById(`comparison-${index}`).classList.toggle('open');
+        }
+
+        // Enter key support
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchDupes();
+            }
+        });
+    </script>
+</body>
+</html>
