@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PricePulse™ - Smart Price Alerts | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6b4444;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4a4a4a;
+            --white: #ffffff;
+            --success: #7c9a7c;
+            --warning: #d4a574;
+            --error: #c47070;
+            --shadow-sm: 0 2px 8px rgba(139, 90, 90, 0.08);
+            --shadow-md: 0 4px 20px rgba(139, 90, 90, 0.12);
+            --shadow-lg: 0 8px 40px rgba(139, 90, 90, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--charcoal-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab:hover {
+            color: var(--rose);
+        }
+
+        .tab.active {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .tab-badge {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+        }
+
+        .tab.active .tab-badge {
+            background: var(--white);
+            color: var(--rose);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Alerts Grid */
+        .alerts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .alert-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .alert-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .alert-card-header {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .alert-card-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            background: var(--cream);
+        }
+
+        .alert-card-info {
+            flex: 1;
+        }
+
+        .alert-card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-card-brand {
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .current-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--rose);
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: var(--charcoal-light);
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Price History Chart */
+        .price-chart {
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chart-container {
+            height: 80px;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-path {
+            fill: none;
+            stroke: var(--rose);
+            stroke-width: 2;
+        }
+
+        .chart-area {
+            fill: url(#chartGradient);
+        }
+
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--charcoal-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Prediction */
+        .prediction {
+            background: var(--gold-light);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0 1.5rem 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .prediction-icon {
+            font-size: 1.25rem;
+        }
+
+        .prediction-text {
+            flex: 1;
+            font-size: 0.85rem;
+        }
+
+        .prediction-text strong {
+            color: var(--rose);
+        }
+
+        /* Alert Settings */
+        .alert-settings {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .alert-setting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+        }
+
+        .alert-setting-label {
+            font-size: 0.9rem;
+        }
+
+        .price-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-input input {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: var(--cream-dark);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle.active {
+            background: var(--rose);
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toggle.active::after {
+            transform: translateX(24px);
+        }
+
+        /* Card Actions */
+        .alert-card-actions {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.primary {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .action-btn.primary:hover {
+            background: var(--rose-dark);
+        }
+
+        .action-btn.secondary {
+            background: var(--cream);
+            color: var(--charcoal);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--cream-dark);
+        }
+
+        /* Active Drops */
+        .drops-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--error);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .drop-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--success);
+        }
+
+        .drop-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        .drop-info {
+            flex: 1;
+        }
+
+        .drop-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .drop-timing {
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+        }
+
+        .drop-prices {
+            text-align: right;
+        }
+
+        .drop-new-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .drop-old-price {
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+            text-decoration: line-through;
+        }
+
+        .drop-savings {
+            font-size: 0.85rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .drop-buy-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .drop-buy-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Add Product */
+        .add-product-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .add-product-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--cream-dark);
+            border-right: none;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--rose);
+        }
+
+        .search-box button {
+            padding: 1rem 1.5rem;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            color: var(--charcoal-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .alerts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drop-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .drop-prices {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Shop</a></li>
+                    <li><a href="skin-analysis.html">Skin Analysis</a></li>
+                    <li><a href="chatbot.html">GlowBot</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>&#x1F4B8;</span>
+                <span>Smart Price Tracking</span>
+            </div>
+            <h1>PricePulse&#x2122;</h1>
+            <p>Never miss a sale again. Our intelligent price tracking predicts the best time to buy and alerts you when prices drop.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">$847</div>
+                    <div class="stat-label">Avg. Savings/User</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">94%</div>
+                    <div class="stat-label">Prediction Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12K+</div>
+                    <div class="stat-label">Products Tracked</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Drops -->
+        <section class="drops-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Price Drops Now
+                    <span class="live-indicator">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </span>
+                </h2>
+            </div>
+
+            <div class="drop-card">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200" alt="Vitamin C Serum">
+                <div class="drop-info">
+                    <div class="drop-title">Vitamin C Brightening Serum</div>
+                    <div class="drop-timing">Price dropped 2 hours ago &bull; Ends in 22h 14m</div>
+                </div>
+                <div class="drop-prices">
+                    <div class="drop-new-price">$42</div>
+                    <div class="drop-old-price">$58</div>
+                    <div class="drop-savings">Save $16 (28%)</div>
+                </div>
+                <button class="drop-buy-btn">Buy Now</button>
+            </div>
+
+            <div class="drop-card">
+                <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200" alt="Night Cream">
+                <div class="drop-info">
+                    <div class="drop-title">Retinol Night Cream</div>
+                    <div class="drop-timing">Price dropped 5 hours ago &bull; Limited stock</div>
+                </div>
+                <div class="drop-prices">
+                    <div class="drop-new-price">$52</div>
+                    <div class="drop-old-price">$65</div>
+                    <div class="drop-savings">Save $13 (20%)</div>
+                </div>
+                <button class="drop-buy-btn">Buy Now</button>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('watching')">
+                <span>&#x1F440;</span>
+                Watching
+                <span class="tab-badge">5</span>
+            </button>
+            <button class="tab" onclick="switchTab('alerts')">
+                <span>&#x1F514;</span>
+                My Alerts
+                <span class="tab-badge">3</span>
+            </button>
+            <button class="tab" onclick="switchTab('history')">
+                <span>&#x1F4C8;</span>
+                History
+            </button>
+        </div>
+
+        <!-- Watching Tab -->
+        <div class="tab-content active" id="watching">
+            <div class="alerts-grid">
+                <!-- Product 1 -->
+                <div class="alert-card">
+                    <div class="alert-card-header">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=200" alt="Hyaluronic Serum" class="alert-card-image">
+                        <div class="alert-card-info">
+                            <h3 class="alert-card-title">Hyaluronic Acid Serum</h3>
+                            <p class="alert-card-brand">GLOWHAUS Essentials</p>
+                            <div class="price-display">
+                                <span class="current-price">$45</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-chart">
+                        <div class="chart-container">
+                            <svg class="chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgba(139,90,90,0.3)"/>
+                                        <stop offset="100%" style="stop-color:rgba(139,90,90,0)"/>
+                                    </linearGradient>
+                                </defs>
+                                <path class="chart-area" d="M0,60 L50,55 L100,50 L150,45 L200,40 L250,35 L300,30 L300,80 L0,80 Z"/>
+                                <path class="chart-path" d="M0,60 L50,55 L100,50 L150,45 L200,40 L250,35 L300,30"/>
+                            </svg>
+                        </div>
+                        <div class="chart-labels">
+                            <span>6 mo ago</span>
+                            <span>3 mo ago</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+
+                    <div class="prediction">
+                        <span class="prediction-icon">&#x1F52E;</span>
+                        <p class="prediction-text">Price likely to drop <strong>15% in 2 weeks</strong> based on seasonal patterns</p>
+                    </div>
+
+                    <div class="alert-settings">
+                        <div class="alert-setting">
+                            <span class="alert-setting-label">Alert me below:</span>
+                            <div class="price-input">
+                                <span>$</span>
+                                <input type="number" value="40">
+                            </div>
+                        </div>
+                        <div class="alert-setting">
+                            <span class="alert-setting-label">Email alerts</span>
+                            <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                        </div>
+                    </div>
+
+                    <div class="alert-card-actions">
+                        <button class="action-btn secondary">Remove</button>
+                        <button class="action-btn primary">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="alert-card">
+                    <div class="alert-card-header">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200" alt="Lipstick Set" class="alert-card-image">
+                        <div class="alert-card-info">
+                            <h3 class="alert-card-title">Velvet Matte Lipstick Set</h3>
+                            <p class="alert-card-brand">GLOWHAUS Color</p>
+                            <div class="price-display">
+                                <span class="current-price">$68</span>
+                                <span class="original-price">$85</span>
+                                <span class="discount-badge">-20%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-chart">
+                        <div class="chart-container">
+                            <svg class="chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="chartGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgba(139,90,90,0.3)"/>
+                                        <stop offset="100%" style="stop-color:rgba(139,90,90,0)"/>
+                                    </linearGradient>
+                                </defs>
+                                <path class="chart-area" d="M0,30 L50,25 L100,35 L150,30 L200,45 L250,55 L300,45 L300,80 L0,80 Z"/>
+                                <path class="chart-path" d="M0,30 L50,25 L100,35 L150,30 L200,45 L250,55 L300,45"/>
+                            </svg>
+                        </div>
+                        <div class="chart-labels">
+                            <span>6 mo ago</span>
+                            <span>3 mo ago</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+
+                    <div class="prediction">
+                        <span class="prediction-icon">&#x26A0;&#xFE0F;</span>
+                        <p class="prediction-text">Current price is <strong>lowest in 6 months!</strong> Buy now for best value</p>
+                    </div>
+
+                    <div class="alert-settings">
+                        <div class="alert-setting">
+                            <span class="alert-setting-label">Alert me below:</span>
+                            <div class="price-input">
+                                <span>$</span>
+                                <input type="number" value="60">
+                            </div>
+                        </div>
+                        <div class="alert-setting">
+                            <span class="alert-setting-label">Email alerts</span>
+                            <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                        </div>
+                    </div>
+
+                    <div class="alert-card-actions">
+                        <button class="action-btn secondary">Remove</button>
+                        <button class="action-btn primary">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Add More -->
+                <div class="add-product-section">
+                    <h3>&#x2795; Track Another Product</h3>
+                    <p style="color: var(--charcoal-light); margin-bottom: 1rem;">Search for any product to start tracking its price</p>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products to track...">
+                        <button>Track</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts Tab -->
+        <div class="tab-content" id="alerts">
+            <div class="empty-state">
+                <div class="empty-state-icon">&#x1F514;</div>
+                <h3>No Active Alerts Yet</h3>
+                <p>Set price thresholds on products you're watching to receive alerts when they drop.</p>
+                <button class="action-btn primary" onclick="switchTab('watching')">Start Watching Products</button>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div class="tab-content" id="history">
+            <div class="alerts-grid">
+                <div class="drop-card" style="border-left-color: var(--charcoal-light);">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200" alt="Moisturizer">
+                    <div class="drop-info">
+                        <div class="drop-title">Deep Hydration Moisturizer</div>
+                        <div class="drop-timing">Purchased on Mar 5, 2026</div>
+                    </div>
+                    <div class="drop-prices">
+                        <div class="drop-new-price" style="color: var(--success);">$48</div>
+                        <div class="drop-old-price">$65</div>
+                        <div class="drop-savings">Saved $17</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">GLOWHAUS</div>
+        <p style="color: var(--charcoal-light);">PricePulse&#x2122; &mdash; Smart price tracking powered by predictive analytics.</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.closest('.tab').classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

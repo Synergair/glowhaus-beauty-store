@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceShop™ - Shop with Your Voice | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6b4444;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4a4a4a;
+            --white: #ffffff;
+            --success: #7c9a7c;
+            --warning: #d4a574;
+            --error: #c47070;
+            --shadow-sm: 0 2px 8px rgba(139, 90, 90, 0.08);
+            --shadow-md: 0 4px 20px rgba(139, 90, 90, 0.12);
+            --shadow-lg: 0 8px 40px rgba(139, 90, 90, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Voice Interface */
+        .voice-interface {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .voice-button-container {
+            margin: 2rem 0;
+        }
+
+        .voice-button {
+            width: 140px;
+            height: 140px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .voice-button:hover {
+            transform: scale(1.05);
+        }
+
+        .voice-button.listening {
+            animation: pulse-glow 1.5s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(139, 90, 90, 0.4), var(--shadow-lg);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(139, 90, 90, 0), var(--shadow-lg);
+            }
+        }
+
+        .voice-button svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .voice-button.listening svg {
+            animation: mic-bounce 0.5s infinite alternate;
+        }
+
+        @keyframes mic-bounce {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Waveform Animation */
+        .waveform {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            height: 50px;
+            margin: 1.5rem 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .waveform.active {
+            opacity: 1;
+        }
+
+        .waveform-bar {
+            width: 4px;
+            background: var(--rose);
+            border-radius: 2px;
+            animation: wave 0.5s ease-in-out infinite alternate;
+        }
+
+        .waveform-bar:nth-child(1) { animation-delay: 0s; height: 20px; }
+        .waveform-bar:nth-child(2) { animation-delay: 0.1s; height: 35px; }
+        .waveform-bar:nth-child(3) { animation-delay: 0.2s; height: 25px; }
+        .waveform-bar:nth-child(4) { animation-delay: 0.15s; height: 40px; }
+        .waveform-bar:nth-child(5) { animation-delay: 0.25s; height: 30px; }
+        .waveform-bar:nth-child(6) { animation-delay: 0.1s; height: 35px; }
+        .waveform-bar:nth-child(7) { animation-delay: 0.2s; height: 20px; }
+
+        @keyframes wave {
+            from { transform: scaleY(0.5); }
+            to { transform: scaleY(1.5); }
+        }
+
+        .voice-status {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .voice-transcript {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--rose);
+            min-height: 2rem;
+            margin: 1rem 0;
+        }
+
+        .voice-hint {
+            font-size: 0.9rem;
+            color: var(--charcoal-light);
+        }
+
+        /* Response Area */
+        .response-area {
+            background: var(--cream-dark);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .response-area.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .response-text {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Product Cards */
+        .voice-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .voice-product-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .voice-product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .voice-product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .voice-product-info {
+            padding: 1rem;
+        }
+
+        .voice-product-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .voice-product-price {
+            color: var(--rose);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .voice-add-btn {
+            width: 100%;
+            padding: 0.6rem;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .voice-add-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Commands Section */
+        .commands-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .commands-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--rose);
+        }
+
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .command-card {
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .command-card:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .command-card:hover .command-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .command-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--rose-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: background 0.3s ease;
+        }
+
+        .command-card:hover .command-icon {
+            color: var(--white);
+        }
+
+        .command-text {
+            flex: 1;
+        }
+
+        .command-phrase {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .command-desc {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Cart Preview */
+        .cart-preview {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cart-preview h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-price {
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--charcoal-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .cart-item-remove:hover {
+            color: var(--error);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 2rem;
+            color: var(--charcoal-light);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-top: 1px solid var(--cream-dark);
+            margin-top: 1rem;
+        }
+
+        .cart-total-label {
+            font-weight: 600;
+        }
+
+        .cart-total-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--rose);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Accessibility */
+        .accessibility-note {
+            background: var(--gold-light);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .accessibility-note span:first-child {
+            font-size: 1.5rem;
+        }
+
+        .accessibility-note p {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .voice-button {
+                width: 120px;
+                height: 120px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Shop</a></li>
+                    <li><a href="skin-analysis.html">Skin Analysis</a></li>
+                    <li><a href="chatbot.html">GlowBot</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>&#x1F3A4;</span>
+                <span>Hands-Free Shopping</span>
+            </div>
+            <h1>VoiceShop&#x2122;</h1>
+            <p>Shop for beauty products using just your voice. Search, add to cart, and checkout &mdash; completely hands-free.</p>
+        </section>
+
+        <!-- Voice Interface -->
+        <section class="voice-interface">
+            <p class="voice-status" id="voiceStatus">Tap the microphone to start</p>
+
+            <div class="voice-button-container">
+                <button class="voice-button" id="voiceButton" onclick="toggleVoiceRecognition()">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="waveform" id="waveform">
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+                <div class="waveform-bar"></div>
+            </div>
+
+            <p class="voice-transcript" id="voiceTranscript"></p>
+            <p class="voice-hint">Try saying: "Show me lipsticks" or "Add rose serum to cart"</p>
+
+            <!-- Response Area -->
+            <div class="response-area" id="responseArea">
+                <p class="response-text" id="responseText"></p>
+                <div class="voice-products" id="voiceProducts"></div>
+            </div>
+        </section>
+
+        <!-- Voice Commands -->
+        <section class="commands-section">
+            <h2>Voice Commands</h2>
+            <div class="commands-grid">
+                <div class="command-card" onclick="simulateCommand('Show me moisturizers')">
+                    <div class="command-icon">&#x1F50D;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"Show me [product]"</div>
+                        <div class="command-desc">Search for products by name or type</div>
+                    </div>
+                </div>
+                <div class="command-card" onclick="simulateCommand('Add vitamin C serum to cart')">
+                    <div class="command-icon">&#x1F6D2;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"Add [product] to cart"</div>
+                        <div class="command-desc">Add items directly to your cart</div>
+                    </div>
+                </div>
+                <div class="command-card" onclick="simulateCommand('What\'s in my cart')">
+                    <div class="command-icon">&#x1F4CB;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"What's in my cart?"</div>
+                        <div class="command-desc">Review your cart contents</div>
+                    </div>
+                </div>
+                <div class="command-card" onclick="simulateCommand('Find products for dry skin')">
+                    <div class="command-icon">&#x2728;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"Find products for [concern]"</div>
+                        <div class="command-desc">Get recommendations by skin concern</div>
+                    </div>
+                </div>
+                <div class="command-card" onclick="simulateCommand('Reorder my last purchase')">
+                    <div class="command-icon">&#x1F504;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"Reorder my last purchase"</div>
+                        <div class="command-desc">Quickly reorder previous orders</div>
+                    </div>
+                </div>
+                <div class="command-card" onclick="simulateCommand('Track my order')">
+                    <div class="command-icon">&#x1F4E6;</div>
+                    <div class="command-text">
+                        <div class="command-phrase">"Track my order"</div>
+                        <div class="command-desc">Check order status and delivery</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Preview -->
+        <section class="cart-preview">
+            <h2>&#x1F6D2; Your Cart</h2>
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty">
+                    <p>Your cart is empty. Try saying "Add rose serum to cart"</p>
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotal" style="display: none;">
+                <span class="cart-total-label">Total</span>
+                <span class="cart-total-amount" id="cartAmount">$0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" style="display: none;" onclick="speakResponse('Proceeding to checkout')">
+                Checkout with Voice
+            </button>
+        </section>
+
+        <!-- Accessibility Note -->
+        <div class="accessibility-note">
+            <span>&#x267F;</span>
+            <p><strong>Accessibility:</strong> VoiceShop&#x2122; is designed to make beauty shopping accessible to everyone. Works with screen readers and provides audio feedback for all actions.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">GLOWHAUS</div>
+        <p>VoiceShop&#x2122; &mdash; Hands-free beauty shopping powered by advanced voice recognition.</p>
+    </footer>
+
+    <script>
+        // Product Database
+        const productDatabase = {
+            serums: [
+                { id: 1, name: 'Vitamin C Brightening Serum', price: 58, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400', category: 'serum' },
+                { id: 2, name: 'Hyaluronic Acid Serum', price: 45, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400', category: 'serum' },
+                { id: 3, name: 'Rose Hip Glow Serum', price: 52, image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400', category: 'serum' }
+            ],
+            moisturizers: [
+                { id: 4, name: 'Deep Hydration Cream', price: 65, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400', category: 'moisturizer' },
+                { id: 5, name: 'Lightweight Daily Moisturizer', price: 42, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400', category: 'moisturizer' }
+            ],
+            lipsticks: [
+                { id: 6, name: 'Velvet Matte Lipstick - Rose', price: 28, image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400', category: 'lipstick' },
+                { id: 7, name: 'Satin Finish Lipstick - Nude', price: 26, image: 'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=400', category: 'lipstick' }
+            ],
+            'dry skin': [
+                { id: 4, name: 'Deep Hydration Cream', price: 65, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400', category: 'moisturizer' },
+                { id: 2, name: 'Hyaluronic Acid Serum', price: 45, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400', category: 'serum' }
+            ]
+        };
+
+        // Cart
+        let cart = [];
+        let isListening = false;
+        let recognition = null;
+
+        // Initialize Speech Recognition
+        function initSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = () => {
+                    isListening = true;
+                    document.getElementById('voiceButton').classList.add('listening');
+                    document.getElementById('waveform').classList.add('active');
+                    document.getElementById('voiceStatus').textContent = 'Listening...';
+                };
+
+                recognition.onresult = (event) => {
+                    const transcript = Array.from(event.results)
+                        .map(result => result[0].transcript)
+                        .join('');
+                    document.getElementById('voiceTranscript').textContent = `"${transcript}"`;
+
+                    if (event.results[0].isFinal) {
+                        processVoiceCommand(transcript);
+                    }
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Speech recognition error:', event.error);
+                    stopListening();
+                    document.getElementById('voiceStatus').textContent = 'Error occurred. Tap to try again.';
+                };
+
+                recognition.onend = () => {
+                    stopListening();
+                };
+            }
+        }
+
+        function toggleVoiceRecognition() {
+            if (!recognition) {
+                initSpeechRecognition();
+            }
+
+            if (isListening) {
+                recognition.stop();
+            } else {
+                try {
+                    recognition.start();
+                } catch (e) {
+                    // Already started, stop and restart
+                    recognition.stop();
+                    setTimeout(() => recognition.start(), 100);
+                }
+            }
+        }
+
+        function stopListening() {
+            isListening = false;
+            document.getElementById('voiceButton').classList.remove('listening');
+            document.getElementById('waveform').classList.remove('active');
+            document.getElementById('voiceStatus').textContent = 'Tap the microphone to start';
+        }
+
+        // Process voice commands
+        function processVoiceCommand(command) {
+            const lowerCommand = command.toLowerCase();
+            let response = '';
+            let products = [];
+
+            // Search commands
+            if (lowerCommand.includes('show me') || lowerCommand.includes('find') || lowerCommand.includes('search')) {
+                if (lowerCommand.includes('serum')) {
+                    products = productDatabase.serums;
+                    response = 'Here are our serums:';
+                } else if (lowerCommand.includes('moisturizer') || lowerCommand.includes('cream')) {
+                    products = productDatabase.moisturizers;
+                    response = 'Here are our moisturizers:';
+                } else if (lowerCommand.includes('lipstick') || lowerCommand.includes('lip')) {
+                    products = productDatabase.lipsticks;
+                    response = 'Here are our lipsticks:';
+                } else if (lowerCommand.includes('dry skin')) {
+                    products = productDatabase['dry skin'];
+                    response = 'Here are our best products for dry skin:';
+                } else {
+                    response = 'I found these products for you:';
+                    products = [...productDatabase.serums.slice(0, 2), ...productDatabase.moisturizers.slice(0, 1)];
+                }
+            }
+            // Add to cart
+            else if (lowerCommand.includes('add') && lowerCommand.includes('cart')) {
+                let addedProduct = null;
+                if (lowerCommand.includes('vitamin c') || lowerCommand.includes('brightening')) {
+                    addedProduct = productDatabase.serums[0];
+                } else if (lowerCommand.includes('hyaluronic')) {
+                    addedProduct = productDatabase.serums[1];
+                } else if (lowerCommand.includes('rose') && lowerCommand.includes('serum')) {
+                    addedProduct = productDatabase.serums[2];
+                } else if (lowerCommand.includes('moisturizer') || lowerCommand.includes('cream')) {
+                    addedProduct = productDatabase.moisturizers[0];
+                } else if (lowerCommand.includes('lipstick')) {
+                    addedProduct = productDatabase.lipsticks[0];
+                }
+
+                if (addedProduct) {
+                    addToCart(addedProduct);
+                    response = `Added ${addedProduct.name} to your cart!`;
+                    speakResponse(response);
+                } else {
+                    response = "I couldn't find that product. Try being more specific.";
+                }
+            }
+            // Cart queries
+            else if (lowerCommand.includes('cart') || lowerCommand.includes('what\'s in')) {
+                if (cart.length === 0) {
+                    response = 'Your cart is empty. Try saying "Add vitamin C serum to cart"';
+                } else {
+                    response = `You have ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart totaling $${getCartTotal()}.`;
+                }
+            }
+            // Reorder
+            else if (lowerCommand.includes('reorder')) {
+                const lastOrder = productDatabase.serums[0];
+                addToCart(lastOrder);
+                response = `Reordering your last purchase: ${lastOrder.name}. Added to cart!`;
+                speakResponse(response);
+            }
+            // Track order
+            else if (lowerCommand.includes('track')) {
+                response = 'Your order GH-78234 is currently in transit. Expected delivery: March 19th.';
+                speakResponse(response);
+            }
+            // Checkout
+            else if (lowerCommand.includes('checkout')) {
+                if (cart.length > 0) {
+                    response = `Ready to checkout! Your total is $${getCartTotal()}. Say "Confirm" to proceed.`;
+                } else {
+                    response = 'Your cart is empty. Add some products first!';
+                }
+            }
+            // Fallback
+            else {
+                response = "I didn't quite catch that. Try saying 'Show me serums' or 'Add vitamin C serum to cart'.";
+            }
+
+            showResponse(response, products);
+        }
+
+        // Show response
+        function showResponse(text, products = []) {
+            const responseArea = document.getElementById('responseArea');
+            const responseText = document.getElementById('responseText');
+            const productsContainer = document.getElementById('voiceProducts');
+
+            responseText.textContent = text;
+            responseArea.classList.add('active');
+
+            if (products.length > 0) {
+                productsContainer.innerHTML = products.map(product => `
+                    <div class="voice-product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="voice-product-info">
+                            <div class="voice-product-name">${product.name}</div>
+                            <div class="voice-product-price">$${product.price}</div>
+                            <button class="voice-add-btn" onclick="addToCartById(${product.id})">Add to Cart</button>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                productsContainer.innerHTML = '';
+            }
+
+            // Speak response
+            speakResponse(text);
+        }
+
+        // Text to Speech
+        function speakResponse(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 1;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Cart functions
+        function addToCart(product) {
+            cart.push(product);
+            updateCartDisplay();
+        }
+
+        function addToCartById(id) {
+            const allProducts = [
+                ...productDatabase.serums,
+                ...productDatabase.moisturizers,
+                ...productDatabase.lipsticks
+            ];
+            const product = allProducts.find(p => p.id === id);
+            if (product) {
+                addToCart(product);
+                speakResponse(`Added ${product.name} to your cart.`);
+            }
+        }
+
+        function removeFromCart(index) {
+            const removed = cart.splice(index, 1)[0];
+            updateCartDisplay();
+            speakResponse(`Removed ${removed.name} from your cart.`);
+        }
+
+        function getCartTotal() {
+            return cart.reduce((sum, item) => sum + item.price, 0);
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartAmount = document.getElementById('cartAmount');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="cart-empty"><p>Your cart is empty. Try saying "Add rose serum to cart"</p></div>';
+                cartTotal.style.display = 'none';
+                checkoutBtn.style.display = 'none';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">$${item.price}</div>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${index})">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                `).join('');
+                cartTotal.style.display = 'flex';
+                cartAmount.textContent = `$${getCartTotal()}`;
+                checkoutBtn.style.display = 'block';
+            }
+        }
+
+        // Simulate command from clicking example cards
+        function simulateCommand(command) {
+            document.getElementById('voiceTranscript').textContent = `"${command}"`;
+            processVoiceCommand(command);
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initSpeechRecognition();
+            updateCartDisplay();
+        });
+    </script>
+</body>
+</html>

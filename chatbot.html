@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowBot™ - Your Beauty Concierge | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6b4444;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4a4a4a;
+            --white: #ffffff;
+            --success: #7c9a7c;
+            --warning: #d4a574;
+            --error: #c47070;
+            --shadow-sm: 0 2px 8px rgba(139, 90, 90, 0.08);
+            --shadow-md: 0 4px 20px rgba(139, 90, 90, 0.12);
+            --shadow-lg: 0 8px 40px rgba(139, 90, 90, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-actions a {
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header-actions a:hover {
+            color: var(--rose);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+            min-height: 600px;
+        }
+
+        /* Chat Window */
+        .chat-window {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bot-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .bot-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .bot-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #7c9a7c;
+            border-radius: var(--radius-full);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Messages Area */
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 85%;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            align-self: flex-start;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background: var(--rose-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: var(--gold);
+        }
+
+        .message-content {
+            background: var(--cream);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-md);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: var(--rose);
+            color: var(--white);
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 0.5rem 0;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--rose-light);
+            border-radius: var(--radius-full);
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-6px); }
+        }
+
+        /* Quick Replies */
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .quick-reply {
+            background: var(--white);
+            border: 1px solid var(--rose-light);
+            color: var(--rose);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-reply:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        /* Product Card in Chat */
+        .product-card-chat {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-top: 0.75rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-card-chat img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--cream);
+        }
+
+        .product-card-chat-info {
+            flex: 1;
+        }
+
+        .product-card-chat-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-card-chat-price {
+            color: var(--rose);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card-chat-btn {
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .product-card-chat-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Order Status Card */
+        .order-card {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .order-number {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .order-status {
+            background: var(--gold-light);
+            color: var(--charcoal);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .order-status.delivered {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .order-progress {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-progress::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--cream-dark);
+            z-index: 0;
+        }
+
+        .order-progress::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 66%;
+            height: 3px;
+            background: var(--rose);
+            z-index: 1;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-full);
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--white);
+        }
+
+        .step-dot.completed {
+            background: var(--rose);
+        }
+
+        .step-dot.current {
+            background: var(--gold);
+            animation: pulse 2s infinite;
+        }
+
+        .step-label {
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            color: var(--charcoal-light);
+        }
+
+        /* Chat Input */
+        .chat-input-container {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--cream-dark);
+            background: var(--white);
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: var(--cream);
+            border: none;
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .chat-input:focus {
+            box-shadow: 0 0 0 2px var(--rose-light);
+        }
+
+        .chat-input::placeholder {
+            color: var(--charcoal-light);
+            opacity: 0.6;
+        }
+
+        .input-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .input-action {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: var(--radius-full);
+            background: var(--cream);
+            color: var(--charcoal);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .input-action:hover {
+            background: var(--rose-light);
+            color: var(--white);
+        }
+
+        .send-btn {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .send-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--rose);
+        }
+
+        /* Capabilities */
+        .capability {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .capability:last-child {
+            border-bottom: none;
+        }
+
+        .capability-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .capability-text {
+            font-size: 0.9rem;
+            color: var(--charcoal-light);
+        }
+
+        .capability-text strong {
+            color: var(--charcoal);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quick-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--cream);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quick-action-btn:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .quick-action-btn span:first-child {
+            font-size: 1.25rem;
+        }
+
+        .quick-action-btn span:last-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Context Awareness */
+        .context-card {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--cream) 100%);
+            border: none;
+        }
+
+        .context-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .context-label {
+            color: var(--charcoal-light);
+        }
+
+        .context-value {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .chat-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating Chat Button (for embedding on other pages) */
+        .floating-chat-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border: none;
+            border-radius: var(--radius-full);
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+
+        .floating-chat-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-chat-btn .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Satisfaction Rating */
+        .satisfaction-prompt {
+            text-align: center;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            margin-top: 0.75rem;
+        }
+
+        .satisfaction-prompt p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .rating-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .rating-btn {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .rating-btn:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Shop</a></li>
+                    <li><a href="skin-analysis.html">Skin Analysis</a></li>
+                    <li><a href="routine-builder.html">Routine Builder</a></li>
+                    <li><a href="trends.html">Trending</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="search.html">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </a>
+                <a href="account.html">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </a>
+                <a href="cart.html">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>&#x2728;</span>
+                <span>Intelligent Beauty Assistant</span>
+            </div>
+            <h1>Meet GlowBot&#x2122;</h1>
+            <p>Your personal beauty concierge, available 24/7 to help with product recommendations, skincare advice, order tracking, and more.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Questions Answered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4.9&#x2605;</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">&lt;3s</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Interface -->
+        <div class="chat-container">
+            <!-- Chat Window -->
+            <div class="chat-window">
+                <div class="chat-header">
+                    <div class="bot-avatar">&#x2728;</div>
+                    <div class="bot-info">
+                        <h2>GlowBot&#x2122;</h2>
+                        <div class="bot-status">
+                            <span class="status-dot"></span>
+                            <span>Online &mdash; Ready to help</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages" id="chatMessages">
+                    <!-- Welcome Message -->
+                    <div class="message bot">
+                        <div class="message-avatar">&#x2728;</div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                Hi there! &#x1F44B; I'm GlowBot&#x2122;, your personal beauty concierge. I can help you with:
+                                <br><br>
+                                &#x2022; Product recommendations<br>
+                                &#x2022; Skincare routine advice<br>
+                                &#x2022; Order tracking<br>
+                                &#x2022; Returns &amp; exchanges<br>
+                                &#x2022; Ingredient questions
+                            </div>
+                            <div class="quick-replies">
+                                <button class="quick-reply" onclick="sendQuickReply('Product recommendations')">&#x1F48E; Product recommendations</button>
+                                <button class="quick-reply" onclick="sendQuickReply('Track my order')">&#x1F4E6; Track my order</button>
+                                <button class="quick-reply" onclick="sendQuickReply('Skincare help')">&#x2728; Skincare help</button>
+                                <button class="quick-reply" onclick="sendQuickReply('Start a return')">&#x21A9;&#xFE0F; Start a return</button>
+                            </div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <button class="input-action" title="Attach image">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about beauty..." onkeypress="handleKeyPress(event)">
+                        <div class="input-actions">
+                            <button class="input-action" id="voiceBtn" title="Voice input" onclick="toggleVoice()">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
+                                </svg>
+                            </button>
+                            <button class="input-action send-btn" onclick="sendMessage()">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Quick Actions -->
+                <div class="sidebar-card">
+                    <h3>Quick Actions</h3>
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" onclick="sendQuickReply('Analyze my skin')">
+                            <span>&#x1F4F8;</span>
+                            <span>AI Skin Analysis</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickReply('Build my routine')">
+                            <span>&#x1F9F4;</span>
+                            <span>Build My Routine</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickReply('Find a dupe')">
+                            <span>&#x1F50D;</span>
+                            <span>Find a Dupe</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickReply('Check ingredients')">
+                            <span>&#x1F9EA;</span>
+                            <span>Ingredient Check</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Capabilities -->
+                <div class="sidebar-card">
+                    <h3>What I Can Do</h3>
+                    <div class="capability">
+                        <div class="capability-icon">&#x1F9E0;</div>
+                        <div class="capability-text">
+                            <strong>Smart Recommendations</strong>
+                            Personalized product suggestions based on your skin type and concerns
+                        </div>
+                    </div>
+                    <div class="capability">
+                        <div class="capability-icon">&#x1F4E6;</div>
+                        <div class="capability-text">
+                            <strong>Order Management</strong>
+                            Track packages, process returns, and manage subscriptions
+                        </div>
+                    </div>
+                    <div class="capability">
+                        <div class="capability-icon">&#x1F4DA;</div>
+                        <div class="capability-text">
+                            <strong>Beauty Knowledge</strong>
+                            Expert advice on ingredients, routines, and techniques
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Context Card -->
+                <div class="sidebar-card context-card">
+                    <h3>Your Profile</h3>
+                    <div class="context-item">
+                        <span class="context-label">Skin Type</span>
+                        <span class="context-value" id="skinType">Not set</span>
+                    </div>
+                    <div class="context-item">
+                        <span class="context-label">Concerns</span>
+                        <span class="context-value" id="concerns">Not set</span>
+                    </div>
+                    <div class="context-item">
+                        <span class="context-label">Last Order</span>
+                        <span class="context-value" id="lastOrder">&mdash;</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">GLOWHAUS</div>
+            <p class="footer-text">GlowBot&#x2122; is powered by advanced natural language understanding to provide you with personalized beauty assistance.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Button (hidden on this page, for other pages) -->
+    <button class="floating-chat-btn" id="floatingChatBtn">
+        <span>&#x1F4AC;</span>
+        <span class="badge">1</span>
+    </button>
+
+    <script>
+        // Bot Response Database
+        const botResponses = {
+            greeting: {
+                patterns: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'],
+                response: "Hello! &#x1F44B; How can I help you with your beauty needs today?",
+                quickReplies: ['Product recommendations', 'Track my order', 'Skincare help', 'Start a return']
+            },
+            productRecommendations: {
+                patterns: ['recommend', 'suggestion', 'product recommendations', 'what should i buy', 'help me find'],
+                response: "I'd love to help you find the perfect products! Let me ask you a few questions to personalize my recommendations. What's your primary skin concern right now?",
+                quickReplies: ['Acne & breakouts', 'Anti-aging', 'Dryness', 'Dark spots', 'Sensitivity']
+            },
+            acne: {
+                patterns: ['acne', 'breakouts', 'pimples', 'blemishes'],
+                response: "I understand dealing with breakouts can be frustrating. Based on our best sellers for acne-prone skin, I recommend starting with these products:",
+                products: [
+                    { name: 'Clear Skin Serum', price: 42, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200' },
+                    { name: 'Purifying Clay Mask', price: 38, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200' }
+                ],
+                quickReplies: ['Add to cart', 'See more options', 'Skincare routine for acne']
+            },
+            antiAging: {
+                patterns: ['anti-aging', 'wrinkles', 'fine lines', 'aging'],
+                response: "Great choice focusing on anti-aging! Here are our top-rated products with proven results:",
+                products: [
+                    { name: 'Retinol Night Cream', price: 65, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200' },
+                    { name: 'Vitamin C Brightening Serum', price: 58, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200' }
+                ],
+                quickReplies: ['Add to cart', 'Learn about ingredients', 'Anti-aging routine']
+            },
+            trackOrder: {
+                patterns: ['track', 'order', 'shipping', 'where is my', 'delivery', 'track my order'],
+                response: "I can help you track your order! Here's the status of your most recent order:",
+                orderCard: {
+                    number: 'GH-78234',
+                    status: 'In Transit',
+                    steps: [
+                        { label: 'Ordered', completed: true },
+                        { label: 'Shipped', completed: true },
+                        { label: 'In Transit', current: true },
+                        { label: 'Delivered', completed: false }
+                    ],
+                    eta: 'March 19, 2026'
+                },
+                quickReplies: ['Get notifications', 'View order details', 'Contact support']
+            },
+            returnStart: {
+                patterns: ['return', 'exchange', 'refund', 'send back', 'start a return'],
+                response: "I'm sorry to hear you need to make a return. No worries, I can help! Our return policy allows returns within 30 days of delivery. Which order would you like to return?",
+                quickReplies: ['Order GH-78234', 'Order GH-77891', 'View return policy']
+            },
+            skincareHelp: {
+                patterns: ['skincare help', 'routine', 'how to', 'advice', 'tips'],
+                response: "I'd be happy to help with your skincare routine! The key to great skin is using products in the right order. What step would you like advice on?",
+                quickReplies: ['Morning routine', 'Night routine', 'Product layering', 'Ingredient combos to avoid']
+            },
+            morningRoutine: {
+                patterns: ['morning routine', 'am routine', 'daytime'],
+                response: "Here's the ideal morning skincare routine order:\n\n1. &#x1F9FC; Cleanser\n2. &#x1F4A7; Toner\n3. &#x2728; Serum (Vitamin C is great for AM)\n4. &#x1F441; Eye Cream\n5. &#x1F4A6; Moisturizer\n6. &#x2600;&#xFE0F; SPF (most important!)\n\nWould you like product recommendations for any of these steps?",
+                quickReplies: ['Recommend cleansers', 'Best serums', 'SPF options', 'Build my routine']
+            },
+            nightRoutine: {
+                patterns: ['night routine', 'pm routine', 'evening', 'nighttime'],
+                response: "Here's the ideal nighttime skincare routine:\n\n1. &#x1F9FC; Oil Cleanser (if wearing makeup)\n2. &#x1F9FC; Water-based Cleanser\n3. &#x1F4A7; Toner/Essence\n4. &#x2728; Treatment Serum (Retinol works best at night)\n5. &#x1F441; Eye Cream\n6. &#x1F4A6; Night Cream/Moisturizer\n7. &#x1F319; Optional: Sleeping Mask\n\nWant me to recommend products for your concerns?",
+                quickReplies: ['Retinol products', 'Night creams', 'Sleeping masks', 'Build my routine']
+            },
+            buildRoutine: {
+                patterns: ['build my routine', 'create routine', 'personalized routine', 'build routine'],
+                response: "Let's build your personalized routine! I'll need to know a bit about your skin. First, what's your skin type?",
+                quickReplies: ['Oily', 'Dry', 'Combination', 'Sensitive', 'Normal']
+            },
+            skinAnalysis: {
+                patterns: ['analyze', 'skin analysis', 'analyze my skin', 'scan my face'],
+                response: "Great! Our AI Skin Analysis can detect your skin type, concerns, and recommend personalized products. Ready to start?",
+                quickReplies: ['Start analysis', 'Learn more', 'Maybe later'],
+                action: 'skin-analysis'
+            },
+            findDupe: {
+                patterns: ['dupe', 'alternative', 'cheaper', 'find a dupe'],
+                response: "I can help you find affordable alternatives to luxury products! What product are you looking for a dupe for?",
+                quickReplies: ['La Mer moisturizer', 'Charlotte Tilbury', 'Drunk Elephant', 'Type product name']
+            },
+            checkIngredients: {
+                patterns: ['ingredient', 'ingredients', 'check ingredients', 'what is', 'is it safe'],
+                response: "I can analyze ingredients for you! You can either paste an ingredient list or upload a photo of the product label. What would you prefer?",
+                quickReplies: ['Paste ingredients', 'Upload photo', 'Common harmful ingredients']
+            },
+            human: {
+                patterns: ['human', 'agent', 'real person', 'talk to someone', 'customer service'],
+                response: "I understand you'd like to speak with a human. Let me connect you with one of our beauty specialists. They typically respond within 2 minutes during business hours (9AM-9PM EST).",
+                quickReplies: ['Connect now', 'Schedule callback', 'Continue with GlowBot'],
+                satisfaction: true
+            },
+            thanks: {
+                patterns: ['thank', 'thanks', 'helpful', 'great', 'awesome'],
+                response: "You're welcome! &#x1F60A; I'm glad I could help. Is there anything else you'd like assistance with?",
+                quickReplies: ['No, that\'s all', 'Yes, one more thing', 'Rate my experience']
+            },
+            fallback: {
+                response: "I'm not quite sure I understood that. Could you rephrase or choose from these popular topics?",
+                quickReplies: ['Product recommendations', 'Track my order', 'Skincare help', 'Talk to human']
+            }
+        };
+
+        // Product database for recommendations
+        const productDatabase = {
+            acne: [
+                { name: 'Clear Skin Serum', price: 42, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200' },
+                { name: 'Purifying Clay Mask', price: 38, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200' },
+                { name: 'Salicylic Acid Cleanser', price: 28, image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=200' }
+            ],
+            antiAging: [
+                { name: 'Retinol Night Cream', price: 65, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200' },
+                { name: 'Vitamin C Serum', price: 58, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200' },
+                { name: 'Peptide Eye Cream', price: 45, image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=200' }
+            ],
+            hydration: [
+                { name: 'Hyaluronic Acid Serum', price: 48, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200' },
+                { name: 'Deep Moisture Cream', price: 52, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200' },
+                { name: 'Hydrating Mist', price: 24, image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200' }
+            ]
+        };
+
+        // Chat state
+        let isTyping = false;
+        let messageCount = 0;
+        let userProfile = {
+            skinType: null,
+            concerns: [],
+            orders: ['GH-78234', 'GH-77891']
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUserProfile();
+            updateContextCard();
+        });
+
+        // Load user profile from localStorage
+        function loadUserProfile() {
+            const saved = localStorage.getItem('glowhaus_profile');
+            if (saved) {
+                try {
+                    userProfile = JSON.parse(saved);
+                } catch (e) {
+                    console.log('No saved profile');
+                }
+            }
+        }
+
+        // Update context card
+        function updateContextCard() {
+            document.getElementById('skinType').textContent = userProfile.skinType || 'Not set';
+            document.getElementById('concerns').textContent = userProfile.concerns.length ? userProfile.concerns.join(', ') : 'Not set';
+            document.getElementById('lastOrder').textContent = userProfile.orders.length ? userProfile.orders[0] : '—';
+        }
+
+        // Handle key press in input
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Send message
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Process and respond
+            setTimeout(() => {
+                hideTypingIndicator();
+                processUserMessage(message);
+            }, 1000 + Math.random() * 500);
+        }
+
+        // Send quick reply
+        function sendQuickReply(text) {
+            document.getElementById('chatInput').value = text;
+            sendMessage();
+        }
+
+        // Add message to chat
+        function addMessage(text, sender, extras = {}) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            let content = `
+                <div class="message-avatar">${sender === 'bot' ? '&#x2728;' : '&#x1F464;'}</div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+            `;
+
+            // Add product cards if present
+            if (extras.products) {
+                extras.products.forEach(product => {
+                    content += `
+                        <div class="product-card-chat">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="product-card-chat-info">
+                                <div class="product-card-chat-name">${product.name}</div>
+                                <div class="product-card-chat-price">$${product.price}</div>
+                                <button class="product-card-chat-btn" onclick="addToCart('${product.name}')">Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Add order card if present
+            if (extras.orderCard) {
+                const order = extras.orderCard;
+                content += `
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span class="order-number">Order ${order.number}</span>
+                            <span class="order-status">${order.status}</span>
+                        </div>
+                        <div class="order-progress">
+                            ${order.steps.map(step => `
+                                <div class="progress-step">
+                                    <div class="step-dot ${step.completed ? 'completed' : ''} ${step.current ? 'current' : ''}">
+                                        ${step.completed ? '&#x2713;' : ''}
+                                    </div>
+                                    <span class="step-label">${step.label}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--charcoal-light); margin-top: 0.5rem;">Estimated delivery: ${order.eta}</p>
+                    </div>
+                `;
+            }
+
+            // Add satisfaction prompt if needed
+            if (extras.satisfaction) {
+                content += `
+                    <div class="satisfaction-prompt">
+                        <p>Was this helpful?</p>
+                        <div class="rating-buttons">
+                            <button class="rating-btn" onclick="rateInteraction(1)">&#x1F44D;</button>
+                            <button class="rating-btn" onclick="rateInteraction(0)">&#x1F44E;</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Add quick replies if present
+            if (extras.quickReplies) {
+                content += `<div class="quick-replies">`;
+                extras.quickReplies.forEach(reply => {
+                    content += `<button class="quick-reply" onclick="sendQuickReply('${reply}')">${reply}</button>`;
+                });
+                content += `</div>`;
+            }
+
+            content += `
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+
+            messageDiv.innerHTML = content;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            messageCount++;
+        }
+
+        // Process user message and generate response
+        function processUserMessage(message) {
+            const lowerMessage = message.toLowerCase();
+            let matched = false;
+
+            // Check for pattern matches
+            for (const [key, data] of Object.entries(botResponses)) {
+                if (data.patterns && data.patterns.some(pattern => lowerMessage.includes(pattern))) {
+                    addMessage(data.response, 'bot', {
+                        products: data.products,
+                        orderCard: data.orderCard,
+                        quickReplies: data.quickReplies,
+                        satisfaction: data.satisfaction
+                    });
+
+                    // Handle special actions
+                    if (data.action === 'skin-analysis') {
+                        // Could redirect to skin analysis page
+                    }
+
+                    // Update user profile if relevant
+                    if (key === 'acne' || key === 'antiAging') {
+                        userProfile.concerns.push(key);
+                        localStorage.setItem('glowhaus_profile', JSON.stringify(userProfile));
+                        updateContextCard();
+                    }
+
+                    matched = true;
+                    break;
+                }
+            }
+
+            // Fallback response
+            if (!matched) {
+                addMessage(botResponses.fallback.response, 'bot', {
+                    quickReplies: botResponses.fallback.quickReplies
+                });
+            }
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">&#x2728;</div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            isTyping = true;
+        }
+
+        // Hide typing indicator
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+            isTyping = false;
+        }
+
+        // Add to cart
+        function addToCart(productName) {
+            addMessage(`Added ${productName} to your cart! &#x1F6D2;`, 'bot', {
+                quickReplies: ['View cart', 'Continue shopping', 'Checkout']
+            });
+        }
+
+        // Rate interaction
+        function rateInteraction(positive) {
+            const emoji = positive ? '&#x1F60A;' : '&#x1F614;';
+            const message = positive
+                ? `Thank you for the feedback! ${emoji} I'm glad I could help!`
+                : `I'm sorry I couldn't help better. ${emoji} Let me connect you with a specialist who can assist further.`;
+
+            addMessage(message, 'bot', {
+                quickReplies: positive ? ['Continue chatting', 'That\'s all for now'] : ['Connect to specialist', 'Try again']
+            });
+        }
+
+        // Toggle voice input
+        function toggleVoice() {
+            const voiceBtn = document.getElementById('voiceBtn');
+
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+
+                voiceBtn.style.background = 'var(--rose)';
+                voiceBtn.style.color = 'var(--white)';
+
+                recognition.start();
+
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('chatInput').value = transcript;
+                    voiceBtn.style.background = '';
+                    voiceBtn.style.color = '';
+                    sendMessage();
+                };
+
+                recognition.onerror = () => {
+                    voiceBtn.style.background = '';
+                    voiceBtn.style.color = '';
+                    addMessage("Sorry, I couldn't hear you clearly. Please try typing your message.", 'bot');
+                };
+
+                recognition.onend = () => {
+                    voiceBtn.style.background = '';
+                    voiceBtn.style.color = '';
+                };
+            } else {
+                addMessage("Voice input isn't supported in your browser. Please type your message instead.", 'bot');
+            }
+        }
+
+        // Floating chat button functionality (for other pages)
+        const floatingBtn = document.getElementById('floatingChatBtn');
+        floatingBtn.addEventListener('click', () => {
+            window.location.href = 'chatbot.html';
+        });
+    </script>
+</body>
+</html>
