@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveDrop™ - Shop Live, Drop Exclusive | GLOWHAUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67a7a;
+            --rose-dark: #6b4444;
+            --gold: #d4a574;
+            --gold-light: #e4c094;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4c4c4c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-top span {
+            color: var(--gold);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--rose);
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--rose);
+        }
+
+        .nav a.active {
+            color: var(--rose);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .header-icon {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .header-icon:hover {
+            color: var(--rose);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--rose-dark) 100%);
+            color: white;
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1920') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .livedrop-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--charcoal);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .livedrop-badge .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .hero-feature {
+            text-align: center;
+        }
+
+        .hero-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .hero-feature h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+
+        .hero-feature p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* Live Now Banner */
+        .live-now-banner {
+            background: linear-gradient(90deg, #ff4444, #ff6b6b, #ff4444);
+            background-size: 200% 100%;
+            animation: gradient-flow 3s ease infinite;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @keyframes gradient-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .live-now-banner a {
+            color: white;
+            text-decoration: underline;
+            margin-left: 15px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--charcoal-light);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Currently Live Section */
+        .currently-live {
+            background: white;
+        }
+
+        .live-stream-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-section {
+            background: var(--charcoal);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200') center/cover;
+            position: relative;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid var(--charcoal);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 8px;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff4444;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+
+        .stream-stats {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .stat-badge {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stream-info {
+            padding: 25px;
+            color: white;
+        }
+
+        .host-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .host-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .host-name {
+            font-weight: 600;
+        }
+
+        .host-title {
+            font-size: 13px;
+            color: var(--gold);
+        }
+
+        .stream-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .stream-description {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Chat Panel */
+        .chat-panel {
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            font-size: 18px;
+            color: var(--charcoal);
+        }
+
+        .chat-viewers {
+            font-size: 13px;
+            color: var(--rose);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-content {
+            flex: 1;
+        }
+
+        .chat-username {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--rose);
+        }
+
+        .chat-text {
+            font-size: 14px;
+            color: var(--charcoal);
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--cream-dark);
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: var(--rose);
+        }
+
+        /* Featured Products */
+        .featured-products {
+            margin-top: 40px;
+        }
+
+        .featured-products h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .live-exclusive-badge {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--charcoal);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 11px;
+            color: var(--rose);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .product-pricing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-live {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--rose);
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .savings-badge {
+            background: var(--gold-light);
+            color: var(--charcoal);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .btn-buy-now {
+            width: 100%;
+            background: var(--rose);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-buy-now:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Live-Only Deals Banner */
+        .deals-banner {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            color: white;
+            padding: 40px 60px;
+            margin: 60px 0;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .deals-content h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .deals-content p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .deals-perks {
+            display: flex;
+            gap: 30px;
+        }
+
+        .deals-perk {
+            text-align: center;
+        }
+
+        .deals-perk-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: var(--gold);
+        }
+
+        .deals-perk-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Upcoming Drops Section */
+        .upcoming-drops {
+            background: var(--cream-dark);
+        }
+
+        .drops-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .drop-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .drop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .drop-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .drop-countdown {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .countdown-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .drop-content {
+            padding: 25px;
+        }
+
+        .drop-date {
+            font-size: 12px;
+            color: var(--rose);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .drop-title {
+            font-size: 22px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .drop-host {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .drop-host img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .drop-host-info {
+            font-size: 13px;
+        }
+
+        .drop-host-name {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .drop-host-title {
+            color: #999;
+        }
+
+        .drop-teaser {
+            background: var(--cream);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drop-teaser-icon {
+            color: var(--gold);
+        }
+
+        .btn-reminder {
+            width: 100%;
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-reminder:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            background: white;
+        }
+
+        .calendar-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .calendar-nav button {
+            background: var(--cream);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            background: var(--cream-dark);
+        }
+
+        .calendar-month {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--charcoal-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .calendar-day:hover {
+            background: var(--cream);
+        }
+
+        .calendar-day.today {
+            background: var(--cream-dark);
+        }
+
+        .calendar-day.has-event {
+            background: var(--rose);
+            color: white;
+        }
+
+        .calendar-day.has-event:hover {
+            background: var(--rose-dark);
+        }
+
+        .calendar-day-number {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .calendar-day-event {
+            font-size: 9px;
+            margin-top: 4px;
+            text-align: center;
+            max-width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+        }
+
+        /* Past Drops Section */
+        .past-drops {
+            background: var(--cream-dark);
+        }
+
+        .past-drops-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .past-drop-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .past-drop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .past-drop-image {
+            height: 180px;
+            position: relative;
+        }
+
+        .past-drop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .replay-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--charcoal);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .past-drop-duration {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .past-drop-content {
+            padding: 20px;
+        }
+
+        .past-drop-date {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .past-drop-title {
+            font-size: 18px;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .past-drop-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--charcoal-light);
+        }
+
+        .btn-watch-replay {
+            width: 100%;
+            background: var(--cream);
+            color: var(--charcoal);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-watch-replay:hover {
+            background: var(--cream-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 60px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .live-stream-container {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .drops-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .past-drops-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .products-grid,
+            .drops-grid,
+            .past-drops-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deals-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            Free Shipping on Orders Over $75 | <span>LiveDrop™</span> Exclusive: Extra 10% Off During Live Streams
+        </div>
+        <div class="header-main">
+            <a href="/" class="logo">GLOW<span>HAUS</span></a>
+            <nav class="nav">
+                <a href="#">Skincare</a>
+                <a href="#">Makeup</a>
+                <a href="#">Haircare</a>
+                <a href="#">Fragrance</a>
+                <a href="#" class="active">LiveDrop™</a>
+                <a href="#">Brands</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="header-icon">&#128269;</a>
+                <a href="#" class="header-icon">&#9829;</a>
+                <a href="#" class="header-icon">&#128100;</a>
+                <a href="#" class="header-icon">&#128722;</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Now Banner -->
+    <div class="live-now-banner">
+        &#128308; LIVE NOW: Summer Glow Masterclass with @BeautyByMia — Exclusive drops every 10 minutes!
+        <a href="#currently-live">Join Stream</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="livedrop-badge">
+                <span class="live-dot"></span>
+                LiveDrop™ Technology
+            </div>
+            <h1>Shop Live, Drop <span>Exclusive</span></h1>
+            <p class="hero-subtitle">Experience real-time beauty shopping with expert hosts, exclusive deals, and limited-edition drops</p>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">&#127775;</div>
+                    <h4>Exclusive Pricing</h4>
+                    <p>Up to 40% off during streams</p>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">&#128172;</div>
+                    <h4>Live Interaction</h4>
+                    <p>Chat with hosts & community</p>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">&#128142;</div>
+                    <h4>Limited Drops</h4>
+                    <p>First access to new releases</p>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">&#127916;</div>
+                    <h4>Watch Replays</h4>
+                    <p>Never miss a moment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Live Section -->
+    <section id="currently-live" class="section currently-live">
+        <div class="section-header">
+            <h2>Currently Live</h2>
+            <p>Join the stream and shop exclusive deals in real-time</p>
+        </div>
+        <div class="live-stream-container">
+            <div class="video-section">
+                <div class="video-placeholder">
+                    <div class="video-overlay">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="live-badge">LIVE</div>
+                    <div class="stream-stats">
+                        <span class="stat-badge">&#128065; 2,847</span>
+                        <span class="stat-badge">&#10084; 12.4K</span>
+                    </div>
+                </div>
+                <div class="stream-info">
+                    <div class="host-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Host" class="host-avatar">
+                        <div>
+                            <div class="host-name">Mia Rodriguez</div>
+                            <div class="host-title">GLOWHAUS Beauty Expert</div>
+                        </div>
+                    </div>
+                    <h3 class="stream-title">Summer Glow Masterclass: Dewy Skin Secrets</h3>
+                    <p class="stream-description">Learn the techniques behind the perfect summer glow with exclusive product reveals and live-only pricing on cult favorites.</p>
+                </div>
+            </div>
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <h4>Live Chat</h4>
+                    <span class="chat-viewers">2,847 watching</span>
+                </div>
+                <div class="chat-messages">
+                    <div class="chat-message">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50" alt="User" class="chat-avatar">
+                        <div class="chat-content">
+                            <span class="chat-username">SkincareSally</span>
+                            <p class="chat-text">OMG that highlighter is stunning! Just ordered!</p>
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50" alt="User" class="chat-avatar">
+                        <div class="chat-content">
+                            <span class="chat-username">GlowGetter_23</span>
+                            <p class="chat-text">Can you show the serum again? Love the texture!</p>
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50" alt="User" class="chat-avatar">
+                        <div class="chat-content">
+                            <span class="chat-username">BeautyBoss</span>
+                            <p class="chat-text">These prices are incredible! Thank you Mia!</p>
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=50" alt="User" class="chat-avatar">
+                        <div class="chat-content">
+                            <span class="chat-username">MakeupMaven</span>
+                            <p class="chat-text">Will this serum work for oily skin?</p>
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" alt="User" class="chat-avatar">
+                        <div class="chat-content">
+                            <span class="chat-username">SkinCareKing</span>
+                            <p class="chat-text">Just grabbed the bundle! The discount is amazing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" placeholder="Say something...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="featured-products">
+            <h3>Featured in Stream <span class="live-exclusive-badge">LIVE EXCLUSIVE PRICING</span></h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" alt="Glow Serum">
+                        <span class="product-badge">-35%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Luminesse</div>
+                        <div class="product-name">Radiance Glow Serum</div>
+                        <div class="product-pricing">
+                            <span class="price-live">$42</span>
+                            <span class="price-original">$65</span>
+                            <span class="savings-badge">SAVE $23</span>
+                        </div>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400" alt="Highlighter Palette">
+                        <span class="product-badge">-40%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">GLOWHAUS</div>
+                        <div class="product-name">Sunset Glow Highlighter</div>
+                        <div class="product-pricing">
+                            <span class="price-live">$28</span>
+                            <span class="price-original">$48</span>
+                            <span class="savings-badge">SAVE $20</span>
+                        </div>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400" alt="Lip Oil">
+                        <span class="product-badge">-30%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Velvet Kiss</div>
+                        <div class="product-name">Hydrating Lip Oil Set</div>
+                        <div class="product-pricing">
+                            <span class="price-live">$24</span>
+                            <span class="price-original">$35</span>
+                            <span class="savings-badge">SAVE $11</span>
+                        </div>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400" alt="Face Mist">
+                        <span class="product-badge">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">AquaGlow</div>
+                        <div class="product-name">Rose Dew Face Mist</div>
+                        <div class="product-pricing">
+                            <span class="price-live">$18</span>
+                            <span class="price-original">$24</span>
+                            <span class="savings-badge">SAVE $6</span>
+                        </div>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live-Only Deals Banner -->
+    <div class="section">
+        <div class="deals-banner">
+            <div class="deals-content">
+                <h3>Live-Only Deals</h3>
+                <p>Exclusive pricing only available during LiveDrop™ streams</p>
+            </div>
+            <div class="deals-perks">
+                <div class="deals-perk">
+                    <div class="deals-perk-value">40%</div>
+                    <div class="deals-perk-label">Max Discount</div>
+                </div>
+                <div class="deals-perk">
+                    <div class="deals-perk-value">FREE</div>
+                    <div class="deals-perk-label">Express Shipping</div>
+                </div>
+                <div class="deals-perk">
+                    <div class="deals-perk-value">2X</div>
+                    <div class="deals-perk-label">Loyalty Points</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Drops Section -->
+    <section class="section upcoming-drops">
+        <div class="section-header">
+            <h2>Upcoming Drops</h2>
+            <p>Set reminders for exclusive live shopping events</p>
+        </div>
+        <div class="drops-grid">
+            <div class="drop-card">
+                <div class="drop-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600" alt="Skincare Drop">
+                    <div class="drop-countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value">01</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">14</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">32</div>
+                            <div class="countdown-label">Mins</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">08</div>
+                            <div class="countdown-label">Secs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="drop-content">
+                    <div class="drop-date">Tomorrow, 7:00 PM EST</div>
+                    <h3 class="drop-title">K-Beauty Secrets Revealed</h3>
+                    <div class="drop-host">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Host">
+                        <div class="drop-host-info">
+                            <div class="drop-host-name">Sarah Kim</div>
+                            <div class="drop-host-title">K-Beauty Specialist</div>
+                        </div>
+                    </div>
+                    <div class="drop-teaser">
+                        <span class="drop-teaser-icon">&#127873;</span>
+                        First 100 viewers get free sheet mask set
+                    </div>
+                    <button class="btn-reminder">&#128276; Set Reminder</button>
+                </div>
+            </div>
+            <div class="drop-card">
+                <div class="drop-image">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600" alt="Makeup Drop">
+                    <div class="drop-countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value">03</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">08</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">45</div>
+                            <div class="countdown-label">Mins</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">22</div>
+                            <div class="countdown-label">Secs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="drop-content">
+                    <div class="drop-date">Friday, 8:00 PM EST</div>
+                    <h3 class="drop-title">New Brand Launch: Velour</h3>
+                    <div class="drop-host">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100" alt="Host">
+                        <div class="drop-host-info">
+                            <div class="drop-host-name">Emma Chen</div>
+                            <div class="drop-host-title">Brand Ambassador</div>
+                        </div>
+                    </div>
+                    <div class="drop-teaser">
+                        <span class="drop-teaser-icon">&#127873;</span>
+                        Exclusive 50% launch discount + free bag
+                    </div>
+                    <button class="btn-reminder">&#128276; Set Reminder</button>
+                </div>
+            </div>
+            <div class="drop-card">
+                <div class="drop-image">
+                    <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=600" alt="Fragrance Drop">
+                    <div class="drop-countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value">05</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">22</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">15</div>
+                            <div class="countdown-label">Mins</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">41</div>
+                            <div class="countdown-label">Secs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="drop-content">
+                    <div class="drop-date">Sunday, 6:00 PM EST</div>
+                    <h3 class="drop-title">Summer Fragrance Edit</h3>
+                    <div class="drop-host">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Host">
+                        <div class="drop-host-info">
+                            <div class="drop-host-name">James Laurent</div>
+                            <div class="drop-host-title">Fragrance Expert</div>
+                        </div>
+                    </div>
+                    <div class="drop-teaser">
+                        <span class="drop-teaser-icon">&#127873;</span>
+                        Mystery fragrance reveal + gift with purchase
+                    </div>
+                    <button class="btn-reminder">&#128276; Set Reminder</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="section calendar-section">
+        <div class="section-header">
+            <h2>Drop Calendar</h2>
+            <p>Plan your live shopping schedule</p>
+        </div>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button>&larr;</button>
+                    <span class="calendar-month">March 2026</span>
+                    <button>&rarr;</button>
+                </div>
+            </div>
+            <div class="calendar-grid">
+                <div class="calendar-day-header">Sun</div>
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+
+                <div class="calendar-day other-month"><span class="calendar-day-number">1</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">2</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">3</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">4</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">5</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">6</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">7</span></div>
+
+                <div class="calendar-day"><span class="calendar-day-number">8</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">9</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">10</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">11</span></div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">12</span>
+                    <span class="calendar-day-event">Skincare</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">13</span></div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">14</span>
+                    <span class="calendar-day-event">Makeup</span>
+                </div>
+
+                <div class="calendar-day"><span class="calendar-day-number">15</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">16</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">17</span></div>
+                <div class="calendar-day today">
+                    <span class="calendar-day-number">18</span>
+                    <span class="calendar-day-event">LIVE NOW</span>
+                </div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">19</span>
+                    <span class="calendar-day-event">K-Beauty</span>
+                </div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">20</span>
+                    <span class="calendar-day-event">Velour</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">21</span></div>
+
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">22</span>
+                    <span class="calendar-day-event">Fragrance</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">23</span></div>
+                <div class="calendar-day"><span class="calendar-day-number">24</span></div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">25</span>
+                    <span class="calendar-day-event">Haircare</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">26</span></div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">27</span>
+                    <span class="calendar-day-event">VIP Drop</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">28</span></div>
+
+                <div class="calendar-day"><span class="calendar-day-number">29</span></div>
+                <div class="calendar-day has-event">
+                    <span class="calendar-day-number">30</span>
+                    <span class="calendar-day-event">Spring Edit</span>
+                </div>
+                <div class="calendar-day"><span class="calendar-day-number">31</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">1</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">2</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">3</span></div>
+                <div class="calendar-day other-month"><span class="calendar-day-number">4</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Drops Section -->
+    <section class="section past-drops">
+        <div class="section-header">
+            <h2>Past Drops</h2>
+            <p>Watch replays and shop featured products</p>
+        </div>
+        <div class="past-drops-grid">
+            <div class="past-drop-card">
+                <div class="past-drop-image">
+                    <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=400" alt="Past Drop">
+                    <span class="replay-badge">&#9654; Replay</span>
+                    <span class="past-drop-duration">45:32</span>
+                </div>
+                <div class="past-drop-content">
+                    <div class="past-drop-date">March 15, 2026</div>
+                    <h4 class="past-drop-title">Spring Skincare Refresh</h4>
+                    <div class="past-drop-stats">
+                        <span>&#128065; 8.2K views</span>
+                        <span>&#10084; 2.1K likes</span>
+                    </div>
+                    <button class="btn-watch-replay">Watch Replay</button>
+                </div>
+            </div>
+            <div class="past-drop-card">
+                <div class="past-drop-image">
+                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=400" alt="Past Drop">
+                    <span class="replay-badge">&#9654; Replay</span>
+                    <span class="past-drop-duration">52:18</span>
+                </div>
+                <div class="past-drop-content">
+                    <div class="past-drop-date">March 12, 2026</div>
+                    <h4 class="past-drop-title">Everyday Glam Tutorial</h4>
+                    <div class="past-drop-stats">
+                        <span>&#128065; 12.5K views</span>
+                        <span>&#10084; 4.3K likes</span>
+                    </div>
+                    <button class="btn-watch-replay">Watch Replay</button>
+                </div>
+            </div>
+            <div class="past-drop-card">
+                <div class="past-drop-image">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400" alt="Past Drop">
+                    <span class="replay-badge">&#9654; Replay</span>
+                    <span class="past-drop-duration">38:45</span>
+                </div>
+                <div class="past-drop-content">
+                    <div class="past-drop-date">March 8, 2026</div>
+                    <h4 class="past-drop-title">Clean Beauty Essentials</h4>
+                    <div class="past-drop-stats">
+                        <span>&#128065; 6.8K views</span>
+                        <span>&#10084; 1.9K likes</span>
+                    </div>
+                    <button class="btn-watch-replay">Watch Replay</button>
+                </div>
+            </div>
+            <div class="past-drop-card">
+                <div class="past-drop-image">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Past Drop">
+                    <span class="replay-badge">&#9654; Replay</span>
+                    <span class="past-drop-duration">41:22</span>
+                </div>
+                <div class="past-drop-content">
+                    <div class="past-drop-date">March 5, 2026</div>
+                    <h4 class="past-drop-title">Nail Art Masterclass</h4>
+                    <div class="past-drop-stats">
+                        <span>&#128065; 5.4K views</span>
+                        <span>&#10084; 1.5K likes</span>
+                    </div>
+                    <button class="btn-watch-replay">Watch Replay</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">GLOW<span>HAUS</span></a>
+                <p>Your destination for curated beauty. Discover luxurious skincare, makeup, and fragrances from the world's most coveted brands.</p>
+                <div class="footer-social">
+                    <a href="#">&#102;</a>
+                    <a href="#">&#9679;</a>
+                    <a href="#">&#120;</a>
+                    <a href="#">&#9654;</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Makeup</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Tools</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>LiveDrop</h4>
+                <ul>
+                    <li><a href="#">Live Now</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Replays</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Become a Host</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GLOWHAUS. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service | Accessibility</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer Functionality
+        function updateCountdowns() {
+            const countdowns = document.querySelectorAll('.drop-countdown');
+            countdowns.forEach((countdown, index) => {
+                const items = countdown.querySelectorAll('.countdown-value');
+                let secs = parseInt(items[3].textContent);
+                let mins = parseInt(items[2].textContent);
+                let hours = parseInt(items[1].textContent);
+                let days = parseInt(items[0].textContent);
+
+                secs--;
+                if (secs < 0) {
+                    secs = 59;
+                    mins--;
+                    if (mins < 0) {
+                        mins = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                            days--;
+                            if (days < 0) {
+                                days = 0;
+                                hours = 0;
+                                mins = 0;
+                                secs = 0;
+                            }
+                        }
+                    }
+                }
+
+                items[0].textContent = String(days).padStart(2, '0');
+                items[1].textContent = String(hours).padStart(2, '0');
+                items[2].textContent = String(mins).padStart(2, '0');
+                items[3].textContent = String(secs).padStart(2, '0');
+            });
+        }
+
+        setInterval(updateCountdowns, 1000);
+
+        // Set Reminder Button
+        document.querySelectorAll('.btn-reminder').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.innerHTML.includes('Set Reminder')) {
+                    this.innerHTML = '&#10003; Reminder Set';
+                    this.style.background = 'var(--rose)';
+                    this.style.color = 'white';
+                } else {
+                    this.innerHTML = '&#128276; Set Reminder';
+                    this.style.background = 'transparent';
+                    this.style.color = 'var(--rose)';
+                }
+            });
+        });
+
+        // Simulate live viewer count changes
+        setInterval(() => {
+            const viewerBadge = document.querySelector('.stat-badge');
+            const currentViewers = parseInt(viewerBadge.textContent.replace(/[^0-9]/g, ''));
+            const change = Math.floor(Math.random() * 21) - 10;
+            const newViewers = Math.max(2500, currentViewers + change);
+            viewerBadge.innerHTML = '&#128065; ' + newViewers.toLocaleString();
+
+            document.querySelector('.chat-viewers').textContent = newViewers.toLocaleString() + ' watching';
+        }, 3000);
+    </script>
+</body>
+</html>

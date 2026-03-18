@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowSquad™ - Shop Together | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6b4444;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f0ebe7;
+            --charcoal: #2c2c2c;
+            --charcoal-light: #4a4a4a;
+            --white: #ffffff;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --shadow-sm: 0 2px 8px rgba(139, 90, 90, 0.08);
+            --shadow-md: 0 4px 20px rgba(139, 90, 90, 0.12);
+            --shadow-lg: 0 8px 40px rgba(139, 90, 90, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 50%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--purple);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Group Discount Banner */
+        .group-discount-banner {
+            background: linear-gradient(90deg, var(--gold-light) 0%, var(--gold) 100%);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .discount-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .discount-icon {
+            font-size: 2.5rem;
+        }
+
+        .discount-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .discount-text p {
+            font-size: 0.9rem;
+            color: var(--charcoal-light);
+        }
+
+        .discount-progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress-ring {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 6;
+        }
+
+        .progress-ring .bg {
+            stroke: rgba(255, 255, 255, 0.5);
+        }
+
+        .progress-ring .progress {
+            stroke: var(--charcoal);
+            stroke-linecap: round;
+            stroke-dasharray: 201;
+            stroke-dashoffset: 50;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .progress-label {
+            text-align: center;
+        }
+
+        .progress-label strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .progress-label span {
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .see-all {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Shared Carts */
+        .shared-carts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .shared-cart-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cart-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cart-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .cart-meta {
+            flex: 1;
+        }
+
+        .cart-owner {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .verified-badge {
+            background: var(--purple);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .cart-date {
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+        }
+
+        .cart-items-preview {
+            display: flex;
+            gap: -0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            border: 2px solid var(--white);
+            margin-left: -10px;
+        }
+
+        .cart-item-thumb:first-child {
+            margin-left: 0;
+        }
+
+        .cart-item-more {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            background: var(--cream-dark);
+            border: 2px solid var(--white);
+            margin-left: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--charcoal-light);
+        }
+
+        .cart-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-top: 1px solid var(--cream-dark);
+            border-bottom: 1px solid var(--cream-dark);
+            margin-bottom: 1rem;
+        }
+
+        .cart-stat {
+            text-align: center;
+        }
+
+        .cart-stat-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .cart-stat-label {
+            font-size: 0.75rem;
+            color: var(--charcoal-light);
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cart-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-btn.primary {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .cart-btn.secondary {
+            background: var(--cream);
+            color: var(--charcoal);
+        }
+
+        /* Friends Activity */
+        .activity-feed {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-text strong {
+            color: var(--rose);
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: var(--charcoal-light);
+        }
+
+        .activity-product {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--cream);
+            padding: 0.75rem;
+            border-radius: var(--radius-sm);
+            margin-top: 0.75rem;
+        }
+
+        .activity-product img {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+        }
+
+        .activity-product-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .activity-product-price {
+            font-size: 0.85rem;
+            color: var(--rose);
+        }
+
+        /* Wishlists */
+        .wishlists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .wishlist-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .wishlist-cover {
+            height: 120px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+
+        .wishlist-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wishlist-content {
+            padding: 1.25rem;
+        }
+
+        .wishlist-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .wishlist-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .wishlist-meta {
+            flex: 1;
+        }
+
+        .wishlist-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .wishlist-owner {
+            font-size: 0.8rem;
+            color: var(--charcoal-light);
+        }
+
+        .wishlist-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+            margin-bottom: 1rem;
+        }
+
+        .wishlist-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--cream);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist-btn:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        /* Create Squad */
+        .create-squad {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .create-squad h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .create-squad p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .squad-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .create-btn {
+            background: var(--white);
+            color: var(--rose);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .create-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Invite Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .share-option:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .share-option-icon {
+            font-size: 1.5rem;
+        }
+
+        .share-option-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .share-link {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .share-link input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .share-link button {
+            padding: 0.75rem 1.5rem;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .shared-carts-grid,
+            .wishlists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .group-discount-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .share-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Shop</a></li>
+                    <li><a href="skin-analysis.html">Skin Analysis</a></li>
+                    <li><a href="creators.html">Creators</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>&#x1F46D;</span>
+                <span>Social Shopping</span>
+            </div>
+            <h1>GlowSquad&#x2122;</h1>
+            <p>Shop with friends, unlock group discounts, and discover what your beauty community is loving.</p>
+            <a href="#" class="hero-cta" onclick="openInviteModal()">
+                <span>&#x2795;</span>
+                Invite Friends to Your Squad
+            </a>
+        </section>
+
+        <!-- Group Discount Banner -->
+        <div class="group-discount-banner">
+            <div class="discount-info">
+                <span class="discount-icon">&#x1F389;</span>
+                <div class="discount-text">
+                    <h3>Group Discount Unlocking!</h3>
+                    <p>Get 3 more friends to join and everyone saves 20%</p>
+                </div>
+            </div>
+            <div class="discount-progress">
+                <div class="progress-ring">
+                    <svg width="80" height="80">
+                        <circle class="bg" cx="40" cy="40" r="32"/>
+                        <circle class="progress" cx="40" cy="40" r="32"/>
+                    </svg>
+                    <span class="progress-text">2/5</span>
+                </div>
+                <div class="progress-label">
+                    <strong>2 friends joined</strong>
+                    <span>3 more for 20% off</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shared Carts -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>&#x1F6D2;</span>
+                    Shared Carts
+                </h2>
+                <a href="#" class="see-all">See all</a>
+            </div>
+            <div class="shared-carts-grid">
+                <div class="shared-cart-card">
+                    <div class="cart-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sarah" class="cart-avatar">
+                        <div class="cart-meta">
+                            <div class="cart-owner">
+                                Sarah M.
+                                <span class="verified-badge">SQUAD LEADER</span>
+                            </div>
+                            <div class="cart-date">Shared 2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="cart-items-preview">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100" alt="Product" class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=100" alt="Product" class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=100" alt="Product" class="cart-item-thumb">
+                        <div class="cart-item-more">+2</div>
+                    </div>
+                    <div class="cart-stats">
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">5</div>
+                            <div class="cart-stat-label">Items</div>
+                        </div>
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">$187</div>
+                            <div class="cart-stat-label">Total</div>
+                        </div>
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">3</div>
+                            <div class="cart-stat-label">Members</div>
+                        </div>
+                    </div>
+                    <div class="cart-actions">
+                        <button class="cart-btn secondary">View Cart</button>
+                        <button class="cart-btn primary">Join Cart</button>
+                    </div>
+                </div>
+
+                <div class="shared-cart-card">
+                    <div class="cart-header">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="Emma" class="cart-avatar">
+                        <div class="cart-meta">
+                            <div class="cart-owner">Emma L.</div>
+                            <div class="cart-date">Shared yesterday</div>
+                        </div>
+                    </div>
+                    <div class="cart-items-preview">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=100" alt="Product" class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=100" alt="Product" class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=100" alt="Product" class="cart-item-thumb">
+                    </div>
+                    <div class="cart-stats">
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">3</div>
+                            <div class="cart-stat-label">Items</div>
+                        </div>
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">$124</div>
+                            <div class="cart-stat-label">Total</div>
+                        </div>
+                        <div class="cart-stat">
+                            <div class="cart-stat-value">2</div>
+                            <div class="cart-stat-label">Members</div>
+                        </div>
+                    </div>
+                    <div class="cart-actions">
+                        <button class="cart-btn secondary">View Cart</button>
+                        <button class="cart-btn primary">Join Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Friends Activity -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>&#x1F4AC;</span>
+                    Friends Also Bought
+                </h2>
+            </div>
+            <div class="activity-feed">
+                <div class="activity-item">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Jessica" class="activity-avatar">
+                    <div class="activity-content">
+                        <div class="activity-text"><strong>Jessica K.</strong> just purchased</div>
+                        <div class="activity-time">15 minutes ago</div>
+                        <div class="activity-product">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100" alt="Serum">
+                            <div>
+                                <div class="activity-product-name">Vitamin C Serum</div>
+                                <div class="activity-product-price">$58</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Amanda" class="activity-avatar">
+                    <div class="activity-content">
+                        <div class="activity-text"><strong>Amanda R.</strong> added to wishlist</div>
+                        <div class="activity-time">1 hour ago</div>
+                        <div class="activity-product">
+                            <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=100" alt="Cream">
+                            <div>
+                                <div class="activity-product-name">Retinol Night Cream</div>
+                                <div class="activity-product-price">$65</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Mia" class="activity-avatar">
+                    <div class="activity-content">
+                        <div class="activity-text"><strong>Mia C.</strong> just purchased 3 items</div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishlists -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>&#x1F496;</span>
+                    Public Wishlists
+                </h2>
+                <a href="#" class="see-all">Browse all</a>
+            </div>
+            <div class="wishlists-grid">
+                <div class="wishlist-card">
+                    <div class="wishlist-cover">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200" alt="Product">
+                    </div>
+                    <div class="wishlist-content">
+                        <div class="wishlist-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sarah" class="wishlist-avatar">
+                            <div class="wishlist-meta">
+                                <div class="wishlist-name">My Glow Essentials</div>
+                                <div class="wishlist-owner">by Sarah M.</div>
+                            </div>
+                        </div>
+                        <div class="wishlist-stats">
+                            <span>&#x1F4E6; 8 items</span>
+                            <span>&#x2764;&#xFE0F; 24 saves</span>
+                        </div>
+                        <button class="wishlist-btn">View Wishlist</button>
+                    </div>
+                </div>
+
+                <div class="wishlist-card">
+                    <div class="wishlist-cover">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200" alt="Product">
+                    </div>
+                    <div class="wishlist-content">
+                        <div class="wishlist-header">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="Emma" class="wishlist-avatar">
+                            <div class="wishlist-meta">
+                                <div class="wishlist-name">Summer Makeup Must-Haves</div>
+                                <div class="wishlist-owner">by Emma L.</div>
+                            </div>
+                        </div>
+                        <div class="wishlist-stats">
+                            <span>&#x1F4E6; 12 items</span>
+                            <span>&#x2764;&#xFE0F; 56 saves</span>
+                        </div>
+                        <button class="wishlist-btn">View Wishlist</button>
+                    </div>
+                </div>
+
+                <div class="wishlist-card">
+                    <div class="wishlist-cover">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=200" alt="Product">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200" alt="Product">
+                    </div>
+                    <div class="wishlist-content">
+                        <div class="wishlist-header">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Jessica" class="wishlist-avatar">
+                            <div class="wishlist-meta">
+                                <div class="wishlist-name">Clean Beauty Picks</div>
+                                <div class="wishlist-owner">by Jessica K.</div>
+                            </div>
+                        </div>
+                        <div class="wishlist-stats">
+                            <span>&#x1F4E6; 6 items</span>
+                            <span>&#x2764;&#xFE0F; 18 saves</span>
+                        </div>
+                        <button class="wishlist-btn">View Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Squad -->
+        <section class="create-squad">
+            <h3>Start Your GlowSquad&#x2122;</h3>
+            <p>Create a shopping squad with your friends and unlock exclusive group discounts together!</p>
+            <div class="squad-benefits">
+                <div class="benefit">
+                    <span>&#x2705;</span>
+                    <span>Up to 25% group discounts</span>
+                </div>
+                <div class="benefit">
+                    <span>&#x2705;</span>
+                    <span>Shared wishlists</span>
+                </div>
+                <div class="benefit">
+                    <span>&#x2705;</span>
+                    <span>See friends' purchases</span>
+                </div>
+            </div>
+            <button class="create-btn" onclick="openInviteModal()">Create Your Squad</button>
+        </section>
+    </main>
+
+    <!-- Invite Modal -->
+    <div class="modal-overlay" id="inviteModal">
+        <div class="modal">
+            <h3>&#x1F46D; Invite Friends to GlowSquad&#x2122;</h3>
+            <div class="share-options">
+                <div class="share-option">
+                    <span class="share-option-icon">&#x1F4AC;</span>
+                    <span class="share-option-label">iMessage</span>
+                </div>
+                <div class="share-option">
+                    <span class="share-option-icon">&#x1F4E7;</span>
+                    <span class="share-option-label">Email</span>
+                </div>
+                <div class="share-option">
+                    <span class="share-option-icon">&#x1F426;</span>
+                    <span class="share-option-label">Twitter</span>
+                </div>
+                <div class="share-option">
+                    <span class="share-option-icon">&#x1F4F7;</span>
+                    <span class="share-option-label">Instagram</span>
+                </div>
+            </div>
+            <p style="margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--charcoal-light);">Or copy your invite link:</p>
+            <div class="share-link">
+                <input type="text" value="https://glowhaus.com/squad/sarah-m/invite" readonly>
+                <button onclick="copyLink()">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">GLOWHAUS</div>
+        <p style="color: var(--charcoal-light);">GlowSquad&#x2122; &mdash; Beauty is better together.</p>
+    </footer>
+
+    <script>
+        function openInviteModal() {
+            document.getElementById('inviteModal').classList.add('active');
+        }
+
+        document.getElementById('inviteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        function copyLink() {
+            const input = document.querySelector('.share-link input');
+            input.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
