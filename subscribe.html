@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe & Save | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67373;
+            --rose-dark: #6d4646;
+            --gold: #d4a574;
+            --gold-light: #e0b88a;
+            --gold-dark: #c4935e;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0ec;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --white: #ffffff;
+            --border: #e8e4e0;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            color: white;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar span {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--rose);
+        }
+
+        .nav-link.active {
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icon {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .header-icon:hover {
+            color: var(--rose);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            border-radius: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--rose);
+            border: 2px solid var(--rose);
+        }
+
+        .btn-secondary:hover {
+            background: var(--rose);
+            color: white;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-large {
+            padding: 18px 48px;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 50%, #f8f2ee 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.05) 0%, rgba(212, 165, 116, 0.08) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            padding: 80px 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .hero-feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 80%;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px 0 0 20px;
+            box-shadow: -20px 0 60px rgba(139, 90, 90, 0.15);
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+        }
+
+        .hero-floating-card.top {
+            top: 15%;
+            right: 38%;
+        }
+
+        .hero-floating-card.bottom {
+            bottom: 15%;
+            right: 42%;
+        }
+
+        .floating-discount {
+            text-align: center;
+        }
+
+        .floating-discount-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .floating-discount-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .floating-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .floating-benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .floating-benefit-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .floating-benefit-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rose), var(--gold), var(--rose));
+            opacity: 0.3;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step-icon {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .step-title {
+            font-size: 26px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 48px 36px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(139, 90, 90, 0.12);
+            border-color: transparent;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-size: 32px;
+        }
+
+        .benefit-title {
+            font-size: 24px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .benefit-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .benefit-highlight {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+        }
+
+        /* Featured Subscriptions */
+        .subscriptions-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .subscriptions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .subscription-card {
+            background: var(--cream);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .subscription-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(139, 90, 90, 0.15);
+        }
+
+        .subscription-card.featured {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+        }
+
+        .subscription-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .subscription-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .subscription-card:hover .subscription-image img {
+            transform: scale(1.08);
+        }
+
+        .subscription-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+        }
+
+        .subscription-card.featured .subscription-badge {
+            background: white;
+            color: var(--rose);
+        }
+
+        .subscription-content {
+            padding: 32px;
+        }
+
+        .subscription-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .subscription-card.featured .subscription-category {
+            color: white;
+        }
+
+        .subscription-title {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .subscription-card:not(.featured) .subscription-title {
+            color: var(--text-primary);
+        }
+
+        .subscription-description {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .subscription-pricing {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .subscription-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .subscription-card:not(.featured) .subscription-price {
+            color: var(--rose);
+        }
+
+        .subscription-original {
+            font-size: 16px;
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .subscription-savings {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .subscription-card:not(.featured) .subscription-savings {
+            background: rgba(139, 90, 90, 0.1);
+            color: var(--rose);
+        }
+
+        .subscription-card.featured .subscription-savings {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .subscription-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .subscription-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .subscription-features li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .subscription-card.featured .subscription-features li::before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .subscription-card .btn {
+            width: 100%;
+        }
+
+        .subscription-card:not(.featured) .btn {
+            background: var(--rose);
+            color: white;
+        }
+
+        .subscription-card:not(.featured) .btn:hover {
+            background: var(--rose-dark);
+        }
+
+        .subscription-card.featured .btn {
+            background: white;
+            color: var(--rose);
+        }
+
+        .subscription-card.featured .btn:hover {
+            background: var(--cream);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            color: white;
+        }
+
+        .testimonials-section .section-label {
+            color: var(--gold-light);
+        }
+
+        .testimonials-section .section-title {
+            color: white;
+        }
+
+        .testimonials-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-stars {
+            color: var(--gold-light);
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+        }
+
+        .testimonial-info h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info span {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .testimonial-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 165, 116, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--rose);
+        }
+
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--rose);
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 28px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 52px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .cta-feature-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-color: transparent;
+        }
+
+        .footer-links h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 52px;
+            }
+
+            .hero-image {
+                width: 40%;
+            }
+
+            .hero-floating-card {
+                display: none;
+            }
+
+            .steps-grid {
+                gap: 40px;
+            }
+
+            .steps-grid::before {
+                display: none;
+            }
+
+            .benefits-grid,
+            .subscriptions-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 40px 0;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .steps-grid,
+            .benefits-grid,
+            .subscriptions-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .cta-title {
+                font-size: 36px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>SUBSCRIBE & SAVE 20%</span> on every order + <span>FREE SHIPPING</span> always
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="collection.html" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="collection.html" class="nav-link">Body Care</a></li>
+                    <li><a href="subscribe.html" class="nav-link active">Subscribe & Save</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="header-icon">Account</a>
+                <a href="cart.html" class="header-icon">Bag (0)</a>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Exclusive Member Benefits</span>
+                </div>
+                <h1 class="hero-title">Subscribe & Glow</h1>
+                <p class="hero-subtitle">Never run out of your favorites again. Join thousands of subscribers who enjoy radiant skin delivered to their door, with 20% off every order and exclusive perks.</p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">&#10003;</div>
+                        <span>20% Off Every Order</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">&#10003;</div>
+                        <span>Free Shipping Always</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">&#10003;</div>
+                        <span>Cancel Anytime</span>
+                    </div>
+                </div>
+                <a href="#subscriptions" class="btn btn-primary btn-large">Start Your Subscription</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=1000&fit=crop" alt="Glowing Skin">
+        </div>
+        <div class="hero-floating-card top">
+            <div class="floating-discount">
+                <div class="floating-discount-value">20%</div>
+                <div class="floating-discount-label">Off Every Order</div>
+            </div>
+        </div>
+        <div class="hero-floating-card bottom">
+            <div class="floating-benefit">
+                <div class="floating-benefit-icon">&#127873;</div>
+                <div>
+                    <div class="floating-benefit-text">Birthday Gift</div>
+                    <div class="floating-benefit-sub">Exclusive for subscribers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Simple & Elegant</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three easy steps to radiant skin delivered on your schedule.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number"><span>1</span></div>
+                    <div class="step-icon">&#128141;</div>
+                    <h3 class="step-title">Choose Your Favorites</h3>
+                    <p class="step-description">Select from our curated collection of serums, moisturizers, and skincare essentials that suit your unique needs.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number"><span>2</span></div>
+                    <div class="step-icon">&#128197;</div>
+                    <h3 class="step-title">Set Your Schedule</h3>
+                    <p class="step-description">Decide how often you'd like your products delivered - monthly, every 6 weeks, or every 2 months. You're in control.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number"><span>3</span></div>
+                    <div class="step-icon">&#10024;</div>
+                    <h3 class="step-title">Enjoy the Glow</h3>
+                    <p class="step-description">Receive your products at your doorstep with free shipping, always. Never run out of your skincare essentials again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Subscriber Perks</span>
+                <h2 class="section-title">Exclusive Benefits</h2>
+                <p class="section-subtitle">More than just savings - experience the full GLOWHAUS membership.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128176;</div>
+                    <h3 class="benefit-title">20% Off Every Order</h3>
+                    <p class="benefit-description">Save 20% on every subscription delivery. The more you subscribe, the more you save on your favorite products.</p>
+                    <span class="benefit-highlight">Best Value</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128666;</div>
+                    <h3 class="benefit-title">Free Shipping Always</h3>
+                    <p class="benefit-description">Every subscription order ships free, no minimum required. Fast, reliable delivery right to your door.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128260;</div>
+                    <h3 class="benefit-title">Total Flexibility</h3>
+                    <p class="benefit-description">Skip, pause, or reschedule your deliveries anytime. Modify your subscription to match your skincare rhythm.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128274;</div>
+                    <h3 class="benefit-title">Cancel Anytime</h3>
+                    <p class="benefit-description">No commitments, no contracts. Cancel your subscription whenever you want - it's completely risk-free.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#127775;</div>
+                    <h3 class="benefit-title">Early Access</h3>
+                    <p class="benefit-description">Be the first to discover and shop new product launches, limited editions, and exclusive collections.</p>
+                    <span class="benefit-highlight">VIP Access</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#127873;</div>
+                    <h3 class="benefit-title">Birthday Gift</h3>
+                    <p class="benefit-description">Celebrate your special day with a complimentary gift from us. Because you deserve to glow on your birthday.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Subscriptions Section -->
+    <section class="subscriptions-section" id="subscriptions">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Curated For You</span>
+                <h2 class="section-title">Popular Subscriptions</h2>
+                <p class="section-subtitle">Our most loved skincare essentials, delivered on repeat.</p>
+            </div>
+            <div class="subscriptions-grid">
+                <div class="subscription-card">
+                    <div class="subscription-image">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=400&fit=crop" alt="Dark Spot Serum">
+                        <span class="subscription-badge">Bestseller</span>
+                    </div>
+                    <div class="subscription-content">
+                        <p class="subscription-category">Serums</p>
+                        <h3 class="subscription-title">Dark Spot Correcting Serum</h3>
+                        <p class="subscription-description">Our #1 bestseller. Clinically proven to fade dark spots in just 4 weeks.</p>
+                        <div class="subscription-pricing">
+                            <span class="subscription-price">$31.19</span>
+                            <span class="subscription-original">$38.99</span>
+                            <span class="subscription-savings">Save 20%</span>
+                        </div>
+                        <ul class="subscription-features">
+                            <li>Delivered every 30 days</li>
+                            <li>Free shipping included</li>
+                            <li>Skip or cancel anytime</li>
+                        </ul>
+                        <a href="product.html" class="btn">Subscribe Now</a>
+                    </div>
+                </div>
+
+                <div class="subscription-card featured">
+                    <div class="subscription-image">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&h=400&fit=crop" alt="PDRN Serum">
+                        <span class="subscription-badge">Most Popular</span>
+                    </div>
+                    <div class="subscription-content">
+                        <p class="subscription-category">Serums</p>
+                        <h3 class="subscription-title">PDRN Salmon DNA Serum</h3>
+                        <p class="subscription-description">Advanced regenerating serum for firmer, more youthful-looking skin.</p>
+                        <div class="subscription-pricing">
+                            <span class="subscription-price">$43.99</span>
+                            <span class="subscription-original">$54.99</span>
+                            <span class="subscription-savings">Save 20%</span>
+                        </div>
+                        <ul class="subscription-features">
+                            <li>Delivered every 30 days</li>
+                            <li>Free shipping included</li>
+                            <li>Skip or cancel anytime</li>
+                        </ul>
+                        <a href="product.html" class="btn">Subscribe Now</a>
+                    </div>
+                </div>
+
+                <div class="subscription-card">
+                    <div class="subscription-image">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=400&fit=crop" alt="Hydrating Moisturizer">
+                        <span class="subscription-badge">Editor's Pick</span>
+                    </div>
+                    <div class="subscription-content">
+                        <p class="subscription-category">Moisturizers</p>
+                        <h3 class="subscription-title">Barrier Repair Moisturizer</h3>
+                        <p class="subscription-description">Deeply hydrating cream that strengthens and restores your skin barrier.</p>
+                        <div class="subscription-pricing">
+                            <span class="subscription-price">$35.99</span>
+                            <span class="subscription-original">$44.99</span>
+                            <span class="subscription-savings">Save 20%</span>
+                        </div>
+                        <ul class="subscription-features">
+                            <li>Delivered every 45 days</li>
+                            <li>Free shipping included</li>
+                            <li>Skip or cancel anytime</li>
+                        </ul>
+                        <a href="product.html" class="btn">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Happy Subscribers</span>
+                <h2 class="section-title">What Our Subscribers Say</h2>
+                <p class="section-subtitle">Join thousands of glowing customers who love their subscription.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"I've been a subscriber for 8 months now and I can't imagine going back. The convenience of having my favorite serum arrive like clockwork, plus the 20% savings - it's a no-brainer!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah M." class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Sarah M.</h4>
+                            <span>Subscriber since June 2025</span>
+                            <div class="testimonial-badge">
+                                <span>&#10003;</span> Verified Subscriber
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"The flexibility is what sold me. I was able to skip a month when I traveled and reschedule my delivery with just a click. Plus, I got the sweetest birthday gift - a full-size product!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Emma K." class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Emma K.</h4>
+                            <span>Subscriber since March 2025</span>
+                            <div class="testimonial-badge">
+                                <span>&#10003;</span> Verified Subscriber
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"As someone who always forgot to reorder, the subscription has been life-changing. My skin has never looked better because I'm finally consistent with my routine!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop" alt="Michelle L." class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Michelle L.</h4>
+                            <span>Subscriber since January 2025</span>
+                            <div class="testimonial-badge">
+                                <span>&#10003;</span> Verified Subscriber
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about our subscription program.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        <span>How does the subscription work?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply choose your favorite products and select your delivery frequency (every 30, 45, or 60 days). We'll automatically send your products on schedule, and you'll save 20% on every order plus get free shipping. You can manage, pause, skip, or cancel your subscription anytime from your account.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I change my delivery frequency?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! You have complete control over your subscription. Log into your account to change your delivery frequency, swap products, or adjust your next delivery date. Changes take effect immediately for your next shipment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I skip a delivery or pause my subscription?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Life happens, and we understand. You can skip any delivery or pause your subscription for up to 3 months. Simply log into your account and manage your subscription settings. You'll receive a reminder email before each delivery so you always have time to make changes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is there a commitment or contract?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Not at all! Our subscription is completely commitment-free. There are no contracts, no minimum orders, and no cancellation fees. You can cancel at any time with a single click from your account dashboard.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is the birthday gift benefit?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every subscriber receives a special birthday gift! During your birthday month, we'll include a complimentary full-size or deluxe sample product with your delivery. Make sure your birthday is saved in your account to receive this exclusive perk.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I get early access to new launches?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>As a subscriber, you automatically get VIP early access to all new product launches and limited edition collections. We'll send you an exclusive email notification 48-72 hours before new products go live to the public, so you never miss out on what's new.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Glow?</h2>
+                <p class="cta-subtitle">Join thousands of subscribers who never run out of their skincare essentials. Start your subscription today and experience the GLOWHAUS difference.</p>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <div class="cta-feature-check">&#10003;</div>
+                        <span>20% Off Every Order</span>
+                    </div>
+                    <div class="cta-feature">
+                        <div class="cta-feature-check">&#10003;</div>
+                        <span>Free Shipping Always</span>
+                    </div>
+                    <div class="cta-feature">
+                        <div class="cta-feature-check">&#10003;</div>
+                        <span>Cancel Anytime</span>
+                    </div>
+                </div>
+                <a href="#subscriptions" class="btn btn-primary btn-large">Start Subscribing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="collection.html">Beauty Supplements</a></li>
+                        <li><a href="collection.html">Body Care</a></li>
+                        <li><a href="collection.html">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GLOWHAUS. All rights reserved. | <a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="terms.html" style="color: inherit;">Terms of Service</a></p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't already open
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(139, 90, 90, 0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6d4545;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0eb;
+            --charcoal: #2d2d2d;
+            --text-light: #6b6b6b;
+            --red: #c53030;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(139, 90, 90, 0.08);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-actions a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .header-actions a.active {
+            color: var(--rose);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--rose);
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Layout */
+        .account-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(139, 90, 90, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .user-profile {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--cream-dark);
+            margin-bottom: 30px;
+        }
+
+        .user-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: white;
+            margin: 0 auto 18px;
+            border: 3px solid white;
+            box-shadow: 0 8px 25px rgba(139, 90, 90, 0.15);
+        }
+
+        .user-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 5px;
+        }
+
+        .user-email {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .member-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 6px;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 15px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--cream);
+            color: var(--charcoal);
+        }
+
+        .sidebar-nav a.active {
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+            color: var(--rose);
+        }
+
+        .sidebar-nav .icon {
+            font-size: 18px;
+        }
+
+        .sidebar-nav .badge {
+            margin-left: auto;
+            background: var(--rose);
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 15px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--red);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 20px;
+            border-top: 1px solid var(--cream-dark);
+            padding-top: 25px;
+        }
+
+        .logout-btn:hover {
+            background: rgba(197, 48, 48, 0.08);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 50%, var(--gold) 100%);
+            border-radius: 25px;
+            padding: 40px 45px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .welcome-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .welcome-text p {
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .welcome-stats {
+            display: flex;
+            gap: 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-stat {
+            text-align: center;
+        }
+
+        .welcome-stat .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .welcome-stat .label {
+            font-size: 11px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .quick-action {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--charcoal);
+            box-shadow: 0 8px 25px rgba(139, 90, 90, 0.06);
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .quick-action:hover {
+            border-color: var(--gold-light);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 90, 90, 0.12);
+        }
+
+        .quick-action .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .quick-action h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .quick-action p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(139, 90, 90, 0.06);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 28px 35px;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header h2 .icon {
+            font-size: 22px;
+        }
+
+        .section-header a {
+            color: var(--rose);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .section-header a:hover {
+            text-decoration: underline;
+        }
+
+        .section-body {
+            padding: 30px 35px;
+        }
+
+        /* Active Subscriptions */
+        .subscription-item {
+            display: flex;
+            gap: 22px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 18px;
+            margin-bottom: 18px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .subscription-item:hover {
+            border-color: var(--gold-light);
+        }
+
+        .subscription-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .subscription-image {
+            width: 85px;
+            height: 85px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(139, 90, 90, 0.1);
+        }
+
+        .subscription-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .subscription-details {
+            flex: 1;
+        }
+
+        .subscription-details h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+        }
+
+        .subscription-meta {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .subscription-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .subscription-status.active {
+            background: rgba(139, 90, 90, 0.1);
+            color: var(--rose);
+        }
+
+        .subscription-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .subscription-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .subscription-price span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--cream-dark);
+            color: var(--text-light);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        /* Recent Orders */
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .order-item:hover {
+            box-shadow: 0 8px 25px rgba(139, 90, 90, 0.08);
+        }
+
+        .order-images {
+            display: flex;
+            gap: -10px;
+        }
+
+        .order-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid white;
+            margin-left: -10px;
+            box-shadow: 0 2px 8px rgba(139, 90, 90, 0.1);
+        }
+
+        .order-thumb:first-child {
+            margin-left: 0;
+        }
+
+        .order-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .order-thumb.more {
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .order-info {
+            flex: 1;
+        }
+
+        .order-number {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 3px;
+        }
+
+        .order-date {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .order-total {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-right: 20px;
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .order-status.delivered {
+            background: rgba(139, 90, 90, 0.1);
+            color: var(--rose);
+        }
+
+        .order-status.shipped {
+            background: rgba(212, 165, 116, 0.2);
+            color: var(--gold);
+        }
+
+        .view-order-btn {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .view-order-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Beauty Profile */
+        .beauty-profile-card {
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.08) 0%, rgba(212, 165, 116, 0.08) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--gold-light);
+        }
+
+        .beauty-profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .beauty-profile-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .beauty-profile-header a {
+            color: var(--rose);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .beauty-traits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .beauty-trait {
+            text-align: center;
+        }
+
+        .beauty-trait .icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 15px rgba(139, 90, 90, 0.08);
+        }
+
+        .beauty-trait .label {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .beauty-trait .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Rewards Section */
+        .rewards-card {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 25px;
+            padding: 35px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rewards-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .rewards-info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .rewards-points {
+            text-align: center;
+        }
+
+        .rewards-points .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 600;
+        }
+
+        .rewards-points .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .rewards-progress {
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+            width: 70%;
+        }
+
+        .progress-text {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* Saved Addresses */
+        .addresses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .address-card {
+            border: 1px solid var(--cream-dark);
+            border-radius: 18px;
+            padding: 25px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .address-card:hover {
+            border-color: var(--gold-light);
+        }
+
+        .address-card.default {
+            border-color: var(--rose);
+            background: rgba(139, 90, 90, 0.02);
+        }
+
+        .default-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .address-type {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .address-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .address-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .address-actions {
+            display: flex;
+            gap: 18px;
+        }
+
+        .address-actions a {
+            font-size: 13px;
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .address-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .address-actions a.delete {
+            color: var(--red);
+        }
+
+        .add-address-card {
+            border: 2px dashed var(--cream-dark);
+            border-radius: 18px;
+            padding: 45px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .add-address-card:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        .add-address-card .icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .add-address-card span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 20px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .account-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .welcome-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .addresses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .beauty-traits {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .rewards-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Shop</a>
+                <a href="about.html">Our Story</a>
+                <a href="#">Rituals</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="account.html" class="active">Account</a>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Account Layout -->
+    <div class="account-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">ES</div>
+                <div class="user-name">Emma Sullivan</div>
+                <div class="user-email">emma.s@email.com</div>
+                <div class="member-badge">✨ Gold Member</div>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active"><span class="icon">🏠</span> Dashboard</a></li>
+                <li><a href="#"><span class="icon">📦</span> Orders <span class="badge">2</span></a></li>
+                <li><a href="#"><span class="icon">🔄</span> Subscriptions <span class="badge">1</span></a></li>
+                <li><a href="#"><span class="icon">✨</span> Beauty Profile</a></li>
+                <li><a href="#"><span class="icon">📍</span> Addresses</a></li>
+                <li><a href="#"><span class="icon">💳</span> Payment Methods</a></li>
+                <li><a href="#"><span class="icon">🎁</span> Rewards</a></li>
+                <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+            </ul>
+            <a href="#" class="logout-btn"><span class="icon">🚪</span> Sign Out</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-text">
+                    <h1>Welcome back, Emma!</h1>
+                    <p>Manage your skincare routine, orders, and account settings.</p>
+                </div>
+                <div class="welcome-stats">
+                    <div class="welcome-stat">
+                        <div class="value">8</div>
+                        <div class="label">Orders</div>
+                    </div>
+                    <div class="welcome-stat">
+                        <div class="value">$234</div>
+                        <div class="label">Saved</div>
+                    </div>
+                    <div class="welcome-stat">
+                        <div class="value">1,850</div>
+                        <div class="label">Points</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <a href="#" class="quick-action">
+                    <div class="icon">📦</div>
+                    <h3>Track Order</h3>
+                    <p>View shipment status</p>
+                </a>
+                <a href="#" class="quick-action">
+                    <div class="icon">📝</div>
+                    <h3>Skin Quiz</h3>
+                    <p>Update your profile</p>
+                </a>
+                <a href="collection.html" class="quick-action">
+                    <div class="icon">🛍️</div>
+                    <h3>Shop Products</h3>
+                    <p>Browse best sellers</p>
+                </a>
+                <a href="#" class="quick-action">
+                    <div class="icon">📅</div>
+                    <h3>Book Consultation</h3>
+                    <p>Expert skincare advice</p>
+                </a>
+            </div>
+
+            <!-- Beauty Profile -->
+            <section class="section-card">
+                <div class="section-body">
+                    <div class="beauty-profile-card">
+                        <div class="beauty-profile-header">
+                            <h3>✨ Your Beauty Profile</h3>
+                            <a href="#">Update Profile</a>
+                        </div>
+                        <div class="beauty-traits">
+                            <div class="beauty-trait">
+                                <div class="icon">💧</div>
+                                <div class="label">Skin Type</div>
+                                <div class="value">Combination</div>
+                            </div>
+                            <div class="beauty-trait">
+                                <div class="icon">🎯</div>
+                                <div class="label">Primary Concern</div>
+                                <div class="value">Fine Lines</div>
+                            </div>
+                            <div class="beauty-trait">
+                                <div class="icon">🌙</div>
+                                <div class="label">Routine</div>
+                                <div class="value">AM + PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Subscriptions -->
+            <section class="section-card">
+                <div class="section-header">
+                    <h2><span class="icon">🔄</span> Active Subscriptions</h2>
+                    <a href="#">Manage All</a>
+                </div>
+                <div class="section-body">
+                    <div class="subscription-item">
+                        <div class="subscription-image">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop" alt="Vitamin C Serum">
+                        </div>
+                        <div class="subscription-details">
+                            <h4>Radiance Vitamin C Serum</h4>
+                            <div class="subscription-meta">Every 45 days • Next delivery: March 28, 2026</div>
+                            <span class="subscription-status active">● Active</span>
+                        </div>
+                        <div class="subscription-actions">
+                            <div class="subscription-price">$48.00 <span>/45 days</span></div>
+                            <a href="#" class="btn-small btn-outline">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Orders -->
+            <section class="section-card">
+                <div class="section-header">
+                    <h2><span class="icon">📦</span> Recent Orders</h2>
+                    <a href="#">View All Orders</a>
+                </div>
+                <div class="section-body">
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div class="order-images">
+                                <div class="order-thumb"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100" alt=""></div>
+                                <div class="order-thumb"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=100" alt=""></div>
+                            </div>
+                            <div class="order-info">
+                                <div class="order-number">#GH-45231</div>
+                                <div class="order-date">March 12, 2026</div>
+                            </div>
+                            <div class="order-total">$127.00</div>
+                            <span class="order-status shipped">In Transit</span>
+                            <a href="#" class="view-order-btn">Track →</a>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-images">
+                                <div class="order-thumb"><img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=100" alt=""></div>
+                                <div class="order-thumb"><img src="https://images.unsplash.com/photo-1571875257727-256c39da42af?w=100" alt=""></div>
+                                <div class="order-thumb more">+2</div>
+                            </div>
+                            <div class="order-info">
+                                <div class="order-number">#GH-44892</div>
+                                <div class="order-date">February 25, 2026</div>
+                            </div>
+                            <div class="order-total">$189.00</div>
+                            <span class="order-status delivered">Delivered</span>
+                            <a href="#" class="view-order-btn">View →</a>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-images">
+                                <div class="order-thumb"><img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=100" alt=""></div>
+                            </div>
+                            <div class="order-info">
+                                <div class="order-number">#GH-44567</div>
+                                <div class="order-date">February 8, 2026</div>
+                            </div>
+                            <div class="order-total">$48.00</div>
+                            <span class="order-status delivered">Delivered</span>
+                            <a href="#" class="view-order-btn">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rewards -->
+            <section class="rewards-card">
+                <div class="rewards-info">
+                    <h3>🌸 GLOWHAUS Rewards</h3>
+                    <p>Earn points on every purchase. Redeem for free products and exclusive perks.</p>
+                    <div class="rewards-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">650 more points until Platinum Status</div>
+                    </div>
+                </div>
+                <div class="rewards-points">
+                    <div class="value">1,850</div>
+                    <div class="label">Available Points</div>
+                </div>
+            </section>
+
+            <!-- Saved Addresses -->
+            <section class="section-card">
+                <div class="section-header">
+                    <h2><span class="icon">📍</span> Saved Addresses</h2>
+                    <a href="#">Add New</a>
+                </div>
+                <div class="section-body">
+                    <div class="addresses-grid">
+                        <div class="address-card default">
+                            <span class="default-badge">Default</span>
+                            <div class="address-type">Home</div>
+                            <div class="address-name">Emma Sullivan</div>
+                            <div class="address-text">
+                                234 Rose Garden Lane, Unit 12<br>
+                                Los Angeles, CA 90028<br>
+                                United States
+                            </div>
+                            <div class="address-actions">
+                                <a href="#">Edit</a>
+                                <a href="#" class="delete">Remove</a>
+                            </div>
+                        </div>
+                        <a href="#" class="add-address-card">
+                            <span class="icon">+</span>
+                            <span>Add New Address</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty, real results. We believe in the transformative power of conscious skincare.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">All Products</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sets & Bundles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="account.html">Dashboard</a></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                        <li><a href="#">Rewards</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GLOWHAUS. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6d4545;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --gold-dark: #b8956a;
+            --cream: #faf8f5;
+            --cream-dark: #f5f0e8;
+            --text-dark: #2d2d2d;
+            --text-muted: #6b6b6b;
+            --white: #ffffff;
+            --border: #e8e0d8;
+            --red: #c53030;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Social Proof Bar */
+        .social-proof-bar {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            color: var(--white);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .social-proof-bar span {
+            margin: 0 15px;
+            opacity: 0.9;
+        }
+
+        .social-proof-bar strong {
+            color: var(--gold-light);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(139, 90, 90, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .cart-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--rose);
+            color: white;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Cart Container */
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cart Header */
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .cart-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--rose);
+        }
+
+        .cart-header h1 span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .continue-shopping {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--rose);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .continue-shopping:hover {
+            color: var(--gold);
+        }
+
+        .continue-shopping svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Free Shipping Progress */
+        .shipping-progress {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 15px rgba(139, 90, 90, 0.08);
+        }
+
+        .shipping-progress-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9375rem;
+        }
+
+        .shipping-message {
+            color: var(--text-dark);
+        }
+
+        .shipping-message strong {
+            color: var(--rose);
+        }
+
+        .shipping-progress-text span {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--cream-dark);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .shipping-unlocked {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .shipping-unlocked svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+        }
+
+        /* Gift Message Banner */
+        .gift-banner {
+            background: linear-gradient(135deg, var(--cream-dark) 0%, var(--gold-light) 100%);
+            border-radius: 12px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gift-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gift-banner-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-banner-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--rose);
+        }
+
+        .gift-banner-text h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .gift-banner-text p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .gift-banner-btn {
+            padding: 10px 20px;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .gift-banner-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        /* Cart Layout */
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 30px;
+        }
+
+        /* Cart Items */
+        .cart-items {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(139, 90, 90, 0.08);
+            overflow: hidden;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 25px;
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cart-item-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: fit-content;
+        }
+
+        .cart-item-badge.subscription {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: var(--white);
+        }
+
+        .cart-item-badge.onetime {
+            background: var(--cream-dark);
+            color: var(--rose);
+        }
+
+        .cart-item-badge.gift {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .cart-item-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .cart-item-variant {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .cart-item-subscription {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8125rem;
+            color: var(--rose);
+            font-weight: 500;
+        }
+
+        .cart-item-subscription svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--cream);
+            border: none;
+            cursor: pointer;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: var(--border);
+        }
+
+        .quantity-input {
+            width: 45px;
+            height: 36px;
+            border: none;
+            text-align: center;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: var(--white);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .remove-btn:hover {
+            color: var(--red);
+        }
+
+        .remove-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .cart-item-pricing {
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .cart-item-price {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .cart-item-original {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .cart-item-savings {
+            font-size: 0.75rem;
+            color: var(--rose);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(139, 90, 90, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-summary h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--rose);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .promo-code {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .promo-input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .promo-input:focus {
+            outline: none;
+            border-color: var(--rose);
+        }
+
+        .promo-btn {
+            padding: 14px 20px;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .promo-btn:hover {
+            background: var(--rose-dark);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 0.9375rem;
+        }
+
+        .summary-row.subtotal {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 5px;
+        }
+
+        .summary-row .label {
+            color: var(--text-muted);
+        }
+
+        .summary-row .value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .summary-row .value.free {
+            color: var(--rose);
+        }
+
+        .summary-row .value.savings {
+            color: var(--rose);
+        }
+
+        .summary-row.total {
+            border-top: 2px solid var(--rose);
+            margin-top: 15px;
+            padding-top: 20px;
+        }
+
+        .summary-row.total .label {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .summary-row.total .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.25);
+        }
+
+        .checkout-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .secure-checkout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .secure-checkout svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--rose);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--rose);
+            flex-shrink: 0;
+        }
+
+        .trust-badge span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .payment-icon {
+            width: 45px;
+            height: 28px;
+            background: var(--cream);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Recommendations */
+        .recommendations {
+            margin-top: 50px;
+        }
+
+        .recommendations h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--rose);
+            margin-bottom: 25px;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .rec-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(139, 90, 90, 0.08);
+            transition: all 0.3s;
+        }
+
+        .rec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 90, 90, 0.15);
+        }
+
+        .rec-card-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rec-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .rec-card:hover .rec-card-image img {
+            transform: scale(1.08);
+        }
+
+        .rec-card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--rose);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .rec-card-info {
+            padding: 15px;
+        }
+
+        .rec-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .rec-card-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .rec-card-price .current {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rose);
+        }
+
+        .rec-card-price .original {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .add-to-cart-small {
+            width: 100%;
+            padding: 10px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-small:hover {
+            background: var(--rose);
+            color: var(--white);
+            border-color: var(--rose);
+        }
+
+        /* Sample Offer */
+        .sample-offer {
+            background: linear-gradient(135deg, var(--rose-light) 0%, var(--gold) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .sample-offer h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sample-offer p {
+            font-size: 0.8125rem;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .sample-offer-btn {
+            background: var(--white);
+            color: var(--rose);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .sample-offer-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--rose-dark);
+            color: var(--white);
+            padding: 50px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-copy {
+            font-size: 0.8125rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 100px 1fr;
+                gap: 15px;
+            }
+
+            .cart-item-pricing {
+                grid-column: 1 / -1;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
+
+            .gift-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .gift-banner-content {
+                flex-direction: column;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .cart-item-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .trust-badges {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Proof Bar -->
+    <div class="social-proof-bar">
+        <span><strong>200,000+</strong> Happy Customers</span>
+        <span>|</span>
+        <span><strong>Free Shipping</strong> on Orders $50+</span>
+        <span>|</span>
+        <span><strong>60-Day</strong> Money-Back Guarantee</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">GLOWHAUS</a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">Shop All</a></li>
+                <li><a href="#">Skincare</a></li>
+                <li><a href="#">Serums</a></li>
+                <li><a href="#">Sets</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="cart-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 6h15l-1.5 9h-12z"/>
+                    <circle cx="9" cy="20" r="1"/>
+                    <circle cx="18" cy="20" r="1"/>
+                    <path d="M6 6L5 3H2"/>
+                </svg>
+                <span class="cart-count">3</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <!-- Cart Header -->
+        <div class="cart-header">
+            <h1>Your Cart <span>(3 items)</span></h1>
+            <a href="collection.html" class="continue-shopping">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Continue Shopping
+            </a>
+        </div>
+
+        <!-- Free Shipping Progress -->
+        <div class="shipping-progress">
+            <div class="shipping-progress-text">
+                <div class="shipping-unlocked">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    You've unlocked FREE shipping!
+                </div>
+                <span>Orders over $50 ship free</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%"></div>
+            </div>
+        </div>
+
+        <!-- Gift Message Banner -->
+        <div class="gift-banner">
+            <div class="gift-banner-content">
+                <div class="gift-banner-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 12 20 22 4 22 4 12"/>
+                        <rect x="2" y="7" width="20" height="5"/>
+                        <line x1="12" y1="22" x2="12" y2="7"/>
+                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                    </svg>
+                </div>
+                <div class="gift-banner-text">
+                    <h4>Make it a gift?</h4>
+                    <p>Add a personalized message and elegant gift wrapping</p>
+                </div>
+            </div>
+            <button class="gift-banner-btn">Add Gift Options</button>
+        </div>
+
+        <!-- Cart Layout -->
+        <div class="cart-layout">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                <!-- Item 1 -->
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=250&h=250&fit=crop" alt="Vitamin C Brightening Serum">
+                    </div>
+                    <div class="cart-item-details">
+                        <span class="cart-item-badge subscription">Subscribe & Save 15%</span>
+                        <h3 class="cart-item-title">Vitamin C Brightening Serum</h3>
+                        <p class="cart-item-variant">30ml / 1 fl oz</p>
+                        <div class="cart-item-subscription">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 2.1l4 4-4 4"/>
+                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/>
+                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                            </svg>
+                            Delivers every 2 months
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" data-action="decrease">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                <button class="quantity-btn" data-action="increase">+</button>
+                            </div>
+                            <button class="remove-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cart-item-pricing">
+                        <div class="cart-item-price">$35.70</div>
+                        <div class="cart-item-original">$42.00</div>
+                        <div class="cart-item-savings">You save $6.30</div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=250&h=250&fit=crop" alt="Retinol Night Renewal Cream">
+                    </div>
+                    <div class="cart-item-details">
+                        <span class="cart-item-badge onetime">One-Time Purchase</span>
+                        <h3 class="cart-item-title">Retinol Night Renewal Cream</h3>
+                        <p class="cart-item-variant">50ml / 1.7 fl oz</p>
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" data-action="decrease">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                <button class="quantity-btn" data-action="increase">+</button>
+                            </div>
+                            <button class="remove-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cart-item-pricing">
+                        <div class="cart-item-price">$58.00</div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=250&h=250&fit=crop" alt="Peptide Eye Cream">
+                    </div>
+                    <div class="cart-item-details">
+                        <span class="cart-item-badge gift">Gift</span>
+                        <h3 class="cart-item-title">Peptide Eye Cream</h3>
+                        <p class="cart-item-variant">15ml / 0.5 fl oz</p>
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" data-action="decrease">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                <button class="quantity-btn" data-action="increase">+</button>
+                            </div>
+                            <button class="remove-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cart-item-pricing">
+                        <div class="cart-item-price">$52.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+
+                <div class="promo-code">
+                    <input type="text" class="promo-input" placeholder="Promo code">
+                    <button class="promo-btn">Apply</button>
+                </div>
+
+                <div class="summary-row subtotal">
+                    <span class="label">Subtotal</span>
+                    <span class="value">$145.70</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="label">Subscription Savings</span>
+                    <span class="value savings">-$6.30</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="label">Shipping</span>
+                    <span class="value free">FREE</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="label">Gift Wrap</span>
+                    <span class="value">$5.00</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="label">Estimated Tax</span>
+                    <span class="value">$11.66</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span class="label">Total</span>
+                    <span class="value">$156.06</span>
+                </div>
+
+                <button class="checkout-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    Proceed to Checkout
+                </button>
+
+                <div class="secure-checkout">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    Secure 256-bit SSL Checkout
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>60-Day Money-Back Guarantee</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                        <span>Free & Fast Shipping</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                            <path d="M7 13l3 3 7-7"/>
+                        </svg>
+                        <span>Clean Beauty Certified</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>Cruelty-Free & Vegan</span>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-icon">VISA</div>
+                    <div class="payment-icon">MC</div>
+                    <div class="payment-icon">AMEX</div>
+                    <div class="payment-icon">PP</div>
+                    <div class="payment-icon">SHOP</div>
+                </div>
+
+                <!-- Sample Offer -->
+                <div class="sample-offer">
+                    <h4>Free Deluxe Sample</h4>
+                    <p>Spend $25 more to get a free Rose Water Toner mini!</p>
+                    <button class="sample-offer-btn">Add $25 More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h2>Complete Your Routine</h2>
+            <div class="recommendations-grid">
+                <div class="rec-card">
+                    <div class="rec-card-image">
+                        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=300&fit=crop" alt="Hyaluronic Acid Serum">
+                        <span class="rec-card-badge">Best Seller</span>
+                    </div>
+                    <div class="rec-card-info">
+                        <h3 class="rec-card-title">Hyaluronic Acid Hydrating Serum</h3>
+                        <div class="rec-card-price">
+                            <span class="current">$36.00</span>
+                            <span class="original">$45.00</span>
+                        </div>
+                        <button class="add-to-cart-small">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="rec-card">
+                    <div class="rec-card-image">
+                        <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&h=300&fit=crop" alt="Gentle Foaming Cleanser">
+                    </div>
+                    <div class="rec-card-info">
+                        <h3 class="rec-card-title">Gentle Foaming Cleanser</h3>
+                        <div class="rec-card-price">
+                            <span class="current">$28.00</span>
+                        </div>
+                        <button class="add-to-cart-small">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="rec-card">
+                    <div class="rec-card-image">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=300&fit=crop" alt="Niacinamide Serum">
+                        <span class="rec-card-badge">Trending</span>
+                    </div>
+                    <div class="rec-card-info">
+                        <h3 class="rec-card-title">Niacinamide Pore Minimizer</h3>
+                        <div class="rec-card-price">
+                            <span class="current">$38.00</span>
+                        </div>
+                        <button class="add-to-cart-small">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="rec-card">
+                    <div class="rec-card-image">
+                        <img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=400&h=300&fit=crop" alt="Rose Water Toner">
+                    </div>
+                    <div class="rec-card-info">
+                        <h3 class="rec-card-title">Rose Water Toner Mist</h3>
+                        <div class="rec-card-price">
+                            <span class="current">$24.00</span>
+                        </div>
+                        <button class="add-to-cart-small">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">GLOWHAUS</div>
+            <div class="footer-links">
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 GLOWHAUS. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../shared/js/main.js"></script>
+    <script>
+        // Quantity selector functionality
+        document.querySelectorAll('.quantity-selector').forEach(selector => {
+            const decreaseBtn = selector.querySelector('[data-action="decrease"]');
+            const increaseBtn = selector.querySelector('[data-action="increase"]');
+            const input = selector.querySelector('.quantity-input');
+
+            decreaseBtn.addEventListener('click', () => {
+                const val = parseInt(input.value) || 1;
+                if (val > 1) input.value = val - 1;
+                updateTotals();
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                const val = parseInt(input.value) || 1;
+                if (val < 10) input.value = val + 1;
+                updateTotals();
+            });
+        });
+
+        // Remove item
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.cart-item');
+                item.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => {
+                    item.remove();
+                    updateCartCount();
+                }, 300);
+            });
+        });
+
+        // Add to cart small buttons
+        document.querySelectorAll('.add-to-cart-small').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const originalText = this.textContent;
+                this.textContent = 'Added!';
+                this.style.background = 'var(--rose)';
+                this.style.color = 'white';
+                this.style.borderColor = 'var(--rose)';
+
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    cartCount.textContent = parseInt(cartCount.textContent) + 1;
+                }
+
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '';
+                    this.style.color = '';
+                    this.style.borderColor = '';
+                }, 1500);
+            });
+        });
+
+        // Gift banner button
+        document.querySelector('.gift-banner-btn')?.addEventListener('click', function() {
+            this.textContent = 'Added!';
+            this.style.background = 'var(--gold)';
+            setTimeout(() => {
+                this.textContent = 'Edit Gift Options';
+                this.style.background = '';
+            }, 1500);
+        });
+
+        // Sample offer button
+        document.querySelector('.sample-offer-btn')?.addEventListener('click', function() {
+            this.textContent = 'See Products';
+            setTimeout(() => {
+                window.location.href = 'collection.html';
+            }, 500);
+        });
+
+        function updateCartCount() {
+            const items = document.querySelectorAll('.cart-item');
+            const cartCount = document.querySelector('.cart-count');
+            const headerCount = document.querySelector('.cart-header h1 span');
+
+            if (cartCount) cartCount.textContent = items.length;
+            if (headerCount) headerCount.textContent = `(${items.length} items)`;
+
+            if (items.length === 0) {
+                document.querySelector('.cart-layout').innerHTML = `
+                    <div class="empty-cart" style="grid-column: 1 / -1; text-align: center; padding: 80px 40px; background: var(--white); border-radius: 16px; box-shadow: 0 2px 15px rgba(139, 90, 90, 0.08);">
+                        <div style="width: 100px; height: 100px; background: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#a67c7c" stroke-width="1.5">
+                                <path d="M6 6h15l-1.5 9h-12z"/>
+                                <circle cx="9" cy="20" r="1"/>
+                                <circle cx="18" cy="20" r="1"/>
+                                <path d="M6 6L5 3H2"/>
+                            </svg>
+                        </div>
+                        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 600; color: var(--rose); margin-bottom: 10px;">Your cart is empty</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 25px;">Time to treat yourself to something beautiful!</p>
+                        <a href="collection.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 35px; background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%); color: var(--white); text-decoration: none; border-radius: 30px; font-weight: 600; transition: all 0.3s;">
+                            Start Shopping
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function updateTotals() {
+            console.log('Updating totals...');
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                to {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

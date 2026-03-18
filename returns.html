@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Refunds | GLOWHAUS - 60-Day Happiness Guarantee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-bg: #fdf5f5;
+            --gold: #d4a574;
+            --gold-hover: #c4915f;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf9f7;
+            --bg-dark: #1a1a1a;
+            --border: #e8e8e8;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-primary);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--bg-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--rose);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 18px 36px;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(212, 165, 116, 0.4);
+        }
+
+        .hero-badge svg {
+            width: 70px;
+            height: 70px;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .guarantee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .guarantee-badge svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 100px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 80px;
+        }
+
+        /* Sections */
+        .policy-section {
+            margin-bottom: 80px;
+        }
+
+        .section-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .section-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: var(--rose-bg);
+            border: 2px solid var(--rose);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .guarantee-box h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--rose);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .guarantee-box h3 svg {
+            width: 36px;
+            height: 36px;
+            color: var(--gold);
+        }
+
+        .guarantee-box p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .guarantee-box ul {
+            margin-top: 20px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .guarantee-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .guarantee-box li svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Steps */
+        .steps-container {
+            background: var(--bg-secondary);
+            padding: 40px;
+        }
+
+        .step {
+            display: flex;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step:first-child {
+            padding-top: 0;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--rose);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .step-content a {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .step-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Timeline */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .timeline-item {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .timeline-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--rose-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--rose);
+        }
+
+        .timeline-item h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .timeline-days {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--bg-secondary);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .info-card h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h4 svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-card ul {
+            margin-top: 16px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .info-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card li svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold);
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fef7ed;
+            border: 1px solid var(--gold);
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .warning-box h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-box p {
+            font-size: 14px;
+            color: #92400e;
+            line-height: 1.6;
+        }
+
+        /* Non-Returnable */
+        .non-returnable-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .non-returnable-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: #fef2f2;
+            font-size: 14px;
+            color: #991b1b;
+        }
+
+        .non-returnable-item svg {
+            width: 20px;
+            height: 20px;
+            color: #dc2626;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--bg-secondary);
+            padding: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+
+        .faq-question {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .faq-question svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-left: 36px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-method:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--rose-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rose);
+        }
+
+        .contact-info h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .sidebar-cta {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            padding: 32px;
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar-cta h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .sidebar-cta p {
+            font-size: 14px;
+            opacity: 0.95;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .sidebar-cta .btn {
+            width: 100%;
+            background: var(--gold);
+        }
+
+        .sidebar-cta .btn:hover {
+            background: var(--gold-hover);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 44px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .cta-subtitle {
+            font-size: 17px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .footer-links h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .non-returnable-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>60-DAY HAPPINESS GUARANTEE</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="#" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="#" class="nav-link">Body Care</a></li>
+                    <li><a href="#" class="nav-link">Best Sellers</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+            </div>
+            <h1 class="hero-title">Returns & Refunds</h1>
+            <p class="hero-subtitle">Your happiness is our priority. We stand behind every product with our 60-day happiness guarantee because your glow matters.</p>
+            <div class="guarantee-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                60-Day Happiness Guarantee
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <!-- Happiness Guarantee -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Our 60-Day Happiness Guarantee</h2>
+                        <p class="section-description">We believe in our products and your right to feel confident in your purchase. If you're not absolutely in love with your skincare or beauty products, we'll make it right.</p>
+
+                        <div class="guarantee-box">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                What's Covered
+                            </h3>
+                            <p>Our guarantee covers all products purchased directly from Glowhaus, including:</p>
+                            <ul>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    All skincare and beauty products - opened or unopened
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Beauty supplements and collagen products
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Products that didn't suit your skin type
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    First-time purchases up to 2 items per product
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- How to Start a Return -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                                <path d="M3 3v5h5"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">How to Start a Return</h2>
+                        <p class="section-description">Our return process is simple, elegant, and designed with you in mind. Follow these easy steps:</p>
+
+                        <div class="steps-container">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Reach Out to Our Care Team</h4>
+                                    <p>Email us at <a href="mailto:love@glowhaus.com">love@glowhaus.com</a> or call us at <a href="tel:1-888-GLOWHAUS">1-888-GLOWHAUS</a>. Include your order number and tell us what went wrong.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Receive Your Prepaid Label</h4>
+                                    <p>We'll email you a prepaid return shipping label within 24 hours. Return shipping is always on us - you shouldn't pay to be happy.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Pack & Ship Your Return</h4>
+                                    <p>Pack the product(s) in any box or padded envelope. Attach the prepaid label and drop it off at any USPS location or schedule a free pickup.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Receive Your Refund</h4>
+                                    <p>Once we receive your return, your refund will be processed within 2-3 business days to your original payment method.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Refund Processing Times -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Refund Processing Times</h2>
+                        <p class="section-description">We process refunds as quickly as possible because waiting isn't beautiful. Here's what to expect:</p>
+
+                        <div class="timeline-grid">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                </div>
+                                <div class="timeline-days">1-2</div>
+                                <h4>Business Days</h4>
+                                <p>Refund processing after return arrives</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                        <line x1="1" y1="10" x2="23" y2="10"/>
+                                    </svg>
+                                </div>
+                                <div class="timeline-days">3-5</div>
+                                <h4>Business Days</h4>
+                                <p>For credit/debit cards to reflect</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="timeline-days">5-7</div>
+                                <h4>Business Days</h4>
+                                <p>For PayPal and other methods</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exchange Options -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 1l4 4-4 4"/>
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                                <path d="M7 23l-4-4 4-4"/>
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Exchange Options</h2>
+                        <p class="section-description">Found something that suits your skin better? We make exchanges effortless:</p>
+
+                        <div class="info-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Direct Exchange
+                            </h4>
+                            <p>Contact our care team and we'll ship your new product immediately - no need to wait for your return. We cover shipping both ways because your glow can't wait.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Store Credit + Bonus
+                            </h4>
+                            <p>Prefer flexibility? Request store credit instead of a refund. You'll receive the full purchase amount plus a bonus 15% credit to explore something new.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Skin Consultation
+                            </h4>
+                            <p>Not sure what to try next? Our skincare experts will help you find the perfect products for your skin type and concerns - complimentary with any exchange.</p>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Cancellation -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+                                <path d="M21 3v5h-5"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Subscription Cancellation Policy</h2>
+                        <p class="section-description">We believe in flexibility. Your Glow Club subscription can be modified or cancelled anytime - no strings attached.</p>
+
+                        <div class="info-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                How to Cancel
+                            </h4>
+                            <ul>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Log into your account and visit "My Glow Club"
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Click "Skip", "Pause", or "Cancel" next to any subscription
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Or simply email/call us - we'll handle it within 24 hours
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Cancel at least 48 hours before your next shipment
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                </svg>
+                                A Note from Us
+                            </h4>
+                            <p>If you cancel after a shipment has been processed, you can return that shipment under our 60-day guarantee. Your happiness always comes first.</p>
+                        </div>
+                    </div>
+
+                    <!-- Damaged/Defective Items -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Damaged or Defective Items</h2>
+                        <p class="section-description">Received something less than perfect? We'll make it right immediately - your glow shouldn't wait.</p>
+
+                        <div class="info-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                What We'll Do
+                            </h4>
+                            <ul>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Send a replacement immediately at no cost
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Expedite shipping on your replacement
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    No need to return the damaged item
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Or provide a full refund if you prefer
+                                </li>
+                            </ul>
+                        </div>
+
+                        <p class="section-description" style="margin-top: 20px;">Please contact us within 7 days of receiving a damaged or defective item. A photo helps us process your request faster and improve our packaging.</p>
+                    </div>
+
+                    <!-- Non-Returnable Items -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Non-Returnable Items</h2>
+                        <p class="section-description">While we accept returns on most products, a few items cannot be returned for hygiene and safety reasons:</p>
+
+                        <div class="non-returnable-list">
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Gift cards & store credit
+                            </div>
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Free promotional items
+                            </div>
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Items from retail partners
+                            </div>
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Items over 60 days old
+                            </div>
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Limited edition bundles (final sale)
+                            </div>
+                            <div class="non-returnable-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                                </svg>
+                                Personalized products
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="policy-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+
+                        <div class="faq-section">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Can I return an opened product?
+                                </div>
+                                <p class="faq-answer">Absolutely! We want you to try our products risk-free. You can return opened products within 60 days for a full refund. We limit this to 2 items per product per customer to ensure fairness.</p>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    What if a product caused a skin reaction?
+                                </div>
+                                <p class="faq-answer">We're so sorry if that happened. Please stop using the product and contact us immediately. We'll provide a full refund and our skincare experts can help recommend gentler alternatives suited to your skin.</p>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Do I have to pay for return shipping?
+                                </div>
+                                <p class="faq-answer">Never. We provide a prepaid return shipping label for all returns within the United States. For international orders, we offer partial shipping reimbursement up to $15.</p>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    How long does it take to get my refund?
+                                </div>
+                                <p class="faq-answer">Once we receive your return, refunds are processed within 1-2 business days. It may take an additional 3-5 business days for the refund to appear in your account, depending on your bank.</p>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Can I cancel my Glow Club subscription anytime?
+                                </div>
+                                <p class="faq-answer">Yes! There are no contracts or commitments. You can skip, pause, or cancel your subscription at any time from your account dashboard or by contacting us. We believe in earning your loyalty, not locking you in.</p>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    Do international orders qualify for the guarantee?
+                                </div>
+                                <p class="faq-answer">Yes! Our 60-day happiness guarantee applies to all orders worldwide. International customers receive up to $15 shipping reimbursement for returns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>Need Help?</h3>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Email Us</h4>
+                                <p>love@glowhaus.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Call Us</h4>
+                                <p>1-888-GLOWHAUS</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Live Chat</h4>
+                                <p>Mon-Fri, 9am-6pm PST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-cta">
+                        <h3>Ready to Glow?</h3>
+                        <p>Try our skincare risk-free with our 60-day happiness guarantee.</p>
+                        <a href="collection.html" class="btn">Shop Best Sellers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Still Have Questions?</h2>
+                <p class="cta-subtitle">Our care team is here to help you glow. We typically respond within 2 hours during business hours.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-gold btn-lg">Contact Support</a>
+                    <a href="faq.html" class="btn btn-secondary btn-lg" style="border-color: white; color: white;">View All FAQs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="#">Beauty Supplements</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Glowhaus. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --rose: #8b5a5a;
+            --rose-light: #a87070;
+            --rose-bg: #fdf5f5;
+            --gold: #d4a574;
+            --gold-light: #e4b584;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf9f7;
+            --bg-dark: #1a1a1a;
+            --border: #e8e8e8;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-primary);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--bg-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-rose {
+            background: var(--rose);
+            color: white;
+        }
+
+        .btn-rose:hover {
+            background: var(--rose-light);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: var(--rose-bg);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--rose);
+            padding: 10px 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .hero-promises {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-top: 56px;
+        }
+
+        .promise-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .promise-icon {
+            width: 56px;
+            height: 56px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .promise-text {
+            text-align: center;
+        }
+
+        .promise-text strong {
+            display: block;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .promise-text span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+
+        .section-rose {
+            background: var(--rose-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 56px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Shipping Options Table */
+        .shipping-table-wrapper {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .shipping-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .shipping-table th {
+            background: var(--rose);
+            color: white;
+            padding: 24px 28px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .shipping-table td {
+            padding: 28px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .shipping-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .shipping-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        .shipping-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--rose-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .method-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .method-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .price-free {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(139, 90, 90, 0.1);
+            color: var(--rose);
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .price-regular {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .condition {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Delivery Timeframes */
+        .timeframes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .timeframe-card {
+            background: white;
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .timeframe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeframe-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--rose-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+        }
+
+        .timeframe-card h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeframe-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .timeframe-days {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--rose-bg);
+            padding: 12px 20px;
+            font-weight: 600;
+            color: var(--rose);
+            font-size: 14px;
+        }
+
+        /* Processing Times */
+        .processing-card {
+            background: white;
+            padding: 56px;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .processing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .processing-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .processing-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--rose-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .processing-content h4 {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .processing-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* International Shipping */
+        .international-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .country-card {
+            background: white;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .country-header {
+            background: var(--rose);
+            color: white;
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .country-flag {
+            font-size: 36px;
+        }
+
+        .country-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .country-body {
+            padding: 36px;
+        }
+
+        .country-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Tracking Section */
+        .tracking-card {
+            background: var(--rose);
+            padding: 64px;
+            color: white;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tracking-icon {
+            width: 88px;
+            height: 88px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-size: 40px;
+        }
+
+        .tracking-card h3 {
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .tracking-card p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .tracking-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .tracking-step {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .step-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tracking-btn {
+            background: white;
+            color: var(--rose);
+            padding: 18px 36px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tracking-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Subscription Benefits */
+        .subscription-card {
+            background: white;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .subscription-header {
+            background: var(--gold);
+            color: white;
+            padding: 28px 40px;
+            text-align: center;
+        }
+
+        .subscription-header h3 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .subscription-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .subscription-body {
+            padding: 56px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .benefit-check {
+            width: 32px;
+            height: 32px;
+            background: rgba(212, 165, 116, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .benefit-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 28px 32px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 32px 28px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: var(--rose-bg);
+            padding: 56px;
+            text-align: center;
+            max-width: 800px;
+            margin: 56px auto 0;
+        }
+
+        .contact-cta h3 {
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            background: white;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+
+        .contact-option:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .footer-links h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-promises {
+                flex-wrap: wrap;
+                gap: 32px;
+            }
+
+            .timeframes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .international-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .processing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .tracking-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-options {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shipping-table-wrapper {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>SUBSCRIBE & SAVE 15%</span> on every order
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link">Skincare</a></li>
+                    <li><a href="#" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="#" class="nav-link">Body Care</a></li>
+                    <li><a href="#" class="nav-link">Best Sellers</a></li>
+                    <li><a href="#" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Delivered With Care
+            </div>
+            <h1 class="hero-title">Shipping Information</h1>
+            <p class="hero-subtitle">Your beauty essentials delivered with care. Enjoy free shipping on orders over $50 and experience our commitment to getting your glow to you quickly.</p>
+
+            <div class="hero-promises">
+                <div class="promise-item">
+                    <div class="promise-icon">🚚</div>
+                    <div class="promise-text">
+                        <strong>Free Shipping</strong>
+                        <span>Orders Over $50</span>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">📦</div>
+                    <div class="promise-text">
+                        <strong>Same-Day Processing</strong>
+                        <span>Before 2PM EST</span>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">🌸</div>
+                    <div class="promise-text">
+                        <strong>Beautiful Packaging</strong>
+                        <span>Gift-Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Options -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Delivery Options</p>
+                <h2 class="section-title">Shipping Methods & Rates</h2>
+                <p class="section-subtitle">Choose the shipping option that suits your needs</p>
+            </div>
+
+            <div class="shipping-table-wrapper">
+                <table class="shipping-table">
+                    <thead>
+                        <tr>
+                            <th>Shipping Method</th>
+                            <th>Estimated Delivery</th>
+                            <th>Price</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="shipping-method">
+                                    <div class="method-icon">📦</div>
+                                    <div>
+                                        <div class="method-name">Standard Shipping</div>
+                                        <div class="method-desc">USPS First Class / UPS Ground</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>5-7 Business Days</td>
+                            <td>
+                                <span class="price-free">FREE</span>
+                                <div class="condition">on orders over $50</div>
+                                <div style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">$5.99 under $50</div>
+                            </td>
+                            <td>Full tracking provided. Delivery to all 50 states.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="shipping-method">
+                                    <div class="method-icon">🚀</div>
+                                    <div>
+                                        <div class="method-name">Express Shipping</div>
+                                        <div class="method-desc">UPS 2-Day Air / FedEx 2Day</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>2-3 Business Days</td>
+                            <td>
+                                <span class="price-regular">$9.99</span>
+                            </td>
+                            <td>Priority handling with real-time tracking.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="shipping-method">
+                                    <div class="method-icon">⚡</div>
+                                    <div>
+                                        <div class="method-name">Next Day Delivery</div>
+                                        <div class="method-desc">UPS Next Day Air / FedEx Priority</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>1 Business Day</td>
+                            <td>
+                                <span class="price-regular">$14.99</span>
+                            </td>
+                            <td>Order by 2PM EST for next-day delivery.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Timeframes by Region -->
+    <section class="section section-rose">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Regional Delivery</p>
+                <h2 class="section-title">Delivery Timeframes by Region</h2>
+                <p class="section-subtitle">Standard shipping times from our fulfillment center</p>
+            </div>
+
+            <div class="timeframes-grid">
+                <div class="timeframe-card">
+                    <div class="timeframe-icon">🏙️</div>
+                    <h3>East Coast</h3>
+                    <p>NY, NJ, PA, MA, CT, MD, VA, NC, SC, GA, FL</p>
+                    <div class="timeframe-days">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+                        </svg>
+                        2-4 Business Days
+                    </div>
+                </div>
+                <div class="timeframe-card">
+                    <div class="timeframe-icon">🌾</div>
+                    <h3>Midwest</h3>
+                    <p>OH, MI, IN, IL, WI, MN, IA, MO, KS, NE</p>
+                    <div class="timeframe-days">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+                        </svg>
+                        3-5 Business Days
+                    </div>
+                </div>
+                <div class="timeframe-card">
+                    <div class="timeframe-icon">🌴</div>
+                    <h3>West Coast</h3>
+                    <p>CA, OR, WA, NV, AZ, CO, UT, NM, HI, AK</p>
+                    <div class="timeframe-days">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+                        </svg>
+                        5-7 Business Days
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Processing -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Order Processing</p>
+                <h2 class="section-title">When Will My Order Ship?</h2>
+                <p class="section-subtitle">We carefully prepare every order for your glow journey</p>
+            </div>
+
+            <div class="processing-card">
+                <div class="processing-grid">
+                    <div class="processing-item">
+                        <div class="processing-icon">📥</div>
+                        <div class="processing-content">
+                            <h4>Order Received</h4>
+                            <p>Orders placed before 2PM EST on business days are processed the same day.</p>
+                        </div>
+                    </div>
+                    <div class="processing-item">
+                        <div class="processing-icon">✨</div>
+                        <div class="processing-content">
+                            <h4>Quality Check</h4>
+                            <p>Every product is inspected to ensure it meets our beauty standards.</p>
+                        </div>
+                    </div>
+                    <div class="processing-item">
+                        <div class="processing-icon">🎀</div>
+                        <div class="processing-content">
+                            <h4>Beautifully Packed</h4>
+                            <p>Products are wrapped in our signature packaging, perfect for gifting.</p>
+                        </div>
+                    </div>
+                    <div class="processing-item">
+                        <div class="processing-icon">📧</div>
+                        <div class="processing-content">
+                            <h4>Tracking Sent</h4>
+                            <p>You'll receive an email with tracking info once your order ships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Shipping -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">International</p>
+                <h2 class="section-title">We Ship to the US & Canada</h2>
+                <p class="section-subtitle">Bringing your glow wherever you are</p>
+            </div>
+
+            <div class="international-grid">
+                <div class="country-card">
+                    <div class="country-header">
+                        <span class="country-flag">🇺🇸</span>
+                        <span class="country-name">United States</span>
+                    </div>
+                    <div class="country-body">
+                        <div class="country-info">
+                            <div class="info-row">
+                                <span class="info-label">Standard Shipping</span>
+                                <span class="info-value">FREE over $50</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Delivery Time</span>
+                                <span class="info-value">2-7 Business Days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Coverage</span>
+                                <span class="info-value">All 50 States + Territories</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Customs/Duties</span>
+                                <span class="info-value">None</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-header">
+                        <span class="country-flag">🇨🇦</span>
+                        <span class="country-name">Canada</span>
+                    </div>
+                    <div class="country-body">
+                        <div class="country-info">
+                            <div class="info-row">
+                                <span class="info-label">Standard Shipping</span>
+                                <span class="info-value">$12.99 USD</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Delivery Time</span>
+                                <span class="info-value">7-14 Business Days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Coverage</span>
+                                <span class="info-value">All Provinces & Territories</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Customs/Duties</span>
+                                <span class="info-value">May Apply (Buyer's Responsibility)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Your Order -->
+    <section class="section">
+        <div class="container">
+            <div class="tracking-card">
+                <div class="tracking-icon">📍</div>
+                <h3>Track Your Order</h3>
+                <p>Follow your beauty package from our hands to your doorstep with real-time tracking updates.</p>
+
+                <div class="tracking-steps">
+                    <div class="tracking-step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Check email for tracking</span>
+                    </div>
+                    <div class="tracking-step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Click the link or log in</span>
+                    </div>
+                    <div class="tracking-step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">View delivery updates</span>
+                    </div>
+                </div>
+
+                <a href="account.html" class="tracking-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                    Track My Order
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Shipping Benefits -->
+    <section class="section section-rose">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Subscribe & Save</p>
+                <h2 class="section-title">Subscription Shipping Benefits</h2>
+                <p class="section-subtitle">Never run out of your beauty essentials</p>
+            </div>
+
+            <div class="subscription-card">
+                <div class="subscription-header">
+                    <h3>Subscriber Exclusive Perks</h3>
+                    <p>Save 15% on every order + FREE shipping always</p>
+                </div>
+                <div class="subscription-body">
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>FREE Shipping Always</h4>
+                                <p>No minimum order required. Every subscription ships free.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>Priority Processing</h4>
+                                <p>Subscription orders are processed first for faster delivery.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>Flexible Scheduling</h4>
+                                <p>Choose delivery every 30, 60, or 90 days. Skip or cancel anytime.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>Renewal Reminders</h4>
+                                <p>We'll notify you 3 days before each shipment.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>15% Off Every Order</h4>
+                                <p>Subscribers save 15% on every product, every time.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-check">✓</div>
+                            <div class="benefit-content">
+                                <h4>Early Access</h4>
+                                <p>Be the first to try new products and limited editions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">FAQ</p>
+                <h2 class="section-title">Shipping Questions</h2>
+                <p class="section-subtitle">Answers to your most common questions</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        How do I get free shipping?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Free standard shipping is available on all orders over $50 within the United States. Subscribers receive free shipping on every order regardless of order total. Simply add $50 or more to your cart and free shipping will be automatically applied at checkout.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you ship to PO Boxes?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes, we ship to PO Boxes via USPS for standard shipping. However, Express and Next Day shipping options require a physical street address for delivery by UPS or FedEx. If you choose expedited shipping, please provide a street address.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if my package is lost or damaged?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        We stand behind every order. If your package is lost, stolen, or arrives damaged, please contact our customer support team within 14 days of the expected delivery date. We'll either reship your order at no cost or provide a full refund - your choice.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I change my shipping address after ordering?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        If your order hasn't shipped yet, contact us immediately and we'll update your address. Once an order has shipped, we cannot change the delivery address. You may need to contact the carrier directly to redirect the package (additional fees may apply).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How are skincare products packaged?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        All skincare products are shipped in beautiful, protective packaging with tissue paper and cushioning. For temperature-sensitive products, we use insulated packaging during extreme weather. Our packaging is also 100% recyclable and gift-ready.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer expedited shipping for Canadian orders?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Currently, we offer standard international shipping to Canada with delivery in 7-14 business days. Expedited shipping options for Canada are coming soon. Sign up for our newsletter to be notified when express international shipping becomes available.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="contact-cta">
+                <h3>Still Have Questions?</h3>
+                <p>Our beauty experts are here to help with any shipping concerns.</p>
+                <div class="contact-options">
+                    <a href="contact.html" class="contact-option">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Email Support
+                    </a>
+                    <a href="#" class="contact-option">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                        </svg>
+                        Call 1-800-GLOW
+                    </a>
+                    <a href="#" class="contact-option">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                        </svg>
+                        Live Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Beauty Supplements</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Glowhaus. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

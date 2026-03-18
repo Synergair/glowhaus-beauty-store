@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5a5a;
+            --primary-dark: #6b4444;
+            --accent: #d4a574;
+            --accent-hover: #c49564;
+            --text-primary: #3d3d3d;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f6;
+            --bg-rose: #fdf5f3;
+            --bg-dark: #3d3d3d;
+            --border: #e8e4e0;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-primary);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--bg-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* Terms Content */
+        .terms-content {
+            padding: 100px 0;
+        }
+
+        .terms-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 120px;
+            align-self: start;
+        }
+
+        .toc h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 16px;
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--primary);
+        }
+
+        .toc-list .toc-number {
+            color: var(--accent);
+            font-weight: 600;
+            min-width: 24px;
+            font-size: 13px;
+        }
+
+        /* Legal Content */
+        .legal-content {
+            max-width: 800px;
+        }
+
+        .legal-intro {
+            padding: 40px;
+            background: var(--bg-rose);
+            border-left: 3px solid var(--accent);
+            margin-bottom: 60px;
+        }
+
+        .legal-intro p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
+        .legal-section {
+            margin-bottom: 56px;
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section:last-child {
+            border-bottom: none;
+        }
+
+        .legal-section h2 {
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .legal-section h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .legal-section p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .legal-section ul,
+        .legal-section ol {
+            margin: 20px 0 20px 24px;
+            color: var(--text-secondary);
+        }
+
+        .legal-section li {
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 10px;
+        }
+
+        .legal-section strong {
+            color: var(--primary);
+        }
+
+        .highlight-box {
+            padding: 28px 32px;
+            background: var(--bg-rose);
+            border-left: 3px solid var(--accent);
+            margin: 28px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            padding: 28px 32px;
+            background: #fff8f0;
+            border-left: 3px solid #e8a87c;
+            margin: 28px 0;
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+            color: #8b6914;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            padding: 36px;
+            background: var(--bg-secondary);
+            margin-top: 28px;
+        }
+
+        .contact-box h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-box a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .footer-links h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .terms-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                padding: 32px;
+                background: var(--bg-secondary);
+                margin-bottom: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>SUBSCRIBE & SAVE 15%</span> on every order
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="#" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="#" class="nav-link">Body Care</a></li>
+                    <li><a href="#" class="nav-link">Best Sellers</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="collection.html" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Please read these terms carefully before using our website or purchasing our products.</p>
+            <div class="last-updated">Last Updated: March 17, 2026</div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="terms-layout">
+                <!-- Table of Contents -->
+                <aside class="toc">
+                    <h3>Table of Contents</h3>
+                    <ol class="toc-list">
+                        <li><a href="#acceptance"><span class="toc-number">1</span> Acceptance of Terms</a></li>
+                        <li><a href="#registration"><span class="toc-number">2</span> Account Registration</a></li>
+                        <li><a href="#products"><span class="toc-number">3</span> Products and Pricing</a></li>
+                        <li><a href="#orders"><span class="toc-number">4</span> Orders and Payment</a></li>
+                        <li><a href="#shipping"><span class="toc-number">5</span> Shipping and Delivery</a></li>
+                        <li><a href="#returns"><span class="toc-number">6</span> Returns and Refunds</a></li>
+                        <li><a href="#subscriptions"><span class="toc-number">7</span> Subscriptions</a></li>
+                        <li><a href="#ip"><span class="toc-number">8</span> Intellectual Property</a></li>
+                        <li><a href="#conduct"><span class="toc-number">9</span> User Conduct</a></li>
+                        <li><a href="#liability"><span class="toc-number">10</span> Limitation of Liability</a></li>
+                        <li><a href="#governing"><span class="toc-number">11</span> Governing Law</a></li>
+                        <li><a href="#contact"><span class="toc-number">12</span> Contact Information</a></li>
+                    </ol>
+                </aside>
+
+                <!-- Legal Content -->
+                <div class="legal-content">
+                    <div class="legal-intro">
+                        <p>Welcome to GLOWHAUS. These Terms of Service ("Terms") govern your access to and use of the GLOWHAUS website, mobile applications, and services (collectively, the "Services"), as well as your purchase of any products offered through our Services. By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.</p>
+                    </div>
+
+                    <!-- Section 1: Acceptance of Terms -->
+                    <div class="legal-section" id="acceptance">
+                        <h2><span class="section-number">1</span> Acceptance of Terms</h2>
+                        <p>By accessing, browsing, or using the GLOWHAUS website (www.glowhaus.com) or any related mobile applications, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy, which is incorporated herein by reference.</p>
+
+                        <h3>1.1 Eligibility</h3>
+                        <p>You must be at least 18 years of age to use our Services or make purchases from our website. By using our Services, you represent and warrant that you are at least 18 years old and have the legal capacity to enter into a binding contract.</p>
+
+                        <h3>1.2 Modifications to Terms</h3>
+                        <p>GLOWHAUS reserves the right to modify, update, or change these Terms at any time without prior notice. Any changes will be effective immediately upon posting on our website. Your continued use of our Services following the posting of revised Terms constitutes your acceptance of such changes. We encourage you to review these Terms periodically.</p>
+
+                        <h3>1.3 Additional Terms</h3>
+                        <p>Certain features or services offered on or through our website may be subject to additional terms and conditions, which will be posted in connection with such features or services. Your use of such features or services is subject to those additional terms, which are incorporated into these Terms by reference.</p>
+                    </div>
+
+                    <!-- Section 2: Account Registration -->
+                    <div class="legal-section" id="registration">
+                        <h2><span class="section-number">2</span> Account Registration</h2>
+                        <p>To access certain features of our Services, including the ability to make purchases, track orders, manage subscriptions, and access personalized skincare recommendations, you may be required to create an account.</p>
+
+                        <h3>2.1 Account Creation</h3>
+                        <p>When creating an account, you agree to provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+
+                        <h3>2.2 Account Security</h3>
+                        <p>You agree to:</p>
+                        <ul>
+                            <li>Create a strong, unique password for your account</li>
+                            <li>Not share your account credentials with any third party</li>
+                            <li>Notify us immediately of any unauthorized access or use of your account</li>
+                            <li>Ensure that you log out of your account at the end of each session</li>
+                        </ul>
+
+                        <h3>2.3 Account Termination</h3>
+                        <p>GLOWHAUS reserves the right to suspend or terminate your account at any time, with or without cause, and with or without notice. Reasons for termination may include, but are not limited to, violation of these Terms, suspected fraudulent activity, or extended periods of inactivity.</p>
+                    </div>
+
+                    <!-- Section 3: Products and Pricing -->
+                    <div class="legal-section" id="products">
+                        <h2><span class="section-number">3</span> Products and Pricing</h2>
+
+                        <h3>3.1 Product Information</h3>
+                        <p>We strive to provide accurate descriptions, images, ingredient lists, and information about our products. However, we do not warrant that product descriptions, pricing, or other content on our website is accurate, complete, reliable, current, or error-free. Product colors may vary slightly due to monitor settings and photography.</p>
+
+                        <div class="warning-box">
+                            <p><strong>Skincare Disclaimer:</strong> GLOWHAUS skincare products are intended for external use only. While our products are dermatologist-tested, individual results may vary. If you experience any irritation or adverse reaction, discontinue use immediately and consult a dermatologist. Always perform a patch test before using new skincare products. Our beauty supplements are not intended to diagnose, treat, cure, or prevent any disease.</p>
+                        </div>
+
+                        <h3>3.2 Pricing</h3>
+                        <p>All prices are displayed in US Dollars (USD) unless otherwise specified. Prices are subject to change without notice. We reserve the right to modify prices for products displayed on our website at any time prior to acceptance of your order.</p>
+
+                        <h3>3.3 Pricing Errors</h3>
+                        <p>In the event of a pricing error, we reserve the right to cancel any orders placed for products listed at an incorrect price. If your order is cancelled due to a pricing error, we will notify you and issue a full refund.</p>
+
+                        <h3>3.4 Product Availability</h3>
+                        <p>All products are subject to availability. We reserve the right to limit quantities, discontinue products, or refuse orders at our sole discretion. Popular items may sell out quickly, and we cannot guarantee availability.</p>
+                    </div>
+
+                    <!-- Section 4: Orders and Payment -->
+                    <div class="legal-section" id="orders">
+                        <h2><span class="section-number">4</span> Orders and Payment</h2>
+
+                        <h3>4.1 Order Acceptance</h3>
+                        <p>Your receipt of an order confirmation does not constitute our acceptance of your order. We reserve the right to accept or decline your order for any reason, including product availability, errors in pricing or product information, or suspected fraud.</p>
+
+                        <h3>4.2 Payment Methods</h3>
+                        <p>We accept the following payment methods:</p>
+                        <ul>
+                            <li>Major credit cards (Visa, Mastercard, American Express, Discover)</li>
+                            <li>PayPal</li>
+                            <li>Apple Pay</li>
+                            <li>Google Pay</li>
+                            <li>Shop Pay</li>
+                            <li>Klarna (Buy Now, Pay Later)</li>
+                            <li>Afterpay</li>
+                        </ul>
+
+                        <h3>4.3 Payment Processing</h3>
+                        <p>All payments are processed securely through our third-party payment processors using industry-standard encryption. By providing payment information, you represent that you are authorized to use the payment method and authorize us to charge your payment method for the total amount of your order, including shipping and applicable taxes.</p>
+
+                        <h3>4.4 Order Cancellation</h3>
+                        <p>You may request to cancel your order within 1 hour of placing it by contacting our customer service team. Once an order has been processed or shipped, it cannot be cancelled, but you may return it according to our Returns and Refunds policy.</p>
+                    </div>
+
+                    <!-- Section 5: Shipping and Delivery -->
+                    <div class="legal-section" id="shipping">
+                        <h2><span class="section-number">5</span> Shipping and Delivery</h2>
+
+                        <h3>5.1 Shipping Methods</h3>
+                        <p>We offer various shipping options, including standard, expedited, and express shipping. Shipping costs and estimated delivery times are calculated at checkout based on your location and selected shipping method.</p>
+
+                        <div class="highlight-box">
+                            <p><strong>Free Shipping:</strong> We offer complimentary standard shipping on all orders over $50 within the continental United States.</p>
+                        </div>
+
+                        <h3>5.2 Delivery Times</h3>
+                        <p>Delivery times are estimates and are not guaranteed. Factors such as carrier delays, weather conditions, or high order volumes (especially during holidays and promotional periods) may affect delivery times. GLOWHAUS is not responsible for delays caused by shipping carriers or circumstances beyond our control.</p>
+
+                        <h3>5.3 Shipping Address</h3>
+                        <p>You are responsible for providing an accurate and complete shipping address. GLOWHAUS is not responsible for orders shipped to incorrect addresses provided by the customer. Additional shipping charges may apply for re-delivery.</p>
+
+                        <h3>5.4 International Shipping</h3>
+                        <p>We ship to select international destinations. International customers are responsible for any customs duties, taxes, or import fees imposed by their country. Please note that certain products may not be available for international shipping due to regulatory restrictions. Check your local regulations before placing an international order.</p>
+
+                        <h3>5.5 Risk of Loss</h3>
+                        <p>Risk of loss and title for products purchased from our website pass to you upon delivery to the shipping carrier.</p>
+                    </div>
+
+                    <!-- Section 6: Returns and Refunds -->
+                    <div class="legal-section" id="returns">
+                        <h2><span class="section-number">6</span> Returns and Refunds</h2>
+
+                        <div class="highlight-box">
+                            <p><strong>60-Day Satisfaction Guarantee:</strong> We want you to love your GLOWHAUS products. If you are not completely satisfied with your purchase, you may return it within 60 days of delivery for a full refund.</p>
+                        </div>
+
+                        <h3>6.1 Return Eligibility</h3>
+                        <p>To be eligible for a return, items must meet the following criteria:</p>
+                        <ul>
+                            <li>Return request initiated within 60 days of delivery</li>
+                            <li>Products must be in their original packaging</li>
+                            <li>Opened products are eligible if at least 50% of the product remains</li>
+                            <li>Proof of purchase (order number or receipt) must be provided</li>
+                        </ul>
+
+                        <h3>6.2 Return Process</h3>
+                        <p>To initiate a return:</p>
+                        <ol>
+                            <li>Contact our customer service team at returns@glowhaus.com or call 1-888-GLOWHAUS</li>
+                            <li>Provide your order number and reason for return</li>
+                            <li>Receive a prepaid return shipping label (for US orders)</li>
+                            <li>Ship the product back to us within 14 days of receiving the return authorization</li>
+                        </ol>
+
+                        <h3>6.3 Refund Processing</h3>
+                        <p>Once we receive and inspect your return, we will process your refund within 5-7 business days. Refunds will be issued to the original payment method. Please note that it may take additional time for your bank or credit card company to process the refund.</p>
+
+                        <h3>6.4 Non-Returnable Items</h3>
+                        <p>The following items are not eligible for return:</p>
+                        <ul>
+                            <li>Gift cards</li>
+                            <li>Items marked as final sale</li>
+                            <li>Limited edition or holiday sets</li>
+                            <li>Products purchased from unauthorized retailers</li>
+                            <li>Free gifts with purchase</li>
+                        </ul>
+
+                        <h3>6.5 Damaged or Defective Products</h3>
+                        <p>If you receive a damaged or defective product, please contact us within 48 hours of delivery with photos of the damage. We will arrange for a replacement or full refund at no additional cost to you.</p>
+
+                        <h3>6.6 Allergic Reactions</h3>
+                        <p>If you experience an allergic reaction to any GLOWHAUS product, please discontinue use immediately, consult a healthcare professional, and contact our customer service team. We may request photos or additional information to help improve our products.</p>
+                    </div>
+
+                    <!-- Section 7: Subscriptions -->
+                    <div class="legal-section" id="subscriptions">
+                        <h2><span class="section-number">7</span> Subscriptions</h2>
+
+                        <h3>7.1 Subscribe & Save Program</h3>
+                        <p>Our Subscribe & Save program allows you to receive regular deliveries of your favorite GLOWHAUS products at a discounted price (15% off). By enrolling in a subscription, you authorize us to automatically charge your payment method and ship products at your selected frequency.</p>
+
+                        <h3>7.2 Subscription Terms</h3>
+                        <ul>
+                            <li>Subscriptions will automatically renew at the selected frequency until cancelled</li>
+                            <li>You will receive an email reminder 5 days before each subscription order is processed</li>
+                            <li>Subscription pricing is subject to change with 30 days advance notice</li>
+                            <li>Subscription discounts cannot be combined with other promotional offers</li>
+                        </ul>
+
+                        <h3>7.3 Managing Your Subscription</h3>
+                        <p>You may modify, skip, pause, or cancel your subscription at any time through your account dashboard or by contacting customer service. Changes must be made at least 48 hours before your next scheduled order to take effect for that delivery.</p>
+
+                        <h3>7.4 Cancellation</h3>
+                        <p>You may cancel your subscription at any time with no cancellation fees. Cancellation will take effect for the next billing cycle. Any orders already processed or shipped are subject to our standard Returns and Refunds policy.</p>
+
+                        <h3>7.5 Subscription Gifts</h3>
+                        <p>Subscribers may receive exclusive gifts, early access to new products, and special promotional offers. These benefits are non-transferable and may change without notice.</p>
+                    </div>
+
+                    <!-- Section 8: Intellectual Property -->
+                    <div class="legal-section" id="ip">
+                        <h2><span class="section-number">8</span> Intellectual Property</h2>
+
+                        <h3>8.1 Ownership</h3>
+                        <p>All content on the GLOWHAUS website, including but not limited to text, graphics, logos, images, product formulations, product descriptions, videos, and software, is the property of GLOWHAUS or its licensors and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+
+                        <h3>8.2 Trademarks</h3>
+                        <p>GLOWHAUS, the GLOWHAUS logo, and all related product names, slogans, and designs are trademarks or registered trademarks of GLOWHAUS. You may not use these trademarks without our prior written permission.</p>
+
+                        <h3>8.3 Limited License</h3>
+                        <p>We grant you a limited, non-exclusive, non-transferable license to access and use our website for personal, non-commercial purposes. This license does not include:</p>
+                        <ul>
+                            <li>Any resale or commercial use of our website or its contents</li>
+                            <li>Any collection and use of product listings, descriptions, or prices</li>
+                            <li>Any derivative use of our website or its contents</li>
+                            <li>Any downloading or copying of account information for another merchant's benefit</li>
+                            <li>Any use of data mining, robots, or similar data gathering and extraction tools</li>
+                        </ul>
+
+                        <h3>8.4 User Content</h3>
+                        <p>By submitting reviews, photos, testimonials, or other content to our website (including social media tags), you grant GLOWHAUS a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, publish, and distribute such content for marketing and promotional purposes across all media channels.</p>
+                    </div>
+
+                    <!-- Section 9: User Conduct -->
+                    <div class="legal-section" id="conduct">
+                        <h2><span class="section-number">9</span> User Conduct</h2>
+
+                        <h3>9.1 Prohibited Activities</h3>
+                        <p>You agree not to engage in any of the following prohibited activities:</p>
+                        <ul>
+                            <li>Violating any applicable laws, regulations, or third-party rights</li>
+                            <li>Using the Services for any fraudulent or unlawful purpose</li>
+                            <li>Attempting to gain unauthorized access to any part of our Services or systems</li>
+                            <li>Interfering with or disrupting the integrity or performance of our Services</li>
+                            <li>Transmitting any viruses, malware, or other harmful code</li>
+                            <li>Harvesting or collecting information about other users without consent</li>
+                            <li>Impersonating another person or entity</li>
+                            <li>Posting false, misleading, or defamatory reviews or content</li>
+                            <li>Using our Services to send spam or unsolicited communications</li>
+                            <li>Circumventing any security measures or access controls</li>
+                            <li>Reselling our products without authorization</li>
+                        </ul>
+
+                        <h3>9.2 Consequences of Violation</h3>
+                        <p>Violation of these Terms may result in termination of your account, cancellation of orders, and/or legal action. We reserve the right to report any suspected illegal activity to appropriate law enforcement authorities.</p>
+                    </div>
+
+                    <!-- Section 10: Limitation of Liability -->
+                    <div class="legal-section" id="liability">
+                        <h2><span class="section-number">10</span> Limitation of Liability</h2>
+
+                        <h3>10.1 Disclaimer of Warranties</h3>
+                        <p>OUR SERVICES AND PRODUCTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+                        <h3>10.2 Limitation of Liability</h3>
+                        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, GLOWHAUS AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OUR SERVICES OR PRODUCTS.</p>
+
+                        <h3>10.3 Maximum Liability</h3>
+                        <p>In no event shall GLOWHAUS's total liability to you for all claims arising out of or relating to these Terms or your use of our Services exceed the amount paid by you to GLOWHAUS during the twelve (12) months preceding the claim.</p>
+
+                        <h3>10.4 Exceptions</h3>
+                        <p>Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for certain types of damages. In such jurisdictions, our liability shall be limited to the greatest extent permitted by law.</p>
+                    </div>
+
+                    <!-- Section 11: Governing Law -->
+                    <div class="legal-section" id="governing">
+                        <h2><span class="section-number">11</span> Governing Law</h2>
+
+                        <h3>11.1 Applicable Law</h3>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.</p>
+
+                        <h3>11.2 Dispute Resolution</h3>
+                        <p>Any dispute arising out of or relating to these Terms or our Services shall first be attempted to be resolved through good faith negotiations. If the dispute cannot be resolved through negotiation within 30 days, either party may submit the dispute to binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+
+                        <h3>11.3 Class Action Waiver</h3>
+                        <p>You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action. You waive any right to participate in a class action lawsuit or class-wide arbitration.</p>
+
+                        <h3>11.4 Jurisdiction</h3>
+                        <p>For any matters not subject to arbitration, you agree to submit to the exclusive jurisdiction of the state and federal courts located in Los Angeles County, California, United States.</p>
+                    </div>
+
+                    <!-- Section 12: Contact Information -->
+                    <div class="legal-section" id="contact">
+                        <h2><span class="section-number">12</span> Contact Information</h2>
+
+                        <p>If you have any questions, concerns, or comments about these Terms of Service, please contact us:</p>
+
+                        <div class="contact-box">
+                            <h4>GLOWHAUS Legal Department</h4>
+                            <p><strong>Email:</strong> <a href="mailto:legal@glowhaus.com">legal@glowhaus.com</a></p>
+                            <p><strong>Phone:</strong> 1-888-GLOWHAUS (1-888-456-9428)</p>
+                            <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM PST</p>
+                            <p><strong>Mailing Address:</strong></p>
+                            <p>GLOWHAUS Beauty, Inc.<br>
+                            Legal Department<br>
+                            8500 Wilshire Boulevard, Suite 450<br>
+                            Beverly Hills, CA 90211<br>
+                            United States</p>
+                        </div>
+
+                        <p style="margin-top: 32px;">For general customer service inquiries, order status, skincare advice, or returns, please contact:</p>
+
+                        <div class="contact-box">
+                            <h4>Customer Support</h4>
+                            <p><strong>Email:</strong> <a href="mailto:hello@glowhaus.com">hello@glowhaus.com</a></p>
+                            <p><strong>Phone:</strong> 1-888-GLOWHAUS (1-888-456-9428)</p>
+                            <p><strong>Live Chat:</strong> Available on our website, Monday - Friday, 8:00 AM - 9:00 PM PST</p>
+                            <p><strong>Instagram DMs:</strong> @GlowhausBeauty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="#">Beauty Supplements</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Glowhaus. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

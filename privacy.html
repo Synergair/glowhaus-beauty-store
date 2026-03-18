@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5a5a;
+            --primary-light: #a67c7c;
+            --accent: #d4a574;
+            --accent-hover: #c49464;
+            --rose: #8b5a5a;
+            --rose-light: #f5ebe7;
+            --gold: #d4a574;
+            --text-primary: #3d3d3d;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f6;
+            --bg-rose: #fdf5f2;
+            --bg-dark: #3d3d3d;
+            --border: #e8e4e0;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: var(--bg-primary);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--bg-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--rose-light) 0%, var(--bg-rose) 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .page-header p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 10px 24px;
+            background: white;
+            color: var(--text-secondary);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Layout */
+        .policy-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+            padding: 80px 0 120px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 120px;
+            align-self: start;
+        }
+
+        .toc h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+
+        .toc-list a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 12px 20px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--primary);
+            background: var(--bg-rose);
+            border-left-color: var(--accent);
+        }
+
+        .toc-list a.active {
+            color: var(--primary);
+            background: var(--bg-rose);
+            border-left-color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Policy Content */
+        .policy-content {
+            max-width: 780px;
+        }
+
+        .policy-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 120px;
+        }
+
+        .policy-section h2 {
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 1px;
+        }
+
+        .policy-section h3 {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--primary);
+            margin: 32px 0 16px;
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .policy-section ul,
+        .policy-section ol {
+            color: var(--text-secondary);
+            margin: 18px 0 28px 24px;
+            font-size: 15px;
+        }
+
+        .policy-section li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .policy-section strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: var(--bg-rose);
+            border-left: 3px solid var(--accent);
+            padding: 24px 28px;
+            margin: 28px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 28px 0;
+            font-size: 14px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 16px 18px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+        }
+
+        .contact-card {
+            background: var(--bg-rose);
+            padding: 36px;
+            margin-top: 28px;
+        }
+
+        .contact-card h4 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .footer-links h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .policy-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .toc {
+                position: static;
+                padding: 28px;
+                background: var(--bg-secondary);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .policy-section h2 {
+                font-size: 26px;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>SUBSCRIBE & SAVE 15%</span> on every order
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link">Skincare</a></li>
+                    <li><a href="#" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="#" class="nav-link">Body Care</a></li>
+                    <li><a href="#" class="nav-link">Best Sellers</a></li>
+                    <li><a href="#" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Your trust is everything to us. Learn how we protect your personal information and respect your privacy at every step.</p>
+            <span class="last-updated">Last Updated: March 17, 2026</span>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <div class="container">
+        <div class="policy-layout">
+            <!-- Table of Contents -->
+            <aside class="toc">
+                <h3>Contents</h3>
+                <ul class="toc-list">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#information-collect">Information We Collect</a></li>
+                    <li><a href="#how-we-use">How We Use Your Information</a></li>
+                    <li><a href="#information-sharing">Information Sharing</a></li>
+                    <li><a href="#cookies">Cookies and Tracking</a></li>
+                    <li><a href="#data-security">Data Security</a></li>
+                    <li><a href="#your-rights">Your Rights (GDPR/CCPA)</a></li>
+                    <li><a href="#third-party">Third-Party Services</a></li>
+                    <li><a href="#childrens-privacy">Children's Privacy</a></li>
+                    <li><a href="#policy-changes">Changes to Policy</a></li>
+                    <li><a href="#contact">Contact Information</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="policy-content">
+                <!-- Introduction -->
+                <section id="introduction" class="policy-section">
+                    <h2>Introduction</h2>
+                    <p>Welcome to Glowhaus ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, make a purchase, or interact with our services.</p>
+                    <p>By accessing or using our website and services, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our services.</p>
+                    <div class="highlight-box">
+                        <p><strong>Our Promise:</strong> We believe beauty should be transparent, inside and out. We only collect data necessary to provide you with exceptional service, and we never sell your personal information to third parties.</p>
+                    </div>
+                </section>
+
+                <!-- Information We Collect -->
+                <section id="information-collect" class="policy-section">
+                    <h2>Information We Collect</h2>
+                    <p>We collect information that you provide directly to us, information collected automatically, and information from third-party sources.</p>
+
+                    <h3>Personal Information You Provide</h3>
+                    <p>When you create an account, make a purchase, subscribe to our newsletter, or contact us, we may collect:</p>
+                    <ul>
+                        <li><strong>Contact Information:</strong> Name, email address, phone number, shipping and billing addresses</li>
+                        <li><strong>Account Information:</strong> Username, password, and account preferences</li>
+                        <li><strong>Payment Information:</strong> Credit card numbers, billing addresses (processed securely through our payment providers)</li>
+                        <li><strong>Communication Data:</strong> Messages, reviews, and feedback you send us</li>
+                        <li><strong>Skin Profile Information:</strong> If you take our skin quiz, we may collect information about your skin type, concerns, and preferences</li>
+                    </ul>
+
+                    <h3>Information Collected Automatically</h3>
+                    <p>When you visit our website, we automatically collect certain information:</p>
+                    <ul>
+                        <li><strong>Device Information:</strong> IP address, browser type, operating system, device identifiers</li>
+                        <li><strong>Usage Data:</strong> Pages viewed, time spent on site, click patterns, referring URLs</li>
+                        <li><strong>Location Data:</strong> General geographic location based on IP address</li>
+                    </ul>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Collection Method</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Contact Info</td>
+                                <td>Account creation, checkout</td>
+                                <td>Order fulfillment, communication</td>
+                            </tr>
+                            <tr>
+                                <td>Payment Data</td>
+                                <td>Checkout process</td>
+                                <td>Transaction processing</td>
+                            </tr>
+                            <tr>
+                                <td>Skin Profile</td>
+                                <td>Skin quiz</td>
+                                <td>Personalized recommendations</td>
+                            </tr>
+                            <tr>
+                                <td>Usage Data</td>
+                                <td>Cookies, analytics</td>
+                                <td>Site improvement, personalization</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- How We Use Your Information -->
+                <section id="how-we-use" class="policy-section">
+                    <h2>How We Use Your Information</h2>
+                    <p>We use the information we collect for various purposes, including:</p>
+
+                    <h3>Order Processing and Fulfillment</h3>
+                    <ul>
+                        <li>Process and fulfill your orders, including shipping and delivery</li>
+                        <li>Send transactional emails (order confirmations, shipping updates)</li>
+                        <li>Process returns, refunds, and exchanges</li>
+                        <li>Manage subscription orders and billing</li>
+                    </ul>
+
+                    <h3>Customer Service and Communication</h3>
+                    <ul>
+                        <li>Respond to your inquiries and support requests</li>
+                        <li>Send important account and service updates</li>
+                        <li>Provide personalized skincare recommendations</li>
+                    </ul>
+
+                    <h3>Marketing and Promotions</h3>
+                    <ul>
+                        <li>Send promotional emails and newsletters (with your consent)</li>
+                        <li>Display personalized advertisements</li>
+                        <li>Administer contests, promotions, or surveys</li>
+                    </ul>
+
+                    <h3>Analytics and Improvement</h3>
+                    <ul>
+                        <li>Analyze website usage and customer behavior</li>
+                        <li>Improve our products, services, and user experience</li>
+                        <li>Develop new products and formulations</li>
+                    </ul>
+
+                    <h3>Legal and Security</h3>
+                    <ul>
+                        <li>Prevent fraud and unauthorized transactions</li>
+                        <li>Comply with legal obligations</li>
+                        <li>Enforce our terms and conditions</li>
+                    </ul>
+                </section>
+
+                <!-- Information Sharing -->
+                <section id="information-sharing" class="policy-section">
+                    <h2>Information Sharing</h2>
+                    <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
+
+                    <h3>Service Providers</h3>
+                    <p>We share information with third-party vendors who perform services on our behalf, including:</p>
+                    <ul>
+                        <li>Payment processors (Stripe, PayPal, Shop Pay)</li>
+                        <li>Shipping carriers (USPS, FedEx, UPS)</li>
+                        <li>Email service providers</li>
+                        <li>Customer service platforms</li>
+                        <li>Analytics providers</li>
+                    </ul>
+
+                    <h3>Business Transfers</h3>
+                    <p>If Glowhaus is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change.</p>
+
+                    <h3>Legal Requirements</h3>
+                    <p>We may disclose your information if required by law, regulation, legal process, or governmental request, or to protect our rights, privacy, safety, or property.</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Our Commitment:</strong> All service providers are contractually obligated to protect your information and use it only for the purposes we specify. Your trust is sacred to us.</p>
+                    </div>
+                </section>
+
+                <!-- Cookies and Tracking -->
+                <section id="cookies" class="policy-section">
+                    <h2>Cookies and Tracking Technologies</h2>
+                    <p>We use cookies and similar tracking technologies to enhance your experience on our website.</p>
+
+                    <h3>Types of Cookies We Use</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Cookie Type</th>
+                                <th>Purpose</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Essential Cookies</td>
+                                <td>Required for site functionality (shopping cart, checkout)</td>
+                                <td>Session</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics Cookies</td>
+                                <td>Understand how visitors use our site</td>
+                                <td>Up to 2 years</td>
+                            </tr>
+                            <tr>
+                                <td>Preference Cookies</td>
+                                <td>Remember your settings and skin quiz results</td>
+                                <td>Up to 1 year</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Cookies</td>
+                                <td>Deliver relevant advertisements</td>
+                                <td>Up to 1 year</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Managing Cookies</h3>
+                    <p>You can control cookies through your browser settings. Most browsers allow you to:</p>
+                    <ul>
+                        <li>View and delete cookies</li>
+                        <li>Block third-party cookies</li>
+                        <li>Block all cookies</li>
+                        <li>Clear all cookies when you close your browser</li>
+                    </ul>
+                    <p>Please note that disabling certain cookies may affect your ability to use some features of our website, including personalized product recommendations.</p>
+
+                    <h3>Do Not Track</h3>
+                    <p>Some browsers have a "Do Not Track" feature. We currently do not respond to Do Not Track signals, but you can opt out of targeted advertising through your cookie preferences.</p>
+                </section>
+
+                <!-- Data Security -->
+                <section id="data-security" class="policy-section">
+                    <h2>Data Security</h2>
+                    <p>We implement robust security measures to protect your personal information:</p>
+
+                    <ul>
+                        <li><strong>Encryption:</strong> All data transmitted between your browser and our servers is encrypted using SSL/TLS technology</li>
+                        <li><strong>Secure Payment Processing:</strong> Payment information is processed by PCI DSS-compliant payment processors; we do not store your full credit card number</li>
+                        <li><strong>Access Controls:</strong> Employee access to personal data is limited and based on job requirements</li>
+                        <li><strong>Regular Audits:</strong> We conduct regular security assessments and vulnerability testing</li>
+                        <li><strong>Data Backup:</strong> Regular backups ensure data integrity and availability</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Security Notice:</strong> While we strive to protect your information, no method of transmission over the internet or electronic storage is 100% secure. We encourage you to use strong passwords and keep your account credentials confidential.</p>
+                    </div>
+                </section>
+
+                <!-- Your Rights -->
+                <section id="your-rights" class="policy-section">
+                    <h2>Your Rights (GDPR/CCPA)</h2>
+                    <p>Depending on your location, you may have specific rights regarding your personal data:</p>
+
+                    <h3>For European Union Residents (GDPR)</h3>
+                    <ul>
+                        <li><strong>Right to Access:</strong> Request a copy of your personal data</li>
+                        <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
+                        <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+                        <li><strong>Right to Restriction:</strong> Request limited processing of your data</li>
+                        <li><strong>Right to Data Portability:</strong> Receive your data in a structured, machine-readable format</li>
+                        <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
+                        <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time where processing is based on consent</li>
+                    </ul>
+
+                    <h3>For California Residents (CCPA)</h3>
+                    <ul>
+                        <li><strong>Right to Know:</strong> Request disclosure of personal information collected</li>
+                        <li><strong>Right to Delete:</strong> Request deletion of your personal information</li>
+                        <li><strong>Right to Opt-Out:</strong> Opt out of the sale of personal information (we do not sell your data)</li>
+                        <li><strong>Right to Non-Discrimination:</strong> Exercise your rights without facing discrimination</li>
+                    </ul>
+
+                    <h3>How to Exercise Your Rights</h3>
+                    <p>To exercise any of these rights, please contact us using the information provided in the Contact section below. We will respond to your request within the legally required timeframe (typically 30 days for GDPR, 45 days for CCPA).</p>
+                </section>
+
+                <!-- Third-Party Services -->
+                <section id="third-party" class="policy-section">
+                    <h2>Third-Party Services</h2>
+                    <p>Our website may contain links to third-party websites and integrate with third-party services. These third parties have their own privacy policies, and we encourage you to review them.</p>
+
+                    <h3>Third-Party Services We Use</h3>
+                    <ul>
+                        <li><strong>Google Analytics:</strong> Website traffic analysis</li>
+                        <li><strong>Stripe/PayPal/Shop Pay:</strong> Payment processing</li>
+                        <li><strong>Klaviyo:</strong> Email marketing</li>
+                        <li><strong>Gorgias:</strong> Customer support</li>
+                        <li><strong>Facebook/Meta:</strong> Advertising and social features</li>
+                        <li><strong>Pinterest:</strong> Advertising and social features</li>
+                        <li><strong>TikTok:</strong> Advertising and social features</li>
+                    </ul>
+
+                    <h3>Social Media Features</h3>
+                    <p>Our website includes social media features such as share buttons and Instagram feeds. These features may collect your IP address and which page you are visiting, and may set cookies. Your interactions with these features are governed by the privacy policies of the respective social media companies.</p>
+                </section>
+
+                <!-- Children's Privacy -->
+                <section id="childrens-privacy" class="policy-section">
+                    <h2>Children's Privacy</h2>
+                    <p>Our website and services are not directed to children under the age of 18. We do not knowingly collect personal information from children under 18.</p>
+                    <p>If we learn that we have collected personal information from a child under 18 without parental consent, we will take steps to delete that information as soon as possible.</p>
+                    <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately so we can take appropriate action.</p>
+                </section>
+
+                <!-- Changes to Policy -->
+                <section id="policy-changes" class="policy-section">
+                    <h2>Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.</p>
+                    <p>When we make material changes to this policy:</p>
+                    <ul>
+                        <li>We will update the "Last Updated" date at the top of this page</li>
+                        <li>We may notify you via email or prominent notice on our website</li>
+                        <li>We encourage you to review this policy periodically</li>
+                    </ul>
+                    <p>Your continued use of our services after changes become effective constitutes your acceptance of the revised policy.</p>
+                </section>
+
+                <!-- Contact Information -->
+                <section id="contact" class="policy-section">
+                    <h2>Contact Information</h2>
+                    <p>If you have any questions about this Privacy Policy, your personal data, or would like to exercise your rights, please contact us:</p>
+
+                    <div class="contact-card">
+                        <h4>Glowhaus Privacy Team</h4>
+                        <p><strong>Email:</strong> <a href="mailto:privacy@glowhaus.com">privacy@glowhaus.com</a></p>
+                        <p><strong>Phone:</strong> 1-888-GLOW-NOW (1-888-456-9669)</p>
+                        <p><strong>Mail:</strong> Glowhaus Beauty Inc.<br>
+                        Privacy Department<br>
+                        456 Rose Garden Lane<br>
+                        Los Angeles, CA 90028<br>
+                        United States</p>
+                    </div>
+
+                    <p style="margin-top: 28px;">For general customer service inquiries, please visit our <a href="contact.html" style="color: var(--accent);">Contact page</a> or email <a href="mailto:hello@glowhaus.com" style="color: var(--accent);">hello@glowhaus.com</a>.</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Data Protection Officer:</strong> For EU residents, you may also contact our Data Protection Officer at <a href="mailto:dpo@glowhaus.com" style="color: var(--accent);">dpo@glowhaus.com</a>.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Beauty Supplements</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Glowhaus. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Highlight active TOC item on scroll
+        const sections = document.querySelectorAll('.policy-section');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GLOWHAUS | We'd Love to Hear From You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #8b5a5a;
+            --rose-light: #a67c7c;
+            --rose-dark: #6d4545;
+            --gold: #d4a574;
+            --gold-light: #e8c9a8;
+            --cream: #faf7f5;
+            --cream-dark: #f5f0eb;
+            --charcoal: #2d2d2d;
+            --text-light: #6b6b6b;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(139, 90, 90, 0.08);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--rose);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-actions a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--rose);
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 50%, var(--gold) 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+        }
+
+        /* Contact Info Side */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(139, 90, 90, 0.08);
+        }
+
+        .info-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--rose);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3 span {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .method-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .method-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(139, 90, 90, 0.1);
+            border-color: var(--gold-light);
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(139, 90, 90, 0.08);
+            border: 2px solid var(--gold-light);
+        }
+
+        .method-details h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 5px;
+        }
+
+        .method-details p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .method-details a {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .method-details a:hover {
+            color: var(--gold);
+        }
+
+        /* Hours Card */
+        .hours-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 18px;
+            background: var(--cream);
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .hours-row .day {
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .hours-row .time {
+            color: var(--text-light);
+        }
+
+        .hours-row.highlight {
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+            border: 1px solid var(--gold-light);
+        }
+
+        .hours-row.highlight .time {
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        /* Response Badge */
+        .response-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, rgba(139, 90, 90, 0.08) 0%, rgba(212, 165, 116, 0.08) 100%);
+            border-radius: 15px;
+            border: 1px solid var(--gold-light);
+            margin-top: 25px;
+        }
+
+        .response-badge .icon {
+            font-size: 26px;
+        }
+
+        .response-badge .text {
+            font-size: 14px;
+            color: var(--charcoal);
+        }
+
+        .response-badge .text strong {
+            color: var(--rose);
+        }
+
+        /* Beauty Consultation CTA */
+        .consultation-cta {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .consultation-cta h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .consultation-cta p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .consultation-btn {
+            display: inline-block;
+            background: white;
+            color: var(--rose);
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .consultation-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Form Side */
+        .contact-form-container {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(139, 90, 90, 0.1);
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--rose);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group label .required {
+            color: var(--rose);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 16px 20px;
+            border: 2px solid var(--cream-dark);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--rose);
+            box-shadow: 0 0 0 4px rgba(139, 90, 90, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #b0b0b0;
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b5a5a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            padding-right: 45px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            accent-color: var(--rose);
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form-checkbox label {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+
+        .form-checkbox label a {
+            color: var(--rose);
+            text-decoration: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(139, 90, 90, 0.25);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 100px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 500;
+            color: var(--rose);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(139, 90, 90, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 90, 90, 0.12);
+            border-color: var(--gold-light);
+        }
+
+        .faq-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .faq-item h3::before {
+            content: '?';
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            padding-left: 45px;
+        }
+
+        .faq-item p a {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 20px 40px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--rose);
+        }
+
+        .footer-column h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 30px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Shop</a>
+                <a href="about.html">Our Story</a>
+                <a href="#">Rituals</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#">Account</a>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Get in Touch</span>
+            <h1>We'd Love to Hear From You</h1>
+            <p>Questions about products, skincare routines, or your order? Our beauty experts are here to help.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="contact-grid">
+            <!-- Contact Info Side -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3><span>💌</span> Reach Out</h3>
+                    <div class="contact-method">
+                        <div class="method-item">
+                            <div class="method-icon">✉️</div>
+                            <div class="method-details">
+                                <h4>Email Us</h4>
+                                <p><a href="mailto:hello@glowhaus.com">hello@glowhaus.com</a></p>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon">💬</div>
+                            <div class="method-details">
+                                <h4>Live Chat</h4>
+                                <p>Chat with our beauty advisors</p>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon">📞</div>
+                            <div class="method-details">
+                                <h4>Call Us</h4>
+                                <p><a href="tel:1-888-GLOWHAUS">1-888-GLOWHAUS</a></p>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon">📍</div>
+                            <div class="method-details">
+                                <h4>Visit Us</h4>
+                                <p>456 Beauty Boulevard<br>Los Angeles, CA 90028</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="response-badge">
+                        <span class="icon">✨</span>
+                        <span class="text">Average response time: <strong>Under 4 hours</strong></span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><span>🕐</span> Support Hours</h3>
+                    <div class="hours-grid">
+                        <div class="hours-row highlight">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 7:00 PM PST</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 5:00 PM PST</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Sunday</span>
+                            <span class="time">12:00 PM - 4:00 PM PST</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consultation-cta">
+                    <h4>Book a Virtual Consultation</h4>
+                    <p>Get personalized skincare advice from our experts - it's complimentary!</p>
+                    <a href="#" class="consultation-btn">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Contact Form Side -->
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>We'll get back to you within 24 hours</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <input type="text" placeholder="Emma" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input type="text" placeholder="Thompson" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" placeholder="emma@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Order Number (if applicable)</label>
+                        <input type="text" placeholder="GH-123456">
+                    </div>
+                    <div class="form-group">
+                        <label>How Can We Help? <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select a topic...</option>
+                            <option value="skincare">Skincare Advice</option>
+                            <option value="product">Product Questions</option>
+                            <option value="order">Order Status / Tracking</option>
+                            <option value="subscription">Subscription Management</option>
+                            <option value="returns">Returns & Exchanges</option>
+                            <option value="wholesale">Wholesale / Press</option>
+                            <option value="other">Something Else</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Message <span class="required">*</span></label>
+                        <textarea placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="subscribe">
+                        <label for="subscribe">Join our inner circle for exclusive skincare tips, early access to new products, and member-only offers.</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-header">
+                <span class="section-label">Quick Answers</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How do I find the right products for my skin?</h3>
+                    <p>Take our <a href="#">Skin Quiz</a> for personalized recommendations, or book a complimentary virtual consultation with our skincare experts.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's your return policy?</h3>
+                    <p>We offer a 60-day happiness guarantee. If any product doesn't work for your skin, we'll refund or exchange it - no questions asked.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does shipping take?</h3>
+                    <p>Standard shipping takes 3-5 business days. Free shipping on orders over $50. Express (1-2 days) and Next Day options available.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are your products cruelty-free?</h3>
+                    <p>Absolutely. All GLOWHAUS products are cruelty-free and never tested on animals. Many products are also vegan-friendly.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I modify my subscription?</h3>
+                    <p>Yes! Skip, swap products, change frequency, or cancel anytime from your <a href="#">account dashboard</a>. No commitments required.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer samples?</h3>
+                    <p>We include complimentary samples with every order! You can also purchase our <a href="#">Discovery Set</a> to try multiple products.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">GLOWHAUS</a>
+                    <p>Clean beauty, real results. We believe in the transformative power of conscious skincare - formulas that are as good for your skin as they are for the planet.</p>
+                    <div class="social-links">
+                        <a href="#">IG</a>
+                        <a href="#">TT</a>
+                        <a href="#">YT</a>
+                        <a href="#">PI</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">All Products</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sets & Bundles</a></li>
+                        <li><a href="#">Subscribe & Save</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GLOWHAUS. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
