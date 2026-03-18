@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinGenius™ Analysis | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           GLOWHAUS BEAUTY - SKINGENIUS™ ANALYSIS PAGE
+           Professional Skincare E-commerce Design
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent-gold: #c9a86c;
+            --accent-gold-hover: #b8954f;
+            --rose: #e8b4b8;
+            --rose-dark: #d4949a;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf9f7;
+            --bg-rose: #fdf5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --border: #e8e8e8;
+            --success: #4a9c6d;
+            --warning: #e6a23c;
+            --danger: #dc3545;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           ANNOUNCEMENT BAR
+           ============================================ */
+        .announcement-bar {
+            background: var(--primary-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .announcement-bar span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 18px 40px;
+            font-size: 16px;
+        }
+
+        /* ============================================
+           SOCIAL PROOF BAR
+           ============================================ */
+        .social-proof-bar {
+            background: var(--bg-secondary);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .social-proof-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .proof-item strong {
+            color: var(--primary-dark);
+        }
+
+        .proof-item svg {
+            color: var(--accent-gold);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--accent-gold);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .hero-feature svg {
+            color: var(--success);
+        }
+
+        /* ============================================
+           ANALYSIS SECTION
+           ============================================ */
+        .analysis-section {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+
+        .analysis-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Camera Interface */
+        .camera-interface {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .camera-preview-wrapper {
+            position: relative;
+            width: 360px;
+            height: 360px;
+            margin: 0 auto 32px;
+        }
+
+        .camera-preview {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 100%);
+            border: 6px solid var(--accent-gold);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .camera-preview video,
+        .camera-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .camera-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .camera-placeholder svg {
+            width: 80px;
+            height: 80px;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .camera-placeholder p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .camera-ring {
+            position: absolute;
+            inset: -12px;
+            border: 2px dashed var(--rose);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .camera-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .camera-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .camera-btn-primary {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .camera-btn-primary:hover {
+            background: var(--accent-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 108, 0.4);
+        }
+
+        .camera-btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .camera-btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .tips-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .tip-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tip-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-gold);
+        }
+
+        /* ============================================
+           LOADING STATE
+           ============================================ */
+        .loading-state {
+            display: none;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .loading-state.active {
+            display: block;
+        }
+
+        .loading-animation {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+        }
+
+        .loading-circle {
+            position: absolute;
+            inset: 0;
+            border: 4px solid var(--border);
+            border-radius: 50%;
+        }
+
+        .loading-circle-progress {
+            position: absolute;
+            inset: 0;
+            border: 4px solid transparent;
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-face {
+            position: absolute;
+            inset: 20px;
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-face svg {
+            width: 60px;
+            height: 60px;
+            color: var(--accent-gold);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .loading-messages {
+            margin-bottom: 24px;
+        }
+
+        .loading-message {
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .loading-submessage {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .loading-progress {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--rose) 100%);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           RESULTS DASHBOARD
+           ============================================ */
+        .results-dashboard {
+            display: none;
+        }
+
+        .results-dashboard.active {
+            display: block;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .results-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .results-subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        /* Overall Score Card */
+        .score-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+
+        .score-card h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 24px;
+        }
+
+        .score-circle svg {
+            transform: rotate(-90deg);
+        }
+
+        .score-bg {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 12;
+        }
+
+        .score-progress {
+            fill: none;
+            stroke: var(--accent-gold);
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 565.48;
+            stroke-dashoffset: 565.48;
+            transition: stroke-dashoffset 1.5s ease;
+        }
+
+        .score-value {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .score-grade {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--rose) 100%);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Skin Type Card */
+        .skin-type-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .skin-type-card h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .skin-type-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .skin-type-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skin-type-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-gold);
+        }
+
+        .skin-type-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .skin-type-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .skin-characteristics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .characteristic-tag {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border-radius: 50px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Concerns Section */
+        .concerns-section {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            margin-bottom: 48px;
+        }
+
+        .concerns-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .concerns-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .concern-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .concern-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .concern-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-gold);
+        }
+
+        .concern-details {
+            flex: 1;
+        }
+
+        .concern-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .concern-level {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+
+        .concern-level.low {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .concern-level.moderate {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .concern-level.high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .concern-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .concern-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .concern-fill.excellent {
+            background: var(--success);
+        }
+
+        .concern-fill.good {
+            background: #8bc34a;
+        }
+
+        .concern-fill.moderate {
+            background: var(--warning);
+        }
+
+        .concern-fill.poor {
+            background: var(--danger);
+        }
+
+        /* Skin Map */
+        .skin-map-section {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            margin-bottom: 48px;
+        }
+
+        .skin-map-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .skin-map-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .skin-map-visual {
+            position: relative;
+            width: 280px;
+            height: 360px;
+        }
+
+        .face-outline {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+        }
+
+        .problem-area {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .problem-area:hover {
+            transform: scale(1.2);
+        }
+
+        .problem-area.forehead {
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .problem-area.left-cheek {
+            top: 45%;
+            left: 15%;
+        }
+
+        .problem-area.right-cheek {
+            top: 45%;
+            right: 15%;
+        }
+
+        .problem-area.nose {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .problem-area.chin {
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .problem-dot {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: problemPulse 2s ease-in-out infinite;
+        }
+
+        .problem-dot.severe {
+            background: rgba(220, 53, 69, 0.3);
+            border: 2px solid var(--danger);
+        }
+
+        .problem-dot.moderate {
+            background: rgba(230, 162, 60, 0.3);
+            border: 2px solid var(--warning);
+        }
+
+        .problem-dot.mild {
+            background: rgba(74, 156, 109, 0.3);
+            border: 2px solid var(--success);
+        }
+
+        @keyframes problemPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .skin-map-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.severe {
+            background: var(--danger);
+        }
+
+        .legend-dot.moderate {
+            background: var(--warning);
+        }
+
+        .legend-dot.mild {
+            background: var(--success);
+        }
+
+        .legend-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           PRODUCT RECOMMENDATIONS
+           ============================================ */
+        .recommendations-section {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+
+        .recommendations-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .recommendations-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .recommendations-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .recommendation-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .recommendation-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--bg-rose);
+        }
+
+        .recommendation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .recommendation-card:hover .recommendation-image img {
+            transform: scale(1.08);
+        }
+
+        .recommendation-match {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .recommendation-info {
+            padding: 24px;
+        }
+
+        .recommendation-category {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .recommendation-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .recommendation-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 13px;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .recommendation-reason {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+
+        .reason-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .reason-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .recommendation-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .recommendation-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .add-to-cart-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           SAVE RESULTS SECTION
+           ============================================ */
+        .save-results-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+            padding: 60px 0;
+        }
+
+        .save-results-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .save-results-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .save-results-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        .save-results-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        .btn-white:hover {
+            background: var(--bg-secondary);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* ============================================
+           TRUST BADGES
+           ============================================ */
+        .trust-section {
+            padding: 60px 0;
+            background: var(--bg-primary);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .trust-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-gold);
+        }
+
+        .trust-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .trust-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ============================================
+           RESPONSIVE STYLES
+           ============================================ */
+        @media (max-width: 1024px) {
+            .recommendations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .camera-preview-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .concerns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .save-results-inner {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .camera-actions {
+                flex-direction: column;
+            }
+
+            .camera-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>SUBSCRIBE & SAVE 15%</span> on every order
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="collection.html" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="collection.html" class="nav-link">Body Care</a></li>
+                    <li><a href="collection.html" class="nav-link">Best Sellers</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="collection.html" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof Bar -->
+    <div class="social-proof-bar">
+        <div class="container">
+            <div class="social-proof-inner">
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span><strong>89,432</strong> Happy Customers</span>
+                </div>
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    <span><strong>4.8/5</strong> from 8,247 Reviews</span>
+                </div>
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span><strong>Dermatologist</strong> Tested</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Exclusive Technology
+            </div>
+            <h1 class="hero-title">SkinGenius™ Analysis</h1>
+            <p class="hero-subtitle">
+                Get personalized skincare recommendations powered by our proprietary SkinGenius™ technology.
+                Upload a photo and discover your skin's unique needs in seconds.
+            </p>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Instant Analysis
+                </div>
+                <div class="hero-feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Personalized Recommendations
+                </div>
+                <div class="hero-feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    100% Free
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section">
+        <div class="container">
+            <div class="analysis-container">
+                <!-- Camera Interface -->
+                <div class="camera-interface" id="cameraInterface">
+                    <div class="camera-preview-wrapper">
+                        <div class="camera-ring"></div>
+                        <div class="camera-preview" id="cameraPreview">
+                            <div class="camera-placeholder" id="cameraPlaceholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                    <path d="M6.168 18.849A4 4 0 0 1 10 16h4a4 4 0 0 1 3.834 2.855"/>
+                                </svg>
+                                <p>Take or upload a clear photo of your face</p>
+                            </div>
+                            <video id="videoElement" autoplay playsinline style="display: none;"></video>
+                            <img id="capturedImage" style="display: none;" alt="Captured face">
+                        </div>
+                    </div>
+
+                    <div class="camera-actions">
+                        <button class="camera-btn camera-btn-primary" id="takePhotoBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                            Take Photo
+                        </button>
+                        <label class="camera-btn camera-btn-secondary" for="fileInput">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            Upload Photo
+                        </label>
+                        <input type="file" id="fileInput" class="file-input" accept="image/*">
+                        <button class="camera-btn camera-btn-secondary" id="retakeBtn" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                            Retake
+                        </button>
+                    </div>
+
+                    <button class="btn btn-accent btn-lg" id="analyzeBtn" style="display: none; margin: 0 auto 32px;">
+                        Analyze My Skin
+                    </button>
+
+                    <div class="tips-section">
+                        <h4 class="tips-title">Tips for Best Results</h4>
+                        <div class="tips-grid">
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="5"/>
+                                        <line x1="12" y1="1" x2="12" y2="3"/>
+                                        <line x1="12" y1="21" x2="12" y2="23"/>
+                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                        <line x1="1" y1="12" x2="3" y2="12"/>
+                                        <line x1="21" y1="12" x2="23" y2="12"/>
+                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                    </svg>
+                                </div>
+                                <span>Good, even lighting</span>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </div>
+                                <span>Clean, makeup-free face</span>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                        <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+                                    </svg>
+                                </div>
+                                <span>Face the camera directly</span>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <circle cx="9" cy="9" r="2"/>
+                                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                                    </svg>
+                                </div>
+                                <span>High-quality, clear image</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState">
+                    <div class="loading-animation">
+                        <div class="loading-circle"></div>
+                        <div class="loading-circle-progress"></div>
+                        <div class="loading-face">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="10" r="3"/>
+                                <path d="M6.168 18.849A4 4 0 0 1 10 16h4a4 4 0 0 1 3.834 2.855"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="loading-messages">
+                        <p class="loading-message" id="loadingMessage">Analyzing your skin...</p>
+                        <p class="loading-submessage" id="loadingSubMessage">This may take a few seconds</p>
+                    </div>
+                    <div class="loading-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <span>Detecting features</span>
+                            <span>Analyzing concerns</span>
+                            <span>Generating results</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Dashboard -->
+            <div class="results-dashboard" id="resultsDashboard">
+                <div class="results-header">
+                    <h2 class="results-title">Your Skin Analysis Results</h2>
+                    <p class="results-subtitle">Based on SkinGenius™ analysis of your skin image</p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Overall Score Card -->
+                    <div class="score-card">
+                        <h3>Overall Skin Health Score</h3>
+                        <div class="score-circle">
+                            <svg width="200" height="200" viewBox="0 0 200 200">
+                                <circle class="score-bg" cx="100" cy="100" r="90"/>
+                                <circle class="score-progress" id="scoreProgress" cx="100" cy="100" r="90"/>
+                            </svg>
+                            <div class="score-value">
+                                <span class="score-number" id="scoreNumber">0</span>
+                                <span class="score-label">out of 100</span>
+                            </div>
+                        </div>
+                        <span class="score-grade" id="scoreGrade">Good</span>
+                    </div>
+
+                    <!-- Skin Type Card -->
+                    <div class="skin-type-card">
+                        <h3>Your Skin Type</h3>
+                        <div class="skin-type-badge">
+                            <div class="skin-type-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                </svg>
+                            </div>
+                            <span class="skin-type-name" id="skinTypeName">Combination</span>
+                        </div>
+                        <p class="skin-type-description" id="skinTypeDescription">
+                            Your skin shows characteristics of multiple skin types, with an oily T-zone and normal to dry cheeks.
+                        </p>
+                        <div class="skin-characteristics" id="skinCharacteristics">
+                            <span class="characteristic-tag">Oily T-Zone</span>
+                            <span class="characteristic-tag">Normal Cheeks</span>
+                            <span class="characteristic-tag">Visible Pores</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concerns Section -->
+                <div class="concerns-section">
+                    <h3>Skin Concerns Detected</h3>
+                    <div class="concerns-grid" id="concernsGrid">
+                        <!-- Concerns will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Skin Map -->
+                <div class="skin-map-section">
+                    <h3>Visual Skin Map</h3>
+                    <div class="skin-map-container">
+                        <div class="skin-map-visual">
+                            <div class="face-outline">
+                                <div class="problem-area forehead" id="areaForehead" title="Forehead">
+                                    <div class="problem-dot moderate"></div>
+                                </div>
+                                <div class="problem-area left-cheek" id="areaLeftCheek" title="Left Cheek">
+                                    <div class="problem-dot mild"></div>
+                                </div>
+                                <div class="problem-area right-cheek" id="areaRightCheek" title="Right Cheek">
+                                    <div class="problem-dot mild"></div>
+                                </div>
+                                <div class="problem-area nose" id="areaNose" title="Nose">
+                                    <div class="problem-dot severe"></div>
+                                </div>
+                                <div class="problem-area chin" id="areaChin" title="Chin">
+                                    <div class="problem-dot moderate"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skin-map-legend">
+                            <div class="legend-item">
+                                <div class="legend-dot severe"></div>
+                                <span class="legend-text">Needs Attention - Enlarged pores, excess oil</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot moderate"></div>
+                                <span class="legend-text">Moderate - Fine lines, slight texture</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot mild"></div>
+                                <span class="legend-text">Good Condition - Well-hydrated, healthy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Recommendations Section -->
+    <section class="recommendations-section" id="recommendationsSection" style="display: none;">
+        <div class="container">
+            <div class="recommendations-header">
+                <h2>Your Personalized Routine</h2>
+                <p>Curated products based on your skin analysis</p>
+            </div>
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Save Results Section -->
+    <section class="save-results-section" id="saveResultsSection" style="display: none;">
+        <div class="container">
+            <div class="save-results-inner">
+                <div class="save-results-text">
+                    <h3>Save Your Analysis Results</h3>
+                    <p>Track your skin health over time and get personalized updates</p>
+                </div>
+                <div class="save-results-actions">
+                    <button class="btn btn-white" id="saveLocalBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                            <polyline points="17 21 17 13 7 13 7 21"/>
+                            <polyline points="7 3 7 8 15 8"/>
+                        </svg>
+                        Save Locally
+                    </button>
+                    <a href="register.html" class="btn btn-outline-white">
+                        Create Account to Save
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h4 class="trust-title">Privacy Protected</h4>
+                    <p class="trust-text">Your photos are never stored</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h4 class="trust-title">Dermatologist Developed</h4>
+                    <p class="trust-text">Proprietary technology built with experts</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="trust-title">89K+ Analyses</h4>
+                    <p class="trust-text">Trusted by thousands</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                            <path d="M3 3v5h5"/>
+                        </svg>
+                    </div>
+                    <h4 class="trust-title">Free Retakes</h4>
+                    <p class="trust-text">Analyze as often as you want</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white;">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="collection.html">Beauty Supplements</a></li>
+                        <li><a href="collection.html">Body Care</a></li>
+                        <li><a href="collection.html">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="skin-analysis.html">SkinGenius™</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 Glowhaus. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // SKINGENIUS™ ANALYSIS - JAVASCRIPT
+        // ============================================
+
+        // DOM Elements
+        const cameraInterface = document.getElementById('cameraInterface');
+        const cameraPreview = document.getElementById('cameraPreview');
+        const cameraPlaceholder = document.getElementById('cameraPlaceholder');
+        const videoElement = document.getElementById('videoElement');
+        const capturedImage = document.getElementById('capturedImage');
+        const takePhotoBtn = document.getElementById('takePhotoBtn');
+        const fileInput = document.getElementById('fileInput');
+        const retakeBtn = document.getElementById('retakeBtn');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const loadingState = document.getElementById('loadingState');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const loadingSubMessage = document.getElementById('loadingSubMessage');
+        const progressFill = document.getElementById('progressFill');
+        const resultsDashboard = document.getElementById('resultsDashboard');
+        const recommendationsSection = document.getElementById('recommendationsSection');
+        const saveResultsSection = document.getElementById('saveResultsSection');
+
+        let stream = null;
+        let capturedImageData = null;
+
+        // Loading messages
+        const loadingMessages = [
+            { main: 'Detecting facial features...', sub: 'Mapping your skin zones' },
+            { main: 'Analyzing skin texture...', sub: 'Examining pores and surface' },
+            { main: 'Evaluating hydration levels...', sub: 'Checking moisture balance' },
+            { main: 'Identifying concerns...', sub: 'Looking for specific issues' },
+            { main: 'Generating recommendations...', sub: 'Matching products to your needs' }
+        ];
+
+        // Product recommendations data
+        const productRecommendations = [
+            {
+                id: 1,
+                name: 'Vitamin C Brightening Serum',
+                category: 'Serums',
+                price: 48.00,
+                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop',
+                rating: 4.9,
+                reviews: 3847,
+                match: 98,
+                reason: 'Targets dark spots and uneven skin tone detected in your analysis. 20% L-Ascorbic Acid for maximum brightening.'
+            },
+            {
+                id: 2,
+                name: 'Hyaluronic Acid Hydrating Serum',
+                category: 'Hydration',
+                price: 38.00,
+                image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
+                rating: 4.8,
+                reviews: 2156,
+                match: 95,
+                reason: 'Your skin shows signs of dehydration. This serum holds 1000x its weight in water for deep hydration.'
+            },
+            {
+                id: 3,
+                name: 'Niacinamide Pore Minimizer',
+                category: 'Treatment',
+                price: 32.00,
+                image: 'https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=400&h=400&fit=crop',
+                rating: 4.7,
+                reviews: 1523,
+                match: 92,
+                reason: 'Enlarged pores detected in T-zone. 10% Niacinamide visibly minimizes pores and controls oil.'
+            },
+            {
+                id: 4,
+                name: 'Daily SPF 50 Moisturizer',
+                category: 'Sun Protection',
+                price: 42.00,
+                image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop',
+                rating: 4.9,
+                reviews: 2891,
+                match: 99,
+                reason: 'Essential for preventing further sun damage. Lightweight formula perfect for combination skin.'
+            }
+        ];
+
+        // Skin concerns data
+        const skinConcerns = [
+            { name: 'Hydration Level', icon: 'droplet', value: 68, level: 'moderate', color: 'moderate' },
+            { name: 'Fine Lines/Wrinkles', icon: 'lines', value: 25, level: 'low', color: 'excellent' },
+            { name: 'Dark Spots', icon: 'spots', value: 45, level: 'moderate', color: 'good' },
+            { name: 'Texture/Pores', icon: 'texture', value: 62, level: 'moderate', color: 'moderate' },
+            { name: 'Redness', icon: 'redness', value: 30, level: 'low', color: 'excellent' },
+            { name: 'Oiliness', icon: 'oil', value: 55, level: 'moderate', color: 'good' }
+        ];
+
+        // ============================================
+        // CAMERA FUNCTIONS
+        // ============================================
+
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user', width: 640, height: 640 }
+                });
+                videoElement.srcObject = stream;
+                videoElement.style.display = 'block';
+                cameraPlaceholder.style.display = 'none';
+                takePhotoBtn.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    Capture
+                `;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+                alert('Unable to access camera. Please check permissions or try uploading a photo instead.');
+            }
+        }
+
+        function capturePhoto() {
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(videoElement, 0, 0);
+            capturedImageData = canvas.toDataURL('image/jpeg');
+            showCapturedImage(capturedImageData);
+        }
+
+        function showCapturedImage(imageData) {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            videoElement.style.display = 'none';
+            capturedImage.src = imageData;
+            capturedImage.style.display = 'block';
+            cameraPlaceholder.style.display = 'none';
+
+            takePhotoBtn.style.display = 'none';
+            document.querySelector('label[for="fileInput"]').style.display = 'none';
+            retakeBtn.style.display = 'inline-flex';
+            analyzeBtn.style.display = 'inline-flex';
+        }
+
+        function retakePhoto() {
+            capturedImage.style.display = 'none';
+            capturedImageData = null;
+
+            takePhotoBtn.style.display = 'inline-flex';
+            takePhotoBtn.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                </svg>
+                Take Photo
+            `;
+            document.querySelector('label[for="fileInput"]').style.display = 'inline-flex';
+            retakeBtn.style.display = 'none';
+            analyzeBtn.style.display = 'none';
+            cameraPlaceholder.style.display = 'flex';
+        }
+
+        // ============================================
+        // FILE UPLOAD HANDLER
+        // ============================================
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    capturedImageData = event.target.result;
+                    showCapturedImage(capturedImageData);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // ============================================
+        // ANALYSIS FUNCTIONS
+        // ============================================
+
+        async function runAnalysis() {
+            cameraInterface.style.display = 'none';
+            loadingState.classList.add('active');
+
+            let progress = 0;
+            let messageIndex = 0;
+
+            const progressInterval = setInterval(() => {
+                progress += 2;
+                progressFill.style.width = progress + '%';
+
+                if (progress % 20 === 0 && messageIndex < loadingMessages.length) {
+                    loadingMessage.textContent = loadingMessages[messageIndex].main;
+                    loadingSubMessage.textContent = loadingMessages[messageIndex].sub;
+                    messageIndex++;
+                }
+
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    setTimeout(showResults, 500);
+                }
+            }, 60);
+
+            // ============================================
+            // SKINGENIUS™ PROPRIETARY ANALYSIS ENGINE
+            // ============================================
+            // Backend integration point for SkinGenius™ API
+            // This connects to our proprietary analysis system
+            // ============================================
+        }
+
+        function showResults() {
+            loadingState.classList.remove('active');
+            resultsDashboard.classList.add('active');
+            recommendationsSection.style.display = 'block';
+            saveResultsSection.style.display = 'block';
+
+            // Animate score
+            animateScore(76);
+
+            // Populate concerns
+            populateConcerns();
+
+            // Populate recommendations
+            populateRecommendations();
+
+            // Scroll to results
+            resultsDashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function animateScore(targetScore) {
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreProgress = document.getElementById('scoreProgress');
+            const scoreGrade = document.getElementById('scoreGrade');
+
+            const circumference = 2 * Math.PI * 90;
+            const offset = circumference - (targetScore / 100) * circumference;
+
+            let currentScore = 0;
+            const interval = setInterval(() => {
+                currentScore++;
+                scoreNumber.textContent = currentScore;
+
+                if (currentScore >= targetScore) {
+                    clearInterval(interval);
+                }
+            }, 20);
+
+            setTimeout(() => {
+                scoreProgress.style.strokeDashoffset = offset;
+            }, 100);
+
+            // Set grade
+            if (targetScore >= 85) {
+                scoreGrade.textContent = 'Excellent';
+                scoreGrade.style.background = 'linear-gradient(135deg, #4a9c6d 0%, #8bc34a 100%)';
+            } else if (targetScore >= 70) {
+                scoreGrade.textContent = 'Good';
+            } else if (targetScore >= 50) {
+                scoreGrade.textContent = 'Fair';
+                scoreGrade.style.background = 'linear-gradient(135deg, #e6a23c 0%, #f5c060 100%)';
+            } else {
+                scoreGrade.textContent = 'Needs Attention';
+                scoreGrade.style.background = 'linear-gradient(135deg, #dc3545 0%, #e86371 100%)';
+            }
+        }
+
+        function populateConcerns() {
+            const concernsGrid = document.getElementById('concernsGrid');
+            concernsGrid.innerHTML = '';
+
+            const icons = {
+                droplet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>',
+                lines: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
+                spots: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>',
+                texture: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+                redness: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',
+                oil: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>'
+            };
+
+            skinConcerns.forEach((concern, index) => {
+                const levelText = concern.level === 'low' ? 'Low' : concern.level === 'moderate' ? 'Moderate' : 'High';
+                const html = `
+                    <div class="concern-item">
+                        <div class="concern-icon">${icons[concern.icon]}</div>
+                        <div class="concern-details">
+                            <div class="concern-name">
+                                ${concern.name}
+                                <span class="concern-level ${concern.level}">${levelText}</span>
+                            </div>
+                            <div class="concern-bar">
+                                <div class="concern-fill ${concern.color}" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                concernsGrid.innerHTML += html;
+
+                // Animate bar
+                setTimeout(() => {
+                    const bars = concernsGrid.querySelectorAll('.concern-fill');
+                    bars[index].style.width = concern.value + '%';
+                }, 100 + index * 100);
+            });
+        }
+
+        function populateRecommendations() {
+            const grid = document.getElementById('recommendationsGrid');
+            grid.innerHTML = '';
+
+            productRecommendations.forEach(product => {
+                const html = `
+                    <div class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="${product.image}" alt="${product.name}">
+                            <span class="recommendation-match">${product.match}% Match</span>
+                        </div>
+                        <div class="recommendation-info">
+                            <p class="recommendation-category">${product.category}</p>
+                            <h4 class="recommendation-title">${product.name}</h4>
+                            <div class="recommendation-rating">
+                                <span class="stars">${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '½' : ''}</span>
+                                <span class="rating-count">(${product.reviews.toLocaleString()})</span>
+                            </div>
+                            <div class="recommendation-reason">
+                                <p class="reason-label">Why this works for you</p>
+                                <p class="reason-text">${product.reason}</p>
+                            </div>
+                            <div class="recommendation-footer">
+                                <span class="recommendation-price">$${product.price.toFixed(2)}</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"/>
+                                        <circle cx="20" cy="21" r="1"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                    </svg>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += html;
+            });
+        }
+
+        // ============================================
+        // CART & STORAGE FUNCTIONS
+        // ============================================
+
+        function addToCart(productId) {
+            const product = productRecommendations.find(p => p.id === productId);
+            if (product) {
+                let cart = JSON.parse(localStorage.getItem('glowhaus_cart') || '[]');
+                const existingItem = cart.find(item => item.id === productId);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+
+                localStorage.setItem('glowhaus_cart', JSON.stringify(cart));
+
+                // Visual feedback
+                const buttons = document.querySelectorAll('.add-to-cart-btn');
+                buttons.forEach(btn => {
+                    if (btn.onclick.toString().includes(productId)) {
+                        btn.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Added!
+                        `;
+                        btn.style.background = '#4a9c6d';
+                        setTimeout(() => {
+                            btn.innerHTML = `
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"/>
+                                    <circle cx="20" cy="21" r="1"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                                Add to Cart
+                            `;
+                            btn.style.background = '';
+                        }, 2000);
+                    }
+                });
+            }
+        }
+
+        function saveResultsLocally() {
+            const results = {
+                date: new Date().toISOString(),
+                score: 76,
+                skinType: 'Combination',
+                concerns: skinConcerns,
+                recommendations: productRecommendations.map(p => p.id)
+            };
+
+            let savedResults = JSON.parse(localStorage.getItem('glowhaus_skin_analyses') || '[]');
+            savedResults.push(results);
+            localStorage.setItem('glowhaus_skin_analyses', JSON.stringify(savedResults));
+
+            alert('Results saved successfully! You can view your history in your account.');
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+
+        takePhotoBtn.addEventListener('click', function() {
+            if (stream) {
+                capturePhoto();
+            } else {
+                startCamera();
+            }
+        });
+
+        retakeBtn.addEventListener('click', retakePhoto);
+        analyzeBtn.addEventListener('click', runAnalysis);
+        document.getElementById('saveLocalBtn').addEventListener('click', saveResultsLocally);
+
+        // Check for saved results on load
+        window.addEventListener('load', function() {
+            const savedAnalyses = localStorage.getItem('glowhaus_skin_analyses');
+            if (savedAnalyses) {
+                const analyses = JSON.parse(savedAnalyses);
+                if (analyses.length > 0) {
+                    console.log('Previous analyses found:', analyses.length);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Search | GLOWHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #c9a86c;
+            --accent-hover: #b8954f;
+            --rose: #e8b4b8;
+            --rose-dark: #d4949a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf9f7;
+            --bg-rose: #fdf5f5;
+            --bg-dark: #1a1a1a;
+            --border: #e8e8e8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--bg-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .announcement-bar span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+
+        /* Search Hero */
+        .search-hero {
+            background: linear-gradient(135deg, var(--bg-rose) 0%, var(--bg-secondary) 50%, white 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .search-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .search-hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(201, 168, 108, 0.15);
+            transition: all 0.3s;
+        }
+
+        .search-input-container:focus-within {
+            box-shadow: 0 15px 50px rgba(201, 168, 108, 0.25);
+            border-color: var(--accent-hover);
+        }
+
+        .ai-sparkle {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+        }
+
+        .ai-sparkle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 22px 60px 22px 56px;
+            border: none;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-right: 16px;
+        }
+
+        .voice-btn,
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .voice-btn:hover {
+            color: var(--rose-dark);
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+        }
+
+        .search-btn:hover {
+            background: var(--secondary);
+        }
+
+        .search-btn svg,
+        .voice-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* SmartMatch Badge */
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--rose-dark) 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 16px;
+        }
+
+        .ai-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Quick Filters */
+        .quick-filters {
+            padding: 40px 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-group {
+            margin-bottom: 24px;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-pill {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-pill.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .filter-pill.concern {
+            border-color: var(--rose);
+        }
+
+        .filter-pill.concern:hover {
+            background: var(--bg-rose);
+            border-color: var(--rose-dark);
+            color: var(--rose-dark);
+        }
+
+        .filter-pill.concern.active {
+            background: var(--rose-dark);
+            border-color: var(--rose-dark);
+            color: white;
+        }
+
+        /* Trending Searches */
+        .trending-section {
+            padding: 40px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .trending-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .trending-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .trending-pill:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .trending-pill svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        /* Recent Searches */
+        .recent-section {
+            padding: 30px 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .recent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .clear-btn:hover {
+            color: var(--rose-dark);
+        }
+
+        .recent-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .recent-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .recent-item:hover {
+            background: var(--bg-rose);
+        }
+
+        .recent-item svg {
+            width: 14px;
+            height: 14px;
+            color: var(--text-muted);
+        }
+
+        .recent-remove {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            display: flex;
+            color: var(--text-muted);
+        }
+
+        .recent-remove:hover {
+            color: var(--rose-dark);
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 60px 0;
+            background: var(--bg-secondary);
+            min-height: 400px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .results-count {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .results-count strong {
+            color: var(--primary);
+        }
+
+        .sort-select {
+            padding: 10px 35px 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            background: white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: white;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.4s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.05s; }
+        .product-card:nth-child(2) { animation-delay: 0.1s; }
+        .product-card:nth-child(3) { animation-delay: 0.15s; }
+        .product-card:nth-child(4) { animation-delay: 0.2s; }
+        .product-card:nth-child(5) { animation-delay: 0.25s; }
+        .product-card:nth-child(6) { animation-delay: 0.3s; }
+        .product-card:nth-child(7) { animation-delay: 0.35s; }
+        .product-card:nth-child(8) { animation-delay: 0.4s; }
+
+        .product-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-bestseller {
+            background: var(--primary);
+            color: white;
+        }
+
+        .badge-new {
+            background: var(--accent);
+            color: white;
+        }
+
+        .quick-add {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            font-size: 20px;
+        }
+
+        .product-card:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 13px;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .price-current {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* SmartMatch Chip */
+        .ai-match-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, rgba(201, 168, 108, 0.1) 0%, rgba(232, 180, 184, 0.1) 100%);
+            border: 1px solid rgba(201, 168, 108, 0.3);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .ai-match-chip svg {
+            width: 14px;
+            height: 14px;
+            color: var(--accent);
+        }
+
+        /* No Results State */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .no-results-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .no-results-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--rose-dark);
+        }
+
+        .no-results h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .no-results p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .recommendations-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hidden state */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-hero-title {
+                font-size: 36px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .filter-pills {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .filter-pill {
+                flex-shrink: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-hero {
+                padding: 60px 0 40px;
+            }
+
+            .search-input {
+                padding: 18px 50px 18px 50px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>FREE SHIPPING</span> on orders over $50 | <span>SUBSCRIBE & SAVE 15%</span> on every order
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">GLOWHAUS</a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="collection.html" class="nav-link">Skincare</a></li>
+                    <li><a href="#" class="nav-link">Beauty Supplements</a></li>
+                    <li><a href="#" class="nav-link">Body Care</a></li>
+                    <li><a href="#" class="nav-link">Best Sellers</a></li>
+                    <li><a href="search.html" class="nav-link active">Search</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="btn btn-primary">Cart (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Hero -->
+    <section class="search-hero">
+        <div class="container">
+            <h1 class="search-hero-title">Smart Search</h1>
+            <p class="search-hero-subtitle">Find exactly what your skin needs. Ask naturally, like you're talking to a beauty expert.</p>
+
+            <div class="search-wrapper">
+                <div class="search-input-container">
+                    <div class="ai-sparkle">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search for products, concerns, or ask me anything...">
+                    <div class="search-actions">
+                        <button class="voice-btn" title="Voice search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </button>
+                        <button class="search-btn" id="searchBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                    </svg>
+                    SmartMatch™ Technology
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Filters -->
+    <section class="quick-filters">
+        <div class="container">
+            <div class="filter-group">
+                <p class="filter-label">Categories</p>
+                <div class="filter-pills" id="categoryFilters">
+                    <button class="filter-pill active" data-category="all">All</button>
+                    <button class="filter-pill" data-category="serums">Serums</button>
+                    <button class="filter-pill" data-category="moisturizers">Moisturizers</button>
+                    <button class="filter-pill" data-category="cleansers">Cleansers</button>
+                    <button class="filter-pill" data-category="masks">Masks</button>
+                    <button class="filter-pill" data-category="tools">Tools</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <p class="filter-label">Skin Concerns</p>
+                <div class="filter-pills" id="concernFilters">
+                    <button class="filter-pill concern" data-concern="acne">Acne</button>
+                    <button class="filter-pill concern" data-concern="aging">Aging</button>
+                    <button class="filter-pill concern" data-concern="dryness">Dryness</button>
+                    <button class="filter-pill concern" data-concern="sensitivity">Sensitivity</button>
+                    <button class="filter-pill concern" data-concern="dark-spots">Dark Spots</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Searches -->
+    <section class="trending-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Right Now</h2>
+            </div>
+            <div class="trending-pills">
+                <button class="trending-pill" data-search="vitamin c serum">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    vitamin c serum
+                </button>
+                <button class="trending-pill" data-search="hydrating mask">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    hydrating mask
+                </button>
+                <button class="trending-pill" data-search="anti-aging">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    anti-aging
+                </button>
+                <button class="trending-pill" data-search="glass skin">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    glass skin
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Searches -->
+    <section class="recent-section" id="recentSection">
+        <div class="container">
+            <div class="recent-header">
+                <h3 class="filter-label">Recent Searches</h3>
+                <button class="clear-btn" id="clearRecent">Clear All</button>
+            </div>
+            <div class="recent-items" id="recentItems">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="results-header" id="resultsHeader">
+                <p class="results-count">Showing <strong id="resultCount">15</strong> products</p>
+                <select class="sort-select" id="sortSelect">
+                    <option value="relevance">Most Relevant</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products populated by JavaScript -->
+            </div>
+
+            <!-- No Results State -->
+            <div class="no-results hidden" id="noResults">
+                <div class="no-results-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </div>
+                <h3>No exact matches found</h3>
+                <p>But don't worry, here are some products you might like based on your search.</p>
+                <p class="recommendations-title">You Might Like</p>
+                <div class="products-grid" id="recommendationsGrid">
+                    <!-- Recommendations populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; font-family: 'Playfair Display', serif;">GLOWHAUS</a>
+                    <p>Clean beauty that actually works. Dermatologist tested. Cruelty-free. Loved by 89,000+ women worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">PIN</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">Skincare</a></li>
+                        <li><a href="#">Beauty Supplements</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#">Ingredient Glossary</a></li>
+                        <li><a href="#">Skin Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 Glowhaus. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Vitamin C Brightening Serum",
+                category: "serums",
+                price: 42.00,
+                rating: 4.9,
+                reviews: 2847,
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
+                concerns: ["dark-spots", "aging", "dryness"],
+                description: "Powerful 15% Vitamin C formula brightens and protects",
+                badge: "bestseller",
+                keywords: ["brightening", "vitamin c", "glow", "radiance", "antioxidant", "dark spots", "hyperpigmentation"]
+            },
+            {
+                id: 2,
+                name: "Hyaluronic Acid Hydrating Serum",
+                category: "serums",
+                price: 36.00,
+                rating: 4.8,
+                reviews: 1456,
+                image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop",
+                concerns: ["dryness", "aging"],
+                description: "Deep hydration with multi-weight hyaluronic acid",
+                badge: null,
+                keywords: ["hydrating", "hyaluronic", "moisture", "plumping", "dewy", "glass skin", "hydration"]
+            },
+            {
+                id: 3,
+                name: "Retinol Night Renewal Cream",
+                category: "moisturizers",
+                price: 58.00,
+                rating: 4.9,
+                reviews: 1934,
+                image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop",
+                concerns: ["aging", "acne", "dark-spots"],
+                description: "Anti-aging retinol complex for overnight renewal",
+                badge: "bestseller",
+                keywords: ["anti-aging", "retinol", "wrinkles", "fine lines", "night cream", "renewal", "firm"]
+            },
+            {
+                id: 4,
+                name: "Gentle Foaming Cleanser",
+                category: "cleansers",
+                price: 28.00,
+                rating: 4.7,
+                reviews: 987,
+                image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&h=400&fit=crop",
+                concerns: ["sensitivity", "acne"],
+                description: "pH-balanced gentle cleanser for all skin types",
+                badge: null,
+                keywords: ["gentle", "cleanser", "sensitive skin", "foaming", "mild", "daily", "clean"]
+            },
+            {
+                id: 5,
+                name: "Peptide Eye Cream",
+                category: "serums",
+                price: 52.00,
+                rating: 4.8,
+                reviews: 756,
+                image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop",
+                concerns: ["aging", "dryness"],
+                description: "Targets dark circles, puffiness, and fine lines",
+                badge: "new",
+                keywords: ["eye cream", "tired eyes", "dark circles", "puffiness", "peptides", "under eye", "bags"]
+            },
+            {
+                id: 6,
+                name: "Niacinamide Pore Minimizer",
+                category: "serums",
+                price: 38.00,
+                rating: 4.9,
+                reviews: 1234,
+                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop",
+                concerns: ["acne", "dark-spots"],
+                description: "10% niacinamide to minimize pores and control oil",
+                badge: "bestseller",
+                keywords: ["niacinamide", "pores", "oil control", "acne", "blemishes", "clear skin", "sebum"]
+            },
+            {
+                id: 7,
+                name: "Hydrating Sheet Mask Set",
+                category: "masks",
+                price: 24.00,
+                rating: 4.6,
+                reviews: 543,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop",
+                concerns: ["dryness", "sensitivity"],
+                description: "5-pack of deeply hydrating sheet masks",
+                badge: null,
+                keywords: ["mask", "hydrating mask", "sheet mask", "moisture", "spa", "self care"]
+            },
+            {
+                id: 8,
+                name: "AHA/BHA Exfoliating Toner",
+                category: "cleansers",
+                price: 32.00,
+                rating: 4.7,
+                reviews: 892,
+                image: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=400&h=400&fit=crop",
+                concerns: ["acne", "dark-spots", "aging"],
+                description: "Gentle daily exfoliation for smoother skin",
+                badge: null,
+                keywords: ["exfoliating", "aha", "bha", "toner", "acne scars", "texture", "smoothing", "glycolic"]
+            },
+            {
+                id: 9,
+                name: "Ceramide Barrier Cream",
+                category: "moisturizers",
+                price: 48.00,
+                rating: 4.8,
+                reviews: 678,
+                image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400&h=400&fit=crop",
+                concerns: ["dryness", "sensitivity"],
+                description: "Repairs and strengthens skin barrier",
+                badge: null,
+                keywords: ["ceramide", "barrier", "repair", "sensitive", "dry skin", "moisture barrier", "protection"]
+            },
+            {
+                id: 10,
+                name: "Jade Facial Roller",
+                category: "tools",
+                price: 28.00,
+                rating: 4.5,
+                reviews: 432,
+                image: "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?w=400&h=400&fit=crop",
+                concerns: ["aging", "dryness"],
+                description: "Natural jade stone for lymphatic drainage",
+                badge: null,
+                keywords: ["jade roller", "facial tool", "massage", "depuff", "lymphatic", "sculpting"]
+            },
+            {
+                id: 11,
+                name: "Salicylic Acid Spot Treatment",
+                category: "serums",
+                price: 22.00,
+                rating: 4.7,
+                reviews: 1123,
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop",
+                concerns: ["acne"],
+                description: "Fast-acting treatment for blemishes",
+                badge: null,
+                keywords: ["acne", "spot treatment", "salicylic", "blemish", "pimple", "breakout", "clear"]
+            },
+            {
+                id: 12,
+                name: "Collagen Boosting Mask",
+                category: "masks",
+                price: 45.00,
+                rating: 4.8,
+                reviews: 567,
+                image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop",
+                concerns: ["aging"],
+                description: "Intensive treatment for firmness and elasticity",
+                badge: "new",
+                keywords: ["collagen", "mask", "firming", "anti-aging", "elasticity", "plump", "youthful"]
+            },
+            {
+                id: 13,
+                name: "Oil-Free Gel Moisturizer",
+                category: "moisturizers",
+                price: 34.00,
+                rating: 4.6,
+                reviews: 789,
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop",
+                concerns: ["acne", "sensitivity"],
+                description: "Lightweight hydration for oily and combo skin",
+                badge: null,
+                keywords: ["oil-free", "gel", "lightweight", "oily skin", "non-comedogenic", "matte"]
+            },
+            {
+                id: 14,
+                name: "Dark Spot Correcting Serum",
+                category: "serums",
+                price: 38.99,
+                rating: 4.9,
+                reviews: 1847,
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
+                concerns: ["dark-spots", "aging"],
+                description: "Targets hyperpigmentation and acne scars",
+                badge: "bestseller",
+                keywords: ["dark spots", "hyperpigmentation", "acne scars", "brightening", "even tone", "pigmentation"]
+            },
+            {
+                id: 15,
+                name: "Soothing Aloe Vera Gel",
+                category: "moisturizers",
+                price: 18.00,
+                rating: 4.7,
+                reviews: 654,
+                image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop",
+                concerns: ["sensitivity", "dryness"],
+                description: "Calming gel for irritated or sunburned skin",
+                badge: null,
+                keywords: ["aloe vera", "soothing", "calming", "sunburn", "irritation", "redness", "gentle"]
+            }
+        ];
+
+        // Natural language keyword mappings
+        const naturalLanguageMap = {
+            "tired eyes": ["eye cream", "dark circles", "puffiness", "peptides"],
+            "something for tired eyes": ["eye cream", "dark circles", "puffiness"],
+            "help with acne scars": ["acne scars", "dark spots", "hyperpigmentation", "exfoliating"],
+            "acne scars": ["acne scars", "dark spots", "hyperpigmentation"],
+            "glass skin": ["hydrating", "hyaluronic", "dewy", "glow", "moisture"],
+            "glowing skin": ["vitamin c", "brightening", "radiance", "glow"],
+            "sensitive skin": ["gentle", "sensitive", "calming", "soothing"],
+            "gentle cleanser for sensitive skin": ["gentle", "sensitive", "cleanser", "mild"],
+            "oily skin": ["oil-free", "oil control", "matte", "niacinamide"],
+            "dry skin": ["hydrating", "moisture", "ceramide", "hyaluronic"],
+            "wrinkles": ["anti-aging", "retinol", "peptides", "collagen"],
+            "fine lines": ["anti-aging", "retinol", "peptides"],
+            "puffy eyes": ["eye cream", "depuff", "puffiness"],
+            "dark circles": ["eye cream", "dark circles", "brightening"],
+            "breakouts": ["acne", "salicylic", "blemish", "spot treatment"],
+            "uneven skin tone": ["dark spots", "brightening", "vitamin c", "niacinamide"],
+            "dehydrated": ["hydrating", "hyaluronic", "moisture"],
+            "firming": ["collagen", "peptides", "firming", "elasticity"],
+            "anti aging": ["anti-aging", "retinol", "collagen", "peptides", "wrinkles"]
+        };
+
+        // State
+        let activeCategory = 'all';
+        let activeConcerns = [];
+        let searchQuery = '';
+        let recentSearches = JSON.parse(localStorage.getItem('glowhaus_recent_searches') || '[]');
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const productsGrid = document.getElementById('productsGrid');
+        const resultCount = document.getElementById('resultCount');
+        const noResults = document.getElementById('noResults');
+        const recommendationsGrid = document.getElementById('recommendationsGrid');
+        const resultsHeader = document.getElementById('resultsHeader');
+        const recentSection = document.getElementById('recentSection');
+        const recentItems = document.getElementById('recentItems');
+        const clearRecent = document.getElementById('clearRecent');
+        const categoryFilters = document.getElementById('categoryFilters');
+        const concernFilters = document.getElementById('concernFilters');
+        const sortSelect = document.getElementById('sortSelect');
+
+        // Generate star rating HTML
+        function getStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalf = rating % 1 >= 0.5;
+            let stars = '';
+            for (let i = 0; i < fullStars; i++) {
+                stars += '\u2605';
+            }
+            if (hasHalf) stars += '\u2606';
+            return stars;
+        }
+
+        // Generate SmartMatch explanation
+        function getSmartMatchExplanation(product, query) {
+            const queryLower = query.toLowerCase();
+
+            // Check natural language mappings
+            for (const [phrase, keywords] of Object.entries(naturalLanguageMap)) {
+                if (queryLower.includes(phrase)) {
+                    const matchedKeyword = keywords.find(kw =>
+                        product.keywords.some(pk => pk.includes(kw) || kw.includes(pk))
+                    );
+                    if (matchedKeyword) {
+                        return `Matches "${phrase}"`;
+                    }
+                }
+            }
+
+            // Check direct keyword matches
+            const matchedKeyword = product.keywords.find(kw =>
+                queryLower.includes(kw) || kw.includes(queryLower)
+            );
+            if (matchedKeyword) {
+                return `Contains ${matchedKeyword}`;
+            }
+
+            // Check concern matches
+            const matchedConcern = product.concerns.find(c => queryLower.includes(c.replace('-', ' ')));
+            if (matchedConcern) {
+                return `Targets ${matchedConcern.replace('-', ' ')}`;
+            }
+
+            return `Recommended for you`;
+        }
+
+        // Render product card
+        function renderProductCard(product, query = '') {
+            const badgeHtml = product.badge ? `
+                <div class="product-badges">
+                    <span class="badge badge-${product.badge}">${product.badge === 'bestseller' ? 'Best Seller' : 'New'}</span>
+                </div>
+            ` : '';
+
+            const aiMatchHtml = query ? `
+                <div class="ai-match-chip">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                    </svg>
+                    ${getSmartMatchExplanation(product, query)}
+                </div>
+            ` : '';
+
+            return `
+                <article class="product-card" data-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        ${badgeHtml}
+                        <button class="quick-add" onclick="addToCart(${product.id})">+</button>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">${product.category}</p>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-rating">
+                            <span class="stars">${getStars(product.rating)}</span>
+                            <span class="rating-count">(${product.reviews.toLocaleString()})</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$${product.price.toFixed(2)}</span>
+                        </div>
+                        ${aiMatchHtml}
+                    </div>
+                </article>
+            `;
+        }
+
+        // Filter products
+        function filterProducts() {
+            let filtered = [...products];
+
+            // Category filter
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === activeCategory);
+            }
+
+            // Concern filter
+            if (activeConcerns.length > 0) {
+                filtered = filtered.filter(p =>
+                    activeConcerns.some(concern => p.concerns.includes(concern))
+                );
+            }
+
+            // Search query
+            if (searchQuery) {
+                const queryLower = searchQuery.toLowerCase();
+
+                // Get expanded keywords from natural language map
+                let expandedKeywords = [queryLower];
+                for (const [phrase, keywords] of Object.entries(naturalLanguageMap)) {
+                    if (queryLower.includes(phrase) || phrase.includes(queryLower)) {
+                        expandedKeywords = [...expandedKeywords, ...keywords];
+                    }
+                }
+
+                filtered = filtered.filter(product => {
+                    // Check name
+                    if (product.name.toLowerCase().includes(queryLower)) return true;
+
+                    // Check category
+                    if (product.category.toLowerCase().includes(queryLower)) return true;
+
+                    // Check description
+                    if (product.description.toLowerCase().includes(queryLower)) return true;
+
+                    // Check keywords
+                    if (product.keywords.some(kw =>
+                        expandedKeywords.some(ek => kw.includes(ek) || ek.includes(kw))
+                    )) return true;
+
+                    // Check concerns
+                    if (product.concerns.some(c =>
+                        expandedKeywords.some(ek => c.includes(ek) || ek.includes(c.replace('-', ' ')))
+                    )) return true;
+
+                    return false;
+                });
+
+                // Sort by relevance (products with name matches first)
+                filtered.sort((a, b) => {
+                    const aNameMatch = a.name.toLowerCase().includes(queryLower) ? 1 : 0;
+                    const bNameMatch = b.name.toLowerCase().includes(queryLower) ? 1 : 0;
+                    return bNameMatch - aNameMatch;
+                });
+            }
+
+            return filtered;
+        }
+
+        // Sort products
+        function sortProducts(products) {
+            const sortValue = sortSelect.value;
+            const sorted = [...products];
+
+            switch (sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    sorted.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'newest':
+                    sorted.sort((a, b) => b.id - a.id);
+                    break;
+                default:
+                    // relevance - keep current order
+                    break;
+            }
+
+            return sorted;
+        }
+
+        // Render products
+        function renderProducts() {
+            let filtered = filterProducts();
+            filtered = sortProducts(filtered);
+
+            if (filtered.length === 0) {
+                productsGrid.innerHTML = '';
+                productsGrid.classList.add('hidden');
+                resultsHeader.classList.add('hidden');
+                noResults.classList.remove('hidden');
+
+                // Show recommendations
+                const recommendations = products.slice(0, 4);
+                recommendationsGrid.innerHTML = recommendations.map(p => renderProductCard(p)).join('');
+            } else {
+                noResults.classList.add('hidden');
+                productsGrid.classList.remove('hidden');
+                resultsHeader.classList.remove('hidden');
+
+                resultCount.textContent = filtered.length;
+                productsGrid.innerHTML = filtered.map(p => renderProductCard(p, searchQuery)).join('');
+            }
+        }
+
+        // Add to recent searches
+        function addToRecentSearches(query) {
+            if (!query || query.length < 2) return;
+
+            // Remove if already exists
+            recentSearches = recentSearches.filter(s => s.toLowerCase() !== query.toLowerCase());
+
+            // Add to beginning
+            recentSearches.unshift(query);
+
+            // Keep only last 8
+            recentSearches = recentSearches.slice(0, 8);
+
+            // Save to localStorage
+            localStorage.setItem('glowhaus_recent_searches', JSON.stringify(recentSearches));
+
+            renderRecentSearches();
+        }
+
+        // Render recent searches
+        function renderRecentSearches() {
+            if (recentSearches.length === 0) {
+                recentSection.classList.add('hidden');
+                return;
+            }
+
+            recentSection.classList.remove('hidden');
+            recentItems.innerHTML = recentSearches.map(search => `
+                <div class="recent-item" data-search="${search}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>${search}</span>
+                    <button class="recent-remove" onclick="removeRecentSearch(event, '${search}')">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+
+            // Add click listeners
+            document.querySelectorAll('.recent-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.recent-remove')) {
+                        const search = item.dataset.search;
+                        searchInput.value = search;
+                        performSearch();
+                    }
+                });
+            });
+        }
+
+        // Remove recent search
+        function removeRecentSearch(event, search) {
+            event.stopPropagation();
+            recentSearches = recentSearches.filter(s => s !== search);
+            localStorage.setItem('glowhaus_recent_searches', JSON.stringify(recentSearches));
+            renderRecentSearches();
+        }
+
+        // Perform search
+        function performSearch() {
+            searchQuery = searchInput.value.trim();
+            if (searchQuery) {
+                addToRecentSearches(searchQuery);
+            }
+            renderProducts();
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const btn = document.querySelector(`.product-card[data-id="${productId}"] .quick-add`);
+            if (btn) {
+                btn.textContent = '\u2713';
+                btn.style.background = '#22c55e';
+                setTimeout(() => {
+                    btn.textContent = '+';
+                    btn.style.background = '';
+                }, 1500);
+            }
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        searchInput.addEventListener('input', () => {
+            // Real-time filtering
+            searchQuery = searchInput.value.trim();
+            renderProducts();
+        });
+
+        searchBtn.addEventListener('click', performSearch);
+
+        // Category filters
+        categoryFilters.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-pill')) {
+                categoryFilters.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                e.target.classList.add('active');
+                activeCategory = e.target.dataset.category;
+                renderProducts();
+            }
+        });
+
+        // Concern filters
+        concernFilters.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-pill')) {
+                e.target.classList.toggle('active');
+                const concern = e.target.dataset.concern;
+
+                if (activeConcerns.includes(concern)) {
+                    activeConcerns = activeConcerns.filter(c => c !== concern);
+                } else {
+                    activeConcerns.push(concern);
+                }
+
+                renderProducts();
+            }
+        });
+
+        // Trending pills
+        document.querySelectorAll('.trending-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                const search = pill.dataset.search;
+                searchInput.value = search;
+                performSearch();
+            });
+        });
+
+        // Clear recent searches
+        clearRecent.addEventListener('click', () => {
+            recentSearches = [];
+            localStorage.setItem('glowhaus_recent_searches', JSON.stringify(recentSearches));
+            renderRecentSearches();
+        });
+
+        // Sort change
+        sortSelect.addEventListener('change', renderProducts);
+
+        // Initial render
+        renderRecentSearches();
+        renderProducts();
+    </script>
+</body>
+</html>
