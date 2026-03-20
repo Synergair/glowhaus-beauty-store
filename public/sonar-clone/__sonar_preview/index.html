@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SONAR Clone Preview</title>
+  <style>
+    :root { --bg:#f4f6f8; --panel:#ffffff; --line:#d8dee4; --text:#102a43; --muted:#5c6b7a; --accent:#0b69ff; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+    .layout { display: grid; grid-template-columns: 340px 1fr; height: 100vh; }
+    .sidebar { border-right: 1px solid var(--line); background: var(--panel); overflow: auto; }
+    .content { display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+    .head { padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    .head h1 { margin: 0 0 8px; font-size: 16px; }
+    .meta { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .controls { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+    button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--text); padding: 7px 10px; cursor: pointer; font-size: 12px; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .route-list { padding: 10px; display: grid; gap: 6px; }
+    .route-item { width: 100%; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px; }
+    .route-item.active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; min-height: 0; }
+    .pane { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); min-width: 0; display: grid; grid-template-rows: auto 1fr; }
+    .pane h2 { margin: 0; padding: 8px 10px; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); font-weight: 600; }
+    iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+    .hint { padding: 8px 10px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); }
+  </style>
+<style id="sonar-stability-patch">
+body { overflow: auto !important; }
+#onetrust-banner-sdk,
+.onetrust-pc-dark-filter,
+#onetrust-consent-sdk,
+.clarip-cookie-manager,
+.clarip-dns-manager,
+#helix-chat-container,
+.needsclick.go1272136950,
+.kl-private-reset-css-Xuajs1[role=dialog],
+div[aria-label='POPUP Form'] { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+</style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="head">
+        <h1>SONAR Clone Preview</h1>
+        <p class="meta">Routes: 20 | Pages cloned: 20 | Assets cloned: 0</p>
+        <p class="meta">This is a reconstructed local build from captured/rewritten pages.</p>
+      </div>
+      <div class="route-list" id="routes"></div>
+    </aside>
+    <section class="content">
+      <div class="head">
+        <p class="meta" id="routeLabel">Route: /</p>
+        <div class="controls">
+          <button class="primary" id="openClone">Open Clone Route</button>
+          <button id="openLive">Open Live Route</button>
+        </div>
+      </div>
+      <div class="compare">
+        <div class="pane">
+          <h2>Local Clone</h2>
+          <iframe id="cloneFrame" title="Local clone"></iframe>
+        </div>
+        <div class="pane">
+          <h2>Live Website</h2>
+          <iframe id="liveFrame" title="Live website"></iframe>
+          <div class="hint">If this pane is blocked, use "Open Live Route" (many sites block framing).</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const ROUTES = ["/","/cart","/account","/skin-type-quiz","/build-a-routine","/skin-care-products","/shop-collections/plump-and-firm","/shop-collections/skin-perfecting","/shop-collections/youth-extending","/c5-super-boost-eye-cream/101.html","/skin-balancing-pore-reducing-toner/135.html","/skin-balancing-oil-reducing-cleanser/115.html","/skin-recovery-enriched-calming-toner/125.html","/pro-collagen-peptide-firming-eye-serum/108.html","/skin-recovery-softening-cream-cleanser/105.html","/5pct-vitamin-c-sheer-moisturizer-spf-50/136.html","/skin-recovery-daily-moisturizing-lotion-spf-30/146.html","/clinical-pro-retinaldehyde-dual-retinoid-treatment/150.html","/7pct-ectoin-and-hyaluronic-acid-milky-hydrating-serum/137.html","/skin-balancing-ultra-sheer-daily-defense-broad-spectrum-spf-30/156.html"];
+    const BASE_URL = "";
+    const DEFAULT_ROUTE = "/";
+    const routeLabel = document.getElementById("routeLabel");
+    const routesHost = document.getElementById("routes");
+    const cloneFrame = document.getElementById("cloneFrame");
+    const liveFrame = document.getElementById("liveFrame");
+    const openClone = document.getElementById("openClone");
+    const openLive = document.getElementById("openLive");
+    let activeRoute = DEFAULT_ROUTE;
+
+    function normalizeRoute(route) {
+      let value = String(route || "/").trim();
+      if (!value.startsWith("/")) value = "/" + value;
+      if (value.length > 1) value = value.replace(/\/+$/, "") || "/";
+      return value || "/";
+    }
+
+    function routeToFile(route) {
+      const normalized = normalizeRoute(route);
+      if (normalized === "/") return "/index.html";
+      return normalized + "/index.html";
+    }
+
+    function setActiveRoute(route) {
+      activeRoute = normalizeRoute(route);
+      routeLabel.textContent = "Route: " + activeRoute;
+      cloneFrame.src = routeToFile(activeRoute);
+      liveFrame.src = BASE_URL.replace(/\/+$/, "") + activeRoute;
+      const items = routesHost.querySelectorAll("button.route-item");
+      for (const item of items) {
+        item.classList.toggle("active", item.dataset.route === activeRoute);
+      }
+    }
+
+    function buildRouteList() {
+      routesHost.innerHTML = "";
+      for (const route of ROUTES) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "route-item";
+        btn.dataset.route = normalizeRoute(route);
+        btn.textContent = normalizeRoute(route);
+        btn.addEventListener("click", () => setActiveRoute(btn.dataset.route));
+        routesHost.appendChild(btn);
+      }
+    }
+
+    openClone.addEventListener("click", () => {
+      window.open(routeToFile(activeRoute), "_blank", "noopener");
+    });
+    openLive.addEventListener("click", () => {
+      window.open(BASE_URL.replace(/\/+$/, "") + activeRoute, "_blank", "noopener");
+    });
+
+    buildRouteList();
+    setActiveRoute(DEFAULT_ROUTE);
+  </script>
+</body>
+</html>

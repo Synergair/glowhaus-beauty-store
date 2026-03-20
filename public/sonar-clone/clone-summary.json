@@ -1,0 +1,2464 @@
+{
+  "generated_at": "2026-03-20T15:37:35.682Z",
+  "base_url": "https://www.paulaschoice.com",
+  "out_dir": "/Users/justinleanca/SONAR/output/paulaschoice-clone-ecom-seeded-raw",
+  "options_used": {
+    "max_pages": 80,
+    "max_assets": 15000,
+    "route_profile": "all",
+    "retries": 2,
+    "timeout_ms": 60000,
+    "keep_scripts": true,
+    "auto_strip_scripts_for_stability": false,
+    "inject_static_fixes": false,
+    "allow_external_assets": true,
+    "external_asset_hosts": [],
+    "strict_pages": false,
+    "required_pages": null,
+    "required_pages_requested": null,
+    "local_smoke": false,
+    "smoke_pages": 0,
+    "smoke_pages_requested": null,
+    "smoke_concurrency": 6
+  },
+  "pages_cloned": 20,
+  "route_queue_stats": {
+    "total": 20,
+    "core": 4,
+    "content": 0
+  },
+  "cloned_route_stats": {
+    "total": 20,
+    "core": 4,
+    "content": 0
+  },
+  "pages_from_snapshots": 20,
+  "pages_from_network_fetch": 0,
+  "blocked_pages_filtered": 0,
+  "assets_cloned": 0,
+  "external_assets_cloned": 0,
+  "route_count_final": 80,
+  "asset_count_final": 419,
+  "quality": {
+    "assets_per_page": 0,
+    "warning": "Low asset density for static clone. For JS-heavy sites, use mirror mode for near-exact rendering."
+  },
+  "strict": {
+    "enabled": false,
+    "required_pages": null,
+    "pages_cloned": 20,
+    "missing_local_route_reference_pages": 0,
+    "missing_local_asset_reference_pages": 0,
+    "local_smoke_checked_pages": null,
+    "local_smoke_passed_pages": null,
+    "passed": true,
+    "failures": [],
+    "missing_route_reference_samples": [],
+    "missing_asset_reference_samples": []
+  },
+  "smoke_validation": null,
+  "failures": [
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/manifest",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/boosters",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/calm-redness-relief",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/c-plus",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/gc011ect/gtag/js",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/defense",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/clear-for-acne",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/clinical",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/earth-sourced",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/exfoliants",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/moisture-boost",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/pro-collagen-peptide",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/resist-anti-aging",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/omega-complex",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/skin-balancing",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/skin-recovery",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/who-we-are/about-us",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/auto-replenishment",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/who-we-are/authorized-retailers",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/collections",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/on-the-rise",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/careers",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/account/rewards",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/expert-advice/research-and-education-team",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/who-we-are/about-paula",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/returns",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/best-sellers",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/private-consultation",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/expert-advice/science-advisory-board",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/beautypedia",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary-old",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/beautypedia-ingredient-checker",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/on/demandware.store/Sites-paulaschoice_us-Site/en_US/AccountDashboard",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/about-beautypedia",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/on/demandware.store/Sites-paulaschoice_us-Site/en_US/Account-Profile",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/on/demandware.store/Sites-paulaschoice_us-Site/en_US/Account-Shipping",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/account/orders",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/subscriptions",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/account/billing",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/skin-shield",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/brighten-up",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/body-revival",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections/barrier-balancing",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/cleansers",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/moisturizers",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/treatments",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/toners",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/sunscreen",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/expert-advice",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/face-serums",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/skin-care-myths",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-advice/skin-care-how-tos/how-to-put-together-a-skin-care-routine",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/gifts-with-purchase",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/sale",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-solutions/exfoliants-face-body",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-advice/skin-brightening/what-is-vitamin-c-and-how-does-it-benefit-skin",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/skin-care-products/eye-creams",
+      "status": 0
+    },
+    {
+      "type": "page",
+      "url": "https://www.paulaschoice.com/shop-collections",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-512.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-192.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-144.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-152.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-57.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-96.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-120.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-72.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-48.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-32.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-128.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://analytics.tiktok.com/i18n/pixel/static/main.MTEwMjY2ZTExMQ.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/images/favicons/favicon-64.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://analytics.tiktok.com/i18n/pixel/static/identify_31760074.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CKPC6KBC77U24LQ006C0&amp;lib=ttq",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.mouseflow.com/projects/501817dd-623e-407c-b24f-428b5e70fe10.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://js-agent.newrelic.com/nr-spa-1184.min.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/static.05920b16793f2a456e22.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~static~in_app_forms~signup_forms~post_identification_sync~web_personalization~client_identity~reviews~telemetry~customerHubRoot~renderFavoritesButton~renderFavoritesIconButton~FavoritesButtonElement~renderFaqWidget~.2cc0e8eaac59e1064c76.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/fender_analytics.e5aba8b3a52dc623782c.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/runtime.18e0ad649094b7a9c893.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/sharedUtils.431b3b72dd0400609f31.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~in_app_forms~signup_forms~client_identity~telemetry~onsite-triggering-v2~onsite-triggering~.00140035a0ee1bdef5e1.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~static~in_app_forms~signup_forms~post_identification_sync~web_personalization~client_identity~reviews~telemetry~customerHubRoot~renderFavoritesButton~renderFavoritesIconButton~FavoritesButtonElement~renderFaqWidget~.2cc0e8eaac59e1064c76.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~in_app_forms~signup_forms~reviews~atlas.0201e888d834a3782e3a.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~in_app_forms~signup_forms.a899b049d575de74ade1.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/signup_forms.b91963e01b14e3963e32.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/post_identification_sync.e290d099b5bfa48fdae0.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/default~in_app_forms~signup_forms.60439214ea5da68dfeda.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/event_adapter.4f7be3f375ef0d59c121.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/532.f5cf641d94bc70223e6f.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/vendors~in_app_forms~signup_forms~client_identity~telemetry~onsite-triggering-v2~onsite-triggering~.00140035a0ee1bdef5e1.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw9bcf1c48/images/mini-cart/nam_260106_desktop_mini-cart_npl-longevity.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/telemetry.252f3f2a5777c4acc847.js?cb=2",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/cellularyouth-age-disrupting-longevity-serum/225.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/c15-super-booster/777-7770.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/research-and-education-team/editorial-guidelines.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.facebook.com/PaulasChoice.Inc",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/who-we-are/accessibility.html?fdid=who-we-are",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/who-we-are/privacy.html?fdid=who-we-are",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/assets/css/donotsell-extended.min.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/cookieconsent/assets/css/cookieconsent.min.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/cookieconsent/assets/js/clarip-cookie-manager.min.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/cookieconsent/assets/js/cookieconsent.min.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/who-we-are/consumer-health-data-privacy-policy.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/assets/js/donotsell.min.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://use.typekit.net/wfi8npk.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/VRqeTb/klaviyo.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/Sites-paulaschoice_us-Site/-/en_US/v1773868592312/static/js/main.js?v=321",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/cookieconsent/53f2d6b409512a59e92f.html?v=803276bf8b38049c&amp;cookieConsentComplianceType=opt-out",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/gc011ect/gtm.js?id=GTM-NMJBGQVQ",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://ts.cdi2.paulaschoice.com/cdi2.js?domain=paulaschoice.com",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Faccount",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/VRqeTb/images/27189150-16c2-4cdd-bafc-2d58ca103d19.jpeg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.googletagmanager.com/gtm.js?id=GTM-NMJBGQVQ&amp;gtg_health=1",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://js.adsrvr.org/up_loader.1.1.0.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw1850acb5/images/quiz/SkinTypeQuiz_mobile_copyupdate.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-type-quiz",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw36bded41/images/quiz/SkinTypeQuiz_Desktop_copyupdate.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fcart",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://connect.facebook.net/en_US/fbevents.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fbuild-a-routine%3FbyokCategory%3Dbuild-a-routine",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://c.amazon-adsystem.com/aat/amzn.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.narrativ.com/tags/narrativ-brand.1.0.0.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://js.adsrvr.org/conversionEvents-v1.min.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://bat.bing.com/bat.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://na-library.klarnaservices.com/lib.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.mczbf.com/tags/258944898524/tag.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://js.squarecdn.com/square-marketplace.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.hotjar.com/c/hotjar-1118926.js?sv=6",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260305_desktop_hp-panel_bha-for-all.mp4",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/4.2.3/adyen.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/4.2.3/adyen.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://bat.bing.com/p/action/4021027.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260305_desktop_hp-panel_bha-for-all.webm",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260305_mobile_hp-panel_bha-for-all.webm",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260305_mobile_hp-panel_bha-for-all.mp4",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw0ae36b0f/images/Product%20Collections/us_260310_HP_P03_Col_B_Plump-Firm.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw9de47f9c/images/Product%20Collections/u_260310_HP_P03_Col_A_Skin-Perfecting.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw653fc894/images/Product%20Collections/us_260310_HP_P03_Col_C_Youth-Extending.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw65e5feda/images/Product%20Collections/us_260310_HP_P03_Col_E_Rescue-Repair.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw45710011/images/Product%20Collections/us_260310_HP_P03_Col_D_Brighten-Up.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw6b407855/images/Product%20Collections/us_260310_HP_P03_Col_H_Body-Revival.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw5a9551db/images/Product%20Collections/us_260310_HP_P03_Col_F_Clear.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw3fb2fae9/images/Product%20Collections/us_260310_HP_P03_Col_G_Skin-Shield.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwb0477eef/images/products/cellularyouth-longevity-serum-2250-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-gloss-balm/959-9590.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw46764979/images/products/7-percent-ectoin-booster-1370-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/7pct-ectoin-and-hyaluronic-acid-milky-hydrating-serum/137.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2ed3f6d5/images/products/pro-collagen-peptide-gloss-balm-deep-plum-9590-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-firming-eye-serum/108.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw74c19d79/images/products/pro-collagen-peptide-firming-eye-serum-1080-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw7ffd8d4f/Restage/8500_Model-Photo_002%201.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc05d8035/images/products/2-percent-bha-exfoliating-pads-1380-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-2pct-bha-exfoliating-toner-pads/138-1380.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw82b95862/Restage/us_260310_HP_P05_ShopBy_B_Toners.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw16a62e77/Restage/us_260310_HP_P05_ShopBy_C_Exfoliants.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw25fc54d5/Restage/us_260310_HP_P05_ShopBy_E_Moisturizers.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw6159cceb/Restage/us_260310_HP_P05_ShopBy_D_Treatments.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwdffbae67/Restage/us_260310_HP_P05_ShopBy_F_Sunscreen.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwa17b5735/images/products/skin-perfecting-2-percent-bha-liquid-2010-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-pro-retinaldehyde-dual-retinoid-treatment/150-1500.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-2pct-bha-liquid-exfoliant/201-2010.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwd2d1d69b/images/products/clinical-retinaldehyde-dual-retinoid-treatment-1500-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf2738e76/images/products/pro-collagen-peptide-plumping-moisturizer-1510-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-plumping-moisturizer/1510.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwd56a5f7c/Restage/us_260218_HP_P06_Feature.gif",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw9d62597b/Restage/nam_260210_mobile_promo-panel_byok-plus-gwp-packette%201.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw3853c198/Restage/us_260310_HP_P09_Feature.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw50fa3b72/Restage/us_260310_HP_P08_Feature-2-Up_A.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwe2c58063/images/promotion-tray/nam_260223-25-off-c15-booster_site_mobile-tray.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwe362a973/images/promotion-tray/pc_260302_gwp-pairings_site_promo-tray.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw8ff4d4ad/Restage/us_260310_HP_P09_Feature_m.jpeg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw84c1509d/images/promotion-tray/nam_260210_mobile_promotion-tray_routine-byok-plus-gwp-packette.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw253f5c44/images/promotion-tray/pc_260101_mobile_promotion-tray_auto-replen.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw0041c94a/images/promotion-tray/pc_260101_mobile_promotion-tray_pc-perks.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw8809ccf4/images/promotion-tray/pc_250310_mobile_promotion-tray_no-promo-sale-page-push_v2.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.jst.ai/vck.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.myshlf.us/Affiliates/sms_aff_clicktrack.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2F",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.siftscience.com/s.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://helixuserimages.s3.us-west-1.amazonaws.com/external/7439ce50-0049-4686-a6ca-a27851c841c1.svg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://app.alhena.ai/js/chat-widget/main.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://app.alhena.ai/sdk/gleenWidget.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw3322b521/Restage/us_260310_PLP_P01_Plump-Firm_Hero.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-care-products",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://static.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/532.f5cf641d94bc70223e6f.css",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-plumping-moisturizer/151-1510.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-firming-eye-serum/108-1080.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-multi-peptide-booster/3020-3020.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw64803bc4/images/products/pro-collagen-multi-peptide-booster-3020-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/omegaand-complex-cleansing-balm/338-3380.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc018de04/images/products/pro-collagen-peptide-gloss-balm-71180-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-gloss-balm/118-71180.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/hyaluronic-acid-and-peptide-lip-booster/958.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/omegaand-complex-moisturizer/339-3390.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwd763772d/images/products/omega-complex-cleansing-balm-3380-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwfafbe494/images/products/omega-complex-moisturizer-3390-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-multi-peptide-booster/3020.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/omegaand-complex-cleansing-balm/338.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwff2d71b1/images/products/hyaluronic-acid-peptide-lip-booster-9580-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw32f05949/images/products/hyaluronic-acid-booster-7860-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/pro-collagen-peptide-gloss-balm/71180.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fshop-collections%2Fplump-and-firm",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/water-infusing-electrolyte-moisturizer/700.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/hyaluronic-acid-booster/786.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw94fd17d4/Restage/us_260310_PLP_P01_Skin-Perfect_Hero-alt-01.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwcd5cf728/images/products/water-infusing-electrolyte-moisturizer-7000-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260317_desktop_plp_carousel_skin-perfecting.mp4",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-bha-9-treatment/773-7730.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260317_desktop_plp_carousel_skin-perfecting.webm",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260317_mobile_plp_carousel_skin-perfecting.mp4",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceamerpublic.blob.core.windows.net/static/videos/pc_260317_mobile_plp_carousel_skin-perfecting.webm",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7489459d/images/products/skin-perfecting-6-percent-mandelic-acid-2-percent-lactic-acid-liquid-exfoliant-1470-L_square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwab12b2e2/images/products/skin-perfecting-bha-9-7730-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-25pct-aha-and-2pct-bha-exfoliant-peel/9560.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7cf57835/images/products/25-percent-aha-2-percent-bha-exfoliant-peel-9560-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-6pct-mandelic-acid-and-2pct-lactic-acid-liquid-exfoliant/1470.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-8pct-aha-gel-exfoliant/190-1900.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2473ea5d/images/products/2-percent-bha-gel-exfoliant-2040-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw1d48c1a6/images/products/skin-perfecting-8-percent-aha-lotion-2060-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-2pct-bha-liquid-exfoliant/201.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw634e566e/images/products/8-percent-aha-gel-exfoliant-1900-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-8pct-aha-lotion-exfoliant/206-2060.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-2pct-bha-gel-exfoliant/204.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/advanced-pore-perfecting-kit/061-bundle.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2755456c/images/products/niacinamide-bundle-061-B.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw5be922cd/images/products/advanced-illuminate-smooth-kit-069-B.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/advanced-illuminate-and-smooth-kit/069-bundle.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw05f87b08/images/products/skin-perfecting-2-percent-bha-lotion-2051-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-daily-pore-refining-treatment-with-2pct-bha/782.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw671e696e/images/products/resist-daily-pore-refining-treatment-2-percent-bha-7820-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-2pct-bha-lotion-exfoliant/205.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-advanced-smoothing-treatment-10pct-aha/7651.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-8pct-aha-gel-exfoliant/190.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7bda38fa/images/products/resist-advanced-smoothing-treatment-10-percent-aha-7651-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-8pct-aha-lotion-exfoliant/206.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fshop-collections%2Fskin-perfecting",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-perfecting-bha-9-treatment/773.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://s.pinimg.com/ct/lib/main.fa3e5430.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://s.pinimg.com/ct/core.js",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw8287cec7/images/Product%20Collections/youthExtendingCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/pro-collagen-peptide-firming-eye-serum/108.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwd8389469/images/Product%20Collections/barrierBalancingCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw086e102b/images/Product%20Collections/clearCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw4a1e8bc6/images/Product%20Collections/skinShieldCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw0c6d5823/images/Product%20Collections/brightenUpCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw20dab0a2/images/Product%20Collections/bodyRevivalCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwcaff1fec/images/Product%20Collections/plumpAndFirmCollectionCard.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw12ee462f/images/products/pro-collagen-peptide-firming-eye-serum-1080-portrait.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw89ec06f8/images/products/1080_b_B&amp;A-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw12285ace/images/products/1080_c_Clinical-Claims-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw4900f2ca/images/products/1080_b_B&amp;A-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw0f6ae7b6/images/products/1080_c_Clinical-Claims-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw4677c74b/images/products/1080_e_How-to-Use.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw9806ad74/images/products/1080_f_Pro-Collagen-Franchise.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw24d2749e/images/products/1080_c_Clinical-Claims-03.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwef5f4abd/images/products/1080_g_Eye-Cream-Chart.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw17a08cec/images/products/1080_d_Ingredients.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwdba4ed9d/images/pdp/what-is-it-image/1080-what-is-it.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw12ee462f/images/products/pro-collagen-peptide-firming-eye-serum-1080-portrait.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/pc_pdp-ingredients_tridecapeptide-1.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw78eabde0/images/pdp/how-to-use-image/pc_250801_pdp_how-to-use-1080.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/Acetyl-Hexapeptide-8.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/c5-super-boost-eye-cream/101.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/Palmitoyl-Tetrapeptide-7.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/eye-creams/how-to-get-rid-of-puffy-eyes.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/eye-creams/what-are-undereye-bags.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/anti-aging-wrinkles/how-to-smooth-crows-feet.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/ingredient-spotlight/peptides-for-skin.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/skin-care-how-tos/skincare-during-pregnancy.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-copper-peptides.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-optimal-results-hydrating-cleanser/760-7600.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw33a57336/images/products/2025%20Sept%20Photos/ca_7600_pdp_carousel_main_1.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-skin-restoring-moisturizer-with-spf-50/797-7970.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://helixuserimages.s3.us-west-1.amazonaws.com/external/b2f4aab2-131b-4edc-8265-675009f14860.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw935c55c3/images/products/resist-skin-restoring-moisturizer-spf-50-7970-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw737def7b/images/pdp/pc_250630_desktop_pdp-panel_1080_banner1.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwa92a768e/images/pdp/pc_2510610_desktop_pdp-panel_1080_banner3.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw453a5256/images/pdp/pc_250630_desktop_pdp-panel_1080_banner2b.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw53f76db6/images/pdp/pc_250630_desktop_pdp-panel_1080_banner5.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw66db76ab/images/pdp/pc_250630_desktop_pdp-panel_1080_banner2a.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw7761e3d6/images/products/skin-recovery-softening-cream-cleanser-1050-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd481a086/images/products/c5-super-boost-eye-cream-1010-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw81cd2d90/images/pdp/pc_250630_mobile_pdp-panel_1080_banner1.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-softening-cream-cleanser/105.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fpro-collagen-peptide-firming-eye-serum%2F108.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwccc414da/images/pdp/pc_250630_mobile_pdp-panel_1080_banner2a.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwfa8a5adb/images/pdp/pc_250630_mobile_pdp-panel_1080_banner3.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwbfee883f/images/pdp/pc_250630_mobile_pdp-panel_1080_banner2b.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw556a803b/images/pdp/pc_250630_mobile_pdp-panel_1080_banner5.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw175a78b3/us_260310_PLP_P01_Youth-Ext_Hero.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw755758b9/images/products/resist-triple-active-total-repair-serum-1020-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw4af6e088/images/products/clinical-1-percent-retinol-treatment-8010-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-0.3pct-retinol-and-2pct-bakuchiol-treatment/81B-8015.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-triple-active-total-repair-serum/1020-1020.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-1pct-retinol-treatment/801-8010.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-intensive-repair-cream/781-7810.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw3261b2c4/images/products/clinical-03-percent-retinol-2-percent-bakuchiol-treatment-8015-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw5c1157f9/images/products/resist-10-percent-niacinamide-booster-7980-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-niacinamide-20pct-treatment/803-8030.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2d3ba9a5/images/products/resist-intensive-repair-cream-7810-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/10pct-niacinamide-booster/798-7980.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/5pct-niacinamide-body-serum/581-5810.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw3c373eb9/images/products/5-percent-niacinamide-body-serum-5810-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw75a40f65/images/products/clinical-niacinamide-20-percent-treatment-8030-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-triple-active-total-repair-serum/1020.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-super-antioxidant-serum/764.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwb683d822/images/products/resist-super-antioxidant-concentrate-serum-7640-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/10pct-niacinamide-booster/798.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-0.3pct-retinol-and-2pct-bakuchiol-treatment/81B.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/1pct-retinol-booster/787.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw855eac24/images/products/resist-1-percent-retinol-booster-7870-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-pro-retinaldehyde-dual-retinoid-treatment/150.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-replenishing-moisturizer/186.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwf6f0b40e/images/products/resist-intensive-wrinkle-repair-retinol-serum-7710-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-intensive-repair-cream/781.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-intensive-wrinkle-repair-retinol-serum/771.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw4d68a405/images/products/skin-recovery-replenishing-moisturizer-1860-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-niacinamide-20pct-treatment/803.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clinical-1pct-retinol-treatment/801.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd2717636/images/products/resist-ultra-light-super-antioxidant-concentrate-serum-7740-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-anti-aging-clear-skin-hydrator/769.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-ultra-light-super-antioxidant-concentrate-serum/774.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwb2fa85d0/images/products/resist-anti-aging-clear-skin-hydrator-7691-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fshop-collections%2Fyouth-extending",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/defense-essential-glow-moisturizer-spf-30/223.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/c5-super-boost-eye-cream/101.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/c5-super-boost-moisturizer/290.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc3c614f6/images/products/c5-super-boost-eye-cream-1010-portrait.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw82287b50/images/products/c5-super-boost-eye-cream-1010-portrait_application.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwfbdc2635/images/products/c5-super-boost-eye-cream-1010-portrait_benefits.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw79c46e75/images/products/c5-super-boost-eye-cream-1010-portrait_swatch.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc9f0e035/images/products/c5-super-boost-eye-cream-1010-portrait_spill.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwade80006/images/products/c5-super-boost-eye-cream-1010-portrait_key-ingredients.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw1c54f42e/images/products/c5-super-boost-eye-cream-1010-portrait_before-after.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw2db6a11f/images/products/c5-super-boost-eye-cream-1010-portrait_results.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw9e106e13/images/products/c5-super-boost-eye-cream-1010-portrait_how-to-use.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc3c614f6/images/products/c5-super-boost-eye-cream-1010-portrait.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/5pct-vitamin-c-sheer-moisturizer-spf-50/136-1360.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw82581bea/images/products/resist-daily-smoothing-treatment-5-percent-aha-7660-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-daily-smoothing-treatment-with-5pct-aha/766-7660.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://res.cloudinary.com/powerreviews/image/upload/d_portal-no-product-image_ttlfpi.svg/c_thumb,f_auto,q_auto,h_100,w_100/prod/q7s8ajcuivlmctmqkiix.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw72ea85c0/images/products/5-percent-vitamin-c-sheer-moisturizer-spf-50-1360-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fc5-super-boost-eye-cream%2F101.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwc38af810/Restage/201-BHA-exfoliant.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-recovery-softening-cream-cleanser/105.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw7761e3d6/images/products/skin-recovery-softening-cream-cleanser-1050-L.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwe2e627a9/images/views/skin-recovery-softening-cream-cleanser-1050-L-alt.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw4cabd684/images/products/skin-recovery-softening-cream-cleanser-1051-XL.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-recovery-softening-cream-cleanser%2F105.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw3ad4efab/images/views/skin-recovery-softening-cream-cleanser-1051-XL-alt.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-daily-moisturizing-lotion-spf-30/146.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw6cc8176c/images/products/skin-recovery-daily-moisturizing-lotion-spf-30-1460-L.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-recovery-daily-moisturizing-lotion-spf-30/146.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://img.youtube.com/vi/kfY6Ifr1Fzw/mqdefault.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw6cc8176c/images/products/skin-recovery-daily-moisturizing-lotion-spf-30-1460-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwcc8bb197/images/products/skin-recovery-daily-moisturizing-lotion-spf-30-1460-L_dfl.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-softening-cream-cleanser/105-1050.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-daily-moisturizing-lotion-spf-30/146-1460.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-recovery-daily-moisturizing-lotion-spf-30%2F146.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw376bf350/images/products/5-percent-vitamin-c-sheer-moisturizer-spf-50-1360-portrait.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw9c3009b7/images/products/1360_b_B&amp;A-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/5pct-vitamin-c-sheer-moisturizer-spf-50/136.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwec5a8524/images/products/1360_c_Clinical-Claims.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw095c5825/images/products/1360_b_B&amp;A-03.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw09fedaa6/images/products/1360_b_B&amp;A-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw507e1384/images/products/1360_b_B&amp;A-04.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/5pct-vitamin-c-sheer-moisturizer-spf-50/136.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf7df57d9/images/products/1360_d_Ingredients-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7c748e62/images/products/1360_d_Ingredients-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf88a51fa/images/products/1360_f_Skin-Concerns.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwbc37f9b9/images/products/1360_e_How-To-Use.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwa038bf9e/images/products/1360_i_Product-Pairing-1.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw24e7e7f7/images/products/1360_i_Product-Pairing.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://img.youtube.com/vi/JsEs_bED-e4/mqdefault.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw0597ecdc/images/products/1360_j_drug-facts.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7a33ee9d/images/products/1360_i_SPF-Chart.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2db954bd/images/products/1360_j_Vitamin-C-Franchise.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2F5pct-vitamin-c-sheer-moisturizer-spf-50%2F136.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwa31969ef/images/products/7-percent-ectoin-booster-1370-portrait.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/7pct-ectoin-and-hyaluronic-acid-milky-hydrating-serum/137.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc17abea4/images/products/1370_b_B&amp;A-03.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw9ae59a41/images/products/1370_b_B&amp;A-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf689aa22/images/products/1370_c_clinical-claims-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw5b4a4c84/images/products/1370_d_ingredients-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd838b8ed/images/products/1370_d_ingredients-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwc4a3c57f/images/products/1370_b_B&amp;A-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw3f866977/images/products/1370_c_clinical-claims-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw3e58e7a1/images/products/1370_f_product-pairing.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw6ddcbfb6/images/products/1370_e_how-to-use.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwa31969ef/images/products/7-percent-ectoin-booster-1370-portrait.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw732d7b44/images/pdp/what-is-it-image/us_1370-benefits.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwf7bb3131/images/pdp/how-to-use-image/us_250909_pdp-panel_1370_routine.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/hyaluronic.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/7-percent-ectoin.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/ingredient-spotlight/how-hyaluronic-acid-benefits-skin.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://paulaschoiceingredients.blob.core.windows.net/images/glycogen.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/ingredient-spotlight/ectoin-for-skin.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw2e1cc9d3/images/pdp/pc_250909_desktop_pdp-panel_1370_ba-1.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw98cdf69b/images/pdp/pc_250909_desktop_pdp-panel_1370_what-is-ectoin.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw3d4fdeca/images/pdp/pc_250909_desktop_pdp-panel_1370_dewy-skin-duo.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-balancing-pore-reducing-toner/135.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw935a156f/images/products/skin-balancing-pore-reducing-toner-1350-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw3718ab08/images/pdp/pc_250909_desktop_pdp-panel_1370_ba-2.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2F7pct-ectoin-and-hyaluronic-acid-milky-hydrating-serum%2F137.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwd74e3e20/images/pdp/pc_250909_mobile_pdp-panel_1370_ba-1.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw13cce53a/images/pdp/pc_250909_mobile_pdp-panel_1370_what-is-ectoin.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw65880fef/images/pdp/pc_250909_mobile_pdp-panel_1370_ba-2.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-balancing-pore-reducing-toner/135.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dw247576f0/images/pdp/pc_250909_mobile_pdp-panel_1370_dewy-skin-duo.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwb163eb90/images/products/skin-balancing-pore-reducing-toner-1350-L_new.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw605f4286/images/products/2025%20Sept%20Photos/ca_1350_pdp_carousel_main_1.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw003a9153/images/products/2025%20Sept%20Photos/carousel_ca_1350_pdp_carousel_swatch_2.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwb4ad5d65/images/products/2025%20Sept%20Photos/ca_1357_pdp_carousel_main_3.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://img.youtube.com/vi/9pH4XCgJklU/mqdefault.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwb163eb90/images/products/skin-balancing-pore-reducing-toner-1350-L_new.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/toners/why-you-need-a-toner.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/anti-aging-wrinkles/how-antioxidants-fight-the-signs-of-aging.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-balancing-oil-reducing-cleanser/115-1150.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwc8f7a14d/images/pdp/how-to-use-image/us_240829_pdp_how-to-use_1350.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/oily-skin/the-best-toners-oily-skin.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwd30b29d9/images/products/skin-balancing-ultra-sheer-daily-defense-spf-30-1560-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw51de103d/images/products/skin-balancing-oil-reducing-cleanser-1150-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-balancing-ultra-sheer-daily-defense-broad-spectrum-spf-30/156-1560.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-balancing-pore-reducing-toner%2F135.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-balancing-oil-reducing-cleanser/115.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-balancing-oil-reducing-cleanser/115.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw51de103d/images/products/skin-balancing-oil-reducing-cleanser-1150-L.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-balancing-oil-reducing-cleanser%2F115.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw1d899645/images/products/skin-balancing-oil-reducing-cleanser-1151-XL.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw2d105e76/images/views/skin-balancing-oil-reducing-cleanser-1150-L-alt.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-balancing-ultra-sheer-daily-defense-broad-spectrum-spf-30/156.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-balancing-ultra-sheer-daily-defense-broad-spectrum-spf-30/156.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwd30b29d9/images/products/skin-balancing-ultra-sheer-daily-defense-spf-30-1560-L.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwce28b4d9/images/views/skin-balancing-ultra-sheer-daily-defense-spf-30-1560-L-alt.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/skin-recovery-enriched-calming-toner/125.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwc43d9dbe/images/products/skin-balancing-ultra-sheer-daily-defense-spf-30-1560-L_dfl.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dwa64208e9/images/products/skin-recovery-enriched-calming-toner-1250-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-balancing-ultra-sheer-daily-defense-broad-spectrum-spf-30%2F156.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd446a4ba/images/products/2025%20Sept%20Photos/ca_1250_pdp_carousel_main_1.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/skin-recovery-enriched-calming-toner/125.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/reusable-cotton-rounds/3029.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://img.youtube.com/vi/g3Ew2heThXY/mqdefault.jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/dry-skin/how-get-rid-dry-flaky-skin-overnight.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd446a4ba/images/products/2025%20Sept%20Photos/ca_1250_pdp_carousel_main_1.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/calm-1pct-bha-sensitive-skin-exfoliant/921A-9210.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwbcbe77cb/images/products/calm-1-percent-bha-sensitive-skin-exfoliant-9210-square.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fskin-recovery-enriched-calming-toner%2F125.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw1187953a/images/products/clinical-retinaldehyde-dual-retinoid-treatment-1500-portrait.png?sw=1000&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com.au/clinical-pro-retinaldehyde-dual-retinoid-treatment/150.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/on/demandware.static/-/Library-Sites-paulachoice/default/dwa79a3bc4/Restage/Final-PaulasChoice-2025-Longevity-group-swatch-v3%201.png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwd2a9789c/images/products/1500_b_B&amp;A-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw64317c89/images/products/1500_c_Clinical-Claims-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwb5b6ebaf/images/products/1500_b_B&amp;A-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwadd20503/images/products/1500_d_Ingredient-01.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw8c1c8838/images/products/1500_b_B&amp;A-03.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw7e075ba6/images/products/1500_c_Clinical-Claims-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf25fd3c3/images/products/1500_d_Ingredients-02.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwf7f67b50/images/products/1500_e_How-to-Use.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw4748c8d0/images/products/1500_g_Retinoid-Chart.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw2b28e485/images/products/1500_f_Skin-Concerns.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw1187953a/images/products/clinical-retinaldehyde-dual-retinoid-treatment-1500-portrait.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-retinal.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dw6432dd57/images/products/1500_h_Product-Pairing.png?sw=1000&amp;sfrm=jpg",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-pomegranate-extract.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-hydroxyapatite.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-simmondsia-chinensis-jojoba-seed-oil.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/ingredient-dictionary/ingredient-albatrellus-confluens-mushroom-extract.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/sensitive-skin/why-fragrance-free-products-are-best-for-everyone.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/ingredient-spotlight/retinoids-for-skin.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/expert-advice/skincare-advice/retinol/five-retinol-myths-busted.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clear-ultra-light-daily-hydrating-fluid-spf-30and/613.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/clear-oil-free-moisturizer/380.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/moisture-renewal-oil-booster/784.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/resist-super-light-wrinkle-defense-spf-30/776-7760.html",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/en_US/dw8d392bc0/images/products/resist-super-light-daily-wrinkle-defense-spf-30-7760-L.png?sw=520&amp;sfrm=png",
+      "status": 0
+    },
+    {
+      "type": "asset",
+      "url": "https://cdn.clarip.com/ulp/donotsell/paulaschoice.com-dsr-controller.html?1774012528&amp;start=paulaschoice.com&amp;client=ulp&amp;brand=www.paulaschoice.com&amp;globalDnsDeployment=false&amp;pageUrl=https%3A%2F%2Fwww.paulaschoice.com%2Fclinical-pro-retinaldehyde-dual-retinoid-treatment%2F150.html",
+      "status": 0
+    }
+  ],
+  "preview": {
+    "mode": "nested",
+    "path": "__sonar_preview/index.html",
+    "route_count": 20,
+    "default_route": "/"
+  },
+  "uncloned_fallback": "__sonar_uncloned/index.html"
+}

@@ -1,0 +1,116 @@
+{
+  "source": "21st.dev",
+  "policy": "Use 21st /r links and vetted community components as source of truth.",
+  "components": [
+    {
+      "name": "Accordion",
+      "source": "https://21st.dev/r/shadcn/accordion",
+      "localPath": "components/registry/ui/accordion.tsx"
+    },
+    {
+      "name": "Badge",
+      "source": "https://21st.dev/r/originui/badge",
+      "localPath": "components/registry/ui/badge.tsx"
+    },
+    {
+      "name": "Button",
+      "source": "https://21st.dev/r/originui/button",
+      "localPath": "components/registry/ui/button.tsx"
+    },
+    {
+      "name": "Card",
+      "source": "https://21st.dev/r/shadcn/card",
+      "localPath": "components/registry/ui/card.tsx"
+    },
+    {
+      "name": "Checkbox",
+      "source": "https://21st.dev/r/originui/checkbox",
+      "localPath": "components/registry/ui/checkbox.tsx"
+    },
+    {
+      "name": "Command",
+      "source": "https://21st.dev/r/originui/command",
+      "localPath": "components/registry/ui/command.tsx"
+    },
+    {
+      "name": "Dialog",
+      "source": "https://21st.dev/r/originui/dialog",
+      "localPath": "components/registry/ui/dialog.tsx"
+    },
+    {
+      "name": "DropdownMenu",
+      "source": "https://21st.dev/r/originui/dropdown-menu",
+      "localPath": "components/registry/ui/dropdown-menu.tsx"
+    },
+    {
+      "name": "Input",
+      "source": "https://21st.dev/r/originui/input",
+      "localPath": "components/registry/ui/input.tsx"
+    },
+    {
+      "name": "Label",
+      "source": "https://21st.dev/r/shadcn/label",
+      "localPath": "components/registry/ui/label.tsx"
+    },
+    {
+      "name": "Popover",
+      "source": "https://21st.dev/r/originui/popover",
+      "localPath": "components/registry/ui/popover.tsx"
+    },
+    {
+      "name": "Progress",
+      "source": "https://21st.dev/r/originui/progress",
+      "localPath": "components/registry/ui/progress.tsx"
+    },
+    {
+      "name": "RadioGroup",
+      "source": "https://21st.dev/r/originui/radio-group",
+      "localPath": "components/registry/ui/radio-group.tsx"
+    },
+    {
+      "name": "ScrollArea",
+      "source": "https://21st.dev/r/shadcn/scroll-area",
+      "localPath": "components/registry/ui/scroll-area.tsx"
+    },
+    {
+      "name": "Select",
+      "source": "https://21st.dev/r/originui/select",
+      "localPath": "components/registry/ui/select.tsx"
+    },
+    {
+      "name": "Sheet",
+      "source": "https://21st.dev/r/shadcn/sheet",
+      "localPath": "components/registry/ui/sheet.tsx"
+    },
+    {
+      "name": "Skeleton",
+      "source": "https://21st.dev/r/shadcn/skeleton",
+      "localPath": "components/registry/ui/skeleton.tsx"
+    },
+    {
+      "name": "Switch",
+      "source": "https://21st.dev/r/shadcn/switch",
+      "localPath": "components/registry/ui/switch.tsx"
+    },
+    {
+      "name": "Table",
+      "source": "https://cdn.21st.dev/user_originui/table/code.tsx?v=1",
+      "localPath": "components/registry/ui/table.tsx"
+    },
+    {
+      "name": "Tabs",
+      "source": "https://21st.dev/r/originui/tabs",
+      "localPath": "components/registry/ui/tabs.tsx"
+    },
+    {
+      "name": "Textarea",
+      "source": "https://21st.dev/r/originui/textarea",
+      "localPath": "components/registry/ui/textarea.tsx"
+    },
+    {
+      "name": "Tooltip",
+      "source": "https://21st.dev/r/originui/tooltip",
+      "localPath": "components/registry/ui/tooltip.tsx"
+    }
+  ]
+}

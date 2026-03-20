@@ -1,0 +1,172 @@
+{
+  "urls": [
+    "https://21st.dev/r/shadcn/accordion",
+    "https://21st.dev/r/shadcn/badge",
+    "https://21st.dev/r/originui/button",
+    "https://21st.dev/r/shadcn/card",
+    "https://21st.dev/r/originui/checkbox",
+    "https://21st.dev/r/originui/command",
+    "https://21st.dev/r/originui/dialog",
+    "https://21st.dev/r/originui/dropdown-menu",
+    "https://21st.dev/r/originui/input",
+    "https://21st.dev/r/shadcn/label",
+    "https://21st.dev/r/originui/popover",
+    "https://21st.dev/r/shadcn/progress",
+    "https://21st.dev/r/originui/radio-group",
+    "https://21st.dev/r/shadcn/scroll-area",
+    "https://21st.dev/r/originui/select",
+    "https://21st.dev/r/shadcn/skeleton",
+    "https://21st.dev/r/originui/table",
+    "https://21st.dev/r/originui/tabs",
+    "https://21st.dev/r/originui/textarea",
+    "https://21st.dev/r/originui/tooltip",
+    "https://21st.dev/r/shadcn/carousel",
+    "https://21st.dev/r/shadcn/sheet",
+    "https://21st.dev/r/shadcn/switch"
+  ],
+  "installedAt": "2026-03-20T14:51:47.036Z",
+  "dependencies": [
+    "@radix-ui/react-accordion",
+    "@radix-ui/react-checkbox",
+    "@radix-ui/react-dialog",
+    "@radix-ui/react-dropdown-menu",
+    "@radix-ui/react-icons",
+    "@radix-ui/react-label",
+    "@radix-ui/react-popover",
+    "@radix-ui/react-progress",
+    "@radix-ui/react-radio-group",
+    "@radix-ui/react-scroll-area",
+    "@radix-ui/react-select",
+    "@radix-ui/react-separator",
+    "@radix-ui/react-slot",
+    "@radix-ui/react-switch",
+    "@radix-ui/react-tabs",
+    "@radix-ui/react-tooltip",
+    "class-variance-authority",
+    "cmdk",
+    "embla-carousel-react",
+    "lucide-react"
+  ],
+  "sources": [
+    {
+      "url": "https://21st.dev/r/shadcn/accordion",
+      "source": "/components/ui/accordion.tsx",
+      "target": "components/registry/ui/accordion.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/badge",
+      "source": "/components/ui/badge.tsx",
+      "target": "components/registry/ui/badge.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/sheet",
+      "source": "/components/ui/button.tsx",
+      "target": "components/registry/ui/button.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/carousel",
+      "source": "/components/ui/card.tsx",
+      "target": "components/registry/ui/card.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/switch",
+      "source": "/components/ui/checkbox.tsx",
+      "target": "components/registry/ui/checkbox.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/command",
+      "source": "/components/ui/command.tsx",
+      "target": "components/registry/ui/command.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/dialog",
+      "source": "/components/ui/dialog.tsx",
+      "target": "components/registry/ui/dialog.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/dropdown-menu",
+      "source": "/components/ui/dropdown-menu.tsx",
+      "target": "components/registry/ui/dropdown-menu.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/sheet",
+      "source": "/components/ui/input.tsx",
+      "target": "components/registry/ui/input.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/switch",
+      "source": "/components/ui/label.tsx",
+      "target": "components/registry/ui/label.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/popover",
+      "source": "/components/ui/popover.tsx",
+      "target": "components/registry/ui/popover.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/progress",
+      "source": "/components/ui/progress.tsx",
+      "target": "components/registry/ui/progress.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/radio-group",
+      "source": "/components/ui/radio-group.tsx",
+      "target": "components/registry/ui/radio-group.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/scroll-area",
+      "source": "/components/ui/scroll-area.tsx",
+      "target": "components/registry/ui/scroll-area.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/scroll-area",
+      "source": "/components/ui/separator.tsx",
+      "target": "components/registry/ui/separator.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/carousel",
+      "source": "/components/ui/select.tsx",
+      "target": "components/registry/ui/select.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/skeleton",
+      "source": "/components/ui/skeleton.tsx",
+      "target": "components/registry/ui/skeleton.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/table",
+      "source": "/components/ui/table.tsx",
+      "target": "components/registry/ui/table.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/tabs",
+      "source": "/components/ui/tabs.tsx",
+      "target": "components/registry/ui/tabs.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/textarea",
+      "source": "/components/ui/textarea.tsx",
+      "target": "components/registry/ui/textarea.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/originui/tooltip",
+      "source": "/components/ui/tooltip.tsx",
+      "target": "components/registry/ui/tooltip.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/carousel",
+      "source": "/components/ui/carousel.tsx",
+      "target": "components/registry/ui/carousel.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/switch",
+      "source": "/components/ui/switch.tsx",
+      "target": "components/registry/ui/switch.tsx"
+    },
+    {
+      "url": "https://21st.dev/r/shadcn/sheet",
+      "source": "/components/ui/sheet.tsx",
+      "target": "components/registry/ui/sheet.tsx"
+    }
+  ]
+}

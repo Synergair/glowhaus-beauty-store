@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Route Not Cloned Yet</title>
+  <style>
+    :root { --bg:#f6f8fb; --panel:#ffffff; --line:#d7dee7; --text:#102a43; --muted:#5c6b7a; --accent:#0b69ff; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { min-height:100vh; display:grid; place-items:center; padding:24px; }
+    .card { width:min(760px,100%); background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:20px; }
+    h1 { margin:0 0 8px; font-size:22px; }
+    p { margin:0 0 10px; color:var(--muted); line-height:1.45; }
+    .path { margin:12px 0 16px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#f9fbff; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; color:#0d253c; word-break:break-all; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+    a.btn { text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:8px 12px; color:var(--text); font-size:13px; background:#fff; }
+    a.btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  </style>
+<style id="sonar-stability-patch">
+body { overflow: auto !important; }
+#onetrust-banner-sdk,
+.onetrust-pc-dark-filter,
+#onetrust-consent-sdk,
+.clarip-cookie-manager,
+.clarip-dns-manager,
+#helix-chat-container,
+.needsclick.go1272136950,
+.kl-private-reset-css-Xuajs1[role=dialog],
+div[aria-label='POPUP Form'] { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>This Route Is Not Cloned Yet</h1>
+      <p>The page you clicked was discovered, but SONAR did not produce a local clone artifact for it in this run.</p>
+      <p>This usually means bot protection blocked capture for that specific route.</p>
+      <div class="path" id="targetPath">/</div>
+      <div class="actions">
+        <a class="btn primary" href="/__sonar_preview/index.html">Open Clone Preview</a>
+        <a class="btn" id="openLiveRoute" href="">Open Live Route</a>
+        <a class="btn" href="/">Back To Clone Home</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search || "");
+      var raw = params.get("target") || "/";
+      if (!raw.startsWith("/")) raw = "/" + raw;
+      var pathEl = document.getElementById("targetPath");
+      if (pathEl) pathEl.textContent = raw;
+      var openLive = document.getElementById("openLiveRoute");
+      var baseOrigin = "";
+      if (openLive && baseOrigin) {
+        try {
+          openLive.setAttribute("href", new URL(raw, baseOrigin).toString());
+        } catch (_e) {}
+      }
+    })();
+  </script>
+</body>
+</html>
