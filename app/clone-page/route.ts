@@ -6,6 +6,19 @@ export const runtime = "nodejs";
 const CLONE_ROOT = process.env.GLOWHAUS_CLONE_ROOT?.trim() || null;
 const KIYOKO_ORIGIN = "https://kiyoko.ca";
 const UPSTREAM_TIMEOUT_MS = 9000;
+const STATIC_ASSET_EXTENSION =
+  /\.(?:css|js|mjs|json|svg|png|jpe?g|gif|webp|avif|ico|woff2?|ttf|eot|otf|mp4|webm|mov|m3u8|ts)(?:[?#]|$)/i;
+const REMOTE_ASSET_PREFIXES = [
+  "/cdn/",
+  "/cdn-cgi/",
+  "/services/",
+  "/shopifycloud/",
+  "/s/files/"
+] as const;
+const THIRD_PARTY_SCRIPT_PATTERN =
+  /<script[^>]+src=["'](?:\/_external\/|(?:https?:)?\/\/(?:www\.)?(?:googletagmanager\.com|connect\.facebook\.net|analytics\.tiktok\.com|static(?:-tracking)?\.klaviyo\.com|js\.adsrvr\.org|bat\.bing\.com|cdn\.mouseflow\.com|js-agent\.newrelic\.com|bam\.nr-data\.net|static\.hotjar\.com|www\.mczbf\.com|c\.amazon-adsystem\.com|static\.narrativ\.com|na-library\.klarnaservices\.com|js\.squarecdn\.com|checkoutshopper-live\.adyen\.com)[^"']*)["'][^>]*>\s*<\/script>/gi;
+const THIRD_PARTY_LINK_PATTERN =
+  /<link[^>]+href=["'](?:\/_external\/|(?:https?:)?\/\/(?:www\.)?(?:checkoutshopper-live\.adyen\.com|static(?:-tracking)?\.klaviyo\.com|fonts\.googleapis\.com)[^"']*)["'][^>]*>/gi;
 const GLOWHAUS_PRODUCT_IMAGES = Array.from({ length: 8 }, (_, index) => {
   return `/glowhaus-images/gh-product-${String(index + 1).padStart(2, "0")}.webp`;
 });
@@ -356,8 +369,22 @@ async function fetchUpstream(targetPath: string, search: string, isHead: boolean
 }
 
 function transformHtml(html: string) {
+  const normalizeKiyokoOrigin = (_match: string, rawPath?: string) => {
+    const path = rawPath ?? "";
+    if (!path) {
+      return "";
+    }
+    if (
+      REMOTE_ASSET_PREFIXES.some((prefix) => path.startsWith(prefix)) ||
+      STATIC_ASSET_EXTENSION.test(path)
+    ) {
+      return `${KIYOKO_ORIGIN}${path}`;
+    }
+    return path;
+  };
+
   const transformed = html
-    .replace(/(?:https?:)?\/\/(?:www\.)?kiyoko\.ca/gi, "")
+    .replace(/(?:https?:)?\/\/(?:www\.)?kiyoko\.ca(\/[^"'\s<>]*)?/gi, normalizeKiyokoOrigin)
     .replace(/\/__sonar_(?:uncloned|preview)\/index\.html\?([^"'\s>#]+)/gi, (_match, query) => {
       const params = new URLSearchParams(query as string);
       const target = params.get("target");
@@ -387,6 +414,8 @@ function transformHtml(html: string) {
       /\/cdn\/shop\/files\/Kiyoko_App_Download_1[^"'\s)]+/gi,
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80"
     )
+    .replace(THIRD_PARTY_SCRIPT_PATTERN, "")
+    .replace(THIRD_PARTY_LINK_PATTERN, "")
     .replace(/<style id="gh-brand-patch">[\s\S]*?<\/script>/gi, "");
 
   const withGlowhausProductAssets = replaceProductAssets(transformed);
